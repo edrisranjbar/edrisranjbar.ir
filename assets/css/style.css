@@ -8,7 +8,9 @@
     --primary-color: #7C96F7;
     --primary-dark-color: #6C63FF;
     --secondary-color: #FFBA08;
+    --secondary-light-color: #FEDB80;
     --dark-color: #121212;
+    --semi-dark-color: #323230;
     --smoky-white-color: #f0f0f0;
     --white-color: #fafafa;
 }
@@ -30,6 +32,15 @@ header {
 
 .float-left {
     float: left;
+}
+
+.breaker {
+    background: var(--primary-dark-color);
+    box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
+    border-radius: 16px;
+    width: 200px;
+    height: 10px;
+    margin-bottom: 48px;
 }
 
 .btn {
@@ -98,6 +109,10 @@ header {
 
 .d-flex {
     display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
 }
 
 .p-relative {
@@ -202,6 +217,7 @@ main {
     text-align: right;
     color: var(--primary-dark-color);
     text-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
+    margin-bottom: 16px;
 }
 
 .hero-title span {
@@ -328,4 +344,81 @@ img.profile {
     width: 35px;
     height: 35px;
     border-radius: 50%;
+}
+
+
+
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 75px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+/* Skills */
+#skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.skill-box {
+    border-width: 8px 8px 16px 8px;
+    border-style: solid;
+    border-color: #323030;
+    border-radius: 32px;
+    width: 250px;
+    height: 250px;
+    background-color: var(--white-color);
+    display: flex;
+    padding: 43px 0px 43px 0px;
+}
+
+.skills-box {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.skill-box .icon-box {
+    width: 100px;
+    height: 100px;
+    background-color: var(--secondary-light-color);
+    border-radius: 16px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-box .icon-box img {
+    width: 80px;
+    height: 80px;
+}
+
+.skill-box p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 56px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--semi-dark-color);
+}
+
+.waves {
+    position: absolute;
+    right: 0px;
+    bottom: -120px;
+    z-index: -1;
 }
