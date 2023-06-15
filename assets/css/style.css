@@ -83,7 +83,7 @@ header {
     color: var(--primary-dark-color);
 }
 
-.fa-cart-plus {
+.icon {
     padding: 8px;
     margin: 0px;
     font-size: 28px;
