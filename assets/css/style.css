@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --primary-color: #7C96F7;
+    --primary-dark-color: #6C63FF;
+    --secondary-color: #FFBA08;
+    --dark-color: #121212;
+    --smoky-white-color: #f0f0f0;
+    --white-color: #fafafa;
+}
+
+a {
+    color: inherit;
+    text-decoration: unset;
+}
+
+body {
+    background-color: var(--dark-color);
+    direction: rtl;
+    font-family: "Vazirmatn FD";
+}
+
+header {
+    padding: 32px 32px 0px 32px;
+}
+
+.float-left {
+    float: left;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.4s background-color, border;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--smoky-white-color);
+}
+
+.btn-outline-secondary {
+    color: var(--smoky-white-color);
+    border: 1px solid var(--white-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark-color);
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--primary-color);
+    height: 57px;
+    width: 57px;
+}
+
+.btn-outline-primary:hover {
+    border: 2px solid var(--primary-dark-color);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--white-color);
+    color: var(--dark-color);
+}
+
+.icon:hover {
+    color: var(--primary-dark-color);
+}
+
+.fa-cart-plus {
+    padding: 8px;
+    margin: 0px;
+    font-size: 28px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.p-relative {
+    position: relative;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+header ul {
+    list-style: none;
+    color: #FAFAFA;
+    margin: 0px;
+}
+
+.menu-account-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul ul {
+    display: flex;
+}
+
+header ul>li {
+    display: inline-block;
+    margin-left: 32px;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 41px;
+}
+
+header ul>li.active {
+    color: var(--primary-color);
+}
+
+header ul ul li {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.circle {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 41px;
+    top: 41px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--dark-color);
+    padding-left: 1px;
+    padding-top: 1px;
+}
+
+header ul li {
+    transition: 0.3s color;
+}
+
+header ul.float-right>li:hover {
+    color: var(--secondary-color);
+}
+
+.hero {
+    flex-direction: row;
+    margin-top: 141px;
+}
+
+.hero-subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 50px;
+    text-align: right;
+    color: var(--white-color);
+}
+
+.hero-title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 100px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: var(--primary-dark-color);
+    text-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
+}
+
+.hero-title span {
+    color: var(--secondary-color)
+}
+
+.hero-description {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: var(--white-color);
+}
+
+.button-group {
+    margin-top: 32px;
+    column-gap: 16px;
+}
+
+.profile {
+    max-width: 665px;
+    max-height: 468px;
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.bg-orange {
+    background-color: var(--secondary-color);
+}
+
+.circle-sm {
+    width: 52px;
+    height: 52px;
+}
+
+.circle-lg {
+    width: 89px;
+    height: 89px;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}
+
+.profile-section {
+    position: relative;
+}
+
+.profile-section div {
+    position: absolute
+}
+
+.profile-section div.left-top {
+    left: 10px;
+}
