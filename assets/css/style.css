@@ -38,6 +38,15 @@ header {
     float: left;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .breaker {
     background: var(--primary-dark-color);
     box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
@@ -365,9 +374,6 @@ img.profile {
     font-weight: 500;
     font-size: 48px;
     line-height: 75px;
-    display: flex;
-    align-items: center;
-    text-align: center;
     color: var(--white-color);
     text-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
     margin-top: 16px;
@@ -508,5 +514,113 @@ img.profile {
 }
 
 #portfolios {
-    margin-top: 274px;
+    margin-top: 8rem;
+    position: relative;
+}
+
+#portfolios .btn {
+    z-index: 4;
+    position: relative;
+    max-width: fit-content;
+    margin-top: 32px;
+}
+
+#portfolios img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+.column {
+    flex: 33.33%;
+    max-width: 33.33%;
+    padding: 0 4px;
+    height: 400px;
+}
+
+.column img {
+    background-color: var(--smoky-white-color);
+    margin-top: 8px;
+    vertical-align: middle;
+    min-width: 100%;
+    min-height: 200px;
+}
+
+@media screen and (max-width: 800px) {
+    .column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+.portfolios-container {
+    overflow: hidden;
+    height: 500px;
+}
+
+.shadow-on-box {
+    position: absolute;
+    width: 1344px;
+    height: 186px;
+    left: 47px;
+    bottom: -24px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0 0 0) 100%);
+    filter: blur(16px);
+}
+
+/* About */
+#about {
+    margin: 8rem 10% 8rem 10%;
+    padding: 129px 10% 129px 10%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(129.58deg, #1B97D6 -19.62%, #162D86 52.73%, #FF003D 116.56%, var(--secondary-color) 116.56%);
+    box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
+    color: var(--smoky-white-color);
+    text-align: center;
+    border-radius: 64px;
+}
+
+#about .profile-box {
+    width: 306px;
+    height: 306px;
+    display: block;
+    background: var(--primary-color);
+    box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
+    border-radius: 89px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    margin-bottom: 55px;
+}
+
+#about h2 {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 75px;
+    margin-bottom: 42px;
+}
+
+#about p,
+a {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 36px;
+}
+
+#about a {
+    display: block;
+    margin-top: 32px;
+    padding-bottom: 8px;
+    border-bottom: 2px dotted var(--primary-color);
+    width: fit-content;
 }
