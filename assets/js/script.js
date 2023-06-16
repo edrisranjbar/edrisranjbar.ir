@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     let splide = new Splide('.splide', {
-        perPage: 2,
+        perPage: 'auto',
         direction: 'rtl',
         gap: '16px',
         arrows: false,
