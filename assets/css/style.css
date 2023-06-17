@@ -34,6 +34,10 @@ header {
     display: inline-block;
 }
 
+.row {
+    flex-direction: row;
+}
+
 .float-left {
     float: left;
 }
@@ -86,6 +90,13 @@ header {
 .btn-outline-secondary {
     color: var(--smoky-white-color);
     border: 1px solid var(--white-color);
+}
+
+.btn-outline-dark {
+    color: var(--dark-color);
+    border: 1px solid var(--semi-dark-color);
+    background-color: transparent;
+    color: var(--white-color);
 }
 
 .btn-primary:hover {
@@ -588,8 +599,8 @@ img.profile {
 
 /* About */
 #about {
-    margin: 8rem 10% 8rem 10%;
-    padding: 129px 10% 129px 10%;
+    margin: 14rem 2rem;
+    padding: 64px 10%;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(129.58deg, #1B97D6 -19.62%, #162D86 52.73%, #FF003D 116.56%, var(--secondary-color) 116.56%);
     box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
     color: var(--smoky-white-color);
@@ -644,4 +655,282 @@ a {
     font-size: 24px;
     line-height: 38px;
     margin-bottom: 22px;
+}
+
+/* Contact */
+#contact {
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 12px;
+    padding: 2rem;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input {
+    font-weight: 700;
+    font-family: inherit;
+}
+
+.background {
+    display: flex;
+}
+
+.container {
+    flex: 0 1 900px;
+    margin: 4rem auto;
+    padding: 10px;
+}
+
+.screen {
+    position: relative;
+    background: #3e3e3e;
+    border-radius: 15px;
+}
+
+.screen:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    z-index: -1;
+}
+
+.screen-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #4d4d4f;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.screen-header-right {
+    margin-right: auto;
+}
+
+.screen-header-button {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+    border-radius: 8px;
+    background: white;
+}
+
+.screen-header-button.close {
+    background: #ed1c6f;
+}
+
+.screen-header-button.maximize {
+    background: #e8e925;
+}
+
+.screen-header-button.minimize {
+    background: #74c54f;
+}
+
+.screen-header-right {
+    display: flex;
+}
+
+.screen-header-ellipsis {
+    width: 3px;
+    height: 3px;
+    margin-left: 2px;
+    border-radius: 8px;
+    background: #999;
+}
+
+.screen-body {
+    display: flex;
+}
+
+.screen-body-item {
+    flex: 1;
+    padding: 50px;
+}
+
+.screen-body-item.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: var(--white-color);
+    font-size: 26px;
+}
+
+.app-title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    width: 25px;
+    height: 4px;
+    background: var(--secondary-color);
+}
+
+.app-contact {
+    margin-top: auto;
+    font-size: 8px;
+    color: #888;
+}
+
+.app-form-group {
+    margin-bottom: 15px;
+}
+
+.app-form-group.message {
+    margin-top: 40px;
+    margin-bottom: 1rem;
+}
+
+.app-form-group.buttons {
+    text-align: right;
+}
+
+.app-form-control {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #666;
+    color: #ddd;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color .2s;
+}
+
+.app-form-control::placeholder {
+    color: #666;
+}
+
+.app-form-control:focus {
+    border-bottom-color: #ddd;
+}
+
+.app-form-button:hover {
+    color: var(--secondary-light-color);
+}
+
+@media screen and (max-width: 520px) {
+    .screen-body {
+        flex-direction: column;
+    }
+
+    .screen-body-item.left {
+        margin-bottom: 30px;
+    }
+
+    .app-title {
+        flex-direction: row;
+    }
+
+    .app-title span {
+        margin-right: 12px;
+    }
+
+    .app-title:after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .screen-body {
+        padding: 40px;
+    }
+
+    .screen-body-item {
+        padding: 0;
+    }
+}
+
+.btn-send {
+    pad: 0px;
+    margin-top: 1rem;
+    color: var(--white-color);
+    background-color: transparent;
+    border: 0px;
+}
+
+.contact-info {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--smoky-white-color);
+    font-size: 1rem;
+}
+
+address {
+    font-size: 0.85rem;
+    font-style: normal;
+}
+
+.email-link {
+    font-size: 0.85rem;
+    color: #808080;
+}
+
+.send-icon {
+    height: 20px;
+    margin-left: 16px;
+}
+
+footer {
+    text-align: center;
+    color: var(--white-color);
+}
+
+footer h2 {
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 75px;
+    margin-bottom: 16px;
+}
+
+footer p {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 50px;
+    margin-bottom: 48px;
+}
+
+footer ul {
+    list-style: none;
+    margin-bottom: 117px;
+}
+
+footer ul li {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 41px;
+    display: inline-block;
+    margin-left: 32px;
+}
+
+footer p.copyright {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 64px;
 }

@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         perPage: 'auto',
         direction: 'rtl',
         gap: '16px',
+        arrows: false,
         pagination: false
     });
     splide.mount();
