@@ -450,7 +450,8 @@ img.profile {
     column-gap: 80px;
 }
 
-.tutorials-right {
+.tutorials-right,
+.blog-right {
     max-width: min(50%, 800px);
     gap: 16px;
 }
@@ -467,7 +468,8 @@ img.profile {
     margin-bottom: 24px;
 }
 
-.tutorial {
+.tutorial.card,
+.blog.card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -480,7 +482,8 @@ img.profile {
     border-radius: 16px;
 }
 
-.tutorial>.thumbnail {
+.tutorial>.thumbnail,
+.blog>.thumbnail {
     border-radius: 8px;
     width: 100%;
     height: 290px;
@@ -497,19 +500,22 @@ img.profile {
     color: var(--semi-dark-color);
 }
 
-.tutorial .post-meta {
+.tutorial .post-meta,
+.blog .post-meta {
     justify-content: space-between;
     width: 100%;
 }
 
-.tutorial .students-count {
+.tutorial .students-count,
+.blog .students-count {
     color: var(--semi-dark-color);
     font-weight: 500;
     font-size: 16px;
     line-height: 25px;
 }
 
-.tutorial .students-count i {
+.tutorial .students-count i,
+.blog .students-count i {
     margin-left: 4px;
 }
 
@@ -623,4 +629,19 @@ a {
     padding-bottom: 8px;
     border-bottom: 2px dotted var(--primary-color);
     width: fit-content;
+}
+
+#blog {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 16px;
+}
+
+#blog .blog-section-description {
+    color: var(--white-color);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    margin-bottom: 22px;
 }

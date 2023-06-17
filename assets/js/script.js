@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', function () {
         arrows: false,
         pagination: false
     });
-
+    splide.mount();
+});
+document.addEventListener('DOMContentLoaded', function () {
+    let splide = new Splide('.blog-right.splide', {
+        perPage: 'auto',
+        direction: 'rtl',
+        gap: '16px',
+        pagination: false
+    });
     splide.mount();
 });
