@@ -6,43 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ادریس رنجبر - توسعه دهنده بک اند وب</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/splide.min.css">
 </head>
 
 <body>
     <header>
-        <nav class="menu">
-            <ul class="float-right">
-                <li class="active">
-                    <a href="#">صفحه نخست</a>
-                </li>
-                <li>
-                    <a href="#">وبلاگ</a>
-                </li>
-                <li>
-                    <a href="#">پادکست</a>
-                </li>
-                <li>
-                    <a href="#">دوره ها</a>
-                </li>
-                <li class="float-left m-0">
-                    <ul class="menu-account-section">
-                        <li class="p-relative">
-                            <i class="btn btn-outline-primary fa fa-solid fa-cart-shopping text-primary icon"></i>
-                            <span class="circle d-flex justify-content-center align-items-center">13</span>
-                        </li>
-                        <li class="btn btn-primary">
-                            ورود / عضویت
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+        <nav class="menu navbar navbar-expand-lg">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="float-right navbar-nav me-auto mb-2 mb-lg-0 w-100">
+                    <li class="active nav-item"">
+                        <a href=" #">صفحه نخست</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">وبلاگ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">پادکست</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">دوره ها</a>
+                    </li>
+                    <li class="ms-auto">
+                        <ul class="menu-account-section">
+                            <li class="p-relative">
+                                <i
+                                    class="button button-outline-primary fa fa-solid fa-cart-shopping my-text-primary icon"></i>
+                                <span class="circle d-flex justify-content-center align-items-center">13</span>
+                            </li>
+                            <li class="button button-primary">
+                                ورود / عضویت
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main>
-        <section class="hero d-flex">
-            <div class="hero-details-section">
+        <section class="hero row">
+            <div class="profile-section col-md-6 col-sm-12 col-xs-12">
+                <img src="assets/images/profile.png" alt="ادریس رنجبر" class="profile">
+                <div class="circle-sm my-bg-primary rounded-circle left-top"></div>
+                <div class="circle-sm bg-orange rounded-circle right-top"></div>
+                <div class="circle-md bg-orange rounded-circle right-bottom"></div>
+            </div>
+            <div class="order-1 hero-details-section col-md-6 col-sm-12 col-xs-12">
                 <p class="hero-subtitle">ســــلــااام، مــن</p>
                 <p class="hero-title">
                     ادریس رنجبــر&nbsp;
@@ -52,15 +62,9 @@
                     مهارت
                     ها.</p>
                 <div class="d-flex button-group">
-                    <a class="btn btn-primary" href="#">مشاهده دوره ها</a>
-                    <a class="btn btn-outline-secondary" href="#">وبلاگ</a>
+                    <a class="btn button-primary" href="#">مشاهده دوره ها</a>
+                    <a class="btn button-outline-secondary" href="#">وبلاگ</a>
                 </div>
-            </div>
-            <div class="profile-section">
-                <img src="assets/images/profile.png" alt="ادریس رنجبر" class="profile">
-                <div class="circle-sm bg-primary rounded-circle left-top"></div>
-                <div class="circle-sm bg-orange rounded-circle right-top"></div>
-                <div class="circle-md bg-orange rounded-circle right-bottom"></div>
             </div>
             <div class="students">
                 <p>کارآموزان دوره ها</p>
@@ -82,58 +86,66 @@
         <section id="skills">
             <h2 class="title">مهارت های من</h2>
             <div class="breaker"></div>
-            <div class="skills-box">
-                <div class="skill-box d-flex justify-content-center align-items-center">
-                    <div class="d-flex justify-content-center align-items-center flex-column">
-                        <div class="icon-box">
-                            <img src="assets/images/git.png" alt="Git">
+            <div class="skills-box gy-4 row">
+                <div class="col-md-3 col-xs-6 col-6">
+                    <div class="skill-box px-0 mx-0 row justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center flex-column">
+                            <div class="icon-box">
+                                <img src="assets/images/git.png" alt="Git">
+                            </div>
+                            <p>کنترل پروژه</p>
                         </div>
-                        <p>کنترل پروژه</p>
                     </div>
                 </div>
-                <div class="skill-box d-flex justify-content-center align-items-center">
-                    <div class="d-flex justify-content-center align-items-center flex-column">
-                        <div class="icon-box">
-                            <img src="assets/images/programming.png" alt="Git">
+                <div class="col-md-3 col-xs-6 col-6">
+                    <div class="skill-box px-0 mx-0 row justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center flex-column">
+                            <div class="icon-box">
+                                <img src="assets/images/programming.png" alt="Git">
+                            </div>
+                            <p>برنامه نویسی</p>
                         </div>
-                        <p>برنامه نویسی</p>
                     </div>
                 </div>
-                <div class="skill-box d-flex justify-content-center align-items-center">
-                    <div class="d-flex justify-content-center align-items-center flex-column">
-                        <div class="icon-box">
-                            <img src="assets/images/server.png" alt="Git">
+                <div class="col-md-3 col-xs-6 col-6">
+                    <div class="skill-box px-0 mx-0 row justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center flex-column">
+                            <div class="icon-box">
+                                <img src="assets/images/server.png" alt="Git">
+                            </div>
+                            <p>لینوکس</p>
                         </div>
-                        <p>لینوکس</p>
                     </div>
                 </div>
-                <div class="skill-box d-flex justify-content-center align-items-center">
-                    <div class="d-flex justify-content-center align-items-center flex-column">
-                        <div class="icon-box">
-                            <img src="assets/images/teaching.png" alt="Git">
+                <div class="col-md-3 col-xs-6 col-6">
+                    <div class="skill-box px-0 mx-0 row justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center flex-column">
+                            <div class="icon-box">
+                                <img src="assets/images/teaching.png" alt="Git">
+                            </div>
+                            <p>آموزش</p>
                         </div>
-                        <p>آموزش</p>
                     </div>
                 </div>
             </div>
             <img src="assets/images/waves.svg" class="waves">
         </section>
-        <section id="tutorials">
-            <div class="tutorials-left">
+        <section id="tutorials" class="row">
+            <div class="tutorials-left col-md-6">
                 <h2 class="title">دوره های آموزشی من</h2>
                 <div class="breaker"></div>
                 <p class="tutorials-section-description">این یک متن تستیه، این یک متن تستیه، این یک متن تستیه، این یک
                     متن تستیه، این یک متن تستیه...</p>
-                <div class="btn btn-sm btn-primary d-inline-block">مشاهده همه</div>
+                <div class="btn btn-sm button-primary d-inline-block">مشاهده همه</div>
             </div>
-            <div class="splide tutorials-right" role="group" aria-label="اسلایدر دوره ها">
+            <div class="col-md-6 splide tutorials-right" role="group" aria-label="اسلایدر دوره ها">
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="card tutorial splide__slide">
                             <img src="assets/images/tutorial.png" class="thumbnail" alt="وبگردی حرفه ای">
                             <h3 class="post-title">وبگردی حرفه ای</h3>
                             <div class="d-flex post-meta">
-                                <div class="btn btn-sm btn-primary">مشاهده</div>
+                                <div class="btn btn-sm button-primary">مشاهده</div>
                                 <div class="d-flex align-items-center students-count">
                                     <i class="fas fa-user-circle"></i>
                                     دانشجویان: ۱۰
@@ -144,7 +156,7 @@
                             <img src="assets/images/tutorial.png" class="thumbnail" alt="وبگردی حرفه ای">
                             <h3 class="post-title">وبگردی حرفه ای</h3>
                             <div class="d-flex post-meta">
-                                <div class="btn btn-sm btn-primary">مشاهده</div>
+                                <div class="btn btn-sm button-primary">مشاهده</div>
                                 <div class="d-flex align-items-center students-count">
                                     <i class="fas fa-user-circle"></i>
                                     دانشجویان: ۱۰
@@ -155,7 +167,7 @@
                             <img src="assets/images/tutorial.png" class="thumbnail" alt="وبگردی حرفه ای">
                             <h3 class="post-title">وبگردی حرفه ای</h3>
                             <div class="d-flex post-meta">
-                                <div class="btn btn-sm btn-primary">مشاهده</div>
+                                <div class="btn btn-sm button-primary">مشاهده</div>
                                 <div class="d-flex align-items-center students-count">
                                     <i class="fas fa-user-circle"></i>
                                     دانشجویان: ۱۰
@@ -170,7 +182,7 @@
             <h2 class="title text-center">جدیدترین نمونه کار ها</h2>
             <div class="breaker mx-auto"></div>
             <div class="row portfolios-container">
-                <div class="column">
+                <div class="col-md-4 col-6">
                     <a href="#"><img
                             src="https://repository-images.githubusercontent.com/384091706/a1614500-e03f-11eb-986a-30f6f0d4f1cc"
                             alt="Project 1" height="300px"></a>
@@ -178,7 +190,7 @@
                             src="https://cdn.dribbble.com/userupload/2795420/file/original-0b469789f68982afc55f943fe0a2708d.jpg?resize=400x0"
                             alt="Project 2"></a>
                 </div>
-                <div class="column">
+                <div class="col-md-4 col-6">
                     <a href="#"><img
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFnM-PFcT5gIjHWMc0a5dvNXYh7ZJTOKvt-s-yc8g6BK5RK_WPgygUS0shZobKiG8mLYQ&usqp=CAU"
                             alt="Project 2"></a>
@@ -186,7 +198,7 @@
                             src="https://149842033.v2.pressablecdn.com/wp-content/uploads/2019/03/breed2-free-portfolio-website-templates-1000x750.jpg"
                             alt="Project 2"></a>
                 </div>
-                <div class="column">
+                <div class="col-md-4 col-6">
                     <a href="#"><img
                             src="https://elements-cover-images-0.imgix.net/7bc5a783-34ed-4619-8cf5-1053e9580212?auto=compress%2Cformat&fit=max&w=900&s=2cac2661e9a80c062f6e111b238e9305"
                             alt="Project 2"></a>
@@ -195,7 +207,7 @@
                             alt="Project 2"></a>
                 </div>
             </div>
-            <a class="btn btn-sm btn-outline-secondary mx-auto" href="#">دیدن همه</a>
+            <a class="button button-sm button-outline-secondary mx-auto" href="#">دیدن همه</a>
             <div class="shadow-on-box"></div>
         </section>
         <section id="about">
@@ -211,36 +223,36 @@
             </p>
             <a href="#" class="mx-auto">بیشتر بخون</a>
         </section>
-        <section id="blog">
-            <div class="blog-left">
+        <section id="blog" class="row">
+            <div class="col-md-6 blog-left">
                 <h2 class="title">جدیدترین نوشته ها</h2>
                 <div class="breaker"></div>
                 <p class="blog-section-description">این یک متن تستیه، این یک متن تستیه، این یک متن تستیه، این یک
                     متن تستیه، این یک متن تستیه...</p>
-                <a class="btn btn-sm btn-primary d-inline-block">مشاهده همه</a>
+                <a class="btn btn-sm button-primary d-inline-block mx-auto">مشاهده همه</a>
             </div>
-            <div class="splide blog-right" role="group" aria-label="اسلایدر نوشته ها">
+            <div class="col-md-6 splide blog-right" role="group" aria-label="اسلایدر نوشته ها">
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="card blog splide__slide">
                             <img src="assets/images/tutorial.png" class="thumbnail" alt="وبگردی حرفه ای">
                             <h3 class="post-title">وبگردی حرفه ای</h3>
                             <div class="d-flex post-meta">
-                                <div class="btn btn-sm btn-primary">مشاهده</div>
+                                <div class="btn btn-sm button-primary">مشاهده</div>
                             </div>
                         </li>
                         <li class="card blog splide__slide">
                             <img src="assets/images/tutorial.png" class="thumbnail" alt="وبگردی حرفه ای">
                             <h3 class="post-title">وبگردی حرفه ای</h3>
                             <div class="d-flex post-meta">
-                                <div class="btn btn-sm btn-primary">مشاهده</div>
+                                <div class="btn btn-sm button-primary">مشاهده</div>
                             </div>
                         </li>
                         <li class="card blog splide__slide">
                             <img src="assets/images/tutorial.png" class="thumbnail" alt="وبگردی حرفه ای">
                             <h3 class="post-title">وبگردی حرفه ای</h3>
                             <div class="d-flex post-meta">
-                                <div class="btn btn-sm btn-primary">مشاهده</div>
+                                <div class="btn btn-sm button-primary">مشاهده</div>
                             </div>
                         </li>
                     </ul>
@@ -251,61 +263,59 @@
             <h2 class="title text-center">اگه پروژه ای چیزی داشتی یا باهام کاری داشتی👇</h2>
             <div class="form-container">
                 <div class="background">
-                    <div class="container">
-                        <div class="screen">
-                            <div class="screen-header">
-                                <div class="screen-header-left">
-                                    <div class="screen-header-button close"></div>
-                                    <div class="screen-header-button maximize"></div>
-                                    <div class="screen-header-button minimize"></div>
+                    <div class="screen">
+                        <div class="screen-header">
+                            <div class="screen-header-left">
+                                <div class="screen-header-button close"></div>
+                                <div class="screen-header-button maximize"></div>
+                                <div class="screen-header-button minimize"></div>
+                            </div>
+                            <div class="screen-header-right">
+                                <div class="screen-header-ellipsis"></div>
+                                <div class="screen-header-ellipsis"></div>
+                                <div class="screen-header-ellipsis"></div>
+                            </div>
+                        </div>
+                        <div class="screen-body">
+                            <div class="screen-body-item left">
+                                <div class="app-title">
+                                    <span>تماس با من</span>
                                 </div>
-                                <div class="screen-header-right">
-                                    <div class="screen-header-ellipsis"></div>
-                                    <div class="screen-header-ellipsis"></div>
-                                    <div class="screen-header-ellipsis"></div>
+                                <br>
+                                <div class="contact-info">
+                                    <p>
+                                        اگه کاری داشتی یا به هر دلیلی دلت تنگ شد و خواستی باهام صحبت کنی😂
+                                        میتونی بهم ایمیل بدی. معمولا زود جواب میدم.
+                                    </p>
+                                    <br>
+                                    <address>
+                                        ایمیل: <a href="mailto:edris.qeshm2@gmail.com"
+                                            class="email-link">edris.qeshm2@gmail.com</a>
+                                        <br>
+                                        لینکدین: <a href="https://ir.linkedin.com/in/edris-ranjbar"
+                                            class="email-link">edris-ranjbar</a>
+                                        <br>
+                                        توییتر: <a href="https://twitter.com/edris__ranjbar" class="email-link">
+                                            edris__ranjbar
+                                        </a>
+                                    </address>
                                 </div>
                             </div>
-                            <div class="screen-body">
-                                <div class="screen-body-item left">
-                                    <div class="app-title">
-                                        <span>تماس با من</span>
+                            <div class="screen-body-item">
+                                <div class="app-form">
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="نام و نام خانوادگی">
                                     </div>
-                                    <br>
-                                    <div class="contact-info">
-                                        <p>
-                                            اگه کاری داشتی یا به هر دلیلی دلت تنگ شد و خواستی باهام صحبت کنی😂
-                                            میتونی بهم ایمیل بدی. معمولا زود جواب میدم.
-                                        </p>
-                                        <br>
-                                        <address>
-                                            ایمیل: <a href="mailto:edris.qeshm2@gmail.com"
-                                                class="email-link">edris.qeshm2@gmail.com</a>
-                                            <br>
-                                            لینکدین: <a href="https://ir.linkedin.com/in/edris-ranjbar"
-                                                class="email-link">edris-ranjbar</a>
-                                            <br>
-                                            توییتر: <a href="https://twitter.com/edris__ranjbar" class="email-link">
-                                                edris__ranjbar
-                                            </a>
-                                        </address>
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="ایمیل">
                                     </div>
-                                </div>
-                                <div class="screen-body-item">
-                                    <div class="app-form">
-                                        <div class="app-form-group">
-                                            <input class="app-form-control" placeholder="نام و نام خانوادگی">
-                                        </div>
-                                        <div class="app-form-group">
-                                            <input class="app-form-control" placeholder="ایمیل">
-                                        </div>
-                                        <div class="app-form-group message">
-                                            <input class="app-form-control" placeholder="متن پیام">
-                                        </div>
-                                        <div class="app-form-group buttons">
-                                            <button class="btn btn-sm btn-send">
-                                                ثبت فرم
-                                            </button>
-                                        </div>
+                                    <div class="app-form-group message">
+                                        <input class="app-form-control" placeholder="متن پیام">
+                                    </div>
+                                    <div class="app-form-group buttons">
+                                        <button class="button button-sm button-send">
+                                            ثبت فرم
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -315,9 +325,9 @@
         </section>
     </main>
     <footer>
-        <h2>ادریس رنجبر</h2>
-        <p>توسعه دهنده بک اند و مدرس</p>
-        <ul>
+        <h2 class="my-text-primary">ادریس رنجبر</h2>
+        <p class="my-text-orange">توسعه دهنده بک اند و مدرس</p>
+        <ul class="px-0 text-center">
             <a href="#">
                 <li>صفحه نخست</li>
             </a>

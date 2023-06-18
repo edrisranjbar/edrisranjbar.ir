@@ -16,14 +16,14 @@
 }
 
 a {
-    color: inherit;
-    text-decoration: unset;
+    color: inherit !important;
+    text-decoration: unset !important;
 }
 
 body {
-    background-color: var(--dark-color);
-    direction: rtl;
-    font-family: "Vazirmatn FD";
+    background-color: var(--dark-color) !important;
+    direction: rtl !important;
+    font-family: "Vazirmatn FD" !important;
 }
 
 header {
@@ -39,7 +39,7 @@ header {
 }
 
 .float-left {
-    float: left;
+    float: left !important;
 }
 
 .text-center {
@@ -60,7 +60,7 @@ header {
     margin-bottom: 48px;
 }
 
-.btn {
+.button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +74,7 @@ header {
     line-height: 38px;
 }
 
-.btn-sm {
+.button-sm {
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -82,44 +82,48 @@ header {
     max-width: fit-content;
 }
 
-.btn-primary {
-    background: var(--primary-color);
-    color: var(--smoky-white-color);
+.button-primary {
+    background: var(--primary-color) !important;
+    color: var(--smoky-white-color) !important;
 }
 
-.btn-outline-secondary {
-    color: var(--smoky-white-color);
+.button-outline-secondary {
+    color: var(--smoky-white-color) !important;
     border: 1px solid var(--white-color);
 }
 
-.btn-outline-dark {
+.button-outline-dark {
     color: var(--dark-color);
     border: 1px solid var(--semi-dark-color);
     background-color: transparent;
     color: var(--white-color);
 }
 
-.btn-primary:hover {
-    background-color: var(--primary-dark-color);
+.button-primary:hover {
+    background-color: var(--primary-dark-color) !important;
 }
 
-.text-primary {
-    color: var(--primary-color);
+.my-text-primary {
+    color: var(--primary-color) !important;
 }
 
-.btn-outline-primary {
+.my-text-orange {
+    color: var(--secondary-color) !important;
+}
+
+.button-outline-primary {
     border: 2px solid var(--primary-color);
     height: 57px;
     width: 57px;
 }
 
-.btn-outline-primary:hover {
+.button-outline-primary:hover {
     border: 2px solid var(--primary-dark-color);
 }
 
-.btn-outline-secondary:hover {
-    background-color: var(--white-color);
-    color: var(--dark-color);
+.button-outline-secondary:hover {
+    background-color: var(--white-color) !important;
+    color: var(--dark-color) !important;
 }
 
 .icon:hover {
@@ -218,12 +222,13 @@ header ul.float-right>li:hover {
 
 main {
     padding: 0px 32px 0px 32px;
+    overflow: hidden;
 }
 
 .hero {
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 141px;
+    margin-top: 141px !important;
 }
 
 .hero-details-section {
@@ -243,9 +248,7 @@ main {
     font-style: normal;
     font-weight: 800;
     font-size: 64px;
-    line-height: 100px;
-    display: flex;
-    align-items: center;
+    line-height: 100px !important;
     text-align: right;
     color: var(--primary-dark-color);
     text-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
@@ -277,7 +280,7 @@ img.profile {
     height: 100%;
 }
 
-.bg-primary {
+.my-bg-primary {
     background-color: var(--primary-color);
 }
 
@@ -335,9 +338,9 @@ img.profile {
 }
 
 .students {
-    position: absolute;
+    position: absolute !important;
     background-color: var(--white-color);
-    width: 235.77px;
+    width: 235.77px !important;
     height: 146px;
     padding: 22px;
     border-radius: 32px;
@@ -347,7 +350,7 @@ img.profile {
     justify-content: center;
     align-items: center;
     left: 57px;
-    bottom: 290px;
+    bottom: 64px;
 }
 
 .students p {
@@ -405,7 +408,6 @@ img.profile {
     border-style: solid;
     border-color: #323030;
     border-radius: 32px;
-    width: 250px;
     height: 250px;
     background-color: var(--white-color);
     display: flex;
@@ -415,7 +417,7 @@ img.profile {
 .skills-box {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    width: 100%;
 }
 
 .skill-box .icon-box {
@@ -458,7 +460,6 @@ img.profile {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    column-gap: 80px;
 }
 
 .tutorials-right,
@@ -535,7 +536,7 @@ img.profile {
     position: relative;
 }
 
-#portfolios .btn {
+#portfolios .button {
     z-index: 4;
     position: relative;
     max-width: fit-content;
@@ -646,7 +647,6 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    column-gap: 16px;
 }
 
 #blog .blog-section-description {
@@ -817,7 +817,6 @@ input {
     border-bottom: 1px solid #666;
     color: #ddd;
     font-size: 14px;
-    text-transform: uppercase;
     outline: none;
     transition: border-color .2s;
 }
@@ -843,10 +842,6 @@ input {
         margin-bottom: 30px;
     }
 
-    .app-title {
-        flex-direction: row;
-    }
-
     .app-title span {
         margin-right: 12px;
     }
@@ -866,7 +861,7 @@ input {
     }
 }
 
-.btn-send {
+.button-send {
     pad: 0px;
     margin-top: 1rem;
     color: var(--white-color);
@@ -934,3 +929,261 @@ footer p.copyright {
     line-height: 25px;
     margin-bottom: 64px;
 }
+
+
+/* Responsive Design */
+
+/** 1. Samall Mobiles **/
+@media screen and (max-width: 425px) {
+    main {
+        padding: 0px 8px 0px 8px;
+    }
+
+    header {
+        display: none;
+    }
+
+    .button-group {
+        justify-content: center;
+    }
+
+    .hero {
+        margin-top: 0px !important;
+    }
+
+    .hero-details-section {
+        max-width: 100%;
+    }
+
+    .profile-section {
+        order: 0 !important;
+        margin-bottom: 48px;
+        padding-top: 64px;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 32px !important;
+    }
+
+    .hero-subtitle {
+        text-align: center;
+        margin-bottom: 0px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .students {
+        transform: scale(0.5);
+        left: -20px;
+        top: 150px;
+        bottom: unset;
+    }
+
+    .arrow {
+        margin-top: 64px;
+        width: 75px;
+        height: 75px;
+    }
+
+    .circle-sm,
+    .circle-md {
+        display: none;
+    }
+
+    .title {
+        font-size: 24px;
+        margin: 32px 0px 0px 0px !important;
+        line-height: 1.6;
+    }
+
+    .breaker {
+        border-radius: 8px;
+        width: 100px;
+        height: 6px;
+        margin-bottom: 32px;
+    }
+
+    .skill-box .icon-box {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+    }
+
+    .skill-box {
+        height: fit-content;
+        padding: 16px 0px 0px 0px;
+    }
+
+    .skill-box .icon-box img {
+        width: 80%;
+        height: 80%;
+    }
+
+    .skill-box p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .flex-column {
+        padding: 0px;
+    }
+
+    .waves {
+        width: 185px;
+        right: -38px;
+    }
+
+    #tutorials {
+        margin-top: 80px;
+    }
+
+    #tutorials .title {
+        text-align: center;
+    }
+
+    #tutorials .breaker {
+        margin: auto;
+    }
+
+    #tutorials .tutorials-section-description {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-top: 16px;
+        text-align: center;
+    }
+
+    .tutorials-left {
+        text-align: center;
+    }
+
+    .tutorials-right {
+        margin-top: 64px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .tutorial.card,
+    .blog.card {
+        padding: 8px;
+        gap: 8px;
+        min-width: 250px;
+        border-radius: 8px;
+    }
+
+    .tutorial>.thumbnail,
+    .blog>.thumbnail {
+        height: 200px;
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    .tutorial .students-count,
+    .blog .students-count {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .tutorial {
+        margin-left: 8px !important;
+    }
+
+    .portfolios-container {
+        overflow: initial;
+    }
+
+    .portfolios-container>div>a>img {
+        margin-top: 8px;
+    }
+
+    #about {
+        margin: 8rem 0px;
+        border-radius: 16px;
+        padding: 32px 8px;
+    }
+
+    #about .profile-box {
+        width: 150px;
+        height: 150px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+    }
+
+    #about h2 {
+        font-size: 24px;
+        font-weight: 400;
+        margin: 0px auto 16px auto !important;
+        line-height: 1.5;
+    }
+
+    #about p,
+    a {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .blog-section-description {
+        font-size: 18px !important;
+        line-height: 1.5 !important;
+    }
+
+    #blog {
+        text-align: center;
+    }
+
+    #blog .breaker {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #blog .blog-left>.btn {
+        margin-bottom: 32px;
+    }
+
+    #contact {
+        margin: 8rem 0px 64px 0px !important;
+        padding: 0px !important;
+        text-align: center;
+    }
+
+    #contact .title {
+        margin-bottom: 32px !important;
+    }
+
+    .contact-info {
+        padding: 0px;
+    }
+
+    footer h2 {
+        font-size: 24px;
+        margin-bottom: 0px;
+        line-height: 1.5;
+    }
+
+    footer p {
+        font-size: 16px;
+    }
+
+    footer ul {
+        margin-bottom: 64px !important;
+    }
+
+    footer ul li {
+        font-size: 16px;
+        margin-left: 16px;
+    }
+
+    footer .copyright {
+        font-weight: 300 !important;
+        font-size: 14px !important;
+        margin-bottom: 16px !important;
+    }
+}
+
+/** 1. End Small Mobiles **/
