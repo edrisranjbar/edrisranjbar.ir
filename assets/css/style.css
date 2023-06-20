@@ -221,11 +221,15 @@ header ul.float-right>li:hover {
 }
 
 main {
-    padding: 0px 32px 0px 32px;
     overflow: hidden;
     max-width: 1700px;
     margin-right: auto;
     margin-left: auto;
+}
+
+main>section,
+main>div {
+    padding: 0px 32px 0px 32px;
 }
 
 .hero {
@@ -418,12 +422,18 @@ img.profile {
     background-color: var(--white-color);
     display: flex;
     padding: 43px 0px 43px 0px;
+    aspect-ratio: 1/1;
 }
 
 .skills-box {
     display: flex;
     flex-direction: row;
     width: 100%;
+}
+
+.skills-box>div {
+    justify-content: center;
+    align-items: center;
 }
 
 .skill-box .icon-box {
@@ -945,7 +955,9 @@ footer p.copyright {
 
 /** 1. Samall Mobiles **/
 @media screen and (max-width: 768px) {
-    main {
+
+    main>section,
+    main>div {
         padding: 0px 8px 0px 8px;
     }
 
