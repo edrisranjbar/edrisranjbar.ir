@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
         direction: 'rtl',
         gap: '16px',
         arrows: false,
-        pagination: false
+        pagination: false,
+        perMove: 1,
     });
     splide.mount();
 });
@@ -14,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
         direction: 'rtl',
         gap: '16px',
         arrows: false,
-        pagination: false
+        pagination: false,
+        perMove: 1,
     });
     splide.mount();
 });

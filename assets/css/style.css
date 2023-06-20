@@ -238,6 +238,11 @@ main>div {
     margin-top: 4rem !important;
 }
 
+.button-group {
+    margin-top: 32px;
+    column-gap: 16px;
+}
+
 .hero-details-section {
     max-width: min(50%, 800px);
 }
@@ -484,8 +489,6 @@ img.profile {
     font-weight: 400;
     font-size: 24px;
     line-height: 38px;
-    display: flex;
-    align-items: center;
     text-align: right;
     color: var(--white-color);
     margin-bottom: 24px;
@@ -557,8 +560,9 @@ img.profile {
 }
 
 #portfolios img {
-    max-width: 100%;
+    width: 100%;
     border-radius: 8px;
+    margin-top: 16px !important;
 }
 
 .row {
@@ -613,8 +617,9 @@ img.profile {
 
 /* About */
 #about {
+    border: 8px solid var(--white-color);
     margin: 14rem 2rem;
-    padding: 64px 10%;
+    padding: 64px 10% !important;
     background: var(--primary-dark-color);
     box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
     color: var(--smoky-white-color);
@@ -949,7 +954,10 @@ footer p.copyright {
 /* Responsive Design */
 
 /** 1. Samall Mobiles **/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
+    .tutorials-section-description {
+        text-align: center;
+    }
 
     main>section,
     main>div {
@@ -958,6 +966,10 @@ footer p.copyright {
 
     header {
         display: none;
+    }
+
+    .button-group {
+        justify-content: center;
     }
 
     .hero {
@@ -989,13 +1001,9 @@ footer p.copyright {
         font-size: 16px;
         line-height: 1.5;
         text-align: center;
-    }
-
-    .students {
-        transform: scale(0.5);
-        left: -20px;
-        top: 150px;
-        bottom: unset;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .arrow {
@@ -1116,7 +1124,7 @@ footer p.copyright {
     }
 
     #about {
-        margin: 8rem 0px;
+        margin: 8rem 2rem;
         border-radius: 16px;
         padding: 32px 8px;
     }
@@ -1160,7 +1168,7 @@ footer p.copyright {
     }
 
     #contact {
-        margin: 8rem 0px 64px 0px !important;
+        margin: 8rem 32px 64px 32px !important;
         padding: 0px !important;
         text-align: center;
     }
@@ -1199,9 +1207,6 @@ footer p.copyright {
     }
 }
 
-/** 1. End Small Mobiles **/
-/** 2. Large devices **/
-
 @media screen and (min-width:2560px) {
     .students {
         left: 470px;
@@ -1209,4 +1214,17 @@ footer p.copyright {
     }
 }
 
-/** 2. End Large devices **/
+@media screen and (max-width: 480px) {
+    #about {
+        border-radius: 0px;
+        margin: 8rem 0px !important;
+        border: 0px !important;
+    }
+
+    .students {
+        transform: scale(0.5);
+        left: -20px;
+        top: 150px;
+        bottom: unset;
+    }
+}
