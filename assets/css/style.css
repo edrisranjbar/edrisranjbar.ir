@@ -229,7 +229,8 @@ main {
 
 main>section,
 main>div {
-    padding: 0px 32px 0px 32px !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
 }
 
 .hero {
@@ -620,11 +621,11 @@ img.profile {
 #about {
     margin: 14rem 2rem;
     padding: 64px 10%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(129.58deg, #1B97D6 -19.62%, #162D86 52.73%, #FF003D 116.56%, var(--secondary-color) 116.56%);
+    background: var(--primary-dark-color);
     box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
     color: var(--smoky-white-color);
     text-align: center;
-    border-radius: 64px;
+    border-radius: 16px;
 }
 
 #about .profile-box {
@@ -643,6 +644,12 @@ img.profile {
     font-size: 48px;
     line-height: 75px;
     margin-bottom: 42px;
+}
+
+#about p {
+    max-width: 700px !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #about p,
