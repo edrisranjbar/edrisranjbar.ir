@@ -223,6 +223,9 @@ header ul.float-right>li:hover {
 main {
     padding: 0px 32px 0px 32px;
     overflow: hidden;
+    max-width: 1700px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .hero {
@@ -264,8 +267,6 @@ main {
     font-weight: 300;
     font-size: 32px;
     line-height: 50px;
-    display: flex;
-    align-items: center;
     text-align: right;
     color: var(--white-color);
 }
@@ -303,6 +304,7 @@ img.profile {
 }
 
 .profile-section {
+    order: 2;
     position: relative;
     filter: drop-shadow(2px 4px 64px rgba(108, 99, 255, 0.32));
 }
@@ -332,9 +334,11 @@ img.profile {
 .arrow {
     width: 130px;
     height: 130px;
-    left: -700px;
-    top: 375px;
+    position: relative;
+    left: 100px;
+    bottom: 32px;
     transform: rotate(156.62deg);
+    margin-bottom: 64px;
 }
 
 .students {
@@ -668,6 +672,10 @@ a {
     padding: 2rem;
 }
 
+#contact h2 {
+    margin-bottom: 64px;
+}
+
 *,
 *:before,
 *:after {
@@ -934,7 +942,7 @@ footer p.copyright {
 /* Responsive Design */
 
 /** 1. Samall Mobiles **/
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     main {
         padding: 0px 8px 0px 8px;
     }
@@ -989,6 +997,7 @@ footer p.copyright {
         margin-top: 64px;
         width: 75px;
         height: 75px;
+        left: 0px;
     }
 
     .circle-sm,
@@ -1187,3 +1196,13 @@ footer p.copyright {
 }
 
 /** 1. End Small Mobiles **/
+/** 2. Large devices **/
+
+@media screen and (min-width:2560px) {
+    .students {
+        left: 470px;
+        bottom: 120px;
+    }
+}
+
+/** 2. End Large devices **/
