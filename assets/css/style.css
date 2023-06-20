@@ -229,7 +229,7 @@ main {
 
 main>section,
 main>div {
-    padding: 0px 32px 0px 32px;
+    padding: 0px 32px 0px 32px !important;
 }
 
 .hero {
@@ -502,19 +502,19 @@ img.profile {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 16px;
-    gap: 16px;
+    padding: 8px;
     min-width: 322px;
+    max-width: 400px;
     background: #FFFFFF;
     box-shadow: 0px 0px 32px -8px rgba(50, 48, 48, 0.16);
     border-radius: 16px;
 }
 
-.tutorial>.thumbnail,
-.blog>.thumbnail {
+.tutorial .thumbnail,
+.blog .thumbnail {
     border-radius: 8px;
     width: 100%;
-    height: 290px;
+    max-height: 290px;
 }
 
 .post-title {
@@ -526,6 +526,8 @@ img.profile {
     align-items: center;
     text-align: right;
     color: var(--semi-dark-color);
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .tutorial .post-meta,
@@ -536,8 +538,8 @@ img.profile {
 
 .tutorial .students-count,
 .blog .students-count {
-    color: var(--semi-dark-color);
-    font-weight: 500;
+    color: #4d4d4f;
+    font-weight: 400;
     font-size: 16px;
     line-height: 25px;
 }
@@ -958,7 +960,7 @@ footer p.copyright {
 
     main>section,
     main>div {
-        padding: 0px 8px 0px 8px;
+        padding: 0px 8px 0px 8px !important;
     }
 
     header {
@@ -1095,13 +1097,12 @@ footer p.copyright {
     .tutorial.card,
     .blog.card {
         padding: 8px;
-        gap: 8px;
         min-width: 250px;
         border-radius: 8px;
     }
 
-    .tutorial>.thumbnail,
-    .blog>.thumbnail {
+    .tutorial .thumbnail,
+    .blog .thumbnail {
         height: 200px;
         width: 100%;
         border-radius: 4px;
