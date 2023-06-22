@@ -950,6 +950,35 @@ footer p.copyright {
     margin-bottom: 64px;
 }
 
+.container-404 {
+    background-color: var(--dark-color);
+    min-height: 90vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-404 h1 {
+    margin-top: 48px;
+    color: var(--light, #FAFAFA);
+    text-align: center;
+    font-size: 64px;
+    font-weight: 900;
+}
+
+.container-404 p {
+    margin-top: 16px;
+    color: var(--light, #FAFAFA);
+    text-align: center;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.container-404 .btn {
+    margin-top: 32px;
+}
 
 /* Responsive Design */
 
@@ -1226,5 +1255,24 @@ footer p.copyright {
         left: -20px;
         top: 150px;
         bottom: unset;
+    }
+
+    .container-404 img {
+        width: 300px;
+    }
+
+    .container-404 h1 {
+        font-weight: 500;
+        font-size: 32px;
+    }
+
+    .container-404 p {
+        font-size: 18px;
+    }
+
+    .container-404 .btn {
+        margin-top: 16px !important;
+        font-size: 16px !important;
+        padding: 4px 8px !important;
     }
 }
