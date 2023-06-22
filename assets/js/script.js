@@ -11,9 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         omitEnd: true,
     });
     splide.mount();
-});
-document.addEventListener('DOMContentLoaded', function () {
-    let splide = new Splide('.blog-right.splide', {
+    let splide2 = new Splide('.blog-right.splide', {
         type: 'loop',
         perPage: 'auto',
         direction: 'rtl',
@@ -24,5 +22,5 @@ document.addEventListener('DOMContentLoaded', function () {
         snap: true,
         omitEnd: true,
     });
-    splide.mount();
+    splide2.mount();
 });
