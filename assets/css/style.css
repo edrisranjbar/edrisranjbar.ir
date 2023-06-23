@@ -980,6 +980,182 @@ footer p.copyright {
     margin-top: 32px;
 }
 
+.post-comments-list-wrapper {
+    margin-top: 32px;
+}
+
+.post-card {
+    margin-top: 96px;
+}
+
+.post-card-header {
+    border-radius: 16px 16px 0px 0px;
+    background-color: var(--primary-color);
+    padding: 16px;
+}
+
+.post-card-header h1 {
+    color: var(--white-color);
+    text-align: right;
+    font-size: 36px;
+    line-height: 56px;
+    margin-bottom: 32px;
+}
+
+.post-card-header .post-tag {
+    margin-left: 8px;
+    border-radius: 8px;
+    background-color: var(--secondary-light-color);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--dark-color);
+    padding: 8px 16px;
+    margin-bottom: 71px;
+}
+
+.post-card-body {
+    color: var(--dark-color);
+    text-align: right;
+    font-size: 18px;
+    line-height: 31px;
+    padding: 16px;
+    background-color: var(--white-color);
+    margin-bottom: 194px;
+    border-radius: 0px 0px 16px 16px;
+}
+
+.post-content {
+    margin-bottom: 32px;
+}
+
+.post-comments {
+    padding: 32px;
+    border-radius: 16px;
+    background: var(--primary-color);
+}
+
+.comment-form label {
+    color: #FFF;
+    text-align: right;
+    font-size: 23px;
+    font-weight: 300;
+    line-height: 37px;
+}
+
+.comment-form input,
+.comment-form textarea {
+    border-radius: 8px;
+    background: #FFF;
+    border: 0px;
+    outline: 0px;
+    padding: 8px 16px;
+}
+
+.comment-form input {
+    min-height: 42px;
+}
+
+.comment-form textarea {
+    min-height: 204px;
+    width: 100%;
+}
+
+.comment-form button {
+    display: inline-block;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: var(--secondary-light-color);
+    border: 0px;
+    width: fit-content;
+    margin-top: 16px;
+    color: var(--dark-color);
+    text-align: center;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.comment-form input:active,
+.comment-form textarea:active,
+.comment-form input:focus,
+.comment-form textarea:focus {
+    outline: 4px solid var(--primary-dark-color)
+}
+
+.comment-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+.comments_list ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    transition: display 0.5s;
+    max-width: 456px;
+    min-width: 256px;
+    background-color: var(--smoke_white);
+    background-color: var(--white-color);
+    box-shadow: 0px 4px 30px rgb(204 204 204 / 70%);
+    border-radius: 10px;
+    padding: 13px 20px;
+    margin: 15px 25px 0px 25px;
+    position: relative;
+}
+
+.user_avatar {
+    width: 44px !important;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.comment_title {
+    margin-right: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: right;
+    color: var(--dark80);
+    max-width: none;
+}
+
+.comment_date {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+    background-color: #DBDBDB;
+    padding: 3px 5px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 300;
+    color: var(--white);
+}
+
+.comment_text p {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 300;
+    text-align: right;
+    margin: revert;
+}
+
+.comments_list ul li:nth-child(even) {
+    align-self: flex-end;
+}
+
+.reply {
+    width: 456px;
+    min-width: unset;
+    margin: 0px;
+}
+
 /* Responsive Design */
 
 /** 1. Samall Mobiles **/
