@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class FrontEndController extends Controller
 {
@@ -21,13 +22,13 @@ class FrontEndController extends Controller
                 'subtitle' => 'ســــلــااام، مــن',
                 'title' => 'ادریس رنجبــر&nbsp;<span>هستــم</span>',
                 'description' => 'توسعه دهنده بک اند وب، مدرس و طبیعت گرد. علاقه&nbsp;مند به اشتراک تجربیات ومهارت ها.',
-                'image' => ['src' => 'http://localhost:8000/images/profile.png', 'alt' => 'ادریس رنجبر'],
+                'image' => ['src' => URL::to('/') . '/images/profile.png', 'alt' => 'ادریس رنجبر'],
                 'students' => [
-                    ['src' => 'http://localhost:8000/images/student1.jpg'],
-                    ['src' => 'http://localhost:8000/images/student2.jpg'],
-                    ['src' => 'http://localhost:8000/images/student3.jpg'],
-                    ['src' => 'http://localhost:8000/images/student4.jpg'],
-                    ['src' => 'http://localhost:8000/images/student5.jpg'],
+                    ['src' => URL::to('/') . '/images/student1.jpg'],
+                    ['src' => URL::to('/') . '/images/student2.jpg'],
+                    ['src' => URL::to('/') . '/images/student3.jpg'],
+                    ['src' => URL::to('/') . '/images/student4.jpg'],
+                    ['src' => URL::to('/') . '/images/student5.jpg'],
                 ]
             ],
         ];
