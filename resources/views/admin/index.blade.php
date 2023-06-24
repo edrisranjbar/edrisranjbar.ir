@@ -146,5 +146,3 @@
 
 </div>
 @stop
-<script src="{{ asset('assets/js/chart.js') }}"></script>
-<script defer src="{{ asset('assets/js/chart-line.js') }}"></script>
