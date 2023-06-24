@@ -4,35 +4,30 @@
 <main>
     <section class="hero row">
         <div class="profile-section col-xxl-6 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
-            <img src="{{ asset('images/profile.png') }}" alt="ادریس رنجبر" class="profile">
+            <img src="{{ $widgets['hero']['image']['src'] }}" alt="{{ $widgets['hero']['image']['alt'] }}"
+                class="profile">
             <div class="circle-sm my-bg-primary rounded-circle left-top"></div>
             <div class="circle-sm bg-orange rounded-circle right-top"></div>
             <div class="circle-md bg-orange rounded-circle right-bottom"></div>
         </div>
         <div class="hero-details-section col-xxl-6 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
-            <p class="hero-subtitle">ســــلــااام، مــن</p>
-            <p class="hero-title">
-                ادریس رنجبــر&nbsp;
-                <span>هستــم</span>
-            </p>
-            <p class="hero-description">
-                توسعه دهنده بک اند وب، مدرس و طبیعت گرد. علاقه&nbsp;مند به اشتراک تجربیات ومهارت ها.</p>
+            <p class="hero-subtitle">{{ $widgets['hero']['subtitle'] }}</p>
+            <p class="hero-title">{!! $widgets['hero']['title'] !!}</p>
+            <p class="hero-description">{!! $widgets['hero']['description'] !!}</p>
             <div class="d-flex button-group">
-                <a class="btn btn-lg button-primary" href="#">مشاهده دوره ها</a>
-                <a class="btn btn-lg btn-outline-secondary text-white" href="#">وبلاگ</a>
+                <a class="btn btn-lg button-primary" href="{{ $coursesUrl }}">مشاهده دوره ها</a>
+                <a class="btn btn-lg btn-outline-secondary text-white" href="{{ $blogUrl }}">وبلاگ</a>
             </div>
         </div>
         <div class="students">
             <p>کارآموزان دوره ها</p>
             <div class="d-flex">
                 <div class="student-profiles">
-                    <img src="{{ asset('images/student1.jpg') }}" class="student-profile">
-                    <img src="{{ asset('images/student2.jpg') }}" class="student-profile">
-                    <img src="{{ asset('images/student3.jpg') }}" class="student-profile">
-                    <img src="{{ asset('images/student4.jpg') }}" class="student-profile">
-                    <img src="{{ asset('images/student5.jpg') }}" class="student-profile">
+                    @foreach($widgets['hero']['students'] as $student)
+                    <img src="{{ $student['src'] }}" class="student-profile">
+                    @endforeach
                 </div>
-                <span style="direction: ltr;">+20</span>
+                <span style="direction: ltr;">+{{ count($widgets['hero']['students']) }}</span>
             </div>
         </div>
     </section>
