@@ -89,7 +89,7 @@
                 من توی دوره های آموزشیم سعی میکنم مفاهیم و مهارت ها رو به صورت واضح و ساده بیان کنم. تا جای ممکن هم
                 پروژه محور پیش میریم که براتون کاربردی باشه.
             </p>
-            <div class="btn btn-sm button-primary d-inline-block">مشاهده همه</div>
+            <a href="#" class="btn btn-lg button-primary d-inline-block">مشاهده همه</a>
         </div>
         <div class="col-xl-6 col-12 splide tutorials-right" role="group" aria-label="اسلایدر دوره ها">
             <div class="splide__track">
