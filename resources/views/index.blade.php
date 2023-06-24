@@ -15,9 +15,8 @@
                 ادریس رنجبــر&nbsp;
                 <span>هستــم</span>
             </p>
-            <p class="hero-description">توسعه دهنده بک اند وب، مدرس و طبیعت گرد. علاقه&nbsp;مند به اشتراک تجربیات و
-                مهارت
-                ها.</p>
+            <p class="hero-description">
+                توسعه دهنده بک اند وب، مدرس و طبیعت گرد. علاقه&nbsp;مند به اشتراک تجربیات ومهارت ها.</p>
             <div class="d-flex button-group">
                 <a class="btn btn-lg button-primary" href="#">مشاهده دوره ها</a>
                 <a class="btn btn-lg btn-outline-secondary text-white" href="#">وبلاگ</a>
