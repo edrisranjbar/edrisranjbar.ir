@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelectorAll('.tutorialsInSidebar').length > 0) {
+        let tutorialsSliderInSidebar = new Splide('.tutorialsInSidebar', { pagination: true, arrows: true });
+        tutorialsSliderInSidebar.mount();
+    }
     let splide = new Splide('.splide', {
         type: 'loop',
         perPage: 'auto',
