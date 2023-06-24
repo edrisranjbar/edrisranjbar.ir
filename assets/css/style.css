@@ -1547,6 +1547,82 @@ ul.recent-blog-posts-widget li {
         font-size: 16px !important;
         padding: 4px 8px !important;
     }
+
+    .post-card-header h1 {
+        font-size: 24px;
+    }
+
+    .post-card-header .post-tag {
+        margin-bottom: 24px;
+    }
+
+    .post-card-body {
+        font-size: 18px;
+        margin-bottom: 32px;
+    }
+
+    .post-comments {
+        padding: 8px;
+    }
+
+    .comment-form {
+        padding: 34px 15px 0px 15px;
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .comment-form label {
+        font-size: 18px;
+    }
+
+    .comment-form button {
+        font-size: 16px;
+        margin-right: 16px;
+    }
+
+    .comment-form input,
+    textarea {
+        margin: 0 10px 0 0;
+        width: 100%;
+    }
+
+    .comment-form form {
+        width: 100%;
+    }
+
+    .comment-form .btn {
+        margin-left: unset;
+    }
+
+    .comment_date {
+        display: none;
+    }
+
+    .comments {
+        margin: 0px 5px;
+    }
+
+    .comment {
+        padding: 13px;
+        margin: 15px 0px 0px 0px;
+        width: 100%;
+    }
+
+    .reply {
+        width: auto;
+    }
+
+    .comment-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .comment {
+        padding: 13px;
+        margin: 15px 0px 0px 0px;
+        width: 100%;
+    }
 }
 
 /* Add numbers to pagination buttons by CSS */
