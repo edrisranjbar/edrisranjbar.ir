@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Tag;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -36,7 +38,8 @@ class PostController extends Controller
         $post->title = $validatedData['title'];
         $post->content = $validatedData['content'];
         $post->status = $validatedData['status'];
-
+        $post->slug = $validatedData['slug'];
+        $post->author = Auth::guard('admin')->user()->id;
         // Upload and save the thumbnail if provided
         if ($request->hasFile('thumbnail')) {
             $thumbnail = $request->file('thumbnail');
@@ -48,16 +51,22 @@ class PostController extends Controller
         $post->save();
 
         // Save the categories
-        $categories = $validatedData['categories'];
+        $categories = $validatedData['categories'] ?? [];
         $post->categories()->attach($categories);
 
         // Save the tags if provided
         if (!empty($validatedData['tags'])) {
-            $tags = explode(',', $validatedData['tags']);
-            $tags = array_map('trim', $tags);
+            $tagNames = explode(',', $validatedData['tags']);
+            $tagNames = array_map('trim', $tagNames);
+
+            $tags = [];
+            foreach ($tagNames as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                $tags[] = $tag->id;
+            }
+
             $post->tags()->sync($tags);
         }
-
         return redirect()->route('posts.index')->with('success', 'نوشته با موفقیت ایجاد شد.');
     }
 

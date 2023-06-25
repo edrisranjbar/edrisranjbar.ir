@@ -33,21 +33,26 @@
                         @endforeach
                     </td>
                     <td>{{ $post->status }}</td>
-                    <td>
-                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-info">مشاهده</a>
-                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">ویرایش</a>
-                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST"
-                            style="display: inline-block;">
+                    <td class="text-muted">
+                        <!-- Edit button -->
+                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm d-inline-block">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <!-- Delete button -->
+                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline-block">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger"
-                                onclick="return confirm('آیا از حذف این نوشته مطمئن هستید؟')">حذف</button>
+                            <button type="submit" class="btn btn-sm"
+                                onclick="return confirm('مطمئنی میخوای این پست رو حذف کنی؟')">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5" class="text-center my-3">نتیجه ای یافت نشد</td>
+                    <td colspan="5" class="text-center py-3">نتیجه ای یافت نشد</td>
                 </tr>
                 @endforelse
             </tbody>
