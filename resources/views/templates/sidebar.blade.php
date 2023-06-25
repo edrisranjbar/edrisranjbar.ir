@@ -32,7 +32,7 @@
         </a>
         <div id="collapsePosts" class="collapse" aria-labelledby="collapsePosts" data-parent="#accordionSidebar">
             <div class="collapse-inner">
-                <a class="collapse-item" href="">
+                <a class="collapse-item" href="{{ route('posts.index') }}">
                     <span>لیست نوشته ها</span>
                 </a>
                 <a class="collapse-item" href="">

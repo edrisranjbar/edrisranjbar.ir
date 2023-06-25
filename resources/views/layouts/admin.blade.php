@@ -9,6 +9,7 @@
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <link href="{{ asset('assets/fonts/fontawesome-6.2.1/css/all.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/fonts.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/bootstrap.rtl.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/sb-admin-2-override.css') }}" rel="stylesheet">
 </head>

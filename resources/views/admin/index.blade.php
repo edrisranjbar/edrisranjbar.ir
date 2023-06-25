@@ -9,13 +9,13 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <h6 class="font-weight-bold text-primary mb-2">قاری ها</h6>
-                            <div class="h6 ml-3 mb-0 text-gray-800">
+                            <h6 class="font-weight-bold text-primary mb-2">نوشته ها</h6>
+                            <div class="h3 ml-3 mb-0 text-gray-800">
                                 ۱۷
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa fa-users fa-2x text-gray-300"></i>
+                            <i class="fas fa fa-list fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -26,13 +26,13 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <h6 class="font-weight-bold text-success mb-2">دانلود های امروز</h6>
-                            <div class="ml-3 h6 mb-0 text-gray-800">
-                                <span>۱</span>
+                            <h6 class="font-weight-bold text-success mb-2">دانش آموزان</h6>
+                            <div class="ml-3 h3 mb-0 text-gray-800">
+                                <span>۲۰</span>
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa fa-download fa-2x text-gray-300"></i>
+                            <i class="fa fa-users fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <h6 class="font-weight-bold text-info mb-2">بازدید کنندگان امروز</h6>
-                            <div class="h6 ml-3 mb-0 text-gray-800"></div>
+                            <div class="h3 ml-3 mb-0 text-gray-800">۹۸</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-eye fa-2x text-gray-300"></i>
@@ -59,7 +59,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <h6 class="font-weight-bold text-warning mb-2">بازدید های امروز</h6>
-                            <div class="h6 mb-0 ml-3 text-gray-800">
+                            <div class="h3 mb-0 ml-3 text-gray-800">
                                 ۱۲۳ </div>
                         </div>
                         <div class="col-auto">
@@ -80,54 +80,35 @@
             <!-- Project Card Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-dark">محبوب ترین ها</h6>
+                    <h6 class="m-0 font-weight-bold text-dark">آخرین نظرات</h6>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-striped" id="reciter-leaderbord">
-                        <thead class="table-dark">
-                            <th class="text-center" scope="col">رتبه</th>
-                            <th scope="col" class="text-center">نام قاری</th>
-                            <th scope="col" class="text-center">تعداد بازدید ها</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row" class="text-center">1</th>
-                                <td>
-                                    <a href="">مشاری راشد العفاسی</a>
-                                </td>
-                                <td>200</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">2</th>
-                                <td>
-                                    <a href="">عبدالستار سماک</a>
-                                </td>
-                                <td>150</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">3</th>
-                                <td>
-                                    <a href="">رعد الکردی</a>
-                                </td>
-                                <td>200</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">4</th>
-                                <td>
-                                    <a href="">محمود خلیل الحصری</a>
-                                </td>
-                                <td>200</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">5</th>
-                                <td>
-                                    <a href="">عبدالباسط عبدالصمد</a>
-                                </td>
-                                <td>200</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
+                    <ul class="list-group mx-0 px-0 w-100">
+                        <li class="list-group-item">
+                            <strong>ادریس رنجبر:</strong> مطلب خوبی بود! مرسی ازت
+                            <br><small
+                                class="d-inline-block mt-1 float-left bdage badge-pill badge-secondary">۱۳۹۹/۰۳/۲۲ -
+                                ۱۰:۳۰
+                                قبل از
+                                ظهر</small>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>لورم ایپسوم:</strong> اون قسمت توی ۲۰:۷۶ چه تگی زدی پیدا نیست؟
+                            <br><small
+                                class="d-inline-block mt-1 float-left bdage badge-pill badge-secondary">۱۳۹۹/۰۳/۲۳ -
+                                ۰۱:۱۴
+                                بعد از
+                                ظهر</small>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>لورم ایپسوم:</strong> اون قسمت توی ۲۰:۷۶ چه تگی زدی پیدا نیست؟ اون قسمت توی ۲۰:۷۶ چه
+                            تگی زدی پیدا نیست؟ اون قسمت توی ۲۰:۷۶ چه تگی زدی پیدا نیست؟
+                            <br><small
+                                class="d-inline-block mt-1 float-left bdage badge-pill badge-secondary">۱۳۹۹/۰۳/۲۳ -
+                                ۰۹:۴۵
+                                صبح</small>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
