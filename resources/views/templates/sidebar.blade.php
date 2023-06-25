@@ -35,7 +35,7 @@
                 <a class="collapse-item" href="{{ route('posts.index') }}">
                     <span>لیست نوشته ها</span>
                 </a>
-                <a class="collapse-item" href="">
+                <a class="collapse-item" href="{{ route('posts.create') }}">
                     <span>ایجاد نوشته</span>
                 </a>
 
