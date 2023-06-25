@@ -28,7 +28,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'content' => 'required',
             'status' => 'required',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'categories' => 'nullable|array',
             'tags' => 'nullable|string',
             'slug' => 'required|string|max:50'
@@ -71,32 +71,67 @@ class PostController extends Controller
     }
 
 
-    public function show(Post $post)
+    public function show(int $id)
     {
+        $post = Post::findOrFail($id);
         return view('admin.posts.show', compact('post'));
     }
 
-    public function edit(Post $post)
+    public function edit(int $id)
     {
-        return view('admin.posts.edit', compact('post'));
+        $post = Post::findOrFail($id);
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
-    public function update(Request $request, Post $post)
+    public function update(Request $request, int $id)
     {
+        $post = Post::findOrFail($id);
         $validatedData = $request->validate([
-            'slug' => 'required|unique:posts,slug,' . $post->id,
-            'title' => 'required',
+            'title' => 'required|max:255',
             'content' => 'required',
-            'status' => 'in:public,private,draft',
-            'thumbnail' => 'nullable',
-            'author' => 'required|exists:admins,id',
+            'status' => 'required',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'categories' => 'nullable|array',
+            'tags' => 'nullable|string',
+            'slug' => 'required|string|max:50'
         ]);
 
-        $post->update($validatedData);
+        $post->title = $validatedData['title'];
+        $post->content = $validatedData['content'];
+        $post->status = $validatedData['status'];
+        $post->slug = $validatedData['slug'];
 
-        return redirect()->route('admin.posts.show', $post->id)
-            ->with('success', 'Post updated successfully.');
+        // Update the thumbnail if provided
+        if ($request->hasFile('thumbnail')) {
+            $request->thumbnail->store('public/upload');
+            $post->thumbnail = $request->thumbnail->hashName();
+        }
+
+        // Update the post
+        $post->save();
+
+        // Update the categories
+        $categories = $validatedData['categories'] ?? [];
+        $post->categories()->sync($categories);
+
+        // Update the tags if provided
+        if (!empty($validatedData['tags'])) {
+            $tagNames = explode(',', $validatedData['tags']);
+            $tagNames = array_map('trim', $tagNames);
+
+            $tags = [];
+            foreach ($tagNames as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                $tags[] = $tag->id;
+            }
+
+            $post->tags()->sync($tags);
+        }
+
+        return redirect()->route('posts.index')->with('success', 'نوشته با موفقیت بروزرسانی شد.');
     }
+
 
     public function destroy(Post $post)
     {

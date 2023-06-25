@@ -22,3 +22,4 @@ Homestead.json
 /.vagrant
 /.idea
 .phpunit.result.cache
+public/upload
