@@ -43,6 +43,11 @@
             <div class="col-lg-4">
                 <div class="w-100 p-3 bg-white rounded shadow-sm border">
                     <div class="mb-3">
+                        <label for="slug" class="form-label">شناسه یکتا</label>
+                        <input name="slug" type="text" class="form-control" id="slug" pattern="[a-zA-Z]+" maxlength="50"
+                            min="1" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="status" class="form-label">وضعیت</label>
                         <select name="status" id="status" class="form-select" required>
                             <option value="public">عمومی</option>
@@ -57,11 +62,14 @@
                     <div class="mb-3">
                         <label for="thumbnail" class="form-label">تصویر بند انگشتی</label>
                         <input type="file" name="thumbnail" id="thumbnail" class="form-control">
+                        @error('thumbnail')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="categories" class="form-label">دسته‌بندی‌ها</label>
-                        <select name="categories[]" id="categories" class="form-select" multiple required>
+                        <select name="categories[]" id="categories" class="form-select" multiple>
                             @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach

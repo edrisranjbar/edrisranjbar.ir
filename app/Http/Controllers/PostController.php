@@ -23,19 +23,44 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'slug' => 'required|unique:posts',
-            'title' => 'required',
+            'title' => 'required|max:255',
             'content' => 'required',
-            'status' => 'in:public,private,draft',
-            'thumbnail' => 'nullable',
-            'author' => 'required|exists:admins,id',
+            'status' => 'required',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'categories' => 'nullable|array',
+            'tags' => 'nullable|string',
+            'slug' => 'required|string|max:50'
         ]);
 
-        $post = Post::create($validatedData);
+        $post = new Post();
+        $post->title = $validatedData['title'];
+        $post->content = $validatedData['content'];
+        $post->status = $validatedData['status'];
 
-        return redirect()->route('admin.posts.show', $post->id)
-            ->with('success', 'Post created successfully.');
+        // Upload and save the thumbnail if provided
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail');
+            $thumbnailPath = $thumbnail->store('thumbnails', 'public');
+            $post->thumbnail = $thumbnailPath;
+        }
+
+        // Save the post
+        $post->save();
+
+        // Save the categories
+        $categories = $validatedData['categories'];
+        $post->categories()->attach($categories);
+
+        // Save the tags if provided
+        if (!empty($validatedData['tags'])) {
+            $tags = explode(',', $validatedData['tags']);
+            $tags = array_map('trim', $tags);
+            $post->tags()->sync($tags);
+        }
+
+        return redirect()->route('posts.index')->with('success', 'نوشته با موفقیت ایجاد شد.');
     }
+
 
     public function show(Post $post)
     {
