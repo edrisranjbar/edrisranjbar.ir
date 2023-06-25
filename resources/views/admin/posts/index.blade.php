@@ -25,21 +25,18 @@
             <tbody>
                 @forelse($posts as $post)
                 <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $post->title }}</td>
-                    <td>
+                    <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
+                    <td class="align-middle">{{ $post->title }}</td>
+                    <td class="align-middle">
                         @foreach($post->categories as $category)
                         {{ $category->name }}{!! !$loop->last ? '،' : '' !!}
                         @endforeach
                     </td>
-                    <td>{{ $post->status }}</td>
-                    <td class="text-muted">
-                        <!-- Edit button -->
-                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm d-inline-block">
+                    <td class="align-middle">{{ $post->status }}</td>
+                    <td class="text-muted align-middle">
+                        <a href="{{ route('posts.edit', $post->id) }}" class="text-muted btn btn-sm d-inline-block">
                             <i class="fas fa-edit"></i>
                         </a>
-
-                        <!-- Delete button -->
                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline-block">
                             @csrf
                             @method('DELETE')

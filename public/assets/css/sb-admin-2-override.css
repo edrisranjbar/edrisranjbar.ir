@@ -247,7 +247,8 @@ body {
 
 .table-clickable td,
 .table-clickable th[scope="row"] {
-    padding: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .table-clickable tbody tr:hover {
