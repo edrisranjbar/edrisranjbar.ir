@@ -25,7 +25,7 @@ class CategoryController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'description' => 'nullable',
-            'slug' => 'required|string|max:50'
+            'slug' => 'required|max:50|unique:categories,slug'
         ]);
         Category::create($validatedData);
         return redirect()->route('categories.index')
@@ -41,22 +41,21 @@ class CategoryController extends Controller
 
     public function edit(int $id)
     {
-        $post = Post::findOrFail($id);
+        $category = Category::findOrFail($id);
         $categories = Category::all();
-        return view('admin.categories.edit', compact('post', 'categories'));
+        return view('admin.categories.edit', compact('category', 'categories'));
     }
 
     public function update(Request $request, int $id)
     {
         $category = Category::findOrFail($id);
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required',
+            'title' => 'required|max:255',
+            'description' => 'nullable',
             'slug' => 'required|unique:categories,slug,' . $category->id,
         ]);
 
         $category->update($validatedData);
-
         return redirect()->route('categories.index')
             ->with('success', 'دسته‌بندی با موفقیت به‌روزرسانی شد.');
     }
@@ -66,7 +65,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
-        return redirect()->route('admin.categories.index')
+        return redirect()->route('categories.index')
             ->with('success', 'دسته بندی با موفقیت حذف شد');
     }
 }
