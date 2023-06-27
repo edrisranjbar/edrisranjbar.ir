@@ -81,6 +81,8 @@ class PageController extends Controller
      */
     public function destroy(int $id)
     {
-        //
+        $page = Page::findOrFail($id);
+        $page->delete();
+        return redirect()->route('pages.index')->with('success', 'صفحه با موفقیت حذف شد.');
     }
 }
