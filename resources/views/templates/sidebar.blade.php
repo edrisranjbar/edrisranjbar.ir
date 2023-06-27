@@ -38,7 +38,9 @@
                 <a class="collapse-item" href="{{ route('posts.create') }}">
                     <span>ایجاد نوشته</span>
                 </a>
-
+                <a href="{{ route('categories.index') }}" class="collapse-item">
+                    دسته بندی ها
+                </a>
             </div>
         </div>
     </li>
