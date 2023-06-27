@@ -133,11 +133,11 @@ class PostController extends Controller
     }
 
 
-    public function destroy(Post $post)
+    public function destroy(int $id)
     {
+        $post = Post::findOrFail($id);
         $post->delete();
-
-        return redirect()->route('admin.posts.index')
-            ->with('success', 'Post deleted successfully.');
+        return redirect()->route('posts.index')
+            ->with('success', 'نوشته با موفقیت حذف شد');
     }
 }
