@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
 
 Route::get('/', [FrontEndController::class, 'index']);
@@ -15,6 +16,7 @@ Route::patch('admin/resetPassword', [AdminController::class, 'updatePassword'])-
 Route::post('admin/login/forgotPassword', [AdminAuthController::class, 'processForgotPassword']);
 Route::post('admin/login', [AdminAuthController::class, 'processLogin']);
 Route::middleware(['admin'])->prefix('admin')->group(function () {
+    Route::resource('pages', PageController::class);
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
     Route::get('profile', [AdminProfileController::class, 'show'])->name('admin.profile');

@@ -53,10 +53,10 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="collapsePages" data-parent="#accordionSidebar">
             <div class="collapse-inner">
-                <a class="collapse-item" href="">
+                <a class="collapse-item" href="{{ route('pages.index') }}">
                     <span>لیست برگه ها</span>
                 </a>
-                <a class="collapse-item" href="">
+                <a class="collapse-item" href="{{ route('pages.create') }}">
                     <span>ایجاد برگه</span>
                 </a>
             </div>
