@@ -29,7 +29,7 @@
                     <td class="align-middle">{{ $post->title }}</td>
                     <td class="align-middle">
                         @foreach($post->categories as $category)
-                        {{ $category->name }}{!! !$loop->last ? '،' : '' !!}
+                        <span class="badge py-2 px-2 text-bg-secondary">{{ $category->title }}</span>
                         @endforeach
                     </td>
                     <td class="align-middle">{{ $post->status }}</td>
