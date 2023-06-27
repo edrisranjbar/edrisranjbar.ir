@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', [FrontEndController::class, 'index']);
 Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
@@ -15,6 +16,7 @@ Route::post('admin/login/forgotPassword', [AdminAuthController::class, 'processF
 Route::post('admin/login', [AdminAuthController::class, 'processLogin']);
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::resource('posts', PostController::class);
+    Route::resource('categories', CategoryController::class);
     Route::get('profile', [AdminProfileController::class, 'show'])->name('admin.profile');
     Route::get('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
     Route::get('/', function () {
