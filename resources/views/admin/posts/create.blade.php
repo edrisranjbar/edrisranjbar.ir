@@ -72,7 +72,7 @@
                         <label for="categories" class="form-label">دسته‌بندی‌ها</label>
                         <select name="categories[]" id="categories" class="form-select" multiple>
                             @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}">{{ $category->title }}</option>
                             @endforeach
                         </select>
                     </div>
