@@ -36,8 +36,17 @@ class SettingController extends Controller
     public function updateAll(Request $request)
     {
         $settings = $request->except('_token', '_method');
+        if ($request->hasFile('logo')) {
+            $request->logo->store('public/upload');
+            $validatedData['logo'] = $request->logo->hashName();
+        }
         foreach ($settings as $key => $value) {
-            Setting::firstOrCreate(['key' => $key], ['value' => AppHelper::formatNumber($value)]);
+            if ($key === 'logo') {
+                $value = $validatedData['logo'];
+            } else {
+                $value = AppHelper::formatNumber($value);
+            }
+            Setting::updateOrCreate(['key' => $key], ['value' => $value]);
         }
         return redirect()->route('settings.index')->with('success', 'تنظیمات با موفقیت به‌روزرسانی شدند');
     }

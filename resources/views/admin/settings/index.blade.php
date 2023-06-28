@@ -38,6 +38,20 @@
                         value="{{ $settings->firstWhere('key', 'website_description')?->value }}" required>
                 </div>
             </div>
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="logo" class="form-label">لوگو</label>
+                    <input type="file" class="form-control" id="logo" name="logo"
+                        value="{{ $settings->firstWhere('key', 'logo')?->value }}" accept="image/">
+                    @if ($settings->firstWhere('key', 'logo')?->value)
+                    <div class="mt-2">
+                        <label class="form-label">تصویر فعلی:</label>
+                        <img src="{{ asset('storage/upload/'.$settings->firstWhere('key', 'logo')?->value) }}"
+                            class="img-fluid rounded">
+                    </div>
+                    @endif
+                </div>
+            </div>
             <div class="w-100 d-flex justify-content-start mt-3">
                 <button type="submit" class="btn btn-w-icon btn-primary">
                     <i class="fa fa-save ml-1"></i>
