@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tutorials', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->integer('price')->default(0);
             $table->string('tutor');
             $table->text('description');

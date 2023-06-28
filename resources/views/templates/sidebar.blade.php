@@ -72,10 +72,10 @@
         <div id="collapsePortfolio" class="collapse" aria-labelledby="collapsePortfolio"
             data-parent="#accordionSidebar">
             <div class="collapse-inner">
-                <a class="collapse-item" href="">
+                <a class="collapse-item" href="{{ route('portfolios.index') }}">
                     <span>لیست نمونه کار ها</span>
                 </a>
-                <a class="collapse-item" href="">
+                <a class="collapse-item" href="{{ route('portfolios.create') }}">
                     <span>ایجاد نمونه کار</span>
                 </a>
             </div>
