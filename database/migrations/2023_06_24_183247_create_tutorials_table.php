@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('price')->default(0);
-            $table->string('tutor');
+            $table->foreignId('tutor')->constrained('admins');
             $table->text('description');
             $table->enum('status', ['public', 'private', 'draft'])->default('draft');
             $table->string('thumbnail')->nullable();

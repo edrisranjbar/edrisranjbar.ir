@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\TutorialController;
 
 Route::get('/', [FrontEndController::class, 'index']);
 Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
@@ -21,6 +22,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('portfolios', PortfolioController::class);
+    Route::resource('tutorials', TutorialController::class);
     Route::get('profile', [AdminProfileController::class, 'show'])->name('admin.profile');
     Route::get('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
     Route::get('/', function () {

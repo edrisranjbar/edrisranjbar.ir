@@ -91,40 +91,12 @@
         <div id="collapseTutorials" class="collapse" aria-labelledby="collapseTutorials"
             data-parent="#accordionSidebar">
             <div class="collapse-inner">
-                <a class="collapse-item" href="">
+                <a class="collapse-item" href="{{ route('tutorials.index') }}">
                     <span>لیست دوره ها</span>
                 </a>
-                <a class="collapse-item" href="">
+                <a class="collapse-item" href="{{ route('tutorials.create') }}">
                     <span>ایجاد دوره</span>
                 </a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#collapseLoan"
-            aria-expanded="false" aria-controls="collapseLoan">
-            <i class="fas fa-fw fa-microphone"></i>
-            <span>پادکست</span>
-        </a>
-        <div id="collapseLoan" class="collapse" aria-labelledby="collapseLoan" data-parent="#accordionSidebar">
-            <div class="collapse-inner">
-                <a class="collapse-item" href="">لیست اپیزود ها</a>
-                <a class="collapse-item" href="">افزودن اپیزود جدید</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTools"
-            aria-expanded="false" aria-controls="collapseTools">
-            <i class="fas fa-fw fa-tools"></i>
-            <span>ابزارها</span>
-        </a>
-        <div id="collapseTools" class="collapse" aria-labelledby="collapseTools" data-parent="#accordionSidebar">
-            <div class="collapse-inner">
-                <a class="collapse-item" href="http://127.0.0.1:8000/admin/notes">یادداشت‌ها</a>
-                <a class="collapse-item" href="http://127.0.0.1:8000/admin/backups">پشتیبان‌گیری</a>
             </div>
         </div>
     </li>
