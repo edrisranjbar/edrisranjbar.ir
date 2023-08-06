@@ -78,7 +78,7 @@
                         <select name="categories[]" id="categories" class="form-select" multiple>
                             @foreach ($categories as $category)
                             <option value="{{ $category->id }}" @if(in_array($category->id,
-                                $post->categories->pluck('id')->toArray())) selected @endif>{{ $category->name }}
+                                $post->categories->pluck('id')->toArray())) selected @endif>{{ $category->title }}
                             </option>
                             @endforeach
                         </select>
