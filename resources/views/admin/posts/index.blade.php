@@ -40,8 +40,7 @@
                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline-block">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm"
-                                onclick="return confirm('مطمئنی میخوای این پست رو حذف کنی؟')">
+                            <button type="submit" class="btn btn-sm">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>

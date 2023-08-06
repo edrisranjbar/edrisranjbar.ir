@@ -33,7 +33,7 @@
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle ml-2 border rounded" href="#" id="userDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-user fa-sm fa-fw text-gray-600"></i>
                                     <span class="mr-2 d-none d-lg-inline text-dark">{{ auth('admin')->user()->fullName
                                         }}</span>
