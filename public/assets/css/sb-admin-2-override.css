@@ -236,7 +236,7 @@ body {
     max-width: 912px;
 }
 
-.table-clickable a {
+.table-clickable a:not(.btn) {
     display: block;
 
     padding: 1rem 0.5rem;

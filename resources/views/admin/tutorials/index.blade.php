@@ -33,19 +33,20 @@
             <tbody>
                 @forelse ($tutorials as $tutorial)
                 <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $tutorial->title }}</td>
-                    <td>{{ $tutorial->price }}</td>
-                    <td>{{ $tutorial->description }}</td>
-                    <td>{{ $tutorial->status }}</td>
-                    <td>
-                        <a href="{{ route('tutorials.edit', $tutorial->id) }}" class="btn btn-primary btn-sm">ویرایش</a>
-                        <form class="d-inline" action="{{ route('tutorials.destroy', $tutorial->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm"
-                                onclick="return confirm('آیا مطمئن هستید؟')">حذف</button>
-                        </form>
+                    <th class="align-middle py-2" scope="row">{{ $loop->iteration }}</th>
+                    <td class="align-middle py-2">{{ $tutorial->title }}</td>
+                    <td class="align-middle py-2">{{ $tutorial->price }}</td>
+                    <td class="align-middle py-2">{{ $tutorial->description }}</td>
+                    <td class="align-middle py-2">{{ $tutorial->status }}</td>
+                    <td class="align-middle py-2">
+                        <button type="button" class="btn btn-w-icon btn-outline-secondary btn-sm float-left mr-2"
+                            data-bs-toggle="modal" data-bs-target="#deleteTutorialModal{{ $tutorial->id }}">
+                            <i class="fa fa-trash ml-1"></i> حذف
+                        </button>
+                        <a href="{{ route('tutorials.edit', $tutorial->id) }}"
+                            class="btn btn-w-icon btn-outline-secondary btn-sm float-left mr-2">
+                            <i class="fa fa-edit ml-1"></i>ویرایش
+                        </a>
                     </td>
                 </tr>
                 @empty
@@ -55,6 +56,34 @@
                 @endforelse
             </tbody>
         </table>
+    </div>
+</div>
+<!-- Delete Tutorial Modal -->
+<div class="modal fade" id="deleteTutorialModal{{ $tutorial->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="deleteTutorialModalLabel{{ $tutorial->id }}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+                <h5 class="modal-title" id="deleteTutorialModalLabel{{ $tutorial->id }}">
+                    تأیید حذف
+                </h5>
+                <button type="button" class="close close mr-auto ml-0" data-bs-dismiss="modal" aria-label="بستن">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>آیا از حذف این دوره اطمینان دارید؟</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">انصراف
+                </button>
+                <form action="{{ route('tutorials.destroy', ['tutorial' => $tutorial->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">حذف</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
