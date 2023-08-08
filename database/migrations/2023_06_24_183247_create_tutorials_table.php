@@ -15,11 +15,31 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('price')->default(0);
+            $table->integer('duration');
             $table->foreignId('tutor')->constrained('admins');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->enum('status', ['public', 'private', 'draft'])->default('draft');
             $table->string('thumbnail')->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
+        });
+        Schema::create('sections', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('tutorial_id');
+            $table->string('title');
+            $table->timestamps();
+
+            $table->foreign('tutorial_id')->references('id')->on('tutorials')->onDelete('cascade');
+        });
+        Schema::create('lessons', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('section_id');
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('description');
+            $table->timestamps();
+
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
         });
     }
 
@@ -28,6 +48,8 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('lessons');
+        Schema::dropIfExists('sections');
         Schema::dropIfExists('tutorials');
     }
 };

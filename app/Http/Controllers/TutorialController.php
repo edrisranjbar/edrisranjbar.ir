@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Tutorial;
 use Illuminate\Http\Request;
 
@@ -15,24 +16,38 @@ class TutorialController extends Controller
 
     public function create()
     {
-        return view('admin.tutorials.create');
+        $tutors = Admin::all();
+        return view('admin.tutorials.create', compact('tutors'));
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required',
+            'title' => 'required|string|max:255',
             'price' => 'required|integer|min:0',
+            'duration' => 'required|integer|min:0',
             'tutor' => 'required|exists:admins,id',
-            'description' => 'required',
+            'description' => 'nullable|string',
             'status' => 'required|in:public,private,draft',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'slug' => 'required|string|max:50|unique:tutorials,slug',
         ]);
+
+        // Store the actual thumbnail if exists
         if ($request->hasFile('thumbnail')) {
             $request->thumbnail->store('public/upload');
             $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
-        Tutorial::create($validatedData);
+        Tutorial::create([
+            'title' => $validatedData['title'],
+            'price' => $validatedData['price'],
+            'duration' => $validatedData['duration'],
+            'tutor' => $validatedData['tutor'],
+            'description' => $validatedData['description'],
+            'status' => $validatedData['status'],
+            'thumbnail' => $validatedData['thumbnail'],
+            'slug' => $validatedData['slug'],
+        ]);
         return redirect()->route('tutorials.index')->with('success', 'دوره آموزشی جدید با موفقیت ذخیره شد.');
     }
 
