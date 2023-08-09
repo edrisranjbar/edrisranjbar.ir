@@ -35,7 +35,7 @@ class AdminAuthController extends Controller
         if (Auth::guard('admin')->attempt($credentials, true)) {
             return redirect()->intended('/admin');
         }
-        return redirect()->route('admin.login')->with('error', 'نام کاربری یا رمز عبور اشتباه است!');
+        return redirect()->route('admin.login')->with('errors', ['usernameOrPassword' => 'نام کاربری یا رمز عبور اشتباه است!']);
     }
 
     public function logout(): RedirectResponse|Redirector
