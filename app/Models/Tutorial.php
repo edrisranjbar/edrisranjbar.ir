@@ -23,4 +23,15 @@ class Tutorial extends Model
     {
         return $this->hasMany(Section::class);
     }
+
+    public function getStatusLabelAttribute()
+    {
+        $visibilityLabels = [
+            'public' => 'عمومی',
+            'private' => 'خصوصی',
+            'draft' => 'پیش‌نویس',
+        ];
+
+        return $visibilityLabels[$this->status];
+    }
 }

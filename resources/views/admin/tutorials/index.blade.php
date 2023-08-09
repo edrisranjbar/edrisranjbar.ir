@@ -37,7 +37,7 @@
                     <td class="align-middle py-2">{{ $tutorial->title }}</td>
                     <td class="align-middle py-2">{{ $tutorial->price }}</td>
                     <td class="align-middle py-2">{{ $tutorial->description }}</td>
-                    <td class="align-middle py-2">{{ $tutorial->status }}</td>
+                    <td class="align-middle py-2">{{ $tutorial->status_label }}</td>
                     <td class="align-middle py-2">
                         <button type="button" class="btn btn-w-icon btn-outline-secondary btn-sm float-left mr-2"
                             data-bs-toggle="modal" data-bs-target="#deleteTutorialModal{{ $tutorial->id }}">
