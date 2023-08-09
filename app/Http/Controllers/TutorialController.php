@@ -17,7 +17,7 @@ class TutorialController extends Controller
     public function create()
     {
         $tutors = Admin::all();
-        return view('admin.tutorials.create', compact('tutors'));
+        return view('admin.tutorials.createOrEdit', compact('tutors'));
     }
 
     public function store(Request $request)
@@ -29,7 +29,7 @@ class TutorialController extends Controller
             'tutor' => 'required|exists:admins,id',
             'description' => 'nullable|string',
             'status' => 'required|in:public,private,draft',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'slug' => 'required|string|max:50|unique:tutorials,slug',
         ]);
 
@@ -54,7 +54,8 @@ class TutorialController extends Controller
     public function edit(int $id)
     {
         $tutorial = Tutorial::findOrFail($id);
-        return view('admin.tutorials.create', compact('tutorial'));
+        $tutors = Admin::all();
+        return view('admin.tutorials.createOrEdit', compact('tutorial', 'tutors'));
     }
 
     public function update(Request $request, int $id)
