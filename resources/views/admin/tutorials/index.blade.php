@@ -33,8 +33,14 @@
             <tbody>
                 @forelse ($tutorials as $tutorial)
                 <tr>
-                    <th class="align-middle py-2" scope="row">{{ $loop->iteration }}</th>
-                    <td class="align-middle py-2">{{ $tutorial->title }}</td>
+                    <th class="align-middle py-2" scope="row">
+                        <a href="{{ route('tutorials.edit', $tutorial) }}">
+                            {{ $loop->iteration }}
+                        </a>
+                    </th>
+                    <td class="align-middle py-2">
+                        <a href="{{ route('tutorials.edit', $tutorial) }}">{{ $tutorial->title }}</a>
+                    </td>
                     <td class="align-middle py-2">{{ $tutorial->price }}</td>
                     <td class="align-middle py-2">{{ $tutorial->description }}</td>
                     <td class="align-middle py-2">{{ $tutorial->status_label }}</td>
