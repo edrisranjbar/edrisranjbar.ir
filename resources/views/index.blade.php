@@ -173,7 +173,9 @@
                 <ul class="splide__list">
                     @foreach($posts as $post)
                         <li class="card blog splide__slide">
-                            <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="thumbnail" alt="{{ $post->title }}">
+                            <a href="{{ $post->link }}">
+                                <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="thumbnail" alt="{{ $post->title }}">
+                            </a>
                             <h3 class="post-title">{{ $post->title }}</h3>
                             <div class="d-flex post-meta">
                                 <a href="{{ $post->link }}" class="btn btn-sm button-primary">مشاهده</a>
