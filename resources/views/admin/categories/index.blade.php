@@ -26,18 +26,18 @@
             <tbody>
                 @forelse($categories as $category)
                 <tr>
-                    <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
-                    <td class="align-middle">{{ $category->title }}</td>
-                    <td class="align-middle">{{ $category->description }}</td>
-                    <td class="align-middle">{{ $category->slug }}</td>
-                    <td class="align-middle">
+                    <th class="align-middle py-2" scope="row">{{ $loop->iteration }}</th>
+                    <td class="align-middle py-2">{{ $category->title }}</td>
+                    <td class="align-middle py-2">{{ $category->description }}</td>
+                    <td class="align-middle py-2">{{ $category->slug }}</td>
+                    <td class="align-middle py-2">
                         @if($category->parent)
                         {{ $category->parent->title }}
                         @else
                         -
                         @endif
                     </td>
-                    <td class="text-muted align-middle">
+                    <td class="text-muted align-middle py-2">
                         <a href="{{ route('categories.edit', $category->id) }}"
                             class="text-muted btn btn-sm d-inline-block">
                             <i class="fas fa-edit"></i>
