@@ -36,4 +36,9 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function getLinkAttribute()
+    {
+        return url("/blog/{$this->slug}");
+    }
 }

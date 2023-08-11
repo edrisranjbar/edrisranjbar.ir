@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Tutorial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
@@ -14,7 +15,8 @@ class HomeController extends Controller
         $coursesUrl = '#';
         $blogUrl = '#';
         $tutorials = Tutorial::all();
-        return view('index', compact('widgets', 'coursesUrl', 'blogUrl', 'tutorials'));
+        $posts = Post::all();
+        return view('index', compact('widgets', 'coursesUrl', 'blogUrl', 'tutorials', 'posts'));
     }
 
     public function getAllWidgets()

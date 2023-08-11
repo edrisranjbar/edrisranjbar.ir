@@ -171,24 +171,15 @@
         <div class="col-xl-6 col-12 splide blog-right" role="group" aria-label="اسلایدر نوشته ها">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="card blog splide__slide">
-                        <img src="{{ asset('images/tutorial.png') }}" class="thumbnail" alt="وبگردی حرفه ای">
-                        <h3 class="post-title">وبگردی حرفه ای</h3>
-                        <div class="d-flex post-meta">
-                            <a href="#" class="btn btn-sm button-primary">مشاهده</a>
-                        </div>
-                    </li>
-                    <li class="card blog splide__slide">
-                        <img src="{{ asset('images/tutorial.png') }}" class="thumbnail" alt="وبگردی حرفه ای">
-                        <h3 class="post-title">وبگردی حرفه ای</h3>
-                        <div class="d-flex post-meta">
-                            <a href="#" class="btn btn-sm button-primary">مشاهده</a>
-                        </div>
-                    </li>
-                    <li class="card blog splide__slide">
-                        <img src="{{ asset('images/tutorial.png') }}" class="thumbnail" alt="وبگردی حرفه ای">
-                        <h3 class="post-title">وبگردی حرفه ای</h3>
-                    </li>
+                    @foreach($posts as $post)
+                        <li class="card blog splide__slide">
+                            <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="thumbnail" alt="{{ $post->title }}">
+                            <h3 class="post-title">{{ $post->title }}</h3>
+                            <div class="d-flex post-meta">
+                                <a href="{{ $post->link }}" class="btn btn-sm button-primary">مشاهده</a>
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
