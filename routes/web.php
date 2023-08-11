@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageController;
@@ -10,7 +10,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TutorialController;
 
-Route::get('/', [FrontEndController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
 Route::get('admin/login/resetPassword', [AdminAuthController::class, 'showResetPasswordForm'])->name('password.reset');
 Route::get('admin/login/resetPasswordLinkSent', [AdminAuthController::class, 'showResetPasswordLinkSent'])->name('password.resetLinkSent');

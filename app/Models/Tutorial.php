@@ -16,13 +16,19 @@ class Tutorial extends Model
 
     public function tutor()
     {
-        return $this->belongsTo(Admin::class, 'tutor');
+        return $this->belongsTo(Admin::class, 'admins');
     }
 
     public function sections()
     {
         return $this->hasMany(Section::class);
     }
+
+    public function students()
+    {
+        return $this->belongsToMany(User::class, 'user_tutorial');
+    }
+
 
     public function getStatusLabelAttribute()
     {
@@ -34,4 +40,10 @@ class Tutorial extends Model
 
         return $visibilityLabels[$this->status];
     }
+
+    public function getLinkAttribute()
+    {
+        return url("/tutorials/{$this->slug}");
+    }
+
 }

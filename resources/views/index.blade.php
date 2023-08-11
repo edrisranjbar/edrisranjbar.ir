@@ -96,15 +96,17 @@
                 <ul class="splide__list">
                     @foreach($tutorials as $tutorial)
                         <li class="card tutorial splide__slide">
-                            <a href="#">
-                                <img src="{{ asset('images/web-browsing.png') }}" class="thumbnail" alt="وبگردی حرفه ای">
-                                <h3 class="post-title">وبگردی حرفه ای</h3>
+                            <a href="{{ $tutorial->link }}">
+                                @if ($tutorial->thumbnail)
+                                    <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}" class="thumbnail" alt="{{ $tutorial->title }}">
+                                @endif
+                                <h3 class="post-title">{{ $tutorial->title }}</h3>
                             </a>
                             <div class="d-flex post-meta">
-                                <a href="#" class="btn btn-sm button-primary">مشاهده</a>
+                                <a href="{{ $tutorial->link }}" class="btn btn-sm button-primary">مشاهده</a>
                                 <div class="d-flex align-items-center students-count">
                                     <i class="fas fa-user-circle"></i>
-                                    دانشجویان: ۲۰
+                                    دانشجویان: {{ $tutorial->students()->count() }}
                                 </div>
                             </div>
                         </li>
