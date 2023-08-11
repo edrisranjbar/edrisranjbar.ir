@@ -25,15 +25,15 @@
             <tbody>
                 @forelse($posts as $post)
                 <tr>
-                    <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
-                    <td class="align-middle">{{ $post->title }}</td>
-                    <td class="align-middle">
+                    <th class="align-middle py-2" scope="row">{{ $loop->iteration }}</th>
+                    <td class="align-middle py-2">{{ $post->title }}</td>
+                    <td class="align-middle py-2">
                         @foreach($post->categories as $category)
                         <span class="badge py-2 px-2 text-bg-secondary">{{ $category->title }}</span>
                         @endforeach
                     </td>
-                    <td class="align-middle">{{ $post->status }}</td>
-                    <td class="text-muted align-middle">
+                    <td class="align-middle py-2">{{ $post->status }}</td>
+                    <td class="text-muted align-middle py-2">
                         <a href="{{ route('posts.edit', $post->id) }}" class="text-muted btn btn-sm d-inline-block">
                             <i class="fas fa-edit"></i>
                         </a>
