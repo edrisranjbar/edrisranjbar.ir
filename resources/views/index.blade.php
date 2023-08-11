@@ -83,7 +83,7 @@
     </section>
     <section id="tutorials" class="row">
         <div class="tutorials-left col-xl-6 col-12">
-            <h2 class="title">دوره های آموزشی من</h2>
+            <h2 class="title">دوره های آموزشی</h2>
             <div class="breaker"></div>
             <p class="tutorials-section-description">
                 من توی دوره های آموزشیم سعی میکنم مفاهیم و مهارت ها رو به صورت واضح و ساده بیان کنم. تا جای ممکن هم
@@ -94,45 +94,21 @@
         <div class="col-xl-6 col-12 splide tutorials-right" role="group" aria-label="اسلایدر دوره ها">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="card tutorial splide__slide">
-                        <a href="#">
-                            <img src="{{ asset('images/web-browsing.png') }}" class="thumbnail" alt="وبگردی حرفه ای">
-                            <h3 class="post-title">وبگردی حرفه ای</h3>
-                        </a>
-                        <div class="d-flex post-meta">
-                            <a href="#" class="btn btn-sm button-primary">مشاهده</a>
-                            <div class="d-flex align-items-center students-count">
-                                <i class="fas fa-user-circle"></i>
-                                دانشجویان: ۲۰
+                    @foreach($tutorials as $tutorial)
+                        <li class="card tutorial splide__slide">
+                            <a href="#">
+                                <img src="{{ asset('images/web-browsing.png') }}" class="thumbnail" alt="وبگردی حرفه ای">
+                                <h3 class="post-title">وبگردی حرفه ای</h3>
+                            </a>
+                            <div class="d-flex post-meta">
+                                <a href="#" class="btn btn-sm button-primary">مشاهده</a>
+                                <div class="d-flex align-items-center students-count">
+                                    <i class="fas fa-user-circle"></i>
+                                    دانشجویان: ۲۰
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="card tutorial splide__slide">
-                        <a href="#">
-                            <img src="{{ asset('images/html5.jpg') }}" class="thumbnail" alt="دوره آموزش کامل HTML5">
-                            <h3 class="post-title">آموزش کامل HTML5</h3>
-                        </a>
-                        <div class="d-flex post-meta">
-                            <a href="#" class="btn btn-sm button-primary">مشاهده</a>
-                            <div class="d-flex align-items-center students-count">
-                                <i class="fas fa-user-circle"></i>
-                                دانشجویان: ۰
-                            </div>
-                        </div>
-                    </li>
-                    <li class="card tutorial splide__slide">
-                        <a href="#">
-                            <img src="{{ asset('images/css3.jpg') }}" class="thumbnail" alt="دوره آموزش کامل CSS3">
-                            <h3 class="post-title">آموزش کامل طراحی وب با CSS3</h3>
-                        </a>
-                        <div class="d-flex post-meta">
-                            <a href="#" class="btn btn-sm button-primary">مشاهده</a>
-                            <div class="d-flex align-items-center students-count">
-                                <i class="fas fa-user-circle"></i>
-                                دانشجویان: ۰
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
