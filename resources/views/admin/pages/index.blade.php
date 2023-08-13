@@ -24,21 +24,18 @@
             <tbody>
                 @forelse($pages as $page)
                 <tr>
-                    <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
-                    <td class="align-middle">{{ $page->title }}</td>
-                    <td class="align-middle">{{ $page->slug }}</td>
-                    <td class="text-muted align-middle">
-                        <a href="{{ route('pages.edit', $page->id) }}" class="text-muted btn btn-sm d-inline-block">
-                            <i class="fas fa-edit"></i>
+                    <th class="align-middle py-2" scope="row">{{ $loop->iteration }}</th>
+                    <td class="align-middle py-2">{{ $page->title }}</td>
+                    <td class="align-middle py-2">{{ $page->slug }}</td>
+                    <td class="text-muted align-middle py-2">
+                        <a href="{{ url($page->slug) }}"
+                            class="btn btn-w-icon btn-outline-primary btn-sm float-left mr-2">
+                            <i class="fa fa-eye ml-1"></i>نمایش
                         </a>
-                        <form action="{{ route('pages.destroy', $page->id) }}" method="POST" class="d-inline-block">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm"
-                                onclick="return confirm('مطمئنی میخوای این صفحه رو حذف کنی؟')">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+                        <a href="{{ route('pages.edit', $page->id) }}"
+                            class="btn btn-w-icon btn-outline-secondary btn-sm float-left mr-2">
+                            <i class="fa fa-edit ml-1"></i>ویرایش
+                        </a>
                     </td>
                 </tr>
                 @empty

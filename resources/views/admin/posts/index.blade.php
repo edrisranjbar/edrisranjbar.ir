@@ -34,16 +34,15 @@
                     </td>
                     <td class="align-middle py-2">{{ $post->status }}</td>
                     <td class="text-muted align-middle py-2">
-                        <a href="{{ route('posts.edit', $post->id) }}" class="text-muted btn btn-sm d-inline-block">
-                            <i class="fas fa-edit"></i>
+
+                        <a href="{{ url('blog/' . $post->slug) }}"
+                            class="btn btn-w-icon btn-outline-primary btn-sm float-left mr-2">
+                            <i class="fa fa-eye ml-1"></i>نمایش
                         </a>
-                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline-block">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+                        <a href="{{ route('posts.edit', $post->id) }}"
+                            class="btn btn-w-icon btn-outline-secondary btn-sm float-left mr-2">
+                            <i class="fa fa-edit ml-1"></i>ویرایش
+                        </a>
                     </td>
                 </tr>
                 @empty

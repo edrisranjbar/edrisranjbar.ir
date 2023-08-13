@@ -41,10 +41,11 @@
                         <i class="fa-solid fa-fw fa-check me-1"></i>
                         بروزرسانی
                     </button>
-                    <a href="{{ route('pages.index') }}" class="btn btn-w-icon btn-outline-primary mt-2 me-2">
-                        <i class="fa-solid fa-fw fa-list-check me-1"></i>
-                        برگشتن
-                    </a>
+<button type="button" class="btn btn-w-icon btn-outline-danger mt-2 me-2" data-bs-toggle="modal"
+                        data-bs-target="#deletePageModal">
+                        <i class="fa-solid fa-fw fa-trash me-1"></i>
+                        حذف
+                    </button>
                     @else
                     <button type="submit" class="btn btn-w-icon btn-primary mt-2 me-2">
                         <i class="fa-solid fa-fw fa-check me-1"></i>
@@ -84,5 +85,33 @@
             </div>
         </div>
     </form>
+</div>
+<!-- Delete Page Modal -->
+<div class="modal fade" id="deletePageModal" tabindex="-1" role="dialog" aria-labelledby="deletePageModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+                <h5 class="modal-title" id="deletePageModalLabel">
+                    تأیید حذف
+                </h5>
+                <button type="button" class="close close mr-auto ml-0" data-bs-dismiss="modal" aria-label="بستن">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>آیا از حذف این صفحه اطمینان دارید؟</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">انصراف
+                </button>
+                <form action="{{ route('pages.destroy', ['page' => $page->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">حذف</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

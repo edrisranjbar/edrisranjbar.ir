@@ -16,7 +16,7 @@
         <nav class="menu navbar navbar-expand-lg">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="float-right navbar-nav me-auto mb-2 mb-lg-0 w-100">
-                    @foreach ($navbars as $navbarItem)
+                    @foreach ($navbarItems as $navbarItem)
                     <li class="nav-item {{ $navbarItem->route === url()->full() ? 'active' : '' }}">
                         <a href="{{ $navbarItem->route}}">
                             {{ $navbarItem->name }}
@@ -44,7 +44,7 @@
         <h2 class="my-text-primary">ادریس رنجبر</h2>
         <p class="my-text-orange">توسعه دهنده بک اند و مدرس</p>
         <ul class="px-0 text-center">
-            @foreach ($navbars as $navbarItem)
+            @foreach ($navbarItems as $navbarItem)
             <a href="{{ $navbarItem->route}}">
                 <li class="nav-item {{ $navbarItem->route === url()->full() ? 'active' : '' }}">{{ $navbarItem->name }}
                 </li>

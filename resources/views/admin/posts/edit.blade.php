@@ -37,6 +37,11 @@
                         <i class="fa-solid fa-fw fa-check me-1"></i>
                         ذخیرۀ تغییرات
                     </button>
+                    <button type="button" class="btn btn-w-icon btn-outline-danger mt-2 me-2" data-bs-toggle="modal"
+                        data-bs-target="#deletePostModal">
+                        <i class="fa-solid fa-fw fa-trash me-1"></i>
+                        حذف
+                    </button>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -94,5 +99,33 @@
             </div>
         </div>
     </form>
+</div>
+<!-- Delete Post Modal -->
+<div class="modal fade" id="deletePostModal" tabindex="-1" role="dialog" aria-labelledby="deletePostModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+                <h5 class="modal-title" id="deletePostModalLabel">
+                    تأیید حذف
+                </h5>
+                <button type="button" class="close close mr-auto ml-0" data-bs-dismiss="modal" aria-label="بستن">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>آیا از حذف این نوشته اطمینان دارید؟</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">انصراف
+                </button>
+                <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">حذف</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

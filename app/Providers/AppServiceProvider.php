@@ -25,8 +25,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         View::composer('*', function ($view) {
-            $navbars = Navbar::orderBy('ordering')->get();
-            $view->with('navbars', $navbars);
+            $navbarItems = Navbar::orderBy('ordering')->get();
+            $view->with('navbarItems', $navbarItems);
         });
     }
 }
