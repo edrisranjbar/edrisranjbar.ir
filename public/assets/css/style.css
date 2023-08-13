@@ -21,7 +21,6 @@ a {
 }
 
 body {
-    background-color: var(--dark-color) !important;
     direction: rtl !important;
     font-family: "Vazirmatn FD" !important;
 }
@@ -1633,4 +1632,108 @@ ul.recent-blog-posts-widget li {
 .splide__pagination__page:before {
     counter-increment: pagination-num;
     content: counter(pagination-num);
+}
+
+.my-btn {
+    border: 0px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: inherit;
+}
+
+.btn-purple {
+    color: #fff;
+    background-color: #7c96f7;
+}
+
+nav a:active {
+    color: #6c63ff;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    height: 54px;
+}
+
+.btn-outline-purple {
+    color: #7c96f7;
+    border: 2px solid #7c96f7;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.page-path {
+    color: var(--dark, #323030);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.page-title {
+    color: var(--purple, #6C63FF);
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.page-title-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 64px;
+}
+
+.my-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: fit-content;
+    max-width: 300px;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 32px -8px rgba(50, 48, 48, 0.16);
+}
+
+.my-card-title {
+    font-size: 20px;
+}
+.my-card-image img{
+    width: 100%;
+}
+.my-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-count {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.my-card-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0px 64px;
+    justify-content: center;
+}
+
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (min-width:576px) {
+
+    .page-title-group {
+        margin-bottom: 128px;
+    }
 }

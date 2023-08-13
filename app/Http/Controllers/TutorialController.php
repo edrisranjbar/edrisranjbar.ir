@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class TutorialController extends Controller
 {
+    public function publicPage()
+    {
+        $tutorials = Tutorial::all();
+        return view('tutorials.index', compact('tutorials'));
+    }
+
     public function index()
     {
         $tutorials = Tutorial::all();

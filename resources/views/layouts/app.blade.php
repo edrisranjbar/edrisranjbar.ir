@@ -5,10 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ادریس رنجبر - @yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=3') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=3') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/splide.min.css') }}">
+    @if(Request::is('/'))
+    <style>
+        body{
+            background-color: var(--dark-color) !important;
+        }
+    </style>
+    @endif
 </head>
 
 <body>
