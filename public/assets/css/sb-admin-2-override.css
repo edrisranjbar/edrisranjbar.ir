@@ -459,3 +459,7 @@ input[type=checkbox].status-checkbox:checked~span.strikethrough {
     text-decoration: line-through;
     color: gray;
 }
+
+.dropdown.nav-item > .nav-link{
+    cursor: pointer;
+}

@@ -4,7 +4,7 @@
 
     <!-- Sidebar - Brand -->
     <li>
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://127.0.0.1:8000/admin">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('admin') }}">
             <div class="sidebar-brand-text mx-3">
                 مدیریت
             </div>
@@ -101,8 +101,8 @@
         </div>
     </li>
 
-    <li class="nav-item ">
-        <a class="nav-link" href="http://127.0.0.1:8000/admin/settings">
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('admin/settings') }}">
             <i class="fas fa-fw fa-wrench"></i>
             <span>تنظیمات</span>
         </a>
