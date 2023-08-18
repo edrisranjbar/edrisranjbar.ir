@@ -9,13 +9,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=3') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/splide.min.css') }}">
-    @if(Request::is('/'))
-    <style>
-        body{
-            background-color: var(--dark-color) !important;
-        }
-    </style>
-    @endif
 </head>
 
 <body>

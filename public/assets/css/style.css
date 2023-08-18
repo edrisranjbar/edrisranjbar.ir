@@ -23,6 +23,7 @@ a {
 body {
     direction: rtl !important;
     font-family: "Vazirmatn FD" !important;
+    background-color: var(--dark-color);
 }
 
 header {
@@ -58,19 +59,12 @@ header {
     height: 10px;
     margin-bottom: 48px;
 }
-
 .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: 0px;
     padding: 8px 16px;
     border-radius: 8px;
-    cursor: pointer;
-    transition: 0.4s background-color, border;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 38px;
+    font-size: inherit;
+    font-family: 'Vazirmatn FD', sans-serif;
 }
 
 .button-sm {
@@ -179,7 +173,7 @@ header ul ul {
 
 header ul>li {
     display: inline-block;
-    margin-left: 32px;
+    margin-left: 16px;
     font-weight: 500;
     font-size: 26px;
     line-height: 41px;
@@ -223,6 +217,7 @@ main {
     max-width: 1700px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 8rem;
 }
 
 main>section,
@@ -1634,19 +1629,14 @@ ul.recent-blog-posts-widget li {
     content: counter(pagination-num);
 }
 
-.my-btn {
-    border: 0px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: inherit;
-}
 
-.btn-purple {
+
+.button-purple {
     color: #fff;
     background-color: #7c96f7;
 }
 
-nav a:active {
+nav a:hover {
     color: #6c63ff;
 }
 
@@ -1654,16 +1644,17 @@ nav a:active {
     display: flex;
     gap: 8px;
     height: 54px;
+
 }
 
-.btn-outline-purple {
+.button-outline-purple {
     color: #7c96f7;
     border: 2px solid #7c96f7;
     background-color: rgba(0, 0, 0, 0);
 }
 
 .page-path {
-    color: var(--dark, #323030);
+    color: var(--white-color);
     text-align: center;
     font-size: 20px;
     font-style: normal;
@@ -1689,23 +1680,31 @@ nav a:active {
     margin-bottom: 64px;
 }
 
+
 .my-card {
     display: flex;
     flex-direction: column;
     gap: 24px;
     width: fit-content;
-    max-width: 300px;
+    max-width: 322px;
     padding: 16px;
     border-radius: 16px;
     box-shadow: 0px 0px 32px -8px rgba(50, 48, 48, 0.16);
+    width: 322px;
+    background-color: var(--white-color);
+}
+
+.my-card-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .my-card-title {
     font-size: 20px;
+    margin-top: 16px;
 }
-.my-card-image img{
-    width: 100%;
-}
+
 .my-card-footer {
     display: flex;
     justify-content: space-between;
@@ -1731,9 +1730,32 @@ nav a:active {
     align-items: center;
 }
 
+
 @media only screen and (min-width:576px) {
+
+    header {
+        margin-bottom: 86px;
+    }
 
     .page-title-group {
         margin-bottom: 128px;
     }
 }
+
+@media only screen and (min-width:768px) {
+    header {
+        margin-bottom: 108px;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: flex-end;
+        list-style-type: none;
+        gap: 32px;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+}   
