@@ -1669,7 +1669,7 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     gap: 8px;
-    margin-bottom: 64px;
+    margin-bottom: 32px;
 }
 
 
@@ -1713,7 +1713,7 @@ nav a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin: 0px 64px;
+    margin: 0px 32px;
     justify-content: center;
 }
 
@@ -1724,7 +1724,7 @@ nav a:hover {
     }
 
     .page-title-group {
-        margin-bottom: 128px;
+        margin-bottom: 4rem;
     }
 }
 
