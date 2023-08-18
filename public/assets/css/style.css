@@ -26,9 +26,41 @@ body {
     background-color: var(--dark-color);
 }
 
+/* Header */
 header {
-    padding: 32px 32px 0px 32px;
+    padding: 0px 32px 0px 32px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 64px;
+    font-size: 24px;
+    box-sizing: border-box;
 }
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+nav ul {
+    display: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--white-color) !important;
+}
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+}
+nav a:hover {
+    color: #6c63ff;
+}
+/* End Header */
 
 .d-inline-block {
     display: inline-block;
@@ -64,6 +96,7 @@ header {
     padding: 8px 16px;
     border-radius: 8px;
     font-size: inherit;
+    font-weight: normal;
     font-family: 'Vazirmatn FD', sans-serif;
 }
 
@@ -155,37 +188,10 @@ header {
     align-items: center;
 }
 
-header ul {
-    list-style: none;
-    color: #FAFAFA;
-    margin: 0px;
-}
-
 .menu-account-section {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-header ul ul {
-    display: flex;
-}
-
-header ul>li {
-    display: inline-block;
-    margin-left: 16px;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 41px;
-}
-
-header ul>li.active {
-    color: var(--primary-color);
-}
-
-header ul ul li {
-    display: inline-block;
-    margin-left: 8px;
 }
 
 .circle {
@@ -202,14 +208,6 @@ header ul ul li {
     color: var(--dark-color);
     padding-left: 1px;
     padding-top: 1px;
-}
-
-header ul li {
-    transition: 0.3s color;
-}
-
-header ul.float-right>li:hover {
-    color: var(--secondary-color);
 }
 
 main {
@@ -1259,10 +1257,6 @@ ul.recent-blog-posts-widget li {
         padding: 0px 8px 0px 8px !important;
     }
 
-    header {
-        display: none;
-    }
-
     .button-group {
         justify-content: center;
     }
@@ -1629,8 +1623,6 @@ ul.recent-blog-posts-widget li {
     content: counter(pagination-num);
 }
 
-
-
 .button-purple {
     color: #fff;
     background-color: #7c96f7;
@@ -1725,12 +1717,6 @@ nav a:hover {
     justify-content: center;
 }
 
-.hamburger-menu {
-    display: flex;
-    align-items: center;
-}
-
-
 @media only screen and (min-width:576px) {
 
     header {
@@ -1758,4 +1744,4 @@ nav a:hover {
         display: none;
     }
 
-}   
+}

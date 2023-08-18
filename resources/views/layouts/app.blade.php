@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ادریس رنجبر - @yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-grid.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=3') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/splide.min.css') }}">
@@ -14,28 +14,25 @@
 <body>
     <header>
         <nav class="menu navbar navbar-expand-lg">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="float-right navbar-nav me-auto mb-2 mb-lg-0 w-100">
-                    @foreach ($navbarItems as $navbarItem)
-                    <li class="nav-item {{ $navbarItem->route === url()->full() ? 'active' : '' }}">
-                        <a href="{{ $navbarItem->route}}">
-                            {{ $navbarItem->name }}
-                        </a>
-                    </li>
-                    @endforeach
-                    <li class="ms-auto">
-                        <ul class="menu-account-section">
-                            <li class="p-relative">
-                                <i
-                                    class="button button-outline-primary fa fa-solid fa-cart-shopping my-text-primary icon"></i>
-                                <span class="circle d-flex justify-content-center align-items-center">۰</span>
-                            </li>
-                            <li class="btn btn-lg button-primary">
-                                ورود / عضویت
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <ul>
+                @foreach ($navbarItems as $navbarItem)
+                <li class="nav-item {{ $navbarItem->route === url()->full() ? 'active' : '' }}">
+                    <a href="{{ $navbarItem->route}}">
+                        {{ $navbarItem->name }}
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+            <div class="hamburger-menu">
+                <a class="hamburger-menu-icon">
+                    <img src="{{ asset('images/burger-menu.svg') }}" alt="Main menu">
+                </a>
+            </div>
+            <div class="button-group">
+                <a class="button button-outline-purple" href="#">
+                    <img src="{{ asset('images/cart.svg') }}" alt="Cart">
+                </a>
+                <button class="button button-purple">ورود / عضویت</button>
             </div>
         </nav>
     </header>
