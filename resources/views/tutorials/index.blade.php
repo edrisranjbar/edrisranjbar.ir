@@ -23,7 +23,7 @@
             </div>
             <div class="my-card-footer">
                 <div>
-                    <button class="button button-purple">مشاهده</button>
+                    <a class="button button-primary" href="{{ url('tutorials/' . $tutorial->slug) }}">مشاهده</a>
                 </div>
                 <div class="student-count">
                     <i class="fas fa-user-circle"></i>
