@@ -15,8 +15,8 @@
             <p class="hero-title">{!! $widgets['hero']['title'] !!}</p>
             <p class="hero-description">{!! $widgets['hero']['description'] !!}</p>
             <div class="d-flex button-group">
-                <a class="btn btn-lg button-primary" href="{{ $coursesUrl }}">مشاهده دوره ها</a>
-                <a class="btn btn-lg btn-outline-secondary text-white" href="{{ $blogUrl }}">وبلاگ</a>
+                <a class="button button-primary" href="{{ $coursesUrl }}">مشاهده دوره ها</a>
+                <a class="button button-outline-secondary text-white" href="{{ $blogUrl }}">وبلاگ</a>
             </div>
         </div>
         <div class="students">
@@ -89,7 +89,7 @@
                 من توی دوره های آموزشیم سعی میکنم مفاهیم و مهارت ها رو به صورت واضح و ساده بیان کنم. تا جای ممکن هم
                 پروژه محور پیش میریم که براتون کاربردی باشه.
             </p>
-            <a href="#" class="btn btn-lg button-primary d-inline-block">مشاهده همه</a>
+            <a href="#" class="button button-lg button-primary d-inline-block">مشاهده همه</a>
         </div>
         <div class="col-xl-6 col-12 splide tutorials-right" role="group" aria-label="اسلایدر دوره ها">
             <div class="splide__track">
@@ -103,7 +103,7 @@
                                 <h3 class="post-title">{{ $tutorial->title }}</h3>
                             </a>
                             <div class="d-flex post-meta">
-                                <a href="{{ $tutorial->link }}" class="btn btn-sm button-primary">مشاهده</a>
+                                <a href="{{ $tutorial->link }}" class="button button-sm button-primary">مشاهده</a>
                                 <div class="d-flex align-items-center students-count">
                                     <i class="fas fa-user-circle"></i>
                                     دانشجویان: {{ $tutorial->students()->count() }}
@@ -178,7 +178,7 @@
                             </a>
                             <h3 class="post-title">{{ $post->title }}</h3>
                             <div class="d-flex post-meta">
-                                <a href="{{ $post->link }}" class="btn btn-sm button-primary">مشاهده</a>
+                                <a href="{{ $post->link }}" class="button button-sm button-primary">مشاهده</a>
                             </div>
                         </li>
                     @endforeach
@@ -239,7 +239,7 @@
                                 <div class="app-form-group message">
                                     <input class="app-form-control" placeholder="متن پیام">
                                 </div>
-                                <button class="btn btn-sm btn-outline-secondary text-white btn-w-icon">
+                                <button class="button button-sm button-outline-secondary text-white button-w-icon">
                                     <i class="fa fa-send ml-1"></i>
                                     ثبت فرم
                                 </button>
