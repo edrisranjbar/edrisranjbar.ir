@@ -32,7 +32,7 @@
                 <a class="button button-outline-purple" href="#">
                     <img src="{{ asset('images/cart.svg') }}" alt="Cart">
                 </a>
-                <button class="button button-purple">ورود / عضویت</button>
+                <button class="button button-primary">ورود / عضویت</button>
             </div>
         </nav>
     </header>
