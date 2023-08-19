@@ -17,7 +17,7 @@
             <ul>
                 @foreach ($navbarItems as $navbarItem)
                 <li class="nav-item {{ $navbarItem->route === url()->full() ? 'active' : '' }}">
-                    <a href="{{ $navbarItem->route}}">
+                    <a href="{{ url($navbarItem->route) }}">
                         {{ $navbarItem->name }}
                     </a>
                 </li>

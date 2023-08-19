@@ -17,22 +17,22 @@ class NavbarSeeder extends Seeder
         $links = [
             [
                 'name' => 'صفحه نخست',
-                'route' => 'home',
+                'route' => '/',
                 'ordering' => 1,
             ],
             [
                 'name' => 'وبلاگ',
-                'route' => 'products.index',
+                'route' => '/blog',
                 'ordering' => 2,
             ],
             [
                 'name' => 'پادکست',
-                'route' => 'about.us',
+                'route' => '/podcast',
                 'ordering' => 3,
             ],
             [
                 'name' => 'دوره ها',
-                'route' => 'about.us',
+                'route' => '/ttuorials',
                 'ordering' => 3,
             ],
         ];
