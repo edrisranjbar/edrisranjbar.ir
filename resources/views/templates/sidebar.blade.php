@@ -64,25 +64,6 @@
     </li>
 
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#collapsePortfolio"
-            aria-expanded="false" aria-controls="collapsePortfolio">
-            <i class="fas fa-fw fa-images"></i>
-            <span>نمونه کار ها</span>
-        </a>
-        <div id="collapsePortfolio" class="collapse" aria-labelledby="collapsePortfolio"
-            data-parent="#accordionSidebar">
-            <div class="collapse-inner">
-                <a class="collapse-item" href="{{ route('portfolios.index') }}">
-                    <span>لیست نمونه کار ها</span>
-                </a>
-                <a class="collapse-item" href="{{ route('portfolios.create') }}">
-                    <span>ایجاد نمونه کار</span>
-                </a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTutorials"
             aria-expanded="false" aria-controls="collapseTutorials">
             <i class="fas fa-fw fa-book"></i>

@@ -28,7 +28,6 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::resource('pages', PageController::class);
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
-    Route::resource('portfolios', PortfolioController::class);
     Route::resource('tutorials', TutorialController::class);
     Route::patch('settings', [SettingController::class, 'updateAll'])->name('settings.updateAll');
     Route::resource('settings', SettingController::class);
