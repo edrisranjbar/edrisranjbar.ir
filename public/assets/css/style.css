@@ -539,24 +539,6 @@ img.profile {
     margin-left: 4px;
 }
 
-#portfolios {
-    margin-top: 8rem;
-    position: relative;
-}
-
-#portfolios .button {
-    z-index: 4;
-    position: relative;
-    max-width: fit-content;
-    margin-top: 32px;
-}
-
-#portfolios img {
-    width: 100%;
-    border-radius: 8px;
-    margin-top: 16px !important;
-}
-
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -590,11 +572,6 @@ img.profile {
         flex: 100%;
         max-width: 100%;
     }
-}
-
-.portfolios-container {
-    overflow: hidden;
-    height: 500px;
 }
 
 .shadow-on-box {
@@ -1402,14 +1379,6 @@ ul.recent-blog-posts-widget li {
 
     .tutorial {
         margin-left: 8px !important;
-    }
-
-    .portfolios-container {
-        overflow: initial;
-    }
-
-    .portfolios-container>div>a>img {
-        margin-top: 8px;
     }
 
     #about {
