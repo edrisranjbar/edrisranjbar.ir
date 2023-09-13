@@ -31,7 +31,14 @@ a {
 body {
     direction: rtl !important;
     font-family: "Vazirmatn FD" !important;
+}
+
+.bg-dark{
     background-color: var(--dark-color);
+}
+
+.bg-light{
+    background-color: var(--white-color);
 }
 
 /* Header */
@@ -59,7 +66,12 @@ nav ul {
 
 nav a {
     text-decoration: none;
+}
+body.bg-dark nav a{
     color: var(--white-color);
+}
+body.bg-light nav a{
+    color: var(--dark-color);
 }
 
 .nav-item.active a{
@@ -1626,8 +1638,9 @@ nav a:hover {
     background-color: rgba(0, 0, 0, 0);
 }
 
-.page-path {
-    color: var(--white-color);
+.breadcrumb{
+    color: var(--dark-color);
+    display: block;
     text-align: center;
     font-size: 20px;
     font-style: normal;
@@ -1636,7 +1649,7 @@ nav a:hover {
 }
 
 .page-title {
-    color: var(--purple, #6C63FF);
+    color: var(--primary-dark-color, #6C63FF);
     text-align: center;
     font-size: 40px;
     font-style: normal;
