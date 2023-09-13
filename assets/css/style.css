@@ -520,8 +520,6 @@ img.profile {
     align-items: flex-start;
     justify-content: flex-start;
     padding: 16px;
-    min-width: 322px;
-    max-width: 400px;
     background: #FFFFFF;
     box-shadow: 0px 0px 32px -8px rgba(50, 48, 48, 0.16);
     border-radius: 16px;
@@ -1390,8 +1388,8 @@ ul.recent-blog-posts-widget li {
 
     .tutorial .thumbnail,
     .blog .thumbnail {
-        height: 200px;
-        width: 100%;
+        max-width: 100%;
+        height: auto;
         border-radius: 4px;
     }
 
