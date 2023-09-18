@@ -160,7 +160,7 @@ nav a:hover {
     color: var(--primary-color) !important;
 }
 
-.my-text-orange {
+.text-orange {
     color: var(--secondary-color) !important;
 }
 
@@ -518,13 +518,14 @@ img.profile {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 16px;
     background: #FFFFFF;
     box-shadow: 0px 0px 32px -8px rgba(50, 48, 48, 0.16);
     border-radius: 16px;
-    gap: 15px;
+    gap: 16px;
     margin-bottom: 32px;
+    min-width: 322px;
 }
 
 .tutorial .thumbnail,
@@ -535,8 +536,10 @@ img.profile {
 }
 
 .tutorials-container{
-    width: 1143px;
-    height: 503px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .post-title {
@@ -910,6 +913,7 @@ address {
 }
 
 footer {
+    padding: 4rem 0;
     text-align: center;
     color: var(--white-color);
 }
@@ -945,7 +949,7 @@ footer p.copyright {
     font-weight: 400;
     font-size: 16px;
     line-height: 25px;
-    margin-bottom: 64px;
+    margin-bottom: 0px;
 }
 
 .container-404 {
@@ -1389,7 +1393,7 @@ ul.recent-blog-posts-widget li {
     .tutorial.card,
     .blog.card {
         padding: 16px;
-        max-width: 250px;
+        min-width: 250px;
         border-radius: 8px;
     }
 
@@ -1601,6 +1605,13 @@ ul.recent-blog-posts-widget li {
     .comment-icon {
         display: none;
     }
+
+    .page-title{
+        font-size: 24px !important;
+    }
+    .card{
+        min-width: 250px !important;
+    }
 }
 
 @media screen and (max-width: 720px) {
@@ -1649,6 +1660,7 @@ nav a:hover {
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    margin-bottom: 4rem;
 }
 
 .page-title {
@@ -1670,7 +1682,7 @@ nav a:hover {
 }
 
 
-.my-card {
+.card {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -1679,22 +1691,21 @@ nav a:hover {
     padding: 8px;
     border-radius: 16px;
     box-shadow: 0px 0px 32px -8px rgba(50, 48, 48, 0.16);
-    width: 322px;
     background-color: var(--white-color);
 }
 
-.my-card-image img {
+.card-image img {
     width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
-.my-card-title {
+.card-title {
     font-size: 20px;
     margin-top: 16px;
 }
 
-.my-card-footer {
+.card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
