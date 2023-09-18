@@ -1255,6 +1255,81 @@ ul.recent-blog-posts-widget li {
 }
 
 /* Responsive Design */
+@media screen and (max-width:1400px) and (min-width:1000px){
+    .tutorials-section-description {
+            text-align: center;
+        }
+    
+        main>section,
+        main>div {
+            padding: 0px 8px 0px 8px !important;
+        }
+    
+        .btn-group {
+            justify-content: center;
+        }
+    
+        .hero {
+            margin-top: 0px !important;
+        }
+
+        img.profile {
+            display: block;
+            margin: auto;
+            max-width: 400px;
+            max-height: 400px;
+        }
+
+        .students{
+            left: 180px;
+        }
+    
+        .hero-details-section {
+            max-width: 100%;
+        }
+    
+        .profile-section {
+            order: 0 !important;
+            margin-bottom: 48px;
+            padding-top: 64px;
+        }
+    
+        .hero-title {
+            font-size: 2rem;
+            text-align: center;
+            line-height: 32px !important;
+        }
+    
+        .hero-subtitle {
+            text-align: center;
+            margin-bottom: 0px;
+        }
+    
+        .hero-description {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            text-align: center;
+            margin-top: 1rem;
+        }
+    
+        .arrow {
+            margin-top: 64px;
+            width: 75px;
+            height: 75px;
+            left: 0px;
+        }
+    
+        .circle-sm,
+        .circle-md {
+            display: none;
+        }
+    
+        .title {
+            font-size: 24px;
+            margin: 32px 0px 0px 0px !important;
+            line-height: 1.6;
+        }
+}
 
 /** 1. Samall Mobiles **/
 @media screen and (max-width: 1000px) {
