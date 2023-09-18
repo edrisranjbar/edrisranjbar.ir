@@ -129,9 +129,9 @@ nav a:hover {
 
 .btn-sm {
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 16px;
-    line-height: 25px;
+    line-height: normal;
     max-width: fit-content;
 }
 
@@ -523,13 +523,21 @@ img.profile {
     background: #FFFFFF;
     box-shadow: 0px 0px 32px -8px rgba(50, 48, 48, 0.16);
     border-radius: 16px;
+    gap: 15px;
+    margin-bottom: 32px;
 }
 
 .tutorial .thumbnail,
 .blog .thumbnail {
-    border-radius: 8px;
+    border-radius: 16px;
     width: 100%;
     max-height: 290px;
+    flex-grow: 2;
+}
+
+.tutorials-container{
+    width: 1143px;
+    height: 503px;
 }
 
 .post-title {
@@ -541,8 +549,8 @@ img.profile {
     align-items: center;
     text-align: right;
     color: var(--semi-dark-color);
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .tutorial .post-meta,
@@ -556,7 +564,7 @@ img.profile {
     color: #4d4d4f;
     font-weight: 400;
     font-size: 16px;
-    line-height: 25px;
+    line-height: normal;
 }
 
 .tutorial .students-count i,
@@ -567,7 +575,7 @@ img.profile {
 .row {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 4px;
+    padding: 16px;
 }
 
 .column {
@@ -697,7 +705,7 @@ a {
 
 btn,
 input {
-    font-weight: 700;
+    font-weight: 500;
     font-family: inherit;
 }
 
@@ -1056,7 +1064,7 @@ footer p.copyright {
     padding: 8px 16px;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     border-radius: 8px;
     background: var(--secondary-light-color);
     border: 0px;
@@ -1064,8 +1072,8 @@ footer p.copyright {
     margin-top: 16px;
     color: var(--dark-color);
     text-align: center;
-    font-size: 23px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .comment-form input:active,
@@ -1221,7 +1229,7 @@ ul.recent-blog-posts-widget li {
 }
 
 .recent-comments-widget .d-flex {
-    gap: 8px !important;
+    gap: 4px !important;
 }
 
 .recent-comments-widget img {
@@ -1381,8 +1389,8 @@ ul.recent-blog-posts-widget li {
 
     .tutorial.card,
     .blog.card {
-        padding: 8px;
-        min-width: 250px;
+        padding: 16px;
+        max-width: 250px;
         border-radius: 8px;
     }
 
@@ -1396,7 +1404,7 @@ ul.recent-blog-posts-widget li {
     .tutorial .students-count,
     .blog .students-count {
         font-size: 12px;
-        font-weight: 400;
+        font-weight: 500;
     }
 
     .tutorial {
@@ -1524,7 +1532,7 @@ ul.recent-blog-posts-widget li {
     .container-404 .btn {
         margin-top: 16px !important;
         font-size: 16px !important;
-        padding: 4px 8px !important;
+        padding: 8px 16px !important;
     }
 
     .post-card-header h1 {
@@ -1625,8 +1633,8 @@ nav a:hover {
 
 .btn-group {
     display: flex;
-    gap: 8px;
-    height: 54px;
+    gap: 10px;
+    height: 41px;
 
 }
 
