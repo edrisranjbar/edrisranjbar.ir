@@ -529,10 +529,9 @@ img.profile {
 
 .tutorial .thumbnail,
 .blog .thumbnail {
-    border-radius: 16px;
+    border-radius: 8px;
     width: 100%;
     max-height: 290px;
-    flex-grow: 2;
 }
 
 .tutorials-container{
@@ -1064,7 +1063,7 @@ footer p.copyright {
     padding: 8px 16px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     border-radius: 8px;
     background: var(--secondary-light-color);
     border: 0px;
@@ -1633,9 +1632,7 @@ nav a:hover {
 
 .btn-group {
     display: flex;
-    gap: 10px;
-    height: 41px;
-
+    gap: 8px;
 }
 
 .btn-outline-purple {
