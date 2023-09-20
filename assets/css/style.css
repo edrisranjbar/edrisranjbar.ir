@@ -3,7 +3,12 @@
     margin: 0px;
     padding: 0px;
 }
-
+button{
+    border: unset;
+    outline: unset;
+    background-color: transparent;
+    cursor: pointer;
+}
 :root {
     --primary-color: #7C96F7;
     --primary-dark-color: #6C63FF;
@@ -41,17 +46,19 @@ body {
     background-color: var(--white-color);
 }
 
+.bg-primary{
+    background-color: var(--primary-dark-color);
+}
+
 /* Header */
 header {
     padding: 32px;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 64px;
     font-size: 24px;
     box-sizing: border-box;
 }
-
 nav {
     display: flex;
     align-items: center;
@@ -76,6 +83,9 @@ body.bg-light nav a{
 
 .nav-item.active a{
     color: var(--primary-dark-color);
+}
+header.bg-primary .nav-item.active a{
+    color: var(--white-color);
 }
 
 .hamburger-menu {
@@ -239,14 +249,16 @@ nav a:hover {
 
 main {
     overflow: hidden;
-    max-width: 1700px;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 8rem;
 }
-
-main>section,
-main>div {
+main.home-page {
+    max-width: 1700px;
+    margin-top: 64px;
+}
+main.home-page>section,
+main.home-page>div {
     padding-left: 32px !important;
     padding-right: 32px !important;
 }
@@ -1254,14 +1266,82 @@ ul.recent-blog-posts-widget li {
     margin-bottom: 0px;
 }
 
+/* Tutorial page */
+.tutorial-hero{
+    min-height: 572px;
+    padding: 94px 128px 0 94px;
+    position: relative;
+}
+.tutorial-overview{
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 64px 0px rgba(41, 41, 41, 0.16);
+    display: flex;
+    max-width: 500px;
+    padding: 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    position: absolute;
+    /* FIXME: this box must be positioned absolute in its parent */
+    top: 100px;
+}
+.tutorial-hero .tutorial-title{
+    color: var(--primary-dark-color);
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+.tutorial-overview .tutorial-description{
+    color: var(--dark-color, #323030);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+.video-player-cover-wrapper{
+    width: 436px;
+    height: 251px;
+    flex-shrink: 0;
+    position: relative;
+}
+.video-player-cover-wrapper img{
+    max-width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+.vide-player-cover-overlay{
+    background-color: #1a191989;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    border-radius: 16px;
+}
+.tutorial-overview .play-button{
+    width: 70.323px;
+    height: 65.764px;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom:0;
+    margin: auto;
+}
+/* End Tutorial page */
+
 /* Responsive Design */
 @media screen and (max-width:1400px) and (min-width:1000px){
     .tutorials-section-description {
             text-align: center;
         }
     
-        main>section,
-        main>div {
+        main.home-page>section,
+        main.home-page>div {
             padding: 0px 8px 0px 8px !important;
         }
     
@@ -1337,8 +1417,8 @@ ul.recent-blog-posts-widget li {
         text-align: center;
     }
 
-    main>section,
-    main>div {
+    main.home-page>section,
+    main.home-page>div {
         padding: 0px 8px 0px 8px !important;
     }
 
@@ -1802,8 +1882,8 @@ nav a:hover {
 
 @media only screen and (min-width:576px) {
 
-    header {
-        margin-bottom: 86px;
+    main.home-page {
+        margin-top: 86px;
     }
 
     .page-title-group {
@@ -1812,8 +1892,8 @@ nav a:hover {
 }
 
 @media only screen and (min-width:768px) {
-    header {
-        margin-bottom: 108px;
+    main.home-page {
+        margin-top: 108px;
     }
 
     nav ul {
