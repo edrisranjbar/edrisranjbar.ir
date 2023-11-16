@@ -14,7 +14,7 @@
     <div class="col-12 col-xl-6 splide tutorials-right" role="group" aria-label="اسلایدر دوره ها">
         <div class="splide__track">
             <ul class="splide__list">
-                @foreach($tutorials as $tutorial)
+                @forelse($tutorials as $tutorial)
                 <li class="card tutorial splide__slide">
                     <a href="{{ $tutorial->link }}">
                         @if ($tutorial->thumbnail)
@@ -31,7 +31,12 @@
                         </div>
                     </div>
                 </li>
-                @endforeach
+                @empty
+                <li class="card tutorial splide__slide w-100 m-0">
+                    <img src="{{ asset('images/empty.svg') }}">
+                    <p class="w-100 text-center">دوره ای یافت نشد</p>
+                </li>
+                @endforelse
             </ul>
         </div>
     </div>
