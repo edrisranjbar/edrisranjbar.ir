@@ -8,7 +8,7 @@
     <div class="col-12 col-xl-6 splide blog-right" role="group" aria-label="اسلایدر نوشته ها">
         <div class="splide__track">
             <ul class="splide__list">
-                @foreach($posts as $post)
+                @forelse($posts as $post)
                 <li class="card blog splide__slide">
                     <a href="{{ $post->link }}">
                         <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="thumbnail"
@@ -19,7 +19,12 @@
                         <a href="{{ $post->link }}" class="btn btn-sm btn-primary">مشاهده</a>
                     </div>
                 </li>
-                @endforeach
+                @empty
+                <li class="card blog splide__slide w-100 m-0">
+                    <img src="{{ asset('images/empty.svg') }}">
+                    <p class="w-100 text-center">نوشته ای یافت نشد</p>
+                </li>
+                @endforelse
             </ul>
         </div>
     </div>

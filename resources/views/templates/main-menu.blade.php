@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md">
-    <a class="navbar-brand" href="{{ url('/') }}">
+<nav class="navbar navbar-expand-md mt-2">
+    <a class="navbar-brand me-5" href="{{ url('/') }}">
         <h1 class="h3 text-primary">ادریس رنجبر</h1>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
