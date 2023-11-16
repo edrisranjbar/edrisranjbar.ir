@@ -216,7 +216,6 @@ main>div {
 .hero {
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 4rem !important;
 }
 
 .button-group {
@@ -293,7 +292,7 @@ img.profile {
 .profile-section {
     order: 2;
     position: relative;
-    filter: drop-shadow(2px 4px 64px rgba(108, 99, 255, 0.32));
+    filter: drop-shadow(2px 4px 32px rgba(107, 99, 255, 0.205));
 }
 
 .profile-section div {
