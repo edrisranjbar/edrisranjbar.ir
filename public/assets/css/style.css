@@ -353,6 +353,7 @@ img.profile {
     align-items: center;
     left: 57px;
     bottom: 64px;
+    z-index: 1;
 }
 
 .students p {
@@ -915,7 +916,9 @@ footer p.copyright {
     line-height: 25px;
     margin-bottom: 64px;
 }
-
+.copyright {
+    font-size: inherit !important;
+}
 .container-404 {
     background-color: var(--dark-color);
     min-height: 90vh;
@@ -1710,4 +1713,10 @@ nav a:hover {
         display: none;
     }
 
+}
+
+.btn-w-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

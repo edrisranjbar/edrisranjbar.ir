@@ -1,22 +1,22 @@
 @section('title', 'توسعه دهنده بک اند وب')
 @extends('layouts.app')
 @section('content')
-<main>
+<main class="container-fluid">
     <section class="hero row">
-        <div class="profile-section col-xxl-6 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+        <div class="profile-section col-12 col-lg-6 col-xxl-6">
             <img src="{{ $widgets['hero']['image']['src'] }}" alt="{{ $widgets['hero']['image']['alt'] }}"
                 class="profile">
             <div class="circle-sm my-bg-primary rounded-circle left-top"></div>
             <div class="circle-sm bg-orange rounded-circle right-top"></div>
             <div class="circle-md bg-orange rounded-circle right-bottom"></div>
         </div>
-        <div class="hero-details-section col-xxl-6 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+        <div class="hero-details-section col-12 col-xxl-6">
             <p class="hero-subtitle">{{ $widgets['hero']['subtitle'] }}</p>
             <p class="hero-title">{!! $widgets['hero']['title'] !!}</p>
             <p class="hero-description">{!! $widgets['hero']['description'] !!}</p>
-            <div class="d-flex button-group">
-                <a class="button button-primary" href="{{ $coursesUrl }}">مشاهده دوره ها</a>
-                <a class="button button-outline-secondary text-white" href="{{ $blogUrl }}">وبلاگ</a>
+            <div class="d-flex gap-2 text-light">
+                <a class="btn btn-lg btn-primary" href="{{ $coursesUrl }}">مشاهده دوره ها</a>
+                <a class="btn btn-lg btn-outline-secondary" href="{{ $blogUrl }}">وبلاگ</a>
             </div>
         </div>
         <div class="students">
@@ -38,7 +38,7 @@
         <h2 class="title">مهارت های من</h2>
         <div class="breaker"></div>
         <div class="skills-box gy-4 row">
-            <div class="col-md-3 col-xs-6 col-6">
+            <div class="col-6 col-md-3">
                 <div class="skill-box px-0 mx-0 row justify-content-center align-items-center">
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <div class="icon-box">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-xs-6 col-6">
+            <div class="col-6 col-md-3">
                 <div class="skill-box px-0 mx-0 row justify-content-center align-items-center">
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <div class="icon-box">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-xs-6 col-6">
+            <div class="col-6 col-md-3">
                 <div class="skill-box px-0 mx-0 row justify-content-center align-items-center">
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <div class="icon-box">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-xs-6 col-6">
+            <div class="col-6 col-md-3">
                 <div class="skill-box px-0 mx-0 row justify-content-center align-items-center">
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <div class="icon-box">
@@ -89,7 +89,10 @@
                 من توی دوره های آموزشیم سعی میکنم مفاهیم و مهارت ها رو به صورت واضح و ساده بیان کنم. تا جای ممکن هم
                 پروژه محور پیش میریم که براتون کاربردی باشه.
             </p>
-            <a href="#" class="button button-lg button-primary d-inline-block">مشاهده همه</a>
+            <a href="#" class="btn btn-lg btn-outline-primary text-light d-inline-block">
+                <i class="fa fa-eye me-1 btn-w-icon"></i>
+                مشاهده همه
+            </a>
         </div>
         <div class="col-xl-6 col-12 splide tutorials-right" role="group" aria-label="اسلایدر دوره ها">
             <div class="splide__track">
@@ -103,7 +106,7 @@
                                 <h3 class="post-title">{{ $tutorial->title }}</h3>
                             </a>
                             <div class="d-flex post-meta">
-                                <a href="{{ $tutorial->link }}" class="button button-sm button-primary">مشاهده</a>
+                                <a href="{{ $tutorial->link }}" class="btn btn-sm btn-primary">مشاهده</a>
                                 <div class="d-flex align-items-center students-count">
                                     <i class="fas fa-user-circle"></i>
                                     دانشجویان: {{ $tutorial->students()->count() }}
@@ -147,7 +150,7 @@
                             </a>
                             <h3 class="post-title">{{ $post->title }}</h3>
                             <div class="d-flex post-meta">
-                                <a href="{{ $post->link }}" class="button button-sm button-primary">مشاهده</a>
+                                <a href="{{ $post->link }}" class="btn btn-sm btn-primary">مشاهده</a>
                             </div>
                         </li>
                     @endforeach
@@ -162,9 +165,9 @@
                 <div class="screen">
                     <div class="screen-header">
                         <div class="screen-header-left">
-                            <div class="screen-header-button close"></div>
-                            <div class="screen-header-button maximize"></div>
-                            <div class="screen-header-button minimize"></div>
+                            <div class="screen-header-btn close"></div>
+                            <div class="screen-header-btn maximize"></div>
+                            <div class="screen-header-btn minimize"></div>
                         </div>
                         <div class="screen-header-right">
                             <div class="screen-header-ellipsis"></div>
@@ -208,10 +211,10 @@
                                 <div class="app-form-group message">
                                     <input class="app-form-control" placeholder="متن پیام">
                                 </div>
-                                <button class="button button-sm button-outline-secondary text-white button-w-icon">
+                                <btn class="btn btn-sm btn-outline-secondary text-white btn-w-icon">
                                     <i class="fa fa-send ml-1"></i>
                                     ثبت فرم
-                                </button>
+                                </btn>
                             </div>
                         </div>
                     </div>
