@@ -27,12 +27,12 @@ class NavbarSeeder extends Seeder
             ],
             [
                 'name' => 'پادکست',
-                'route' => '/podcast',
+                'route' => '/podcasts',
                 'ordering' => 3,
             ],
             [
                 'name' => 'دوره ها',
-                'route' => '/ttuorials',
+                'route' => '/tutorials',
                 'ordering' => 3,
             ],
         ];
