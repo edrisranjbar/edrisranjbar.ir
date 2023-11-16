@@ -1,5 +1,7 @@
 <section id="about">
-    <div class="profile-box mx-auto"></div>
+    <div class="profile-box mx-auto">
+        <img src="{{ URL::to('/') . '/images/profile-transparent.png' }}" alt="ادریس رنجبر">
+    </div>
     <h2 class="title text-center">درباره ادریس رنجبر</h2>
     <p class="text-center">
         ســــلــااام✋،

@@ -13,6 +13,8 @@
     --semi-dark-color: #323230;
     --smoky-white-color: #f0f0f0;
     --white-color: #fafafa;
+    /* BS5.3.2 */
+    --bs-primary-rgb: 105, 97, 255;
 }
 
 a {
@@ -98,19 +100,6 @@ nav a:hover {
     font-size: inherit;
     font-weight: normal;
     font-family: 'Vazirmatn FD', sans-serif;
-}
-
-.button-sm {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 25px;
-    max-width: fit-content;
-}
-
-.button-primary {
-    background: var(--primary-color) !important;
-    color: var(--smoky-white-color) !important;
 }
 
 .button-outline-secondary {
@@ -600,9 +589,15 @@ img.profile {
     display: block;
     background: var(--primary-color);
     box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
-    border-radius: 89px;
+    border-radius: 50%;
     transform: matrix(-1, 0, 0, 1, 0, 0);
     margin-bottom: 55px;
+}
+
+#about .profile-box img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 46%;
 }
 
 #about h2 {
