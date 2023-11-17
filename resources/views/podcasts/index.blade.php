@@ -11,7 +11,10 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-4">
-            <div class="card rounded-4 shadow-sm">
+            <div class="card rounded-4 shadow-sm position-relative">
+                <span class="btn btn-danger position-absolute end-0 top-0 m-2">
+                    جدید
+                </span>
                 <img src="{{ asset('images/web-browsing.png') }}" alt="" class="card-img-top rounded-top-4 rounded-bottom-0">
                 <div class="card-body">
                     <h5 class="card-title">قسمت اول: هوش مصنوعی ضعیف و قوی</h5>
