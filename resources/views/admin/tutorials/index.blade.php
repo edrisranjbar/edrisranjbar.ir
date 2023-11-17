@@ -11,13 +11,7 @@
             افزودن دوره جدید
         </a>
     </div>
-
-    @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
-
+    @include('templates.messages')
     <div class="w-100 bg-white rounded shadow-sm table-responsive border">
         <table class="table table-striped table-clickable">
             <thead>

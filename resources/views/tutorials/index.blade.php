@@ -9,7 +9,7 @@
             <a href="{{ url('/') }}">خانه</a>
              » 
             <a href="{{ route('tutorials') }}">دوره ها</a>
-            </div>
+        </div>
     </div>
     <div class="my-card-group">
         @foreach($tutorials as $tutorial)

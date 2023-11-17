@@ -10,6 +10,7 @@
     <h1 class="h3 mb-3 fw-normal text-right">
         {{ !isset($tutorial) ? 'ایجاد آموزش جدید' : $tutorial->title }}
     </h1>
+    @include('templates.messages')
     <form class="w-100 p-3 bg-white rounded shadow-sm border"
         @if(isset($tutorial))
         action="{{ route('tutorials.update', ['tutorial'=> $tutorial->id]) }}"
@@ -41,13 +42,13 @@
                     @enderror
                 </div>
 
-                @if(isset($form))
+                @if(isset($tutorial))
                 <div class="d-flex flex-wrap">
                     <button class="btn btn-w-icon btn-primary mt-2 me-2" type="submit">
                         <i class="fa-solid fa-fw fa-edit me-1"></i>
                         ویرایش
                     </button>
-                    <a class="btn bt-w-icon btn-outline-secondary mt-2 me-2" href="{{ route('form4.index') }}">
+                    <a class="btn bt-w-icon btn-outline-secondary mt-2 me-2" href="{{ url('admin/tutorials') }}">
                         برگشت
                     </a>
                 </div>
@@ -127,6 +128,13 @@
                         </div>
                         @endif
                     </div>
+                    <div class="mb-3">
+                        <a href="#" class="btn btn-sm btn-outline-danger btn-w-icon d-inline-block"
+                        data-bs-toggle="modal" data-bs-target="#deleteTutorialModal">
+                            <i class="fa fa-solid fa-trash me-1"></i>
+                            حذف
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -143,7 +151,7 @@
                 <h5 class="modal-title" id="deleteTutorialModalLabel">
                     تأیید حذف
                 </h5>
-                <button type="button" class="close close mr-auto ml-0" data-bs-dismiss="modal" aria-label="بستن">
+                <button type="button" class="btn-close ms-auto me-0" data-bs-dismiss="modal" aria-label="بستن">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -156,7 +164,10 @@
                 <form action="{{ route('tutorials.destroy', ['tutorial' => $tutorial->id]) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">حذف</button>
+                    <button type="submit" class="btn btn-danger btn-w-icon">
+                        <i class="fa fa-solid fa-trash me-1"></i>
+                        حذف
+                    </button>
                 </form>
             </div>
         </div>
