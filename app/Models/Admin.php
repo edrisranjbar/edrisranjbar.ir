@@ -24,6 +24,11 @@ class Admin extends Authenticatable
 
     protected $hidden = ['password', 'is_superuser'];
 
+    public function tutorials()
+    {
+        return $this->hasMany(Tutorial::class);
+    }
+
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = Hash::make($password);

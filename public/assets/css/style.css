@@ -882,7 +882,9 @@ footer {
     text-align: center;
     color: var(--white-color);
 }
-
+.bg-dark footer{
+    color: var(--white-color) !important;
+}
 footer h2 {
     font-weight: 900;
     font-size: 48px;
@@ -1751,4 +1753,18 @@ nav a:hover {
 .form-switch .form-check-input {
     width: 2.5em;
     height: 1.5em;
+}
+
+.breadcrumb-item+.breadcrumb-item::before{
+    margin-top: 8px;
+}
+
+.breadcrumb-wrapper{
+    background-color: var(--smoky-white-color);
+    color: var(--dark-color);
+}
+
+article video{
+    width: 100%;
+    height: auto;
 }

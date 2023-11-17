@@ -16,7 +16,7 @@ class Tutorial extends Model
 
     public function tutor()
     {
-        return $this->belongsTo(Admin::class, 'admins');
+        return $this->belongsTo(Admin::class);
     }
 
     public function sections()
