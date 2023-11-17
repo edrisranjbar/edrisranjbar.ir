@@ -7,7 +7,7 @@
     <div class="col-md-8 offset-md-2 mb-5">
         <form action="{{ url('blog') }}" method="GET" class="input-group">
             <input type="text" name="search" class="form-control form-control-lg mr-sm-2"
-                placeholder="مثلا: زبان های برنامه نویسی محبوب 2023">
+                placeholder="مثلا: زبان های برنامه نویسی محبوب 2023" value="{{ strlen($searchQuery) > 0 ? $searchQuery : '' }}">
             <button type="submit" class="btn btn-primary my-2 my-sm-0">جست و جو</button>
         </form>
     </div>
@@ -106,7 +106,7 @@
         @endif
     </h2>
     <div class="row">
-        @foreach ($posts as $post)
+        @forelse($posts as $post)
         <div class="col-md-4 mb-4">
             <div class="card">
                 <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="card-img-top"
@@ -124,7 +124,25 @@
                 </div>
             </div>
         </div>
-        @endforeach
+        @empty
+        <div class="col-12 mb-4">
+            <div class="card p-5 text-center">
+                <img src="{{ asset('images/empty.svg') }}" alt="نتیجه ای یافت نشد" height="200px">
+                <p class="h5 fw-normal my-3">
+                    مقاله ای برای نمایش یافت نشد
+                </p>
+                <div class="d-flex gap-2 justify-content-center">
+                    <a href="{{ url('/blog') }}" class="btn text-light btn-primary">
+                        جست و جو رو بیخیال 😅
+                    </a>
+                    <a href="{{ url('/') }}" class="btn btn-outline-secondary btn-w-icon">
+                        <i class="fa fa-solid fa-arrow-right me-1"></i>
+                        برگرد صفحه اصلی
+                    </a>
+                </div>
+            </div>
+        </div>
+        @endforelse
     </div>
 </main>
 @endsection

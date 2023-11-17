@@ -1717,6 +1717,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: fit-content;
 }
 
 .bg-dark .nav-item,footer{
