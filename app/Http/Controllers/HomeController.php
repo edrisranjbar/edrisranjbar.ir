@@ -67,4 +67,10 @@ class HomeController extends Controller
     {
         return view('podcasts.index');
     }
+
+    public function tutorials()
+    {
+        $tutorials = Tutorial::all();
+        return view('tutorials.index', compact('tutorials'));
+    }
 }
