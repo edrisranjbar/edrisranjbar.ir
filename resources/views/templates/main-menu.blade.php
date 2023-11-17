@@ -16,5 +16,8 @@
         </li>
         @endforeach
     </ul>
-    <button class="btn btn-primary">ورود / عضویت</button>
+    <button class="btn btn-primary btn-w-icon">
+        <i class="fa fa-solid fa-sign-in me-1"></i>
+        ورود / عضویت
+    </button>
 </nav>

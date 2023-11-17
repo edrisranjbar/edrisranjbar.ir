@@ -12,7 +12,10 @@ use App\Http\Controllers\TutorialController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('podcasts', [HomeController::class, 'podcasts']);
 Route::get('tutorials', [HomeController::class, 'tutorials']);
+Route::get('podcasts', [HomeController::class, 'podcasts']);
 Route::get('blog', [HomeController::class, 'blog']);
+Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
+
 
 Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
 Route::get('admin/login/resetPassword', [AdminAuthController::class, 'showResetPasswordForm'])->name('password.reset');

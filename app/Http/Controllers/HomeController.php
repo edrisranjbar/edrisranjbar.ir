@@ -53,4 +53,18 @@ class HomeController extends Controller
 
         return view('blog.index', compact('posts', 'searchQuery'));
     }
+
+    public function blogPost($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+        if (!$post) {
+            abort(404);
+        }
+        return view('blog.show', compact('post'));
+    }
+
+    public function podcasts()
+    {
+        return view('podcasts.index');
+    }
 }
