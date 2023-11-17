@@ -51,6 +51,6 @@ class HomeController extends Controller
             $posts = Post::latest()->get();
         }
 
-        return view('blog.index', compact('posts'));
+        return view('blog.index', compact('posts', 'searchQuery'));
     }
 }

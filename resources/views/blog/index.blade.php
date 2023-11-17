@@ -6,11 +6,13 @@
 
     <div class="col-md-8 offset-md-2 mb-5">
         <form action="{{ url('blog') }}" method="GET" class="input-group">
-            <input type="text" name="search" class="form-control form-control-lg mr-sm-2" placeholder="مثلا: زبان های برنامه نویسی محبوب 2023">
+            <input type="text" name="search" class="form-control form-control-lg mr-sm-2"
+                placeholder="مثلا: زبان های برنامه نویسی محبوب 2023">
             <button type="submit" class="btn btn-primary my-2 my-sm-0">جست و جو</button>
         </form>
     </div>
 
+    @if(strlen($searchQuery) === 0)
     <div class="p-4 p-md-5 m-4 rounded text-center text-bg-dark">
         <div class="col-12 px-0">
             <h1 class="display-6 mb-4 fw-bold text-primary">
@@ -94,10 +96,16 @@
             </div>
         </div>
     </div>
+    @endif
 
-    <h2 class="ms-4 mt-5 mb-3">☕جدیدترین مقالات</h2>
+    <h2 class="ms-4 mt-5 mb-3">
+        @if(strlen($searchQuery) === 0)
+        ☕ جدیدترین مقالات
+        @else
+        🔍 نتیجه جست و جو
+        @endif
+    </h2>
     <div class="row">
-        {{-- Posts --}}
         @foreach ($posts as $post)
         <div class="col-md-4 mb-4">
             <div class="card">
