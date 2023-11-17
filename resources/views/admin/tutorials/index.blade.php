@@ -36,7 +36,9 @@
                         <a href="{{ route('tutorials.edit', $tutorial) }}">{{ $tutorial->title }}</a>
                     </td>
                     <td class="align-middle py-2">{{ $tutorial->price }}</td>
-                    <td class="align-middle py-2">{{ $tutorial->description }}</td>
+                    <td class="align-middle py-2">
+                        {{ $tutorial->excerpt }}
+                    </td>
                     <td class="align-middle py-2">{{ $tutorial->status_label }}</td>
                     <td class="align-middle py-2">
                         <a href="{{ url('tutorials/' . $tutorial->slug) }}"

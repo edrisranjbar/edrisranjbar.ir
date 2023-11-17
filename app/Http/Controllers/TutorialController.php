@@ -34,11 +34,11 @@ class TutorialController extends Controller
             'duration' => 'required|integer|min:0',
             'tutor' => 'required|exists:admins,id',
             'description' => 'nullable|string',
+            'short_description' => 'nullable|string|max:255',
             'status' => 'required|in:public,private,draft',
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'slug' => 'required|string|max:50|unique:tutorials,slug',
         ]);
-
         // Store the actual thumbnail if exists
         if ($request->hasFile('thumbnail')) {
             $request->thumbnail->store('public/upload');
@@ -50,6 +50,7 @@ class TutorialController extends Controller
             'duration' => $validatedData['duration'],
             'tutor' => $validatedData['tutor'],
             'description' => $validatedData['description'],
+            'short_description' => $validatedData['short_description'],
             'status' => $validatedData['status'],
             'thumbnail' => $validatedData['thumbnail'],
             'slug' => $validatedData['slug'],
@@ -72,6 +73,7 @@ class TutorialController extends Controller
             'price' => 'required|integer|min:0',
             'tutor' => 'required|exists:admins,id',
             'description' => 'required',
+            'short_description' => 'nullable|max:255',
             'status' => 'required|in:public,private,draft',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);

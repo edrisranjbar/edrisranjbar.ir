@@ -32,7 +32,7 @@
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-
+                
                 <div class="mb-3">
                     <label for="description" class="form-label">توضیحات</label>
                     <textarea name="description" id="description" class="form-control"
@@ -78,11 +78,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="duration" class="form-label">مدت دوره</label>
-                        <input type="number" name="duration" id="duration" class="form-control" required min="1">
+                        <input type="number" name="duration" id="duration" class="form-control" required min="1" value="{{ $tutorial->duration ?? 0 }}">
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">هزینه شرکت در دوره</label>
-                        <input type="number" name="price" id="price" class="form-control" required min="0" value="0">
+                        <input type="number" name="price" id="price" class="form-control" required min="0" value="{{ $tutorial->price ?? 0 }}">
                     </div>
                     <div class="mb-3">
                         <label for="status" class="form-label">وضعیت</label>
@@ -111,6 +111,14 @@
                             @endforeach
                         </select>
                         @error('tutor')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="short_description" class="form-label">توضیحات کوتاه</label>
+                        <textarea name="short_description" id="short_description" class="form-control"
+                            rows="5">{{ isset($tutorial) ? $tutorial->short_description : '' }}</textarea>
+                        @error('short_description')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>

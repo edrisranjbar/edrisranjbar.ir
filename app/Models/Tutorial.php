@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
 
 class Tutorial extends Model
 
@@ -11,7 +13,15 @@ class Tutorial extends Model
         'duration' => 'integer',
     ];
     protected $fillable = [
-        'title', 'price', 'tutor', 'description', 'status', 'thumbnail', 'duration', 'slug'
+        'title',
+        'price',
+        'tutor',
+        'description',
+        'short_description',
+        'status',
+        'thumbnail',
+        'duration',
+        'slug'
     ];
 
     public function tutor()
@@ -46,4 +56,8 @@ class Tutorial extends Model
         return url("/tutorials/{$this->slug}");
     }
 
+    public function getExcerptAttribute($limit = 10)
+    {
+        return Str::limit($this->description, $limit);
+    }
 }

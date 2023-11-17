@@ -46,10 +46,23 @@
         <aside class="col-12 col-md-4 bg-light">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="h3 card-title mb-3">{{ $tutorial->title }}</h1>
-                    <p class="h5 fw-normal">شهریه دوره: {{ $tutorial->price }} تومان</p>
-                    <p class="h5 fw-normal">
-                        مدرس: ادریس رنجبر
+                    <h1 class="h4 card-title mb-3">{{ $tutorial->title }}</h1>
+                    <p class="mb-4">{{ $tutorial->short_description }}</p>
+                    <p class="h5 fw-normal d-flex justify-content-around">
+                        <span>
+                            شهریه دوره:
+                        </span>
+                        <span>
+                            {{ $tutorial->price }} تومان
+                        </span>
+                    </p>
+                    <p class="h5 fw-normal d-flex justify-content-around">
+                        <span>
+                            مدرس:
+                        </span>
+                        <span>
+                            ادریس رنجبر
+                        </span>
                     </p>
                     <div class="d-flex justify-content-start gap-2 my-4">
                         <a href="#" class="btn btn-lg btn-primary btn-w-icon text-light">
