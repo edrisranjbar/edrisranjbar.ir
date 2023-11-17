@@ -12,10 +12,16 @@
 </head>
 
 <body class="@yield('body-class', '')">
+    
+    @if (!isset($hideHeader))
     <header>
         @include('templates.main-menu')
     </header>
+    @endif
+
     @yield('content')
+
+    @if (!isset($hideFooter))
     <footer>
         <h2 class="my-text-primary">ادریس رنجبر</h2>
         <p class="my-text-orange">توسعه دهنده بک اند و مدرس</p>
@@ -28,10 +34,11 @@
             @endforeach
         </ul>
         <p class="copyright">
-            طراحی و توسعه با ❤️ و ☕ توسط تیم 
+            طراحی و توسعه با ❤️ و ☕ توسط تیم
             <a href="https://itadbeer.com/">آی تدبیر</a>
         </p>
     </footer>
+    @endif
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/splide.min.js') }}"></script>

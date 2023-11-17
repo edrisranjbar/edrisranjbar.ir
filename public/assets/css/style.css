@@ -204,13 +204,15 @@ nav a:hover {
 }
 
 main {
-    overflow: hidden;
+    overflow-x: hidden;
     max-width: 1700px;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 8rem;
 }
-
+main.container-404{
+    margin: 0px;
+}
 main>section,
 main>div {
     padding-left: 32px !important;
@@ -919,28 +921,26 @@ footer p.copyright {
 }
 .container-404 {
     background-color: var(--dark-color);
-    min-height: 90vh;
+    min-height: 100vh;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
+.container-404 img{
+    width: 400px;
+}
 .container-404 h1 {
     margin-top: 48px;
     color: var(--light, #FAFAFA);
     text-align: center;
-    font-size: 64px;
-    font-weight: 900;
 }
 
 .container-404 p {
     margin-top: 16px;
     color: var(--light, #FAFAFA);
     text-align: center;
-    font-size: 32px;
-    font-weight: 300;
 }
 
 .container-404 .btn {
@@ -1483,20 +1483,7 @@ ul.recent-blog-posts-widget li {
         top: 150px;
         bottom: unset;
     }
-
-    .container-404 img {
-        width: 300px;
-    }
-
-    .container-404 h1 {
-        font-weight: 500;
-        font-size: 32px;
-    }
-
-    .container-404 p {
-        font-size: 18px;
-    }
-
+    
     .container-404 .btn {
         margin-top: 16px !important;
         font-size: 16px !important;
