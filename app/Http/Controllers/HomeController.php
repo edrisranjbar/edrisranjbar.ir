@@ -73,4 +73,13 @@ class HomeController extends Controller
         $tutorials = Tutorial::all();
         return view('tutorials.index', compact('tutorials'));
     }
+
+    public function tutorial(string $slug)
+    {
+        $tutorial = Tutorial::where('slug', $slug)->first();
+        if(!$tutorial){
+            abort(404);
+        }
+        return view('tutorials.show', compact('tutorial'));
+    }
 }

@@ -24,7 +24,10 @@
                         <h3 class="post-title">{{ $tutorial->title }}</h3>
                     </a>
                     <div class="d-flex post-meta">
-                        <a href="{{ $tutorial->link }}" class="btn btn-sm btn-primary">مشاهده</a>
+                        <a href="{{ $tutorial->link }}" class="btn btn-sm btn-outline-primary btn-w-icon">
+                            <i class="fa fa-solid fa-eye me-1"></i>
+                            مشاهده
+                        </a>
                         <div class="d-flex align-items-center students-count">
                             <i class="fas fa-user-circle"></i>
                             دانشجویان: {{ $tutorial->students()->count() }}
