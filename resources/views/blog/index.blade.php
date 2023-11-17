@@ -6,15 +6,15 @@
 
     <div class="col-md-8 offset-md-2 mb-5">
         <form action="" method="GET" class="input-group">
-            <input type="text" name="query" class="form-control mr-sm-2" placeholder="جستجو...">
-            <button type="submit" class="btn btn-primary my-2 my-sm-0">جستجو</button>
+            <input type="text" name="query" class="form-control form-control-lg mr-sm-2" placeholder="مثلا: زبان های برنامه نویسی محبوب 2023">
+            <button type="submit" class="btn btn-primary my-2 my-sm-0">جست و جو</button>
         </form>
     </div>
 
-    <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+    <div class="p-4 p-md-5 m-4 rounded text-center text-bg-dark">
         <div class="col-12 px-0">
-            <h1 class="display-6 fw-bold text-primary">
-                به روز ترین مقالات حوزه برنامه نویسی
+            <h1 class="display-6 mb-4 fw-bold text-primary">
+                به روز ترین مقالات به ساده ترین دست خط
             </h1>
             <p class="lead my-3">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
@@ -30,53 +30,59 @@
                 حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
                 گیرد.
             </p>
-            <p class="lead mb-0">
-                <a href="#" class="fw-bold">
-                    به خوندن ادامه بده...
-                </a>
-            </p>
+            <div class="d-inline-flex gap-2 my-3">
+                <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button">
+                    <i class="fa fa-solid fa-arrow-left me-1"></i>
+                    مقالات پربازدید
+                </button>
+                <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">
+                    اخبار تکنولوژی
+                </button>
+            </div>
         </div>
     </div>
 
+    <h2 class="ms-4 mt-5 mb-3">✨مقالات ویژه</h2>
     <div class="row mb-2">
         <div class="col-md-6">
             <div
-                class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                class="row g-0 px-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary">World</strong>
-                    <h3 class="mb-0">Featured post</h3>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
-                        lead-in to
-                        additional content.</p>
-                    <a href="#" class="stretched-link">Continue reading</a>
+                    <strong class="d-inline-block mb-2 text-primary">هک و امنیت</strong>
+                    <h3 class="mb-0">لورم ایپسوم</h3>
+                    <div class="mb-1 text-muted">10 شهریور 1401</div>
+                    <p class="card-text mb-auto">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                        چاپگرها و متون بلکه
+                        روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                    </p>
                 </div>
                 <div class="col-auto d-none d-lg-block">
-                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="bd-placeholder-img" width="200" height="auto" xmlns="http://www.w3.org/2000/svg"
                         role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
                         focusable="false">
                         <title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
                             dy=".3em">Thumbnail</text>
                     </svg>
-
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div
-                class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                class="row px-0 g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-success">Design</strong>
-                    <h3 class="mb-0">Post title</h3>
-                    <div class="mb-1 text-muted">Nov 11</div>
-                    <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content.</p>
-                    <a href="#" class="stretched-link">Continue reading</a>
+                    <strong class="d-inline-block mb-2 text-success">برنامه نویسی</strong>
+                    <h3 class="mb-0">لورم ایپسوم</h3>
+                    <div class="mb-1 text-muted">10 شهریور 1401</div>
+                    <p class="mb-auto">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                        چاپگرها و متون بلکه
+                        روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                    </p>
                 </div>
                 <div class="col-auto d-none d-lg-block">
-                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="bd-placeholder-img" width="200" height="auto" xmlns="http://www.w3.org/2000/svg"
                         role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
                         focusable="false">
                         <title>Placeholder</title>
@@ -89,6 +95,7 @@
         </div>
     </div>
 
+    <h2 class="ms-4 mt-5 mb-3">☕جدیدترین مقالات</h2>
     <div class="row">
         {{-- Posts --}}
         @foreach ($posts as $post)
