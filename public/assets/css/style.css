@@ -21,11 +21,12 @@ a {
     color: inherit !important;
     text-decoration: unset !important;
 }
-
+.bg-dark{
+    background-color: var(--dark-color) !important;
+}
 body {
     direction: rtl !important;
     font-family: "Vazirmatn FD" !important;
-    background-color: var(--dark-color);
 }
 
 /* Header */
@@ -53,6 +54,9 @@ nav ul {
 nav a {
     text-decoration: none;
     color: var(--white-color) !important;
+}
+body.bg-light nav a{
+    color: var(--dark-color) !important;
 }
 .hamburger-menu {
     display: flex;
@@ -1713,4 +1717,11 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.bg-dark .nav-item,footer{
+    color: var(--white-color);
+}
+.bg-light .nav-item,footer{
+    color: var(--dark-color);
 }

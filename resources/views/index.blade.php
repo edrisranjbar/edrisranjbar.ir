@@ -1,4 +1,5 @@
 @section('title', 'توسعه دهنده بک اند وب')
+@section('body-class', 'bg-dark')
 @extends('layouts.app')
 @section('content')
 <main class="container-fluid">

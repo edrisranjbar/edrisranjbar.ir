@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/splide.min.css') }}">
 </head>
 
-<body>
+<body class="@yield('body-class', '')">
     <header>
         @include('templates.main-menu')
     </header>

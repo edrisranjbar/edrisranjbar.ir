@@ -37,4 +37,10 @@ class HomeController extends Controller
             ],
         ];
     }
+
+    public function blog()
+    {
+        $posts = Post::all();
+        return view('blog.index', compact('posts'));
+    }
 }
