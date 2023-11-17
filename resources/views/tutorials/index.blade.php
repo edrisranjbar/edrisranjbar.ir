@@ -5,7 +5,11 @@
 <main>
     <div class="page-title-group">
         <h1 class="page-title">دوره های آموزشی</h1>
-        <div class="page-path text-primary">خانه » دوره ها</div>
+        <div class="page-path text-primary">
+            <a href="{{ url('/') }}">خانه</a>
+             » 
+            <a href="{{ route('tutorials') }}">دوره ها</a>
+            </div>
     </div>
     <div class="my-card-group">
         @foreach($tutorials as $tutorial)
