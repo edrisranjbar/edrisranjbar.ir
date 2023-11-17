@@ -5,8 +5,8 @@
 <main class="container">
 
     <div class="col-md-8 offset-md-2 mb-5">
-        <form action="" method="GET" class="input-group">
-            <input type="text" name="query" class="form-control form-control-lg mr-sm-2" placeholder="مثلا: زبان های برنامه نویسی محبوب 2023">
+        <form action="{{ url('blog') }}" method="GET" class="input-group">
+            <input type="text" name="search" class="form-control form-control-lg mr-sm-2" placeholder="مثلا: زبان های برنامه نویسی محبوب 2023">
             <button type="submit" class="btn btn-primary my-2 my-sm-0">جست و جو</button>
         </form>
     </div>

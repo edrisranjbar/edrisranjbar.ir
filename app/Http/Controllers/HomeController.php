@@ -38,9 +38,19 @@ class HomeController extends Controller
         ];
     }
 
-    public function blog()
+    public function blog(Request $request)
     {
-        $posts = Post::all();
+        $searchQuery = $request->input('search');
+        // If a search query is provided, perform the search
+        if ($searchQuery) {
+            $posts = Post::where('title', 'like', '%' . $searchQuery . '%')
+                ->orWhere('content', 'like', '%' . $searchQuery . '%')
+                ->get();
+        } else {
+            // If no search query is provided, get the latest posts
+            $posts = Post::latest()->get();
+        }
+
         return view('blog.index', compact('posts'));
     }
 }
