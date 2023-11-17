@@ -109,15 +109,19 @@
         @forelse($posts as $post)
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="card-img-top"
-                    alt="{{ $post->title }}">
+                <a href="{{ $post->link }}">
+                    <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="card-img-top"
+                        alt="{{ $post->title }}">
+                </a>
                 <div class="card-body">
                     <div class="small text-muted">
                         {{ \Morilog\Jalali\Jalalian::fromDateTime($post->created_at)->format('d F Y') }}
                     </div>
-                    <h5 class="card-title h4">{{ $post->title }}</h5>
+                    <a href="{{ $post->link }}">
+                        <h5 class="card-title h4">{{ $post->title }}</h5>
+                    </a>
                     <p class="card-text">{{ $post->excerpt }}</p>
-                    <a href="{{ url('blog', $post->slug) }}" class="btn text-light btn-primary btn-w-icon">
+                    <a href="{{ $post->link }}" class="btn text-light btn-primary btn-w-icon">
                         <i class="fa fa-solid fa-eye me-1"></i>
                         ادامه مطلب
                     </a>
