@@ -237,6 +237,13 @@
         </button>
     </div>
 </template>
-
+<script src="{{ asset('assets/js/ckeditor.js') }}"></script>
+<script>
+    ClassicEditor
+    .create(document.querySelector('#description'))
+    .catch(error => {
+        console.error(error);
+    });
+</script>
 <script src="{{ asset('assets/js/tutorials/createOrEdit.js') }}" defer></script>
 @stop
