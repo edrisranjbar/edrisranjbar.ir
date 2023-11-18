@@ -230,9 +230,10 @@
 </template>
 <template id="lessonTemplate">
     <div class="lesson" data-section-id="">
-        <input name="newLessons[]" class="form-control mb-2" type="text" placeholder="عنوان درس">
-        <textarea name="newLessonsDescriptions[]" class="form-control mb-2"
+        <input name="newLessonTitle[]" class="form-control mb-2" type="text" placeholder="عنوان درس">
+        <textarea name="newLessonDescription[]" class="form-control mb-2"
             placeholder="توضیحات درس"></textarea>
+        <input type="file" name="newLessonVideo" accept="video/*" class="form-control mb-2">
         <button type="button" class="btn btn-sm btn-outline-danger delete-lesson-btn"
             onclick="deleteLesson(this)">
             <i class="fa fa-solid fa-trash me-1"></i>

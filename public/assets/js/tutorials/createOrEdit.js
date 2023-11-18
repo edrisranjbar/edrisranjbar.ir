@@ -45,7 +45,6 @@ document.querySelector('#addSectionBtn').addEventListener('click', function () {
 
 const addNewLesson = (sectionElement) => {
     let lessonsGroup = sectionElement.querySelector("#lessonsGroup");
-    console.log(sectionElement);
     const lessonTemplate = document.querySelector('#lessonTemplate');
     const newLesson = document.importNode(lessonTemplate.content, true);
     lessonsGroup.appendChild(newLesson);
@@ -53,4 +52,27 @@ const addNewLesson = (sectionElement) => {
 
 const deleteLesson = (element) => {
     element.closest('.lesson').remove();
+}
+
+const collectSectionsAndLessons = () => {
+    const data = [];
+    document.querySelectorAll('.section-container').forEach(sectionContainer => {
+        const section = {
+            title: sectionContainer.querySelector('.section-title').textContent,
+            lessons: [],
+        };
+
+        sectionContainer.querySelectorAll('.lesson').forEach(lessonContainer => {
+            const lesson = {
+                title: lessonContainer.querySelector('[name="newLessonTitle[]"]').value,
+                description: lessonContainer.querySelector('[name="newLessonDescription[]"]').value,
+                video: lessonContainer.querySelector('[name="newLessonVideo"]').files[0],
+                // Add other properties as needed
+            };
+            section.lessons.push(lesson);
+        });
+
+        data.push(section);
+    });
+    return data;
 }
