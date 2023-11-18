@@ -11,13 +11,9 @@
         {{ !isset($tutorial) ? 'ایجاد آموزش جدید' : $tutorial->title }}
     </h1>
     @include('templates.messages')
-    <form class="w-100 p-3 bg-white rounded shadow-sm border"
-        @if(isset($tutorial))
-        action="{{ route('tutorials.update', ['tutorial'=> $tutorial->id]) }}"
-        @else
-        action="{{ route('tutorials.store') }}"
-        @endif
-        method="POST" enctype="multipart/form-data">
+    <form class="w-100 p-3 bg-white rounded shadow-sm border" @if(isset($tutorial))
+        action="{{ route('tutorials.update', ['tutorial'=> $tutorial->id]) }}" @else
+        action="{{ route('tutorials.store') }}" @endif method="POST" enctype="multipart/form-data">
         @csrf
         @if(isset($tutorial))
         @method('patch')
@@ -32,7 +28,7 @@
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="description" class="form-label">توضیحات</label>
                     <textarea name="description" id="description" class="form-control"
@@ -41,6 +37,32 @@
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+
+                {{-- Sections --}}
+                <div class="mb-3">
+                    <label for="sections" class="form-label">بخش ها</label>
+                    <div id="sectionsGroup" class="form-check-group">
+                        <!-- Existing sections loaded from the server -->
+                        @forelse ($tutorial->sections ?? [] as $section)
+                        <label class="form-check-label form-check">
+                            <input name="sections[]" class="form-check-input" type="checkbox" value="{{ $section->id }}"
+                                checked>
+                            {{ $section->title }}
+                            <button type="button" class="btn btn-sm btn-danger delete-section-btn"
+                                data-section-id="{{ $section->id }}">حذف</button>
+                        </label>
+                        @empty
+                        <label class="form-check-label form-check" id="sections-empty-state">
+                            نتیجه ای یافت نشد
+                        </label>
+                        @endforelse
+                    </div>
+                    <button type="button" class="btn btn-sm btn-outline-primary mt-2 btn-w-icon" id="addSectionBtn">
+                        <i class="fa fa-solid fa-plus me-1"></i>
+                        اضافه کردن بخش جدید
+                    </button>
+                </div>
+                {{-- End Sections --}}
 
                 @if(isset($tutorial))
                 <div class="d-flex flex-wrap">
@@ -78,11 +100,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="duration" class="form-label">مدت دوره</label>
-                        <input type="number" name="duration" id="duration" class="form-control" required min="1" value="{{ $tutorial->duration ?? 0 }}">
+                        <input type="number" name="duration" id="duration" class="form-control" required min="1"
+                            value="{{ $tutorial->duration ?? 0 }}">
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">هزینه شرکت در دوره</label>
-                        <input type="number" name="price" id="price" class="form-control" required min="0" value="{{ $tutorial->price ?? 0 }}">
+                        <input type="number" name="price" id="price" class="form-control" required min="0"
+                            value="{{ $tutorial->price ?? 0 }}">
                     </div>
                     <div class="mb-3">
                         <label for="status" class="form-label">وضعیت</label>
@@ -105,7 +129,8 @@
                         <label for="tutor" class="form-label">مدرس</label>
                         <select name="tutor" id="tutor" class="form-select" required>
                             @foreach ($tutors as $tutor)
-                            <option value="{{ $tutor->id }}" @if(isset($tutorial) && $tutorial->tutor == $tutor->id) selected @endif>
+                            <option value="{{ $tutor->id }}" @if(isset($tutorial) && $tutorial->tutor == $tutor->id)
+                                selected @endif>
                                 {{ $tutor->fullName }}
                             </option>
                             @endforeach
@@ -138,7 +163,7 @@
                     </div>
                     <div class="mb-3">
                         <a href="#" class="btn btn-sm btn-outline-danger btn-w-icon d-inline-block"
-                        data-bs-toggle="modal" data-bs-target="#deleteTutorialModal">
+                            data-bs-toggle="modal" data-bs-target="#deleteTutorialModal">
                             <i class="fa fa-solid fa-trash me-1"></i>
                             حذف
                         </a>
@@ -183,4 +208,17 @@
 </div>
 @endif
 
+<!-- Template for a new section -->
+<template id="sectionTemplate">
+    <label class="form-check-label form-check">
+        <input name="newSections[]" class="form-check-input" type="checkbox" value="" checked>
+        <span class="section-title"></span>
+        <button type="button" class="btn btn-sm btn-outline-danger delete-section-btn btn-w-icon ms-auto" data-section-id="" onclick="deleteSection(this)">
+            <i class="fa fa-solid fa-trash me-1"></i>
+            حذف
+        </button>
+    </label>
+</template>
+
+<script src="{{ asset('assets/js/tutorials/createOrEdit.js') }}" defer></script>
 @stop
