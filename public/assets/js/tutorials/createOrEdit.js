@@ -1,5 +1,11 @@
 let newSectionCounter = 0;
 const emptyStateElement = document.querySelector("#sections-empty-state");
+const pageTitleElement = document.querySelector("#page-title");
+const titleInputElement = document.querySelector("#title");
+
+const updatePageTitle = () => {
+    pageTitleElement.innerText = titleInputElement.value.trim();
+}
 
 const handleEmptyState = () => {
     let sectionsCount = emptyStateElement.parentElement.children.length - 1;

@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <h1 class="h3 mb-3 fw-normal text-right">
+    <h1 class="h3 mb-3 fw-normal text-right" id="page-title">
         {{ !isset($tutorial) ? 'ایجاد آموزش جدید' : $tutorial->title }}
     </h1>
     @include('templates.messages')
@@ -23,7 +23,7 @@
                 <div class="mb-3">
                     <label for="title" class="form-label">عنوان</label>
                     <input type="text" name="title" id="title" class="form-control"
-                        value="{{ isset($tutorial) ? $tutorial->title : '' }}" required>
+                        value="{{ isset($tutorial) ? $tutorial->title : '' }}" required onkeyup="updatePageTitle()">
                     @error('title')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
