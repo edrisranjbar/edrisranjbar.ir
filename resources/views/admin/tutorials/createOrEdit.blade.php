@@ -210,14 +210,37 @@
 
 <!-- Template for a new section -->
 <template id="sectionTemplate">
-    <label class="form-check-label form-check">
-        <input name="newSections[]" class="form-check-input" type="checkbox" value="" checked>
-        <span class="section-title"></span>
-        <button type="button" class="btn btn-sm btn-outline-danger delete-section-btn btn-w-icon ms-auto" data-section-id="" onclick="deleteSection(this)">
-            <i class="fa fa-solid fa-trash me-1"></i>
-            حذف
-        </button>
-    </label>
+    <div class="section-container">
+        <label class="form-check-label form-check">
+            <input name="newSections[]" class="form-check-input" type="checkbox" value="" checked>
+            <span class="section-title"></span>
+            <button type="button" class="btn btn-sm btn-outline-primary btn-w-icon add-lesson-btn ms-auto">
+                <i class="fa fa-solid fa-plus me-1"></i>
+                اضافه کردن درس جدید
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-danger delete-section-btn btn-w-icon ms-1"
+                data-section-id="" onclick="deleteSection(this)">
+                <i class="fa fa-solid fa-trash me-1"></i>
+                حذف
+            </button>
+        </label>
+        <div class="lessons-group">
+            <!-- Lesson Template -->
+            <template id="lessonTemplate">
+                <div class="lesson">
+                    <input name="newLessons[]" class="form-control mb-2" type="text" placeholder="عنوان درس">
+                    <textarea name="newLessonsDescriptions[]" class="form-control mb-2"
+                        placeholder="توضیحات درس"></textarea>
+                    <button type="button" class="btn btn-sm btn-outline-danger delete-lesson-btn"
+                        onclick="deleteLesson(this)">
+                        <i class="fa fa-solid fa-trash me-1"></i>
+                        حذف درس
+                    </button>
+                </div>
+            </template>
+            <!-- End Lesson Template -->
+        </div>
+    </div>
 </template>
 
 <script src="{{ asset('assets/js/tutorials/createOrEdit.js') }}" defer></script>

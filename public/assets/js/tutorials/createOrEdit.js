@@ -31,7 +31,12 @@ const addNewSection = () => {
 
     // Attach the delete button functionality
     newSection.querySelector('.delete-section-btn').addEventListener('click', function () {
-        this.closest('.form-check').remove();
+        this.closest('.section-container').remove();
+    });
+
+    // Attach the add new lesson button functionality
+    newSection.querySelector('.add-lesson-btn').addEventListener('click', function () {
+        addNewLesson(this.closest('.section-container').querySelector('.lessons-group'));
     });
 
     document.querySelector('#sectionsGroup').appendChild(newSection);
@@ -46,4 +51,26 @@ const deleteSection = (element) => {
 document.querySelector('#addSectionBtn').addEventListener('click', function () {
     addNewSection();
     handleEmptyState();
+});
+
+const addNewLesson = (lessonsGroup) => {
+    const lessonTemplate = document.querySelector('#lessonTemplate');
+    const newLesson = document.importNode(lessonTemplate.content, true);
+    lessonsGroup.appendChild(newLesson);
+
+    // Attach the delete button functionality for the new lesson
+    newLesson.querySelector('.delete-lesson-btn').addEventListener('click', function () {
+        this.closest('.lesson').remove();
+    });
+}
+
+const deleteLesson = (element) => {
+    element.closest('.lesson').remove();
+}
+
+// Attach the add new lesson button functionality for existing sections
+document.querySelectorAll('.add-lesson-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        addNewLesson(this.closest('.section-container').querySelector('.lessons-group'));
+    });
 });

@@ -72,6 +72,7 @@ class TutorialController extends Controller
             'title' => 'required',
             'price' => 'required|integer|min:0',
             'tutor' => 'required|exists:admins,id',
+            'duration' => 'required|integer|min:0',
             'description' => 'required',
             'short_description' => 'nullable|max:255',
             'status' => 'required|in:public,private,draft',
