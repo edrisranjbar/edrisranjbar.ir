@@ -29,11 +29,6 @@ const addNewSection = () => {
     newSection.querySelector('.section-title').textContent = prompt("عنوان بخش جدید:");
     newSectionCounter++;
 
-    // Attach the delete button functionality
-    newSection.querySelector('.delete-section-btn').addEventListener('click', function () {
-        this.closest('.section-container').remove();
-    });
-
     // Attach the add new lesson button functionality
     newSection.querySelector('.add-lesson-btn').addEventListener('click', function () {
         addNewLesson(this.closest('.section-container').querySelector('.lessons-group'));
@@ -57,11 +52,6 @@ const addNewLesson = (lessonsGroup) => {
     const lessonTemplate = document.querySelector('#lessonTemplate');
     const newLesson = document.importNode(lessonTemplate.content, true);
     lessonsGroup.appendChild(newLesson);
-
-    // Attach the delete button functionality for the new lesson
-    newLesson.querySelector('.delete-lesson-btn').addEventListener('click', function () {
-        this.closest('.lesson').remove();
-    });
 }
 
 const deleteLesson = (element) => {
