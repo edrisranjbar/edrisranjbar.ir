@@ -369,7 +369,7 @@ body {
 }
 
 .form-check-group {
-    max-height: 172px;
+    max-height: 500px;
     overflow-y: auto;
     border: 1px solid var(--bs-gray-300);
     border-radius: 0.5rem;
@@ -406,6 +406,15 @@ body {
 .form-switch .form-check-input {
     width: 2.5em;
     height: 1.5em;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    margin-top: 8px;
+}
+
+.breadcrumb-wrapper {
+    background-color: var(--smoky-white-color);
+    color: var(--dark-color);
 }
 
 #pswConfirm {

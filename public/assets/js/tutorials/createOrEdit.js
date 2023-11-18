@@ -29,11 +29,6 @@ const addNewSection = () => {
     newSection.querySelector('.section-title').textContent = prompt("عنوان بخش جدید:");
     newSectionCounter++;
 
-    // Attach the add new lesson button functionality
-    newSection.querySelector('.add-lesson-btn').addEventListener('click', function () {
-        addNewLesson(this.closest('.section-container').querySelector('.lessons-group'));
-    });
-
     document.querySelector('#sectionsGroup').appendChild(newSection);
 }
 
@@ -48,7 +43,9 @@ document.querySelector('#addSectionBtn').addEventListener('click', function () {
     handleEmptyState();
 });
 
-const addNewLesson = (lessonsGroup) => {
+const addNewLesson = (sectionElement) => {
+    let lessonsGroup = sectionElement.querySelector("#lessonsGroup");
+    console.log(sectionElement);
     const lessonTemplate = document.querySelector('#lessonTemplate');
     const newLesson = document.importNode(lessonTemplate.content, true);
     lessonsGroup.appendChild(newLesson);
@@ -57,10 +54,3 @@ const addNewLesson = (lessonsGroup) => {
 const deleteLesson = (element) => {
     element.closest('.lesson').remove();
 }
-
-// Attach the add new lesson button functionality for existing sections
-document.querySelectorAll('.add-lesson-btn').forEach(button => {
-    button.addEventListener('click', function () {
-        addNewLesson(this.closest('.section-container').querySelector('.lessons-group'));
-    });
-});

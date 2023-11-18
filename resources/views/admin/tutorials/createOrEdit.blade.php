@@ -210,23 +210,26 @@
 
 <!-- Template for a new section -->
 <template id="sectionTemplate">
-    <label class="form-check-label form-check">
-        <input name="newSections[]" class="form-check-input" type="checkbox" value="" checked>
-        <span class="section-title"></span>
-        <button type="button" class="btn btn-sm btn-outline-primary btn-w-icon add-lesson-btn ms-auto">
-            <i class="fa fa-solid fa-plus me-1"></i>
-            اضافه کردن درس جدید
-        </button>
-        <button type="button" class="btn btn-sm btn-outline-danger delete-section-btn btn-w-icon ms-1"
-            data-section-id="" onclick="deleteSection(this)">
-            <i class="fa fa-solid fa-trash me-1"></i>
-            حذف
-        </button>
-    </label>
+    <div class="row section-container px-4">
+        <label class="form-check-label form-check col-12">
+                <input name="newSections[]" class="form-check-input" type="checkbox" value="" checked>
+                <span class="section-title"></span>
+                <button type="button" class="btn btn-sm btn-outline-primary btn-w-icon add-lesson-btn ms-auto" onclick="addNewLesson(this.closest('.section-container'))">
+                    <i class="fa fa-solid fa-plus me-1"></i>
+                    اضافه کردن درس جدید
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-danger delete-section-btn btn-w-icon ms-1"
+                    data-section-id="" onclick="deleteSection(this)">
+                    <i class="fa fa-solid fa-trash me-1"></i>
+                    حذف
+                </button>
+        </label>
+        <div class="col-12 my-2" id="lessonsGroup"></div>
+    </div>
 </div>
 </template>
 <template id="lessonTemplate">
-    <div class="lesson">
+    <div class="lesson" data-section-id="">
         <input name="newLessons[]" class="form-control mb-2" type="text" placeholder="عنوان درس">
         <textarea name="newLessonsDescriptions[]" class="form-control mb-2"
             placeholder="توضیحات درس"></textarea>
