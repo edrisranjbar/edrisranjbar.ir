@@ -39,8 +39,8 @@
         </p>
     </footer>
     @endif
-    <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}" defer></script>
     <script src="{{ asset('assets/js/splide.min.js') }}"></script>
 </body>
 

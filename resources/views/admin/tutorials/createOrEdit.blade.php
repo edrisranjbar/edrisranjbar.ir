@@ -11,9 +11,9 @@
         {{ !isset($tutorial) ? 'ایجاد آموزش جدید' : $tutorial->title }}
     </h1>
     @include('templates.messages')
-    <form class="w-100 p-3 bg-white rounded shadow-sm border" @if(isset($tutorial))
+    <form class="w-100 p-3 bg-white rounded shadow-sm border needs-validation" @if(isset($tutorial))
         action="{{ route('tutorials.update', ['tutorial'=> $tutorial->id]) }}" @else
-        action="{{ route('tutorials.store') }}" @endif method="POST" enctype="multipart/form-data">
+        action="{{ route('tutorials.store') }}" @endif method="POST" enctype="multipart/form-data" novalidate>
         @csrf
         @if(isset($tutorial))
         @method('patch')
@@ -24,6 +24,9 @@
                     <label for="title" class="form-label">عنوان</label>
                     <input type="text" name="title" id="title" class="form-control"
                         value="{{ isset($tutorial) ? $tutorial->title : '' }}" required onkeyup="updatePageTitle()">
+                    <div class="invalid-feedback">
+                        لطفا عنوان معتبری وارد کنید
+                    </div>
                     @error('title')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -105,7 +108,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">هزینه شرکت در دوره</label>
-                        <input type="number" name="price" id="price" class="form-control" required min="0"
+                        <input type="number" name="price" id="price" class="form-control money" required min="0"
                             value="{{ $tutorial->price ?? 0 }}">
                     </div>
                     <div class="mb-3">
@@ -210,7 +213,7 @@
 
 <!-- Template for a new section -->
 <template id="sectionTemplate">
-    <div class="row section-container px-4">
+    <div class="row section-container px-3">
         <label class="form-check-label form-check col-12">
                 <input name="newSections[]" class="form-check-input" type="checkbox" value="" checked>
                 <span class="section-title"></span>

@@ -467,7 +467,7 @@ img.profile {
 
 .tutorials-right,
 .blog-right {
-    max-width: min(50%, 800px);
+    max-width: max(50%, 800px);
     gap: 16px;
 }
 
@@ -1390,7 +1390,6 @@ ul.recent-blog-posts-widget li {
     #about .profile-box {
         width: 150px;
         height: 150px;
-        border-radius: 8px;
         margin-bottom: 16px;
     }
 
