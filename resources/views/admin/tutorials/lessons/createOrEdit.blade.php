@@ -35,7 +35,7 @@
                 <div class="mb-3">
                     <label for="description" class="form-label">توضیحات</label>
                     <textarea name="description" id="description" class="form-control"
-                        rows="5">{{ isset($tutorial) ? $tutorial->description : '' }}</textarea>
+                        rows="5">{{ isset($lesson) ? $lesson->description : '' }}</textarea>
                     @error('description')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -107,14 +107,14 @@
                     <div class="mb-3">
                         <label for="status" class="form-label">وضعیت</label>
                         <select name="status" id="status" class="form-select" required>
-                            <option value="public" @if(isset($lesson) && $lesson->status === 'public') selected
-                                @endif>عمومی
+                            <option value="public" @selected(isset($lesson) && $lesson->status === 'public')>
+                                عمومی
                             </option>
-                            <option value="private" @if(isset($lesson) && $lesson->status === 'private') selected
-                                @endif>خصوصی
+                            <option value="private" @selected(isset($lesson) && $lesson->status === 'private')>
+                                خصوصی
                             </option>
-                            <option value="draft" @if(isset($lesson) && $lesson->status === 'draft') selected
-                                @endif>پیش‌نویس
+                            <option value="draft" @selected(isset($lesson) && $lesson->status === 'draft')>
+                                پیش‌نویس
                             </option>
                         </select>
                         @error('status')
@@ -124,11 +124,12 @@
                     <div class="mb-3">
                         <label for="duration" class="form-label">مدت درس</label>
                         <input type="number" name="duration" id="duration" class="form-control" required min="1"
-                            value="{{ $tutorial->duration ?? 1 }}" aria-labelledby="durationDescription">
+                            value="{{ $lesson->duration ?? 1 }}" aria-labelledby="durationDescription">
                         <p class="small text-muted">مدت درس را به ثانیه وارد کنید</p>
                     </div>
                     <div class="mb-3 form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="isFree" name="isFree" value="true">
+                        <input class="form-check-input" type="checkbox" role="switch"
+                        id="isFree" name="isFree" value="true" @checked(old('isFree', isset($lesson) ? $lesson->isFree : null))>
                         <label class="form-check-label ms-2" for="isFree">درس رایگان</label>
                     </div>
                     <div class="mb-3">
@@ -140,21 +141,37 @@
                             </span>
                         </div>
                     </div>
+
                     <div class="mb-3">
                         <label for="file" class="form-label">ویدیو</label>
                         <div class="input-group">
                             <input type="file" name="video" id="video" class="form-control" accept="video/*" required>
+
+                            @if(isset($lesson) && $lesson->video_path)
                             <span class="input-group-text">
                                 <i class="fas fa-play-circle"></i>
                             </span>
+                            @endif
                         </div>
                     </div>
+
+                    @if(isset($lesson) && $lesson->video_path)
+                    <div class="mb-3">
+                        <label for="videoPlayer" class="form-label">پخش ویدیو</label>
+                        <video id="videoPlayer" class="w-100" controls>
+                            <source src="{{ asset('storage/upload/' . $lesson->video_path) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    @endif
+
                     <div class="mb-3">
                         <label for="tutorial_id" class="form-label">دوره</label>
                         <select name="tutorial_id" id="tutorial_id" class="form-select" required>
                             <option selected disabled required>لطفا انتخاب کنید</option>
                             @foreach($tutorials as $tutorial)
-                                <option value="{{ $tutorial->id }}" data-tutorialID="{{ $tutorial->id }}">
+                                <option value="{{ $tutorial->id }}" data-tutorialID="{{ $tutorial->id }}"
+                                    @selected(old('tutorial_id', isset($lesson) ? $lesson->tutorial_id : null))>
                                     {{ $tutorial->title }}
                                 </option>
                             @endforeach
@@ -168,7 +185,8 @@
                         <select name="section_id" id="section_id" class="form-select" required>
                             <option selected disabled required>لطفا انتخاب کنید</option>
                             @foreach($sections as $section)
-                            <option value="{{ $section->id }}" data-tutorialID="{{ $section->tutorial->id }}">{{ $section->title }}</option>
+                            <option value="{{ $section->id }}" data-tutorialID="{{ $section->tutorial->id }}"
+                                @selected(old('section_id', isset($lesson) ? $lesson->section_id : null))>{{ $section->title }}</option>
                             @endforeach
                         </select>
                         @error('section_id')
