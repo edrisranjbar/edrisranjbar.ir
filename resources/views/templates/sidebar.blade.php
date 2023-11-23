@@ -75,8 +75,8 @@
                 <a class="collapse-item" href="{{ route('tutorials.index') }}">
                     <span>لیست دوره ها</span>
                 </a>
-                <a class="collapse-item" href="{{ route('courseSections.index') }}">
-                    <span>بخش ها</span>
+                <a class="collapse-item" href="{{ route('lessons.index') }}">
+                    <span>درس ها</span>
                 </a>
             </div>
         </div>

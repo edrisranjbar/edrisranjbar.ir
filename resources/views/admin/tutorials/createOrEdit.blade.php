@@ -86,7 +86,7 @@
                             </button>
                         </div>
                         <ul id="sections" class="list-group my-2">
-                            @foreach($tutorial->sections as $section)
+                            @foreach($tutorial->sections ?? [] as $section)
                                 <li class="list-group-item">
                                     <div class='d-flex justify-content-between align-items-center'>
                                         {{ $section->title }}
