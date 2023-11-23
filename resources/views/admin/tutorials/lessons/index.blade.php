@@ -19,7 +19,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">عنوان</th>
-                    <th scope="col">وضعیت</th>
+                    <th scope="col">بخش و دوره</th>
                     <th scope="col">عملیات</th>
                 </tr>
             </thead>
@@ -32,13 +32,23 @@
                         </a>
                     </th>
                     <td class="align-middle py-2">
-                        <a href="{{ route('lessons.edit', $lesson) }}">{{ $lesson->title }}</a>
+                        <a href="{{ route('lessons.edit', $lesson) }}">
+                            {{ $lesson->title }}
+                        </a>
                     </td>
-                    <td class="align-middle py-2">{{ $lesson->status_label }}</td>
                     <td class="align-middle py-2">
-                        <i class="fa fa-solid fa-eye ms-1"></i>نمایش
+                        <a href="{{ route('lessons.edit', $lesson) }}">
+                            بخش {{ $lesson->section->title }}،
+                            دوره {{ $lesson->section->tutorial->title }}
+                        </a>
+                    </td>
+                    <td class="align-middle py-2">
+                        <a href="{{ url('tutorials/' . $lesson->section->tutorial->slug) }}"
+                            class="btn btn-w-icon btn-outline-primary btn-sm float-left ms-2">
+                            <i class="fa fa-eye ml-1"></i>نمایش دوره
+                        </a>
                         <a href="{{ route('lessons.edit', $lesson->id) }}"
-                            class="btn btn-w-icon btn-outline-secondary btn-sm float-left mr-2">
+                            class="btn btn-w-icon btn-outline-secondary btn-sm float-left ms-2">
                             <i class="fa fa-edit ml-1"></i>ویرایش
                         </a>
                     </td>

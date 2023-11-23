@@ -14,6 +14,6 @@ class Lesson extends Model implements HasMedia
 
     public function section()
     {
-        return $this->belongsTo(Section::class);
+        return $this->belongsTo(CourseSection::class);
     }
 }
