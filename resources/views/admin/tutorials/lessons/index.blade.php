@@ -20,6 +20,7 @@
                     <th scope="col">#</th>
                     <th scope="col">عنوان</th>
                     <th scope="col">بخش و دوره</th>
+                    <th scope="col">مدت</th>
                     <th scope="col">عملیات</th>
                 </tr>
             </thead>
@@ -41,6 +42,9 @@
                             بخش {{ $lesson->section->title }}،
                             دوره {{ $lesson->section->tutorial->title }}
                         </a>
+                    </td>
+                    <td class="align-middle py-2">
+                        {{ $lesson->duration }} ثانیه
                     </td>
                     <td class="align-middle py-2">
                         <a href="{{ url('tutorials/' . $lesson->section->tutorial->slug) }}"
