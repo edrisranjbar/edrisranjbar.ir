@@ -10,7 +10,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Lesson extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
-    protected $fillable = ['title', 'slug', 'description', 'section_id'];
+    protected $guarded = [];
 
     public function section()
     {

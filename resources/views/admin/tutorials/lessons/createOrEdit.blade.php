@@ -107,13 +107,13 @@
                     <div class="mb-3">
                         <label for="status" class="form-label">وضعیت</label>
                         <select name="status" id="status" class="form-select" required>
-                            <option value="public" @if(isset($tutorial) && $tutorial->status === 'public') selected
+                            <option value="public" @if(isset($lesson) && $lesson->status === 'public') selected
                                 @endif>عمومی
                             </option>
-                            <option value="private" @if(isset($tutorial) && $tutorial->status === 'private') selected
+                            <option value="private" @if(isset($lesson) && $lesson->status === 'private') selected
                                 @endif>خصوصی
                             </option>
-                            <option value="draft" @if(isset($tutorial) && $tutorial->status === 'draft') selected
+                            <option value="draft" @if(isset($lesson) && $lesson->status === 'draft') selected
                                 @endif>پیش‌نویس
                             </option>
                         </select>
@@ -128,7 +128,7 @@
                         <p class="small text-muted">مدت درس را به ثانیه وارد کنید</p>
                     </div>
                     <div class="mb-3 form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="isFree" name="isFree">
+                        <input class="form-check-input" type="checkbox" role="switch" id="isFree" name="isFree" value="true">
                         <label class="form-check-label ms-2" for="isFree">درس رایگان</label>
                     </div>
                     <div class="mb-3">
@@ -143,7 +143,7 @@
                     <div class="mb-3">
                         <label for="file" class="form-label">ویدیو</label>
                         <div class="input-group">
-                            <input type="file" name="video" id="video" class="form-control" accept="video/*">
+                            <input type="file" name="video" id="video" class="form-control" accept="video/*" required>
                             <span class="input-group-text">
                                 <i class="fas fa-play-circle"></i>
                             </span>

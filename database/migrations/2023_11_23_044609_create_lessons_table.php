@@ -11,24 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tutorials', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('section_id');
             $table->string('title');
-            $table->integer('price')->default(0);
-            $table->integer('duration');
-            $table->foreignId('tutor')->constrained('admins');
             $table->text('description')->nullable();
-            $table->enum('status', ['public', 'private', 'draft'])->default('draft');
-            $table->string('thumbnail')->nullable();
-            $table->string('slug')->unique();
-            $table->timestamps();
-        });
-        Schema::create('sections', function (Blueprint $table) {
-            $table->id();
+            $table->string('seoTitle');
+            $table->text('seoDescription')->nullable();
+            $table->string('slug')->nullable()->unique();
+            $table->integer('order_id')->nullable();
+            $table->enum('status', ['public', 'private', 'draft']);
+            $table->integer('duration');
+            $table->boolean('isFree')->nullable();
+            $table->string('file_path')->nullable();
+            $table->string('video_path')->nullable();
             $table->unsignedBigInteger('tutorial_id');
-            $table->string('title');
             $table->timestamps();
 
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->foreign('tutorial_id')->references('id')->on('tutorials')->onDelete('cascade');
         });
     }
@@ -39,7 +39,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('lessons');
-        Schema::dropIfExists('sections');
-        Schema::dropIfExists('tutorials');
     }
 };
