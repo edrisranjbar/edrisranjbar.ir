@@ -79,13 +79,27 @@
                     <div class="mb-3 flex-column">
                         <label for="sectionName">بخش ها</label>
                         <div class="w-100 input-group">
-                            <input id="sectionName" type="text" class="form-control rounded-start" placeholder="نام بخش را بنویسید">
+                            <input id="sectionName" type="text" class="form-control rounded-start" placeholder="نام بخش را بنویسید" onkeypress="handlePressingEnterOnSectionNameElement(event)">
                             <button type="button" class="btn btn-sm btn-outline-secondary btn-w-icon" onclick="addNewSectionToSectionsList();">
                                 <i class="fa fa-solid fa-plus me-1"></i>
                                 افزودن
                             </button>
                         </div>
-                        <ul id="sections" class="list-group my-2"></ul>
+                        <ul id="sections" class="list-group my-2">
+                            @foreach($tutorial->sections as $section)
+                                <li class="list-group-item">
+                                    <div class='d-flex justify-content-between align-items-center'>
+                                        {{ $section->title }}
+                                        <button type='button' class='btn btn-sm btn-outline-danger btn-w-icon'
+                                            onclick='removeSectionFromSectionsList(this)'>
+                                            <i class='fa fa-solid fa-trash me-1'></i>
+                                            حذف
+                                        </button>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <input type="hidden" name="sections" id="sectionsArray" value="{{ isset($tutorial) ? implode(', ', $tutorial->sections->pluck('title')->toArray()) : '' }}">
                     </div>
                     
                     <div class="mb-3">

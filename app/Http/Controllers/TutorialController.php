@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\CourseSection;
 use App\Models\Tutorial;
 use Illuminate\Http\Request;
 
@@ -38,13 +39,15 @@ class TutorialController extends Controller
             'status' => 'required|in:public,private,draft',
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'slug' => 'required|string|max:50|unique:tutorials,slug',
+            'sections' => 'string|required'
         ]);
+
         // Store the actual thumbnail if exists
         if ($request->hasFile('thumbnail')) {
             $request->thumbnail->store('public/upload');
             $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
-        Tutorial::create([
+        $tutorial = Tutorial::create([
             'title' => $validatedData['title'],
             'price' => $validatedData['price'],
             'duration' => $validatedData['duration'],
@@ -55,6 +58,15 @@ class TutorialController extends Controller
             'thumbnail' => $validatedData['thumbnail'],
             'slug' => $validatedData['slug'],
         ]);
+
+        $sectionsArray = explode(",", $validatedData['sections']);
+        foreach($sectionsArray as $sectionName)
+        {
+            CourseSection::create([
+                'title' => $sectionName,
+                'tutorial_id' => $tutorial->id
+            ]);
+        }
         return redirect()->route('tutorials.index')->with('success', 'دوره آموزشی جدید با موفقیت ذخیره شد.');
     }
 
@@ -77,11 +89,35 @@ class TutorialController extends Controller
             'short_description' => 'nullable|max:255',
             'status' => 'required|in:public,private,draft',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'sections' => 'string|required'
         ]);
         if ($request->hasFile('thumbnail')) {
             $request->thumbnail->store('public/upload');
             $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
+        $existingSections = $tutorial->sections->pluck('title')->toArray();
+        $sectionsArray = explode(",", $validatedData['sections']);
+        $newSections = array_diff($sectionsArray, $existingSections);
+        foreach ($newSections as $sectionName) {
+            CourseSection::create([
+                'title' => $sectionName,
+                'tutorial_id' => $tutorial->id
+            ]);
+        }
+        // Update existing sections
+        $updatedSections = array_intersect($sectionsArray, $existingSections);
+        foreach ($updatedSections as $sectionName) {
+            $section = $tutorial->sections->where('title', $sectionName)->where('tutorial_id',$tutorial->id)->first();
+            if ($section) {
+                $section->update(['title' => $sectionName]);
+            }
+        }
+        // Remove sections that are no longer present
+        $removedSections = array_diff($existingSections, $sectionsArray);
+        CourseSection::where('title','=', $removedSections)
+        ->where('tutorial_id','=',$tutorial->id)
+        ->delete();
+
         $tutorial->update($validatedData);
         return redirect()->route('tutorials.index')->with('success', 'دوره آموزشی با موفقیت به روزرسانی شد.');
     }
