@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CourseSectionController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TutorialController;
 
@@ -36,6 +37,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('tutorials', TutorialController::class);
+    Route::resource('courseSections', CourseSectionController::class);
     Route::patch('settings', [SettingController::class, 'updateAll'])->name('settings.updateAll');
     Route::resource('settings', SettingController::class);
 });

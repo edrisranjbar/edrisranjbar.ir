@@ -41,32 +41,6 @@
                     @enderror
                 </div>
 
-                {{-- Sections --}}
-                <div class="mb-3">
-                    <label for="sections" class="form-label">بخش ها</label>
-                    <div id="sectionsGroup" class="form-check-group">
-                        <!-- Existing sections loaded from the server -->
-                        @forelse ($tutorial->sections ?? [] as $section)
-                        <label class="form-check-label form-check">
-                            <input name="sections[]" class="form-check-input" type="checkbox" value="{{ $section->id }}"
-                                checked>
-                            {{ $section->title }}
-                            <button type="button" class="btn btn-sm btn-danger delete-section-btn"
-                                data-section-id="{{ $section->id }}">حذف</button>
-                        </label>
-                        @empty
-                        <label class="form-check-label form-check" id="sections-empty-state">
-                            نتیجه ای یافت نشد
-                        </label>
-                        @endforelse
-                    </div>
-                    <button type="button" class="btn btn-sm btn-outline-primary mt-2 btn-w-icon" id="addSectionBtn">
-                        <i class="fa fa-solid fa-plus me-1"></i>
-                        اضافه کردن بخش جدید
-                    </button>
-                </div>
-                {{-- End Sections --}}
-
                 @if(isset($tutorial))
                 <div class="d-flex flex-wrap">
                     <button class="btn btn-w-icon btn-primary mt-2 me-2" type="submit">
@@ -101,6 +75,19 @@
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
+
+                    <div class="mb-3 flex-column">
+                        <label for="sectionName">بخش ها</label>
+                        <div class="w-100 input-group">
+                            <input id="sectionName" type="text" class="form-control rounded-start" placeholder="نام بخش را بنویسید">
+                            <button type="button" class="btn btn-sm btn-outline-secondary btn-w-icon" onclick="addNewSectionToSectionsList();">
+                                <i class="fa fa-solid fa-plus me-1"></i>
+                                افزودن
+                            </button>
+                        </div>
+                        <ul id="sections" class="list-group my-2"></ul>
+                    </div>
+                    
                     <div class="mb-3">
                         <label for="duration" class="form-label">مدت دوره</label>
                         <input type="number" name="duration" id="duration" class="form-control" required min="1"
@@ -211,39 +198,6 @@
 </div>
 @endif
 
-<!-- Template for a new section -->
-<template id="sectionTemplate">
-    <div class="row section-container px-3">
-        <label class="form-check-label form-check col-12">
-                <input name="newSections[]" class="form-check-input" type="checkbox" value="" checked>
-                <span class="section-title"></span>
-                <button type="button" class="btn btn-sm btn-outline-primary btn-w-icon add-lesson-btn ms-auto" onclick="addNewLesson(this.closest('.section-container'))">
-                    <i class="fa fa-solid fa-plus me-1"></i>
-                    اضافه کردن درس جدید
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-danger delete-section-btn btn-w-icon ms-1"
-                    data-section-id="" onclick="deleteSection(this)">
-                    <i class="fa fa-solid fa-trash me-1"></i>
-                    حذف
-                </button>
-        </label>
-        <div class="col-12 my-2" id="lessonsGroup"></div>
-    </div>
-</div>
-</template>
-<template id="lessonTemplate">
-    <div class="lesson" data-section-id="">
-        <input name="newLessonTitle[]" class="form-control mb-2" type="text" placeholder="عنوان درس">
-        <textarea name="newLessonDescription[]" class="form-control mb-2"
-            placeholder="توضیحات درس"></textarea>
-        <input type="file" name="newLessonVideo" accept="video/*" class="form-control mb-2">
-        <button type="button" class="btn btn-sm btn-outline-danger delete-lesson-btn"
-            onclick="deleteLesson(this)">
-            <i class="fa fa-solid fa-trash me-1"></i>
-            حذف درس
-        </button>
-    </div>
-</template>
 <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
 <script>
     ClassicEditor

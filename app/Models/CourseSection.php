@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Section extends Model
+class CourseSection extends Model
 {
     use HasFactory;
 
     protected $fillable = ['title', 'tutorial_id'];
+    protected $table = 'sections';
 
     public function tutorial()
     {
