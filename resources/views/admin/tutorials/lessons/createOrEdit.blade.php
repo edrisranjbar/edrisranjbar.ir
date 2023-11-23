@@ -193,11 +193,54 @@
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        <a href="#" class="btn btn-sm btn-outline-danger btn-w-icon d-inline-block" data-bs-toggle="modal"
+                            data-bs-target="#deleteLessonModal">
+                            <i class="fa fa-solid fa-trash me-1"></i>
+                            حذف
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </form>
 </div>
+
+@if(isset($lesson))
+<div class="modal fade" id="deleteLessonModal" tabindex="-1" role="dialog" aria-labelledby="deleteLessonModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+                <h5 class="modal-title" id="deleteLessonModalLabel">
+                    تأیید حذف
+                </h5>
+                <button type="button" class="btn-close ms-auto me-0"
+                data-bs-dismiss="modal" aria-label="بستن">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>آیا از حذف این درس اطمینان دارید؟</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary"
+                data-bs-dismiss="modal">انصراف
+                </button>
+                <form action="{{ route('lessons.destroy', ['lesson' => $lesson->id]) }}"
+                    method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-w-icon">
+                        <i class="fa fa-solid fa-trash me-1"></i>
+                        حذف
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 
 <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
 <script>

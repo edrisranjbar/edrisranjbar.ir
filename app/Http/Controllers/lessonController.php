@@ -64,4 +64,11 @@ class lessonController extends Controller
         Lesson::create($validatedData);
         return redirect()->route('lessons.index')->with('success', 'درس با موفقیت اضافه شد.');
     }
+
+    public function destroy(int $id)
+    {
+        $lesson = Lesson::findOrFail($id);
+        $lesson->delete();
+        return redirect()->route('lessons.index')->with('success', 'درس مورد نظر با موفقیت حذف شد.');
+    }
 }
