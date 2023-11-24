@@ -55,7 +55,7 @@
         @endif
     </div>
 
-    <div class="container-fluid py-5 mb-5 tutorial-syllabus">
+    <div class="container-fluid py-5 tutorial-syllabus">
         <img src="{{ asset('images/playlist.svg') }}" style="height:96px;" class="mx-auto d-block mb-3">
         <h2 class="text-center text-dark display-5 fw-bold mb-5">سرفصل‌های دوره</h2>
         <div class="row justify-content-center">
@@ -97,6 +97,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5 mb-5 bg-light">
+        <h2 class="text-center fw-bold mb-4 display-5">ویژگی های دوره</h2>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                
+            </div>
+            <div class="col-12 col-md-6"></div>
+            <div class="col-12 col-md-6"></div>
+            <div class="col-12 col-md-6"></div>
         </div>
     </div>
 
