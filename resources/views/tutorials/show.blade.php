@@ -1,89 +1,104 @@
 @section('title', $tutorial->title)
-@section('body-class', 'bg-light')
+@section('body-class', 'bg-dark')
 @extends('layouts.app')
 @section('content')
-<nav aria-label="breadcrumb" class="breadcrumb-wrapper">
-    <ol class="breadcrumb mb-0 py-2 px-3">
-        <li class="breadcrumb-item">
-            <a href="{{ url('/') }}">خانه</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-            <a href="{{ url($tutorial->link) }}">{{ $tutorial->title }}</a>
-        </li>
-    </ol>
-</nav>
-<main class="container-fluid">
-    <div class="row mt-3">
-        <article class="col-12 col-md-8">
-            <div class="p-2">
-                <video src="#" class="w-100 rounded-3 mb-4" controls></video>
-                <ul class="nav nav-pills nav-fill">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" data-bs-toggle="tab" href="#tab1">
-                            توضیحات دوره
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab2">سرفصل ها</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab3">نظرات</a>
-                    </li>
-                </ul>
-                <div class="tab-content mt-2">
-                    <div class="tab-pane fade show active" id="tab1">
-                        {!! $tutorial->description !!}
-                    </div>
-                    <div class="tab-pane fade" id="tab2">
-                        تست
-                    </div>
-                    <div class="tab-pane fade" id="tab3">
-                        تست 2
-                    </div>
-                </div>
+<main class="container-fluid p-0 m-0">
+
+    <div class="row">
+        <div class="col-6">
+            <h1 class="text-light display-5 fw-bold mb-3">{{ $tutorial->title }}</h1>
+            <p class="text-light">{!! $tutorial->short_description !!}</p>
+            <div class="d-flex justify-content-start gap-2 my-4">
+                <a href="#" class="btn btn-lg btn-primary btn-w-icon text-light">
+                    <i class="fa fa-user-graduate me-1"></i>
+                    شرکت در دوره
+                </a>
+                <a href="#" class="btn btn-lg btn-light btn-w-icon border">
+                    <i class="fa fa-regular fa-heart"></i>
+                </a>
             </div>
-        </article>
-        <aside class="col-12 col-md-4 bg-light">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="h4 card-title mb-3">{{ $tutorial->title }}</h1>
-                    <p class="mb-4">{{ $tutorial->short_description }}</p>
-                    <p class="h5 fw-normal d-flex justify-content-around">
-                        <span>
-                            شهریه دوره:
-                        </span>
-                        <span>
-                            {{ $tutorial->price }} تومان
-                        </span>
-                    </p>
-                    <p class="h5 fw-normal d-flex justify-content-around">
-                        <span>
-                            مدرس:
-                        </span>
-                        <span>
-                            ادریس رنجبر
-                        </span>
-                    </p>
-                    <div class="d-flex justify-content-start gap-2 my-4">
-                        <a href="#" class="btn btn-lg btn-primary btn-w-icon text-light">
-                            <i class="fa fa-user-graduate me-1"></i>
-                            شرکت در دوره
-                        </a>
-                        <a href="#" class="btn btn-lg btn-outline-light btn-w-icon border">
-                            <i class="fa fa-regular fa-heart"></i>
-                        </a>
-                    </div>
-                    <p class="d-flex justify-content-around">
-                        <span>تعداد دانشجو:</span>&nbsp;
-                        <span>{{ $tutorial->students()->count() }} نفر</span>
-                    </p>
-                    <p class="d-flex justify-content-around">
-                        <span>مدت دوره:</span>&nbsp;
-                        <span>{{ $tutorial->duration }} دقیقه</span>
-                    </p>
-                </div>
-            </div>
-        </aside>
+        </div>
+        <div class="col-6">
+            <video src="{{ asset('storage/upload/' . $lessons->first()->video_path) }}" class="w-100 rounded-3 mb-4"
+                controls></video>
+        </div>
     </div>
+
+    <div class="row justify-content-center my-5">
+        <div class="col-8 text-bg-light rounded shadow py-3 fs-5">
+            <div class="row">
+                <div class="col-4">
+                    <strong>طول دوره:</strong>
+                    <br>
+                    {{ $tutorial->duration }}
+                </div>
+                <div class="col-4">
+                    <strong>شهریه شرکت در دوره:</strong>
+                    <br>
+                    {{ $tutorial->price === '0' ? $tutorial->price . ' تومان' : 'رایگان'}}
+                </div>
+                <div class="col-4">
+                    <strong>تعداد جلسات:</strong>
+                    <br>
+                    {{ $lessons->count() }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-light py-5 rounded">
+        <h2 class="text-center display-5 fw-bold mb-5">درباره {{ $tutorial->title }}</h2>
+        {!! $tutorial->description !!}
+        @if ($tutorial->thumbnail)
+        <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}" class="w-100 rounded"
+            alt="{{ $tutorial->title }}">
+        @endif
+    </div>
+
+    <div class="container-fluid py-5 mb-5 tutorial-syllabus">
+        <img src="{{ asset('images/playlist.svg') }}" style="height:96px;" class="mx-auto d-block mb-3">
+        <h2 class="text-center text-dark display-5 fw-bold mb-5">سرفصل‌های دوره</h2>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 accordion accordion-flush rounded" id="accordionFlushExample">
+                <div class="accordion-item rounded shadow-sm mb-3 rounded">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button fs-5 rounded-0 collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                            aria-controls="flush-collapseOne">
+                            <i class="fas fa-list me-2"></i>
+                            مقدمه
+                            <span class="ms-auto text-muted fw-normal small">2 جلسه</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body position-relative">
+                            <ul class="d-flex flex-column gap-4 timeline list-unstyled ms-3">
+                                <li class="watched d-flex justify-content-between">
+                                    <div>
+                                        <strong>جلسه اول:</strong>
+                                        نصب وی اس کد
+                                    </div>
+                                    <span class="small m-0 p-0">
+                                        10 دقیقه
+                                    </span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <div>
+                                        <strong>جلسه دوم:</strong>
+                                        ستاپ JS
+                                    </div>
+                                    <span class="small m-0 p-0">
+                                        10 دقیقه
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </main>
 @stop

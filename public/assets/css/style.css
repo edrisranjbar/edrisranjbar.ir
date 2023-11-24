@@ -29,6 +29,10 @@ body {
     font-family: "Vazirmatn FD" !important;
 }
 
+p{
+    line-height: 1.9;
+}
+
 /* Header */
 header {
     padding: 0px 32px 0px 32px;
@@ -1718,4 +1722,50 @@ nav a:hover {
 article video{
     width: 100%;
     height: auto;
+}
+.tutorial-syllabus{
+    background-color: #e1e1e7;
+}
+.accordion-button:hover{
+    background-color: var(--primary-color);
+}
+.accordion-item{
+    border-radius: .5rem !important;
+}
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, .125);
+}
+.accordion-button{
+    border-radius: .5rem !important;
+}
+.accordion-button::after{
+    margin-right: 1rem;
+}
+ul.timeline li::before{
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--semi-dark-color);
+    flex-shrink: 0;
+    margin-top: 3px;
+    right: 1rem;
+}
+ul.timeline li.watched::before{
+    background: #5f9b04;
+}
+ul.timeline li::after{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 16px;
+    border-radius: 1rem;
+    background: #5f5f5ebf;
+    right: 22px;
+    margin-top: 28px;
+}
+ul.timeline li:last-child::after{
+    display: none;
 }

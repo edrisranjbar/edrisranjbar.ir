@@ -145,7 +145,8 @@
                     <div class="mb-3">
                         <label for="file" class="form-label">ویدیو</label>
                         <div class="input-group">
-                            <input type="file" name="video" id="video" class="form-control" accept="video/*" required>
+                            <input type="file" name="video" id="video" class="form-control" accept="video/*"
+                            @if(!isset($lesson)) required @endif>
 
                             @if(isset($lesson) && $lesson->video_path)
                             <span class="input-group-text">

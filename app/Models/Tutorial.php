@@ -33,7 +33,7 @@ class Tutorial extends Model
     {
         return $this->hasMany(CourseSection::class);
     }
-
+    
     public function students()
     {
         return $this->belongsToMany(User::class, 'user_tutorial');

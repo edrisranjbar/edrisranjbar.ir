@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Tutorial;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
@@ -77,9 +78,10 @@ class HomeController extends Controller
     public function tutorial(string $slug)
     {
         $tutorial = Tutorial::where('slug', $slug)->first();
+        $lessons = Lesson::where('tutorial_id', $tutorial->id)->first();
         if(!$tutorial){
             abort(404);
         }
-        return view('tutorials.show', compact('tutorial'));
+        return view('tutorials.show', compact('tutorial', 'lessons'));
     }
 }
