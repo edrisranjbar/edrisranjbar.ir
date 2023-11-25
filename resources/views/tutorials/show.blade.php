@@ -55,7 +55,7 @@
         @endif
     </div>
 
-    <div class="container-fluid py-5 tutorial-syllabus">
+    <div class="py-5 tutorial-syllabus">
         <img src="{{ asset('images/playlist.svg') }}" style="height:96px;" class="mx-auto d-block mb-3">
         <h2 class="text-center text-dark display-5 fw-bold mb-5">سرفصل‌های دوره</h2>
         <div class="row justify-content-center">
@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <div class="container-fluid py-5 mb-5 bg-light">
+    <div class="py-5 bg-light">
         <h2 class="text-center fw-bold mb-5 display-5">ویژگی های دوره</h2>
         <div class="row justify-content-center">
             <div class="col-lg-4 mb-5 text-center">
@@ -134,6 +134,27 @@
                 </p>
             </div>
         </div>
+    </div>
+
+    <div class="py-5 bg-white">
+        <h2 class="text-center fw-bold mb-5 display-5">درباره ادریس رنجبر</h2>
+        <div class="profile-box mx-auto">
+            <img src="{{ URL::to('/') . '/images/profile-transparent.png' }}" alt="ادریس رنجبر">
+        </div>
+        <p class="w-75 mx-auto text-center">
+            ســــلــااام✋،
+            به وب سایت من خوش اومدی. من ادریس رنجبر هستم، یه عدد برنامه نویس یا به عبارت دقیق تر،
+            <strong class="fw-bold text-primary">توسعه دهنده بک اند وب.</strong>
+            کار اصلیم ساخت و توسعه وب سایت و وب اپلیکیشینه و در کنارش آموزش هم میدم.
+            خیلی وقت ها به صورت فریلنسری و
+            فول استک کار میکنم.
+            بیشتر وقتم را در دنیای کدنویسی و طراحی وب سپری می‌کنم.
+            علاقه‌مند به به اشتراک گذاری تجربیات و مهارت‌هایم
+            هستم و همیشه در
+            تلاش برای یادگیری و بهبود خودم هستم.
+            در کنار کارهای توسعه وب، من یک طبیعت‌گرد هم هستم و از ارتباط با
+            طبیعت و طبیعت گردی لذت می‌برم. 🌿
+        </p>
     </div>
 
 </main>

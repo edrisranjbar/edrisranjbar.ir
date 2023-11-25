@@ -592,7 +592,7 @@ img.profile {
     border-radius: 16px;
 }
 
-#about .profile-box {
+.profile-box {
     width: 306px;
     height: 306px;
     display: block;
@@ -603,7 +603,7 @@ img.profile {
     margin-bottom: 55px;
 }
 
-#about .profile-box img{
+.profile-box img{
     max-width: 306px;
     max-height: 306px;
     border-radius: 46%;
