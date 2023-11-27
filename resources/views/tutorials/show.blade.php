@@ -46,13 +46,15 @@
         </div>
     </div>
 
-    <div class="container bg-light py-5 rounded">
-        <h2 class="text-center display-5 fw-bold mb-5">درباره {{ $tutorial->title }}</h2>
-        {!! $tutorial->description !!}
-        @if ($tutorial->thumbnail)
-        <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}" class="w-100 rounded"
-            alt="{{ $tutorial->title }}">
-        @endif
+    <div class="bg-light p-5">
+        <h2 class="text-center display-5 fw-bold mb-5">{{ $tutorial->title }}</h2>
+        <div class="container">
+            {!! $tutorial->description !!}
+            @if ($tutorial->thumbnail)
+            <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}" class="w-100 rounded"
+                alt="{{ $tutorial->title }}">
+            @endif
+        </div>
     </div>
 
     <div class="py-5 tutorial-syllabus">
@@ -108,7 +110,7 @@
                     style="width:140px; height: 140px;">
                     <img src="{{ asset('images/medal.png') }}" class="w-75 h-auto">
                 </div>
-                <h2 class="fw-normal fs-5 mt-3">کیفیت بالا</h2>
+                <h2 class="fw-normal fs-5 mt-2 mb-3">کیفیت بالا</h2>
                 <p>
                     تمامی درس های این دوره قبل از ضبط و تولید، برنامه ریزی شده و تمرین ها و مسائلی که ممکنه برای مهارت آموزان مطرح بشه هم در ویدیو و هم در سرفصل دوره در نظر گرفته شده.    
                 </p>
@@ -118,7 +120,7 @@
                     style="width:140px; height: 140px;">
                     <img src="{{ asset('images/study.png') }}" class="w-75 h-auto">
                 </div>
-                <h2 class="fw-normal fs-5 mt-3">تمرین های مبتنی بر حل مسئله</h2>
+                <h2 class="fw-normal fs-5 mt-2 mb-3">تمرین های مبتنی بر حل مسئله</h2>
                 <p>
                     مهم ترین نکته ای که برای طراحی تمارین دوره در نظر گرفته شده، تمرین های عملی و واقعیه. هر چی تمرین واقعی تر باشه وقت و انرژی و خلاقیتی که برای حل کردنش میزاری بیشتر و بهینه تر میشه.
                 </p>
@@ -128,7 +130,7 @@
                     style="width:140px; height: 140px;">
                     <img src="{{ asset('images/code.png') }}" class="w-75 h-auto">
                 </div>
-                <h2 class="fw-normal fs-5 mt-3">پروژه محور و عملی</h2>
+                <h2 class="fw-normal fs-5 mt-2 mb-3">پروژه محور و عملی</h2>
                 <p>
                     در این دوره سعی شده آموزش و تمارین کاربردی و مربوط به دنیای واقعی باشه.
                 </p>

@@ -22,7 +22,7 @@
     @yield('content')
 
     @if (!isset($hideFooter))
-    <footer>
+    <footer class="pt-5">
         <h2 class="my-text-primary">ادریس رنجبر</h2>
         <p class="my-text-orange">توسعه دهنده بک اند و مدرس</p>
         <ul class="px-0 text-center">

@@ -7,7 +7,7 @@ use App\Models\Lesson;
 use Illuminate\Http\Request;
 use App\Models\Tutorial;
 
-class lessonController extends Controller
+class LessonController extends Controller
 {
     public function index()
     {
