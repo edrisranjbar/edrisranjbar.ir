@@ -132,6 +132,21 @@
                         id="isFree" name="isFree" value="true" @checked(old('isFree', isset($lesson) ? $lesson->isFree : null))>
                         <label class="form-check-label ms-2" for="isFree">درس رایگان</label>
                     </div>
+
+                    <div class="mb-3">
+                        <label for="thumbnail" class="form-label">تصویر بند انگشتی</label>
+                        <input type="file" name="thumbnail" id="thumbnail" class="form-control" @if(!isset($lesson)) required @endif>
+                        @error('thumbnail')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                        @if (isset($lesson) && $lesson->thumbnail)
+                        <div class="mt-2">
+                            <label class="form-label">تصویر فعلی:</label>
+                            <img src="{{ asset('storage/upload/'.$lesson->thumbnail) }}" class="img-fluid rounded">
+                        </div>
+                        @endif
+                    </div>
+
                     <div class="mb-3">
                         <label for="file" class="form-label">فایل تمرین</label>
                         <div class="input-group">

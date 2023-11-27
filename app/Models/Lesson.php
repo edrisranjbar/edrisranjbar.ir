@@ -16,4 +16,9 @@ class Lesson extends Model implements HasMedia
     {
         return $this->belongsTo(CourseSection::class);
     }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('thumbnail')->singleFile();
+    }
 }

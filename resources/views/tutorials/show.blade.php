@@ -4,7 +4,7 @@
 @section('content')
 <main class="container-fluid p-0 m-0">
 
-    <div class="row">
+    <div class="row bg-dark">
         <div class="col-6">
             <h1 class="text-light display-5 fw-bold mb-3">{{ $tutorial->title }}</h1>
             <p class="text-light">{!! $tutorial->short_description !!}</p>
@@ -19,8 +19,9 @@
             </div>
         </div>
         <div class="col-6">
-            <video src="{{ asset('storage/upload/' . $lessons->first()->video_path) }}" class="w-100 rounded-3 mb-4"
-                controls></video>
+            <video id="videoPlayer" class="w-100 rounded-3 mb-4" poster="{{ asset('storage/upload/' . $lessons->first()->thumbnail) }}">
+                <source src="{{ asset('storage/upload/' . $lessons->first()->video_path) }}" type="video/mp4">
+            </video>
         </div>
     </div>
 
@@ -160,4 +161,5 @@
     </div>
 
 </main>
+<script src="{{ asset('assets/js/tutorials/show.js') }}"></script>
 @stop

@@ -42,12 +42,19 @@ class LessonController extends Controller
             'status' => 'required|in:public,private,draft',
             'duration' => 'required|integer|min:1',
             'isFree' => 'nullable|in:true,false',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif',
             'file' => 'nullable|file|mimes:zip',
             'video' => 'required|file|mimetypes:video/*',
             'tutorial_id' => 'required|exists:tutorials,id',
             'section_id' => 'required|exists:sections,id',
         ];
         $validatedData = $request->validate($validationRules);
+        // Handle file uploads
+        if ($request->hasFile('thumbnail')) {
+            $request->file('thumbnail')->store('public/upload');
+            $validatedData['thumbnail'] = $request->file('thumbnail')->hashName();
+        }
+        
         // Handle file uploads
         if ($request->hasFile('file')) {
             $request->file('file')->store('public/upload');
@@ -78,6 +85,7 @@ class LessonController extends Controller
             'status' => 'required|in:public,private,draft',
             'duration' => 'required|integer|min:1',
             'isFree' => 'nullable|in:true,false',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif',
             'file' => 'nullable|file|mimes:zip',
             'video' => 'nullable|file|mimetypes:video/*',
             'tutorial_id' => 'required|exists:tutorials,id',
@@ -85,6 +93,12 @@ class LessonController extends Controller
         ];
         $validatedData = $request->validate($validationRules);
 
+        // Handle file uploads
+        if ($request->hasFile('thumbnail')) {
+            $request->file('thumbnail')->store('public/upload');
+            $validatedData['thumbnail'] = $request->file('thumbnail')->hashName();
+        }
+        
         // Handle file uploads
         if ($request->hasFile('file')) {
             $request->file('file')->store('public/upload');

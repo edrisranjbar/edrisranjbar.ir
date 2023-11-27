@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=3') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/splide.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/moovie.min.css') }}">
 </head>
 
 <body class="@yield('body-class', '')">
@@ -40,8 +41,9 @@
     </footer>
     @endif
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/script.js') }}" defer></script>
     <script src="{{ asset('assets/js/splide.min.js') }}"></script>
+    <script src="{{ asset('assets/js/moovie.min.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}" defer></script>
 </body>
 
 </html>
