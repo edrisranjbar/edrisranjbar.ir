@@ -2,46 +2,56 @@
 @section('body-class', 'bg-dark')
 @extends('layouts.app')
 @section('content')
-<main class="container-fluid p-0 m-0">
+<main class="container-fluid px-0">
 
-    <div class="row bg-dark">
-        <div class="col-6">
-            <h1 class="text-light display-5 fw-bold mb-3">{{ $tutorial->title }}</h1>
-            <p class="text-light">{!! $tutorial->short_description !!}</p>
-            <div class="d-flex justify-content-start gap-2 my-4">
-                <a href="#" class="btn btn-lg btn-primary btn-w-icon text-light">
-                    <i class="fa fa-user-graduate me-1"></i>
-                    شرکت در دوره
+    <div class="container-xlg">
+        <div class="row text-light">
+            <div class="col-12 col-md-6">
+                <a class="mb-3 btn-w-icon small" href="{{ url('tutorials') }}">
+                    <i class="fas fa-arrow-right me-1"></i>
+                    برگشت
                 </a>
-                <a href="#" class="btn btn-lg btn-light btn-w-icon border">
-                    <i class="fa fa-regular fa-heart"></i>
-                </a>
+                <h1 class="display-5 fw-bold mb-2">{{ $tutorial->title }}</h1>
+                <p class="fs-3 mb-1">{!! $tutorial->short_description !!}</p>
+                <div class="badge text-bg-info">
+                    برنامه نویسی
+                </div>
+                <div class="d-flex justify-content-start gap-2 my-5">
+                    <a href="#" class="btn btn-lg btn-primary btn-w-icon">
+                        <i class="fa fa-user-graduate me-1"></i>
+                        شرکت در دوره
+                    </a>
+                    <a href="#" class="btn btn-lg btn-dark btn-w-icon border">
+                        <i class="fa fa-regular fa-heart"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="col-6">
-            <video id="videoPlayer" class="w-100 rounded-3 mb-4" poster="{{ asset('storage/upload/' . $lessons->first()->thumbnail) }}">
-                <source src="{{ asset('storage/upload/' . $lessons->first()->video_path) }}" type="video/mp4">
-            </video>
+            <div class="col-12 col-md-5">
+                <video id="videoPlayer" class="w-100 rounded-3 mb-4"
+                poster="{{ asset('storage/upload/' . $lessons?->first()?->thumbnail) }}">
+                    <source src="{{ asset('storage/upload/' . $lessons?->first()?->video_path) }}" type="video/mp4">
+                </video>
+            </div>
         </div>
     </div>
 
     <div class="row justify-content-center my-5">
-        <div class="col-8 text-bg-light rounded shadow py-3 fs-5">
-            <div class="row">
-                <div class="col-4">
+        <div class="col-8 py-3 fs-5 text-center">
+            <div class="row gap-2">
+                <div class="col py-3 text-bg-light rounded shadow">
                     <strong>طول دوره:</strong>
                     <br>
                     {{ $tutorial->duration }}
                 </div>
-                <div class="col-4">
+                <div class="col py-3 text-bg-light rounded shadow">
                     <strong>شهریه شرکت در دوره:</strong>
                     <br>
                     {{ $tutorial->price === '0' ? $tutorial->price . ' تومان' : 'رایگان'}}
                 </div>
-                <div class="col-4">
+                <div class="col py-3 text-bg-light rounded shadow">
                     <strong>تعداد جلسات:</strong>
                     <br>
-                    {{ $lessons->count() }}
+                    {{ $lessons?->count() ?? 0 }} جلسه
                 </div>
             </div>
         </div>
@@ -52,8 +62,7 @@
         <div class="container">
             {!! $tutorial->description !!}
             @if ($tutorial->thumbnail)
-            <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}" class="w-100 rounded"
-                alt="{{ $tutorial->title }}">
+                <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}" class="w-100 rounded" alt="{{ $tutorial->title }}">
             @endif
         </div>
     </div>
@@ -141,7 +150,7 @@
 
     <div class="py-5 bg-white">
         <h2 class="text-center fw-bold mb-5 display-5">درباره ادریس رنجبر</h2>
-        <div class="profile-box mx-auto">
+        <div class="profile-box text-center mx-auto">
             <img src="{{ URL::to('/') . '/images/profile-transparent.png' }}" alt="ادریس رنجبر">
         </div>
         <p class="w-75 mx-auto text-center">
