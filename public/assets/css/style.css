@@ -2189,4 +2189,87 @@ footer {
     aspect-ratio: 1/1;
     flex-shrink: 0;
 }
+
+#tutorial-overview{
+    margin-top: 88px;
+    padding: 88px 88px;
+    background-color: #323030;
+    display: flex;
+    position: relative;
+}
+#tutorial-overview .tutorial-poster{
+    width: 469px;
+    height: auto;
+}
+.tutorial-overview-title{
+    color: var(--secondary-light-color);
+    text-align: right;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-bottom: 27px;
+}
+.tutorial-overview-description{
+    color: #D6D6D6;
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#tutorial-overview .attributes-wrapper{
+    column-gap: 42px;
+    margin-top: 16px;
+}
+#tutorial-overview .attributes:last-child{
+    margin-top: 64px;
+}
+#tutorial-overview .attributes li{
+    color: #D6D6D6;
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+#tutorial-overview .attributes li::before{
+    content: url("../icons/tick.svg");
+    max-width: 72px;
+    position: relative;
+    top: 8px;
+}
+#tutorial-overview .arrow-down{
+    transform: rotate(-175.026deg);
+    margin-right: 64px;
+}
+#tutorial-overview button{
+    margin-right: 188px;
+}
+#tutorial-overview::before {
+    content: "";
+    background-color: #323030;
+    height: 88px;
+    width: 100%;
+    transform: rotate(-3.65deg);
+    position: absolute;
+    top: -42px;
+    right: -6px;
+    z-index: 0;
+}
+
+#tutorial-overview::after {
+    content: "";
+    background-color: #323030;
+    height: 100px;
+    width: 100%;
+    transform: rotate(-3.65deg);
+    position: absolute;
+    bottom: -43px;
+    left: -6px;
+    z-index: 0;
+}
 /* End Tutorial Page */
