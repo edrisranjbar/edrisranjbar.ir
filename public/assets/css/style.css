@@ -2157,4 +2157,36 @@ footer {
 .h-100{
     height: 100%;
 }
+
+#tutorial-tutor{
+    padding: 88px 64px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    column-gap: 32px;
+}
+
+#tutorial-tutor h2{
+    color: var(--primary-dark-color);
+    text-align: right;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+#tutorial-tutor p{
+    color: var(--dark-color);
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 32px;
+    margin-bottom: 32px;
+}
+.tutor-profile{
+    width: 320px;
+    aspect-ratio: 1/1;
+    flex-shrink: 0;
+}
 /* End Tutorial Page */
