@@ -1876,7 +1876,7 @@ footer {
 .tutorial-is-good-for{
     position: absolute;
     bottom: 64px;
-    right: 39px;
+    right: 0px;
 }
 .tutorial-is-bad-for{
     position: absolute;
@@ -1958,16 +1958,123 @@ footer {
     width: calc(100% - 140px) !important;
     margin-left: auto;
  }
- .tutorial-syllabus-title{
+ .good-bad-section{
+    margin-left: 32px;
+    margin-right: 32px;
+}
+.tutorial-syllabus-title{
     color: var(--primary-dark-color);
     font-size: 64px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
     margin-top: 104px;
- }
- .good-bad-section{
-    margin-left: 32px;
-    margin-right: 32px;
- }
+    margin-bottom: 64px;
+    text-align: center;
+}
+.accordion{
+    display: block;
+    margin: 0 80px;
+    width: calc(100% - 160);
+}
+.accordion-header{
+    padding: 0px 32px;
+    border-radius: 16px;
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.accordion-header.active{
+    background: var(--semi-dark-color);
+}
+.accordion-burger-icon{
+    margin-left: 8px;
+}
+.accordion-title{
+    color: #323030;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.accordion-header.active .accordion-title{
+    color: var(--pure-white);
+}
+.accordion-header .accordion-arrow{
+    transition: transform .3s ease-in-out;
+}
+.accordion-header.active .accordion-arrow{
+    transform: rotate(180deg);
+}
+.accordion-body{
+    margin-top: 16px;
+    padding: 0px;
+    border-radius: 16px;
+    background: #E8E8E8;
+    margin-bottom: 16px;
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition-property: padding,max-height,opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.accordion-body.active {
+    padding: 0 73px 0 32px;
+    opacity: 1;
+    max-height: max-content;
+}
+.accordion-body li{
+    position: relative;
+    margin-top: 16px;
+}
+.accordion-body li:last-child{
+    margin-bottom: 16px;
+}
+.accordion-body li::before{
+    content: '';
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    right: -40px;
+    top: 13px;
+    background-color: #979797;
+}
+.accordion-body li:not(:last-child)::after{
+    content: '';
+    width: 4px;
+    height: 42px;
+    background-color: #979797;
+    position: absolute;
+    right: -30px;
+    top: 38px;
+}
+.accordion .lesson-counter-label{
+    color: #323030;
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 16px;
+}
+.accordion .lesson-title{
+    color: #323030;
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.accordion .lesson-duration{
+    color: #323030;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
 /* End Tutorial Page */
