@@ -852,7 +852,8 @@ address {
 }
 
 footer {
-    text-align: center;
+    padding-right: 64px;
+    text-align: right;
     color: var(--white-color);
 }
 
@@ -892,6 +893,7 @@ footer p.copyright {
     font-size: 16px;
     line-height: 25px;
     margin-bottom: 64px;
+    text-align: center;
 }
 
 .copyright {
