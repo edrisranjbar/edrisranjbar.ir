@@ -32,6 +32,10 @@ body {
     font-family: "Vazirmatn FD" !important;
 }
 
+main{
+    overflow-x: hidden;
+}
+
 p {
     line-height: 1.9;
 }
@@ -65,7 +69,7 @@ nav a {
     color: var(--white-color) !important;
 }
 
-body.bg-light nav a {
+.bg-light nav a {
     color: var(--dark-color) !important;
 }
 
@@ -1684,12 +1688,12 @@ nav a:hover {
 }
 
 .bg-dark .nav-item,
-footer {
+.bg-light footer {
     color: var(--white-color);
 }
 
 .bg-light .nav-item,
-footer {
+.bg-light footer {
     color: var(--dark-color);
 }
 
