@@ -35,7 +35,9 @@ body {
 p {
     line-height: 1.9;
 }
-
+.white {
+    filter: grayscale(100%) invert(100%);
+}
 /* Header */
 header {
     padding: 0px 32px 0px 32px;
@@ -1992,6 +1994,7 @@ footer {
     margin-left: 8px;
 }
 .accordion-title{
+    margin-bottom: 0px;
     color: #323030;
     text-align: center;
     font-size: 32px;
@@ -2003,6 +2006,8 @@ footer {
     color: var(--pure-white);
 }
 .accordion-header .accordion-arrow{
+    margin-top: 16px;
+    margin-bottom: 16px;
     transition: transform .3s ease-in-out;
 }
 .accordion-header.active .accordion-arrow{
@@ -2271,5 +2276,33 @@ footer {
     bottom: -43px;
     left: -6px;
     z-index: 0;
+}
+#QA{
+    padding: 106px 0;
+}
+#QA .QA_title{
+    color: var(--primary-dark-color);
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-bottom: 32px;
+}
+#QA .accordion-header.active{
+    background-color: var(--primary-dark-color);
+}
+#QA .accordion-header .accordion-title{
+    font-size: 24px;
+}
+#QA .accordion-header.active .accordion-title, #QA .accordion-header.active .accordion-arrow{
+    color: var(--pure-white);
+}
+#QA .accordion-body.active{
+    padding: 0 16px;
+    font-size: 18px;
+}
+#QA .accordion-body:not(.active){
+    padding:0;
 }
 /* End Tutorial Page */

@@ -28,7 +28,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const accordionHeaderElements = document.querySelectorAll(".accordion-header");
     const accordionBodyElements = document.querySelectorAll(".accordion-body");
-
+    const accordionArrows = document.querySelectorAll(".accordion-arrow");
+    const accordionBurgerIcons = document.querySelectorAll(".accordion-burger-icon");
     accordionHeaderElements.forEach((header, index) => {
         header.addEventListener('click', () => {
             accordionBodyElements.forEach((body, i) => {
@@ -37,12 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     body.style.maxHeight = "0";
                 }
             });
-
+            accordionBurgerIcons[index].classList.toggle('white', !header.classList.contains('active'));
             if (accordionBodyElements[index].classList.contains("active")) {
                 accordionBodyElements[index].classList.remove("active");
                 accordionBodyElements[index].style.maxHeight = "0";
+                accordionArrows[index].src = "assets/icons/plus-circle.svg";
             } else {
                 accordionBodyElements[index].classList.add("active");
+                accordionArrows[index].src = "assets/icons/minus-circle.svg";
                 setTimeout(() => {
                     accordionBodyElements[index].style.maxHeight = accordionBodyElements[index].scrollHeight + "px";
                 }, 50);
