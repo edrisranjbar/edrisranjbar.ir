@@ -1,5 +1,5 @@
 @section('title', 'دوره های آموزشی')
-@section('body-class', 'bg-light')
+@section('header-class', 'bg-light')
 @extends('layouts.app')
 @section('content')
 <main>

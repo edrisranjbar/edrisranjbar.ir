@@ -48,7 +48,7 @@ header {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 64px;
+    padding-bottom: 64px;
     font-size: 24px;
     box-sizing: border-box;
 }
@@ -1656,7 +1656,7 @@ nav a:hover {
 @media only screen and (min-width:576px) {
 
     header {
-        margin-bottom: 86px;
+        padding-bottom: 86px;
     }
 
     .page-title-group {
@@ -1666,7 +1666,7 @@ nav a:hover {
 
 @media only screen and (min-width:768px) {
     header {
-        margin-bottom: 108px;
+        padding-bottom: 108px;
     }
 
     nav ul {

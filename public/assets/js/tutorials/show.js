@@ -42,10 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (accordionBodyElements[index].classList.contains("active")) {
                 accordionBodyElements[index].classList.remove("active");
                 accordionBodyElements[index].style.maxHeight = "0";
-                accordionArrows[index].src = "assets/icons/plus-circle.svg";
+                accordionArrows[index].src = "/assets/icons/plus-circle.svg";
             } else {
                 accordionBodyElements[index].classList.add("active");
-                accordionArrows[index].src = "assets/icons/minus-circle.svg";
+                accordionArrows[index].src = "/assets/icons/minus-circle.svg";
                 setTimeout(() => {
                     accordionBodyElements[index].style.maxHeight = accordionBodyElements[index].scrollHeight + "px";
                 }, 50);

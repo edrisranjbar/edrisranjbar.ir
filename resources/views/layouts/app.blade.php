@@ -15,7 +15,7 @@
 <body class="@yield('body-class', '')">
     
     @if (!isset($hideHeader))
-    <header>
+    <header class="@yield('header-class', '')">
         @include('templates.main-menu')
     </header>
     @endif
@@ -23,22 +23,7 @@
     @yield('content')
 
     @if (!isset($hideFooter))
-    <footer class="pt-5">
-        <h2 class="my-text-primary">ادریس رنجبر</h2>
-        <p class="my-text-orange">توسعه دهنده بک اند و مدرس</p>
-        <ul class="px-0 text-center">
-            @foreach ($navbarItems as $navbarItem)
-            <a href="{{ $navbarItem->route}}">
-                <li class="nav-item {{ $navbarItem->route === url()->full() ? 'active' : '' }}">{{ $navbarItem->name }}
-                </li>
-            </a>
-            @endforeach
-        </ul>
-        <p class="copyright">
-            طراحی و توسعه با ❤️ و ☕ توسط تیم
-            <a href="https://itadbeer.com/">آی تدبیر</a>
-        </p>
-    </footer>
+    @include('templates.footer')
     @endif
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/splide.min.js') }}"></script>

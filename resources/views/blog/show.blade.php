@@ -1,5 +1,5 @@
 @section('title', $post->title)
-@section('body-class', 'bg-light')
+@section('header-class', 'bg-light')
 @extends('layouts.app')
 @section('content')
 <main class="container-fluid">

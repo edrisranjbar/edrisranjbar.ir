@@ -1,5 +1,5 @@
 @section('title', 'صفحه یافت نشد')
-@section('body-class', 'bg-dark')
+@section('header-class', 'bg-dark')
 @php
 View::share('hideFooter', true);
 View::share('hideHeader', true);
