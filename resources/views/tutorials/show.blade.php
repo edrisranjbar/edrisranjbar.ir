@@ -10,11 +10,10 @@
                 <a href="#">برنامه نویسی</a>
             </span>
             <h1 class="tutorial-title">
-                طراحی وب سایت با HTML5
+                {{ $tutorial->title }}
             </h1>
             <p class="tutorial-short-description">
-                اچ تی ام ال پایه ای ترین زبان برای ساختن وب سایت و صفحات تحت وبه. همین الان با دوره ی رایگان HTML5
-                شروع کن.
+                {{ $tutorial->short_description }}
             </p>
             <div class="d-flex tutorial-action-buttons">
                 <button class="button button-secondary">همین حالا شروع کن!</button>
@@ -31,15 +30,17 @@
             <div class="d-flex flex-column tutorial-attributes-section">
                 <div class="tutorial-attribute">
                     <img src="{{ asset('assets/icons/coins.png') }}">
-                    <span>شهریه دوره: رایگان</span>
+                    <span>شهریه دوره: {{ $tutorial->priceLabel }}</span>
                 </div>
                 <div class="tutorial-attribute">
                     <img src="{{ asset('assets/icons/coins.png') }}">
-                    <span>طول دوره: ۱۲ ساعت</span>
+                    <span>طول دوره:
+                        {{ $tutorial->totalDuration }}
+                        دقیقه</span>
                 </div>
                 <div class="tutorial-attribute">
                     <img src="{{ asset('assets/icons/coins.png') }}">
-                    <span>تعداد جلسات: ۷۵ جلسه</span>
+                    <span>تعداد جلسات: {{ $tutorial->lessons->count() }} جلسه</span>
                 </div>
             </div>
         </div>
@@ -47,35 +48,15 @@
 
     <div class="tutorial-content">
         <div class="video-player-container">
-            <video src="" class="video-player" poster="{{ asset('images/bs.png') }}" controls></video>
+            <video src="{{ asset('storage/upload/' . $tutorial->lessons->first()->video_path) }}" class="video-player"
+                poster="{{ asset('storage/upload/' . $tutorial->lessons->first()->thumbnail) }}" controls></video>
         </div>
-        <p class="video-caption">قسمت اول -مقدمه</p>
-
-        <p class="about-tutorial-title">درباره دوره HTML5</p>
-        <p class="tutorial-description">
-            دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم
-            دوستان و
-            همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و
-            همراهان عزیز به
-            قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به
-            قسمت هفتم
-            دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم
-            دوستان و
-            همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و
-            همراهان عزیز به
-            قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم .
-
-            دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم
-            دوستان و
-            همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم
-            دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم
-            دوستان و
-            همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم
-
-            دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم
-            دوستان و
-            همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم دوستان و همراهان عزیز به قسمت هفتم
-        </p>
+        <p class="video-caption">{{ $tutorial->lessons->first()->title }}</p>
+        <br>
+        <p class="about-tutorial-title">درباره دوره {{ $tutorial->title }}</p>
+        <span class="tutorial-description">
+            {!! $tutorial->description !!}
+        </span>
     </div>
 
     <div class="good-bad-section">
@@ -133,7 +114,8 @@
     <div id="tutorial-syllabus">
         <h2 class="tutorial-syllabus-title">« سرفصلهای دوره »</h2>
         <section class="accordion">
-            <div class="accordion-header" id="accordion-1">
+            @foreach($tutorial->sections as $section)
+            <div class="accordion-header" id="accordion-{{ $loop->iteration }}">
                 <div class="w-100 d-flex justify-content-between align-items-center">
                     <div class="d-flex flex-row align-items-center">
                         <svg class="accordion-burger-icon" width="38" height="34" viewBox="0 0 38 34" fill="none"
@@ -142,64 +124,23 @@
                                 d="M34.3332 27.5416C35.0715 27.5419 35.7814 27.8264 36.3157 28.3359C36.8501 28.8454 37.1679 29.5409 37.2034 30.2784C37.2389 31.0159 36.9893 31.7388 36.5063 32.2972C36.0234 32.8557 35.3441 33.2069 34.6092 33.2782L34.3332 33.2916H3.6665C2.92817 33.2912 2.21828 33.0068 1.68393 32.4973C1.14958 31.9878 0.831731 31.2922 0.796249 30.5547C0.760767 29.8173 1.01037 29.0944 1.49334 28.5359C1.97631 27.9775 2.65562 27.6262 3.3905 27.555L3.6665 27.5416H34.3332ZM34.3332 14.1249C35.0957 14.1249 35.8269 14.4278 36.3661 14.967C36.9053 15.5062 37.2082 16.2374 37.2082 16.9999C37.2082 17.7624 36.9053 18.4937 36.3661 19.0329C35.8269 19.572 35.0957 19.8749 34.3332 19.8749H3.6665C2.90401 19.8749 2.17274 19.572 1.63357 19.0329C1.0944 18.4937 0.791504 17.7624 0.791504 16.9999C0.791504 16.2374 1.0944 15.5062 1.63357 14.967C2.17274 14.4278 2.90401 14.1249 3.6665 14.1249H34.3332ZM34.3332 0.708252C35.0957 0.708252 35.8269 1.01115 36.3661 1.55032C36.9053 2.08949 37.2082 2.82075 37.2082 3.58325C37.2082 4.34575 36.9053 5.07702 36.3661 5.61618C35.8269 6.15535 35.0957 6.45825 34.3332 6.45825H3.6665C2.90401 6.45825 2.17274 6.15535 1.63357 5.61618C1.0944 5.07702 0.791504 4.34575 0.791504 3.58325C0.791504 2.82075 1.0944 2.08949 1.63357 1.55032C2.17274 1.01115 2.90401 0.708252 3.6665 0.708252H34.3332Z"
                                 fill="black" />
                         </svg>
-                        <h3 class="accordion-title">مقدمه</h3>
+                        <h3 class="accordion-title">{{ $section->title }}</h3>
                     </div>
                     <img src="{{ asset('assets/icons/plus-circle.svg') }}" class="accordion-arrow">
                 </div>
             </div>
-            <div class="accordion-body" id="accordion-1-body">
+            <div class="accordion-body" id="accordion-{{ $loop->iteration }}-body">
+                @foreach($section->lessons as $lesson)
                 <li class="d-flex justify-content-between">
                     <div>
                         <span class="lesson-counter-label">جلسه اول:</span>
-                        <span class="lesson-title">مقدمه و نصب Vscode</span>
+                        <span class="lesson-title">{{ $lesson->title }}</span>
                     </div>
-                    <span class="lesson-duration">10 دقیقه</span>
+                    <span class="lesson-duration">{{ $lesson->duration }} دقیقه</span>
                 </li>
-                <li class="d-flex justify-content-between">
-                    <div>
-                        <span class="lesson-counter-label">جلسه اول:</span>
-                        <span class="lesson-title">مقدمه و نصب Vscode</span>
-                    </div>
-                    <span class="lesson-duration">10 دقیقه</span>
-                </li>
+                @endforeach
             </div>
-            <div class="accordion-header" id="accordion-1">
-                <div class="w-100 d-flex justify-content-between align-items-center">
-                    <div class="d-flex flex-row align-items-center">
-                        <svg class="accordion-burger-icon" width="38" height="34" viewBox="0 0 38 34" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path id="Vector"
-                                d="M34.3332 27.5416C35.0715 27.5419 35.7814 27.8264 36.3157 28.3359C36.8501 28.8454 37.1679 29.5409 37.2034 30.2784C37.2389 31.0159 36.9893 31.7388 36.5063 32.2972C36.0234 32.8557 35.3441 33.2069 34.6092 33.2782L34.3332 33.2916H3.6665C2.92817 33.2912 2.21828 33.0068 1.68393 32.4973C1.14958 31.9878 0.831731 31.2922 0.796249 30.5547C0.760767 29.8173 1.01037 29.0944 1.49334 28.5359C1.97631 27.9775 2.65562 27.6262 3.3905 27.555L3.6665 27.5416H34.3332ZM34.3332 14.1249C35.0957 14.1249 35.8269 14.4278 36.3661 14.967C36.9053 15.5062 37.2082 16.2374 37.2082 16.9999C37.2082 17.7624 36.9053 18.4937 36.3661 19.0329C35.8269 19.572 35.0957 19.8749 34.3332 19.8749H3.6665C2.90401 19.8749 2.17274 19.572 1.63357 19.0329C1.0944 18.4937 0.791504 17.7624 0.791504 16.9999C0.791504 16.2374 1.0944 15.5062 1.63357 14.967C2.17274 14.4278 2.90401 14.1249 3.6665 14.1249H34.3332ZM34.3332 0.708252C35.0957 0.708252 35.8269 1.01115 36.3661 1.55032C36.9053 2.08949 37.2082 2.82075 37.2082 3.58325C37.2082 4.34575 36.9053 5.07702 36.3661 5.61618C35.8269 6.15535 35.0957 6.45825 34.3332 6.45825H3.6665C2.90401 6.45825 2.17274 6.15535 1.63357 5.61618C1.0944 5.07702 0.791504 4.34575 0.791504 3.58325C0.791504 2.82075 1.0944 2.08949 1.63357 1.55032C2.17274 1.01115 2.90401 0.708252 3.6665 0.708252H34.3332Z"
-                                fill="black" />
-                        </svg>
-                        <h3 class="accordion-title">مقدمه</h3>
-                    </div>
-                    <img src="{{ asset('assets/icons/plus-circle.svg') }}" class="accordion-arrow">
-                </div>
-            </div>
-            <div class="accordion-body" id="accordion-1-body">
-                <li class="d-flex justify-content-between">
-                    <div>
-                        <span class="lesson-counter-label">جلسه اول:</span>
-                        <span class="lesson-title">مقدمه و نصب Vscode</span>
-                    </div>
-                    <span class="lesson-duration">10 دقیقه</span>
-                </li>
-                <li class="d-flex justify-content-between">
-                    <div>
-                        <span class="lesson-counter-label">جلسه اول:</span>
-                        <span class="lesson-title">مقدمه و نصب Vscode</span>
-                    </div>
-                    <span class="lesson-duration">10 دقیقه</span>
-                </li>
-                <li class="d-flex justify-content-between">
-                    <div>
-                        <span class="lesson-counter-label">جلسه اول:</span>
-                        <span class="lesson-title">مقدمه و نصب Vscode</span>
-                    </div>
-                    <span class="lesson-duration">10 دقیقه</span>
-                </li>
-            </div>
+            @endforeach
         </section>
     </div>
 
@@ -209,35 +150,41 @@
         <div class="row">
             <div class="col-12 col-md-8">
                 <div class="attribute-card">
-                    <img class="tutorial-attribute-thumbnail" src="{{ asset('images/code.png') }}" alt="">
-                    <div class="d-flex flex-column">
-                        <h3 class="tutorial-attribute-title">پروژه محور</h3>
-                        <p class="tutorial-attribute-description">
-                            در این دوره سعی شده آموزش و تمارین کاربردی و مربوط به دنیای واقعی باشه.
-                        </p>
+                    <div class="content">
+                        <img class="tutorial-attribute-thumbnail" src="{{ asset('images/code.png') }}" alt="">
+                        <div class="d-flex flex-column">
+                            <h3 class="tutorial-attribute-title">پروژه محور</h3>
+                            <p class="tutorial-attribute-description">
+                                در این دوره سعی شده آموزش و تمارین کاربردی و مربوط به دنیای واقعی باشه.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute-card">
-                    <img class="tutorial-attribute-thumbnail" src="{{ asset('images/practice.png') }}" alt="">
-                    <div class="d-flex flex-column">
-                        <h3 class="tutorial-attribute-title">تمرین حل مسئله</h3>
-                        <p class="tutorial-attribute-description">
-                            هر چی تمرین واقعی تر باشه وقت و انرژی و خلاقیتی که برای حل کردنش میزاری بیشتر و بهینه تر
-                            میشه.
-                        </p>
+                    <div class="content">
+                        <img class="tutorial-attribute-thumbnail" src="{{ asset('images/practice.png') }}" alt="">
+                        <div class="d-flex flex-column">
+                            <h3 class="tutorial-attribute-title">تمرین حل مسئله</h3>
+                            <p class="tutorial-attribute-description">
+                                هر چی تمرین واقعی تر باشه وقت و انرژی و خلاقیتی که برای حل کردنش میزاری بیشتر و بهینه تر
+                                میشه.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="attribute-card h-100">
-                    <div class="d-flex flex-column">
-                        <img class="tutorial-attribute-thumbnail mx-auto" src="{{ asset('images/quiality.png') }}" alt=""
-                            style="margin-bottom: 16px;">
-                        <h3 class="tutorial-attribute-title text-center">تمرین حل مسئله</h3>
-                        <p class="tutorial-attribute-description text-center">
-                            هر چی تمرین واقعی تر باشه وقت و انرژی و خلاقیتی که برای حل کردنش میزاری بیشتر و بهینه تر
-                            میشه.
-                        </p>
+                    <div class="content">
+                        <div class="d-flex flex-column">
+                            <img class="tutorial-attribute-thumbnail mx-auto" src="{{ asset('images/quiality.png') }}"
+                                alt="" style="margin-bottom: 16px;">
+                            <h3 class="tutorial-attribute-title text-center">تمرین حل مسئله</h3>
+                            <p class="tutorial-attribute-description text-center">
+                                هر چی تمرین واقعی تر باشه وقت و انرژی و خلاقیتی که برای حل کردنش میزاری بیشتر و بهینه تر
+                                میشه.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

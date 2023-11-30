@@ -1814,6 +1814,7 @@ nav a:hover {
 
 .tutorial-content {
     margin-top: 79px;
+    margin-bottom: 280px;
 }
 
 .video-player-container {
@@ -2134,15 +2135,26 @@ nav a:hover {
     padding: 32px 16px;
     border-radius: 32px;
     background: #E8E8E8;
+    position: relative;
+    transition: transform 0.1s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.attribute-card:not(:last-child){
+    margin-bottom: 24px;
+}
+.attribute-card > .content{
     display: flex;
     max-width: 799px;
     justify-content: flex-start;
     align-items: center;
     gap: 32px;
 }
-.attribute-card:not(:last-child){
-    margin-bottom: 24px;
+
+.attribute-card:hover > .content{
+  transform: translateZ(12px);
 }
+
 .tutorial-attribute-title{
     color: var(--primary-color);
     text-align: right;

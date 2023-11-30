@@ -39,6 +39,11 @@ class Tutorial extends Model
         return $this->belongsToMany(User::class, 'user_tutorial');
     }
 
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
+
 
     public function getStatusLabelAttribute()
     {
@@ -59,5 +64,18 @@ class Tutorial extends Model
     public function getExcerptAttribute($limit = 10)
     {
         return Str::limit($this->description, $limit);
+    }
+
+    public function getTotalDurationAttribute(){
+        return $this->lessons->sum('duration') ?? 0;
+    }
+
+    public function getPriceLabelAttribute(){
+        if($this->price === 0){
+            return "رایگان";
+        }
+        else{
+            return $this->price . " تومان";
+        }
     }
 }
