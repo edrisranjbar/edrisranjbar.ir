@@ -1819,8 +1819,9 @@ nav a:hover {
 }
 
 .video-player-container {
+    margin: auto;
     position: relative;
-    width: 100%;
+    width: 80%;
     max-width: 1200px;
 }
 
@@ -1838,6 +1839,7 @@ nav a:hover {
 }
 
 .video-caption {
+    margin-top: 8px;
     color: var(--dark-color, #000);
     text-align: center;
     font-size: 24px;
@@ -2022,7 +2024,7 @@ nav a:hover {
 .accordion-title {
     margin-bottom: 0px;
     color: #323030;
-    text-align: center;
+    text-align: right;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -2267,7 +2269,6 @@ nav a:hover {
 .tutorial-overview-title {
     color: var(--secondary-light-color);
     text-align: right;
-    font-size: 48px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
@@ -2305,8 +2306,12 @@ nav a:hover {
 }
 
 #tutorial-overview .attributes li::before {
-    content: url("../icons/tick.svg");
-    max-width: 72px;
+    content: "";
+    background-image: url("../icons/tick.svg");
+    background-size: 72px 72px;
+    background-repeat: no-repeat;
+    width: 72px;
+    height: 72px;
     position: relative;
     top: 8px;
 }
@@ -2323,12 +2328,12 @@ nav a:hover {
 #tutorial-overview::before {
     content: "";
     background-color: #323030;
-    height: 88px;
-    width: 100%;
+    height: 147px;
+    width: 103%;
     transform: rotate(-3.65deg);
     position: absolute;
-    top: -42px;
-    right: -6px;
+    top: -54px;
+    right: -14px;
     z-index: 0;
 }
 
@@ -2351,7 +2356,6 @@ nav a:hover {
 #QA .QA_title {
     color: var(--primary-dark-color);
     text-align: center;
-    font-size: 64px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
@@ -2360,10 +2364,6 @@ nav a:hover {
 
 #QA .accordion-header.active {
     background-color: var(--primary-dark-color);
-}
-
-#QA .accordion-header .accordion-title {
-    font-size: 24px;
 }
 
 #QA .accordion-header.active .accordion-title,
@@ -2552,19 +2552,78 @@ nav a:hover {
     }
 
     #tutorial-overview::before {
-        width: 103%;
+        width: 104%;
     }
-    .tutorial-tutor-button-group{
+
+    .tutorial-tutor-button-group {
         justify-content: center;
     }
-    .tutorial-tutor-button-group > button > svg{
+
+    .tutorial-tutor-button-group>button>svg {
         max-width: 16px;
     }
-    #tutorial-overview{
+
+    #tutorial-overview {
         flex-direction: column;
         padding: 16px;
     }
-    #tutorial-overview .tutorial-poster{
+
+    #tutorial-overview .tutorial-poster {
         z-index: 2;
+    }
+
+    .tutorial-overview-title {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .tutorial-overview-description {
+        font-size: 16px;
+    }
+
+    #tutorial-overview .attributes-wrapper {
+        column-gap: 16px;
+        flex-direction: column;
+    }
+
+    #tutorial-overview .attributes:last-child {
+        margin-top: unset;
+    }
+
+    #tutorial-overview .attributes li {
+        font-size: 16px;
+    }
+
+    #tutorial-overview .attributes li::before {
+        width: 24px;
+        height: 24px;
+        background-size: 24px 24px;
+        top: 0px;
+    }
+
+    #tutorial-overview button {
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    #tutorial-overview::after {
+        width: 103%;
+    }
+
+    #tutorial-overview .arrow-down {
+        height: 64px;
+        margin-bottom: 32px;
+    }
+
+    #tutorial-overview button svg {
+        width: 24px;
+    }
+    #QA{
+        padding: 64px 0;
+    }
+    footer{
+        padding: 16px;
     }
 }
