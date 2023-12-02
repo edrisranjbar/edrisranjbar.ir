@@ -3,19 +3,19 @@
 @extends('layouts.app')
 @section('content')
 <main>
-    <div class="hero-section row align-items-center vw-100">
-        <div class="col-8">
+    <div class="hero-section row align-items-center w-100 mx-0 px-0">
+        <div class="col-12 col-md-8">
             <span class="breadcrumb">
                 <a href="#">دوره های آموزشی</a>&nbsp;»&nbsp;
                 <a href="#">برنامه نویسی</a>
             </span>
-            <h1 class="tutorial-title">
+            <h1 class="tutorial-title display-3">
                 {{ $tutorial->title }}
             </h1>
-            <p class="tutorial-short-description">
+            <p class="tutorial-short-description fs-4">
                 {{ $tutorial->short_description }}
             </p>
-            <div class="d-flex tutorial-action-buttons">
+            <div class="d-flex tutorial-action-buttons mb-4 mb-md-0">
                 <button class="button button-secondary">همین حالا شروع کن!</button>
                 <button class="button button-outline-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
@@ -26,7 +26,7 @@
                 </button>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <div class="d-flex flex-column tutorial-attributes-section">
                 <div class="tutorial-attribute">
                     <img src="{{ asset('assets/icons/coins.png') }}">
@@ -48,12 +48,13 @@
 
     <div class="tutorial-content">
         <div class="video-player-container">
+            <img src="https://i.stack.imgur.com/zZNgk.png">
             <video src="{{ asset('storage/upload/' . $tutorial->lessons->first()->video_path) }}" class="video-player"
                 poster="{{ asset('storage/upload/' . $tutorial->lessons->first()->thumbnail) }}" controls></video>
         </div>
         <p class="video-caption">{{ $tutorial->lessons->first()->title }}</p>
         <br>
-        <p class="about-tutorial-title">درباره دوره {{ $tutorial->title }}</p>
+        <p class="about-tutorial-title fs-1">درباره دوره {{ $tutorial->title }}</p>
         <span class="tutorial-description">
             {!! $tutorial->description !!}
         </span>
@@ -112,7 +113,7 @@
     </div>
 
     <div id="tutorial-syllabus">
-        <h2 class="tutorial-syllabus-title">« سرفصلهای دوره »</h2>
+        <h2 class="tutorial-syllabus-title fs-1">« سرفصلهای دوره »</h2>
         <section class="accordion">
             @foreach($tutorial->sections as $section)
             <div class="accordion-header" id="accordion-{{ $loop->iteration }}">
@@ -124,17 +125,17 @@
                                 d="M34.3332 27.5416C35.0715 27.5419 35.7814 27.8264 36.3157 28.3359C36.8501 28.8454 37.1679 29.5409 37.2034 30.2784C37.2389 31.0159 36.9893 31.7388 36.5063 32.2972C36.0234 32.8557 35.3441 33.2069 34.6092 33.2782L34.3332 33.2916H3.6665C2.92817 33.2912 2.21828 33.0068 1.68393 32.4973C1.14958 31.9878 0.831731 31.2922 0.796249 30.5547C0.760767 29.8173 1.01037 29.0944 1.49334 28.5359C1.97631 27.9775 2.65562 27.6262 3.3905 27.555L3.6665 27.5416H34.3332ZM34.3332 14.1249C35.0957 14.1249 35.8269 14.4278 36.3661 14.967C36.9053 15.5062 37.2082 16.2374 37.2082 16.9999C37.2082 17.7624 36.9053 18.4937 36.3661 19.0329C35.8269 19.572 35.0957 19.8749 34.3332 19.8749H3.6665C2.90401 19.8749 2.17274 19.572 1.63357 19.0329C1.0944 18.4937 0.791504 17.7624 0.791504 16.9999C0.791504 16.2374 1.0944 15.5062 1.63357 14.967C2.17274 14.4278 2.90401 14.1249 3.6665 14.1249H34.3332ZM34.3332 0.708252C35.0957 0.708252 35.8269 1.01115 36.3661 1.55032C36.9053 2.08949 37.2082 2.82075 37.2082 3.58325C37.2082 4.34575 36.9053 5.07702 36.3661 5.61618C35.8269 6.15535 35.0957 6.45825 34.3332 6.45825H3.6665C2.90401 6.45825 2.17274 6.15535 1.63357 5.61618C1.0944 5.07702 0.791504 4.34575 0.791504 3.58325C0.791504 2.82075 1.0944 2.08949 1.63357 1.55032C2.17274 1.01115 2.90401 0.708252 3.6665 0.708252H34.3332Z"
                                 fill="black" />
                         </svg>
-                        <h3 class="accordion-title">{{ $section->title }}</h3>
+                        <h3 class="accordion-title fs-4">{{ $section->title }}</h3>
                     </div>
                     <img src="{{ asset('assets/icons/plus-circle.svg') }}" class="accordion-arrow">
                 </div>
             </div>
             <div class="accordion-body" id="accordion-{{ $loop->iteration }}-body">
                 @foreach($section->lessons as $lesson)
-                <li class="d-flex justify-content-between">
+                <li class="d-flex justify-content-between align-items-center">
                     <div>
-                        <span class="lesson-counter-label">جلسه اول:</span>
-                        <span class="lesson-title">{{ $lesson->title }}</span>
+                        <span class="lesson-counter-label fs-5">جلسه اول:</span>
+                        <span class="lesson-title fs-5">{{ $lesson->title }}</span>
                     </div>
                     <span class="lesson-duration">{{ $lesson->duration }} دقیقه</span>
                 </li>
@@ -146,7 +147,7 @@
 
     <section class="tutorial-attributes">
         <div class="background"></div>
-        <h2 class="tutorial-attributes-title">« ویژگی های دوره »</h2>
+        <h2 class="tutorial-attributes-title fs-2">« ویژگی های دوره »</h2>
         <div class="row">
             <div class="col-12 col-md-8">
                 <div class="attribute-card">
@@ -204,7 +205,7 @@
                 در تلاش برای
                 یادگیری و بهبود خودم هستم.
             </p>
-            <div class="d-flex column-gap-2">
+            <div class="d-flex column-gap-2 tutorial-tutor-button-group">
                 <button class="button button-secondary">
                     <svg style="margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" width="33" height="30"
                         viewBox="0 0 33 30" fill="none">

@@ -32,16 +32,18 @@ body {
     font-family: "Vazirmatn FD" !important;
 }
 
-main{
+main {
     overflow-x: hidden;
 }
 
 p {
     line-height: 1.9;
 }
+
 .white {
     filter: grayscale(100%) invert(100%);
 }
+
 /* Header */
 header {
     padding: 0px 32px 0px 32px;
@@ -1212,7 +1214,8 @@ ul.recent-blog-posts-widget li {
 
     main>section,
     main>div {
-        padding: 0px 8px 0px 8px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
     }
 
     .button-group {
@@ -1725,7 +1728,6 @@ nav a:hover {
 .tutorial-title {
     color: var(--pure-white);
     text-align: right;
-    font-size: 64px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -1735,7 +1737,6 @@ nav a:hover {
 .tutorial-short-description {
     color: #D6D6D6;
     text-align: right;
-    font-size: 32px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -1818,24 +1819,22 @@ nav a:hover {
 }
 
 .video-player-container {
-    margin: auto;
     position: relative;
-    width: 812.01px;
-    max-width: 80%;
-    height: 465.688px;
-    flex-shrink: 0;
-    padding: 47px 125px 0px 0;
-    background: url("https://i.stack.imgur.com/zZNgk.png") center center no-repeat;
-    background-size: contain;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.video-player-container img {
+    width: 100%;
 }
 
 .video-player {
-    margin: auto;
     position: absolute;
     width: 69%;
-    top: 69px;
-    height: auto;
-    box-shadow: 0px 4px 48px 0px rgba(37, 37, 37, 0.32);
+    height: 82%;
+    left: 15.5%;
+    background: #000;
+    top: 6.5%;
 }
 
 .video-caption {
@@ -1849,7 +1848,6 @@ nav a:hover {
 
 .about-tutorial-title {
     color: var(--dark-color);
-    font-size: 40px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -1865,16 +1863,20 @@ nav a:hover {
     line-height: 42px;
     margin-bottom: 256px;
 }
-.tutorial-is-good-for, .tutorial-is-bad-for{
+
+.tutorial-is-good-for,
+.tutorial-is-bad-for {
     position: absolute;
     z-index: 2;
 }
-.tutorial-is-bad-for{
+
+.tutorial-is-bad-for {
     position: absolute !important;
     left: 0px;
 }
+
 .tutorial-is-good-for,
-.tutorial-is-bad-for{
+.tutorial-is-bad-for {
     border-radius: 16px;
     background: var(--white-color, #FAFAFA);
     box-shadow: 0px 0px 30px 0px rgba(41, 41, 41, 0.20);
@@ -1882,17 +1884,20 @@ nav a:hover {
     height: 277px;
     flex-shrink: 0;
 }
-.tutorial-is-good-for{
+
+.tutorial-is-good-for {
     position: absolute;
     bottom: 64px;
     right: 0px;
 }
-.tutorial-is-bad-for{
+
+.tutorial-is-bad-for {
     position: absolute;
     bottom: 64px;
 }
+
 .tutorial-is-good-for p,
-.tutorial-is-bad-for p{
+.tutorial-is-bad-for p {
     color: var(--dark-color, #323030);
     text-align: right;
     font-size: 30px;
@@ -1902,20 +1907,22 @@ nav a:hover {
     position: absolute;
     max-width: 190px;
 }
-.tutorial-is-good-for p{
+
+.tutorial-is-good-for p {
     top: 79px;
     right: 32px;
     left: 57px;
     bottom: 60px;
 }
-.tutorial-is-bad-for p{
+
+.tutorial-is-bad-for p {
     top: 79px;
     right: 32px;
     left: 55px;
     bottom: 57px;
 }
-.tutorial-is-good-for .thumbs-up
-{
+
+.tutorial-is-good-for .thumbs-up {
     width: 92.628px;
     height: 79.031px;
     transform: rotate(-13.967deg);
@@ -1924,33 +1931,39 @@ nav a:hover {
     left: 11px;
     top: 10px;
 }
- .tutorial-is-bad-for .thumbs-down{
+
+.tutorial-is-bad-for .thumbs-down {
     width: 92.628px;
     height: 79.031px;
     flex-shrink: 0;
     position: absolute;
     left: 16.94px;
     top: 15.91px;
- }
- .good-or-bad-box.first{
+}
+
+.good-or-bad-box.first {
     margin-bottom: 208px;
     position: relative;
- }
- .good-or-bad-box.last{
+}
+
+.good-or-bad-box.last {
     margin-bottom: 104px;
     position: relative;
- }
- .tutorial-is-good-for-content{
+}
+
+.tutorial-is-good-for-content {
     margin-top: -100px;
     width: calc(100% - 140px) !important;
     margin-right: auto;
- }
- .tutorial-is-good-for-content p{
+}
+
+.tutorial-is-good-for-content p {
     margin-right: auto;
     width: fit-content;
- }
- .tutorial-is-good-for-content,
- .tutorial-is-bad-for-content{
+}
+
+.tutorial-is-good-for-content,
+.tutorial-is-bad-for-content {
     color: var(--semi-dark-color, #323030);
     font-size: 30px;
     font-style: normal;
@@ -1961,19 +1974,21 @@ nav a:hover {
     box-shadow: 0px 0px 30px 0px rgba(41, 41, 41, 0.20);
     padding: 44px 0 43px 51px;
     width: 100%;
- }
- .tutorial-is-bad-for-content{
+}
+
+.tutorial-is-bad-for-content {
     padding: 44px 44px 44px 185px;
     width: calc(100% - 140px) !important;
     margin-left: auto;
- }
- .good-bad-section{
+}
+
+.good-bad-section {
     margin-left: 32px;
     margin-right: 32px;
 }
-.tutorial-syllabus-title{
+
+.tutorial-syllabus-title {
     color: var(--primary-dark-color);
-    font-size: 64px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
@@ -1981,12 +1996,13 @@ nav a:hover {
     margin-bottom: 64px;
     text-align: center;
 }
-.accordion{
+
+.accordion {
     display: block;
     margin: 0 80px;
-    width: calc(100% - 160);
 }
-.accordion-header{
+
+.accordion-header {
     padding: 0px 32px;
     border-radius: 16px;
     background-color: #D9D9D9;
@@ -1994,33 +2010,39 @@ nav a:hover {
     align-items: center;
     cursor: pointer;
 }
-.accordion-header.active{
+
+.accordion-header.active {
     background: var(--semi-dark-color);
 }
-.accordion-burger-icon{
+
+.accordion-burger-icon {
     margin-left: 8px;
 }
-.accordion-title{
+
+.accordion-title {
     margin-bottom: 0px;
     color: #323030;
     text-align: center;
-    font-size: 32px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
-.accordion-header.active .accordion-title{
+
+.accordion-header.active .accordion-title {
     color: var(--pure-white);
 }
-.accordion-header .accordion-arrow{
+
+.accordion-header .accordion-arrow {
     margin-top: 16px;
     margin-bottom: 16px;
     transition: transform .3s ease-in-out;
 }
-.accordion-header.active .accordion-arrow{
+
+.accordion-header.active .accordion-arrow {
     transform: rotate(180deg);
 }
-.accordion-body{
+
+.accordion-body {
     margin-top: 16px;
     padding: 0px;
     border-radius: 16px;
@@ -2029,23 +2051,27 @@ nav a:hover {
     max-height: 0px;
     opacity: 0;
     overflow: hidden;
-    transition-property: padding,max-height,opacity;
+    transition-property: padding, max-height, opacity;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 }
+
 .accordion-body.active {
     padding: 0 73px 0 32px;
     opacity: 1;
     max-height: max-content;
 }
-.accordion-body li{
+
+.accordion-body li {
     position: relative;
     margin-top: 16px;
 }
-.accordion-body li:last-child{
+
+.accordion-body li:last-child {
     margin-bottom: 16px;
 }
-.accordion-body li::before{
+
+.accordion-body li::before {
     content: '';
     width: 25px;
     height: 25px;
@@ -2056,7 +2082,8 @@ nav a:hover {
     top: 13px;
     background-color: #979797;
 }
-.accordion-body li:not(:last-child)::after{
+
+.accordion-body li:not(:last-child)::after {
     content: '';
     width: 4px;
     height: 42px;
@@ -2065,32 +2092,32 @@ nav a:hover {
     right: -30px;
     top: 38px;
 }
-.accordion .lesson-counter-label{
+
+.accordion .lesson-counter-label {
     color: #323030;
     text-align: right;
-    font-size: 32px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     margin-left: 16px;
 }
-.accordion .lesson-title{
+
+.accordion .lesson-title {
     color: #323030;
     text-align: right;
-    font-size: 32px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
-.accordion .lesson-duration{
+
+.accordion .lesson-duration {
     color: #323030;
-    font-size: 32px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
 }
 
-.tutorial-attributes{
+.tutorial-attributes {
     margin-top: 160px;
     margin-bottom: 160px;
     background-color: #323030;
@@ -2098,18 +2125,19 @@ nav a:hover {
     padding-bottom: 88px;
 }
 
-.tutorial-attributes::before{
+.tutorial-attributes::before {
     content: "";
     background-color: #323030;
     height: 150px;
-    width: 100%;
+    width: 103%;
     transform: rotate(-3.65deg);
     position: absolute;
     top: -43px;
     right: -7px;
     z-index: -1;
 }
-.tutorial-attributes::after{
+
+.tutorial-attributes::after {
     content: "";
     background-color: #323030;
     height: 150px;
@@ -2124,14 +2152,14 @@ nav a:hover {
 .tutorial-attributes-title {
     color: var(--secondary-light-color);
     text-align: center;
-    font-size: 64px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
     margin-bottom: 69px;
     margin-top: 32px;
 }
-.attribute-card{
+
+.attribute-card {
     padding: 32px 16px;
     border-radius: 32px;
     background: #E8E8E8;
@@ -2140,10 +2168,12 @@ nav a:hover {
     transform-style: preserve-3d;
     will-change: transform;
 }
-.attribute-card:not(:last-child){
+
+.attribute-card:not(:last-child) {
     margin-bottom: 24px;
 }
-.attribute-card > .content{
+
+.attribute-card>.content {
     display: flex;
     max-width: 799px;
     justify-content: flex-start;
@@ -2151,11 +2181,11 @@ nav a:hover {
     gap: 32px;
 }
 
-.attribute-card:hover > .content{
-  transform: translateZ(12px);
+.attribute-card:hover>.content {
+    transform: translateZ(12px);
 }
 
-.tutorial-attribute-title{
+.tutorial-attribute-title {
     color: var(--primary-color);
     text-align: right;
     font-size: 48px;
@@ -2164,7 +2194,8 @@ nav a:hover {
     line-height: normal;
     margin-bottom: 16px;
 }
-.tutorial-attribute-description{
+
+.tutorial-attribute-description {
     color: var(--dark-color);
     text-align: right;
     font-size: 32px;
@@ -2172,16 +2203,18 @@ nav a:hover {
     font-weight: 400;
     line-height: normal;
 }
-.tutorial-attribute-thumbnail{
+
+.tutorial-attribute-thumbnail {
     width: 150px;
     aspect-ratio: 1/1;
     object-fit: contain;
 }
-.h-100{
+
+.h-100 {
     height: 100%;
 }
 
-#tutorial-tutor{
+#tutorial-tutor {
     padding: 88px 64px;
     background-color: var(--white-color);
     display: flex;
@@ -2189,7 +2222,7 @@ nav a:hover {
     column-gap: 32px;
 }
 
-#tutorial-tutor h2{
+#tutorial-tutor h2 {
     color: var(--primary-dark-color);
     text-align: right;
     font-size: 64px;
@@ -2197,7 +2230,8 @@ nav a:hover {
     font-weight: 900;
     line-height: normal;
 }
-#tutorial-tutor p{
+
+#tutorial-tutor p {
     color: var(--dark-color);
     text-align: right;
     font-size: 32px;
@@ -2207,24 +2241,30 @@ nav a:hover {
     margin-left: 32px;
     margin-bottom: 32px;
 }
-.tutor-profile{
+
+.tutor-profile {
     width: 320px;
+    max-width: 80%;
+    margin: auto;
     aspect-ratio: 1/1;
     flex-shrink: 0;
 }
 
-#tutorial-overview{
+#tutorial-overview {
     margin-top: 88px;
     padding: 88px 88px;
     background-color: #323030;
     display: flex;
     position: relative;
 }
-#tutorial-overview .tutorial-poster{
+
+#tutorial-overview .tutorial-poster {
     width: 469px;
+    max-width: 100%;
     height: auto;
 }
-.tutorial-overview-title{
+
+.tutorial-overview-title {
     color: var(--secondary-light-color);
     text-align: right;
     font-size: 48px;
@@ -2233,7 +2273,8 @@ nav a:hover {
     line-height: normal;
     margin-bottom: 27px;
 }
-.tutorial-overview-description{
+
+.tutorial-overview-description {
     color: #D6D6D6;
     text-align: right;
     font-size: 32px;
@@ -2241,14 +2282,17 @@ nav a:hover {
     font-weight: 400;
     line-height: normal;
 }
-#tutorial-overview .attributes-wrapper{
+
+#tutorial-overview .attributes-wrapper {
     column-gap: 42px;
     margin-top: 16px;
 }
-#tutorial-overview .attributes:last-child{
+
+#tutorial-overview .attributes:last-child {
     margin-top: 64px;
 }
-#tutorial-overview .attributes li{
+
+#tutorial-overview .attributes li {
     color: #D6D6D6;
     text-align: right;
     font-size: 32px;
@@ -2259,19 +2303,23 @@ nav a:hover {
     align-items: center;
     column-gap: 8px;
 }
-#tutorial-overview .attributes li::before{
+
+#tutorial-overview .attributes li::before {
     content: url("../icons/tick.svg");
     max-width: 72px;
     position: relative;
     top: 8px;
 }
-#tutorial-overview .arrow-down{
+
+#tutorial-overview .arrow-down {
     transform: rotate(-175.026deg);
     margin-right: 64px;
 }
-#tutorial-overview button{
+
+#tutorial-overview button {
     margin-right: 188px;
 }
+
 #tutorial-overview::before {
     content: "";
     background-color: #323030;
@@ -2295,10 +2343,12 @@ nav a:hover {
     left: -6px;
     z-index: 0;
 }
-#QA{
+
+#QA {
     padding: 106px 0;
 }
-#QA .QA_title{
+
+#QA .QA_title {
     color: var(--primary-dark-color);
     text-align: center;
     font-size: 64px;
@@ -2307,20 +2357,214 @@ nav a:hover {
     line-height: normal;
     margin-bottom: 32px;
 }
-#QA .accordion-header.active{
+
+#QA .accordion-header.active {
     background-color: var(--primary-dark-color);
 }
-#QA .accordion-header .accordion-title{
+
+#QA .accordion-header .accordion-title {
     font-size: 24px;
 }
-#QA .accordion-header.active .accordion-title, #QA .accordion-header.active .accordion-arrow{
+
+#QA .accordion-header.active .accordion-title,
+#QA .accordion-header.active .accordion-arrow {
     color: var(--pure-white);
 }
-#QA .accordion-body.active{
+
+#QA .accordion-body.active {
     padding: 0 16px;
     font-size: 18px;
 }
-#QA .accordion-body:not(.active){
-    padding:0;
+
+#QA .accordion-body:not(.active) {
+    padding: 0;
 }
+
 /* End Tutorial Page */
+
+@media screen and (max-width: 425px) {
+    .hero-section {
+        padding-bottom: 64px;
+    }
+
+    .tutorial-action-buttons {
+        justify-content: center;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 4px 8px 4px 8px;
+        border-radius: 8px;
+    }
+
+    .tutorial-attribute {
+        border-radius: 16px;
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .tutorial-attribute span {
+        font-size: 16px;
+    }
+
+    .video-caption {
+        font-size: 18px;
+    }
+
+    .tutorial-description {
+        font-size: 18px;
+    }
+
+    .good-or-bad-box.first {
+        margin-bottom: 32px;
+    }
+
+    .good-bad-section {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    .tutorial-is-good-for,
+    .tutorial-is-bad-for {
+        top: unset;
+        left: unset;
+        bottom: unset;
+        right: unset;
+        position: relative !important;
+    }
+
+    .tutorial-is-good-for,
+    .tutorial-is-bad-for {
+        width: 100%;
+        height: 148px;
+    }
+
+    .tutorial-is-good-for p,
+    .tutorial-is-bad-for p {
+        max-width: 80%;
+        margin: auto;
+        font-size: 16px;
+    }
+
+    .tutorial-is-good-for-content,
+    .tutorial-is-bad-for-content {
+        width: 100% !important;
+        margin-top: 16px;
+        padding: 16px;
+        font-size: 16px;
+    }
+
+    .tutorial-syllabus-title {
+        margin-bottom: 16px;
+    }
+
+    .accordion {
+        margin: 0;
+    }
+
+    .accordion-body li::before {
+        position: unset;
+        width: 15px;
+        height: 15px;
+    }
+
+    .accordion-burger-icon {
+        width: 16px;
+    }
+
+    .accordion-header {
+        padding: 0px 8px;
+        border-radius: 8px;
+    }
+
+    .accordion-header .accordion-arrow {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .accordion-body {
+        border-radius: 8px;
+    }
+
+    .accordion-body.active {
+        padding: 0 8px;
+    }
+
+    .accordion-body li {
+        margin-top: 8px;
+    }
+
+    .accordion-body li:last-child {
+        margin-bottom: 8px;
+    }
+
+    .attribute-card {
+        padding: 16px 8px;
+        margin-bottom: 16px;
+    }
+
+    .tutorial-attributes {
+        margin-bottom: 64px;
+    }
+
+    .attribute-card>.content {
+        gap: 16px;
+    }
+
+    .tutorial-attribute-thumbnail {
+        width: 100px;
+    }
+
+    .tutorial-attribute-title {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .tutorial-attribute-description {
+        font-size: 16px;
+    }
+
+    .attribute-card:last-child {
+        margin-top: 8px;
+    }
+
+    .tutorial-attributes::after {
+        width: 103%;
+    }
+
+    #tutorial-tutor {
+        flex-direction: column;
+        padding: 32px 16px;
+    }
+
+    #tutorial-tutor h2 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    #tutorial-tutor p {
+        font-size: 16px;
+        text-align: center;
+        margin-left: unset;
+        padding: 0 16px;
+    }
+
+    #tutorial-overview::before {
+        width: 103%;
+    }
+    .tutorial-tutor-button-group{
+        justify-content: center;
+    }
+    .tutorial-tutor-button-group > button > svg{
+        max-width: 16px;
+    }
+    #tutorial-overview{
+        flex-direction: column;
+        padding: 16px;
+    }
+    #tutorial-overview .tutorial-poster{
+        z-index: 2;
+    }
+}
