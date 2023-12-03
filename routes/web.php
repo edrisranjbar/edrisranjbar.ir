@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
@@ -24,7 +25,6 @@ Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.lo
 Route::get('admin/login/resetPassword', [AdminAuthController::class, 'showResetPasswordForm'])->name('password.reset');
 Route::get('admin/login/resetPasswordLinkSent', [AdminAuthController::class, 'showResetPasswordLinkSent'])->name('password.resetLinkSent');
 Route::get('admin/login/forgotPassword', [AdminAuthController::class, 'forgotPassword'])->name('admin.forgotPassword');
-// Route::patch('admin/resetPassword', [AdminController::class, 'updatePassword'])->name('admin.updatePassword');
 Route::post('admin/login/forgotPassword', [AdminAuthController::class, 'processForgotPassword']);
 Route::post('admin/login', [AdminAuthController::class, 'processLogin']);
 
@@ -42,4 +42,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::resource('lessons', LessonController::class);
     Route::patch('settings', [SettingController::class, 'updateAll'])->name('settings.updateAll');
     Route::resource('settings', SettingController::class);
+});
+
+Route::get('user/login', [UserAuthController::class, 'login'])->name('user.login');
+Route::post('user/login', [UserAuthController::class, 'processLogin']);
+Route::middleware(['user'])->prefix('user')->group(function () {
+    Route::get('/', function () {
+        return view('user.index');
+    });
 });

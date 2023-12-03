@@ -2379,6 +2379,7 @@ nav a:hover {
 #QA .accordion-body:not(.active) {
     padding: 0;
 }
+
 /* End Tutorial Page */
 
 @media screen and (max-width: 768px) {
@@ -2615,10 +2616,64 @@ nav a:hover {
     #tutorial-overview button svg {
         width: 24px;
     }
-    #QA{
+
+    #QA {
         padding: 64px 0;
     }
-    footer{
+
+    footer {
         padding: 16px;
     }
+}
+
+.form-signin {
+    background-color: var(--dark-color);
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.form-signin form {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-title {
+    margin-top: 128px;
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 64px;
+}
+
+.login-input {
+    padding: 8px 16px;
+    color: #CFCFCF;
+    text-align: right;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 16px;
+    border-radius: 8px !important;
+    border: unset;
+    outline: 2px solid var(--white) !important;
+    background-color: transparent;
+    appearance: unset;
+}
+.form-signin button{
+    margin-top: 32px;
+    font-size: 20px;
+}
+
+.form-signin a{
+    margin-top: 64px;
+    text-align: right;
+    align-self: flex-start;
 }

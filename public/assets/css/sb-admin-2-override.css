@@ -193,8 +193,6 @@ footer.sticky-footer {
     background-color: rgb(227, 230, 240);
 }
 
-@charset "UTF-8";
-
 body {
     min-height: 100vh;
     font-family: "Vazirmatn FD", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
