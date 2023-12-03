@@ -3,7 +3,7 @@
 @extends('layouts.app')
 @section('content')
 <main>
-    <div class="hero-section row align-items-center w-100 mx-0 px-0">
+    <div class="hero-section row align-items-center w-100 mx-0">
         <div class="col-12 col-md-8">
             <span class="breadcrumb">
                 <a href="#">دوره های آموزشی</a>&nbsp;»&nbsp;
@@ -192,7 +192,7 @@
         </div>
     </section>
 
-    <section class="bg-white" id="tutorial-tutor">
+    <section class="bg-white container-lg" id="tutorial-tutor">
         <img src="{{ asset('images/profile-transparent.png') }}" alt="" class="tutor-profile">
         <div>
             <h2>« درباره مدرس دوره »</h2>

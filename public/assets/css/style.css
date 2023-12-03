@@ -2340,13 +2340,13 @@ nav a:hover {
 #tutorial-overview::after {
     content: "";
     background-color: #323030;
-    height: 100px;
-    width: 100%;
+    height: 126px;
+    width: 103%;
     transform: rotate(-3.65deg);
     position: absolute;
-    bottom: -43px;
+    bottom: -50px;
     left: -6px;
-    z-index: 0;
+    z-index: -1;
 }
 
 #QA {
@@ -2379,10 +2379,9 @@ nav a:hover {
 #QA .accordion-body:not(.active) {
     padding: 0;
 }
-
 /* End Tutorial Page */
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     .hero-section {
         padding-bottom: 64px;
     }
@@ -2606,10 +2605,6 @@ nav a:hover {
         margin-left: auto;
         position: relative;
         z-index: 2;
-    }
-
-    #tutorial-overview::after {
-        width: 103%;
     }
 
     #tutorial-overview .arrow-down {
