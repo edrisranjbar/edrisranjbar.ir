@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
@@ -47,7 +48,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 Route::get('user/login', [UserAuthController::class, 'login'])->name('user.login');
 Route::post('user/login', [UserAuthController::class, 'processLogin']);
 Route::middleware(['user'])->prefix('user')->group(function () {
-    Route::get('/', function () {
-        return view('user.index');
-    });
+    Route::get('/', [UserController::class, 'dashboard']);
+    Route::get('profile', [UserController::class, 'show'])->name('user.profile');
+    Route::get('logout', [UserAuthController::class, 'logout'])->name('user.logout');
 });

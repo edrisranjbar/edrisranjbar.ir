@@ -166,6 +166,21 @@
                         @endif
                     </div>
                     <div class="mb-3">
+                        <label for="poster" class="form-label">پوستر</label>
+                        <input type="file" name="poster" id="poster" class="form-control" @if(!isset($tutorial))
+                            required @endif>
+                        @error('poster')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                        @if (isset($tutorial) && $tutorial->poster)
+                        <div class="mt-2">
+                            <label class="form-label">پوستر فعلی:</label>
+                            <img src="{{ asset('storage/upload/'.$tutorial->poster) }}"
+                            class="img-fluid rounded">
+                        </div>
+                        @endif
+                    </div>
+                    <div class="mb-3">
                         <a href="#" class="btn btn-sm btn-outline-danger btn-w-icon d-inline-block"
                             data-bs-toggle="modal" data-bs-target="#deleteTutorialModal">
                             <i class="fa fa-solid fa-trash me-1"></i>

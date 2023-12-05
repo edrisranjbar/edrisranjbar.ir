@@ -38,6 +38,7 @@ class TutorialController extends Controller
             'short_description' => 'nullable|string|max:255',
             'status' => 'required|in:public,private,draft',
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'poster' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'slug' => 'required|string|max:50|unique:tutorials,slug',
             'sections' => 'string|required'
         ]);
@@ -47,6 +48,12 @@ class TutorialController extends Controller
             $request->thumbnail->store('public/upload');
             $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
+
+        if ($request->hasFile('poster')) {
+            $request->poster->store('public/upload');
+            $validatedData['poster'] = $request->poster->hashName();
+        }
+
         $tutorial = Tutorial::create([
             'title' => $validatedData['title'],
             'price' => $validatedData['price'],
@@ -56,6 +63,7 @@ class TutorialController extends Controller
             'short_description' => $validatedData['short_description'],
             'status' => $validatedData['status'],
             'thumbnail' => $validatedData['thumbnail'],
+            'poster' => $validatedData['poster'],
             'slug' => $validatedData['slug'],
         ]);
 
@@ -89,12 +97,19 @@ class TutorialController extends Controller
             'short_description' => 'nullable|max:255',
             'status' => 'required|in:public,private,draft',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'poster' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'sections' => 'string|required'
         ]);
+
         if ($request->hasFile('thumbnail')) {
             $request->thumbnail->store('public/upload');
             $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
+        if ($request->hasFile('poster')) {
+            $request->poster->store('public/upload');
+            $validatedData['poster'] = $request->poster->hashName();
+        }
+
         $existingSections = $tutorial->sections->pluck('title')->toArray();
         $sectionsArray = explode(",", $validatedData['sections']);
         $newSections = array_diff($sectionsArray, $existingSections);

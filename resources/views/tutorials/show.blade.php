@@ -223,7 +223,7 @@
     </section>
 
     <section id="tutorial-overview">
-        <img src="{{ asset('images/poster.png') }}" alt="html5" class="tutorial-poster">
+        <img src="{{ $tutorial->poster ? asset('storage/upload/' . $tutorial->poster) : asset('images/poster.png') }}" alt="{{ $tutorial->title }}" class="tutorial-poster">
         <div>
             <p class="tutorial-overview-title display-5">
                 طراحی وب با HTML5

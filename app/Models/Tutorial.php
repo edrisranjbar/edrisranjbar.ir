@@ -20,6 +20,7 @@ class Tutorial extends Model
         'short_description',
         'status',
         'thumbnail',
+        'poster',
         'duration',
         'slug'
     ];
