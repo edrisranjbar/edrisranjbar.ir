@@ -22,7 +22,8 @@ class Tutorial extends Model
         'thumbnail',
         'poster',
         'duration',
-        'slug'
+        'slug',
+        'goodForItems'
     ];
 
     public function tutor()
@@ -60,6 +61,11 @@ class Tutorial extends Model
     public function getLinkAttribute()
     {
         return url("/tutorials/{$this->slug}");
+    }
+
+    public function getGoodForItems() : Array
+    {
+        return explode(',', $this->goodForItems ?? "");
     }
 
     public function getExcerptAttribute($limit = 10)

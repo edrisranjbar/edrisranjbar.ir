@@ -40,7 +40,8 @@ class TutorialController extends Controller
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'poster' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'slug' => 'required|string|max:50|unique:tutorials,slug',
-            'sections' => 'string|required'
+            'sections' => 'string|required',
+            'goodForItems' => 'nullable'
         ]);
 
         // Store the actual thumbnail if exists
@@ -65,6 +66,7 @@ class TutorialController extends Controller
             'thumbnail' => $validatedData['thumbnail'],
             'poster' => $validatedData['poster'],
             'slug' => $validatedData['slug'],
+            'goodForItems' => $validatedData['goodForItems']
         ]);
 
         $sectionsArray = explode(",", $validatedData['sections']);
@@ -98,7 +100,8 @@ class TutorialController extends Controller
             'status' => 'required|in:public,private,draft',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'poster' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'sections' => 'string|required'
+            'sections' => 'string|required',
+            'goodForItems' => 'nullable'
         ]);
 
         if ($request->hasFile('thumbnail')) {
@@ -132,7 +135,6 @@ class TutorialController extends Controller
         CourseSection::where('title','=', $removedSections)
         ->where('tutorial_id','=',$tutorial->id)
         ->delete();
-
         $tutorial->update($validatedData);
         return redirect()->route('tutorials.index')->with('success', 'دوره آموزشی با موفقیت به روزرسانی شد.');
     }

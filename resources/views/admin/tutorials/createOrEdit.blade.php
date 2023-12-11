@@ -41,6 +41,25 @@
                     @enderror
                 </div>
 
+                <div class="mb-3">
+                    <input type="hidden" name="goodForItems">
+                    <label class="form-label">این دوره برای چه کسانی مناسب است؟</label>
+                    <input type="text" id="goodForElement" name="good_for" class="form-control mb-2">
+                    <ul class="list-group" id="goodForItems">
+                        @foreach($tutorial->getGoodForItems() ?? [] as $item)
+                        @if($item === "") @continue @endif
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ $item ?? "" }}</span>
+                            <button type="button" class="btn btn-sm btn-outline-danger btn-w-icon"
+                            onclick="removeItemFromGoodForList(this)">
+                                <i class="fa fa-solid fa-trash me-1"></i>
+                                حذف
+                            </button>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+
                 @if(isset($tutorial))
                 <div class="d-flex flex-wrap">
                     <button class="btn btn-w-icon btn-primary mt-2 me-2" type="submit">
