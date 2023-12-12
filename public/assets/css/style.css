@@ -1960,8 +1960,8 @@ nav a:hover {
 }
 
 .tutorial-is-good-for-content p {
-    margin-right: auto;
-    width: fit-content;
+    margin-right: 200px;
+    width: auto;
 }
 
 .tutorial-is-good-for-content,

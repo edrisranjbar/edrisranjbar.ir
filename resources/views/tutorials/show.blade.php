@@ -72,18 +72,13 @@
             </div>
             <div class="tutorial-is-good-for-content">
                 <p>
+                    @foreach($tutorial->getGoodForItems() ?? [] as $item)
                     <span class="text-success">
                         ✓
                     </span>
-                    کسانی که به برنامه‌نویسی Back-End سایت علاقه دارند.
+                    {{ $item }}
                     <br>
-                    <span class="text-success">
-                        ✓
-                    </span>کسانی که به همکاری با شرکت‌های خارجی و یا مهاجرت فکر می‌کنند.
-                    <br>
-                    <span class="text-success">
-                        ✓
-                    </span>کسانی که علاقه‌مند به یادگیری فریم‌ورک لاراول هستند.
+                    @endforeach
                 </p>
             </div>
         </div>

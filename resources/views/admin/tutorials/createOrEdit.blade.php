@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <input type="hidden" name="goodForItems">
+                    <input type="hidden" name="good_for_items">
                     <label class="form-label">این دوره برای چه کسانی مناسب است؟</label>
                     <input type="text" id="goodForElement" name="good_for" class="form-control mb-2">
                     <ul class="list-group" id="goodForItems">
