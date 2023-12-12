@@ -5,9 +5,14 @@ const titleInputElement = document.querySelector("#title");
 const sectionNameElement = document.querySelector("#sectionName");
 const sectionsListElement = document.querySelector("ul#sections");
 const sectionsArrayInputElement = document.querySelector("input#sectionsArray");
+
 const goodForNameElement = document.querySelector("#goodForElement");
 const goodForItemsElement = document.querySelector("#goodForItems");
-const goodForItemsInputElement = document.querySelector("input[type=hidden][name=goodForItems]");
+const goodForItemsInputElement = document.querySelector("input[type=hidden][name=good_for_items]");
+
+const badForNameElement = document.querySelector("#badForElement");
+const badForItemsElement = document.querySelector("#badForItems");
+const badForItemsInputElement = document.querySelector("input[type=hidden][name=bad_for_items]");
 
 const updatePageTitle = () => {
     pageTitleElement.innerText = titleInputElement.value.trim();
@@ -95,6 +100,22 @@ const addNewItemToGoodForList = () => {
     saveAllGoodForTextsInTheHiddenField();
 }
 
+const addNewItemToBadForList = () => {
+    const newBadForElement = document.createElement("li");
+    newBadForElement.classList.add("mb-1", "list-group-item", "d-flex", "justify-content-between", "align-items-center");
+    newBadForElement.innerHTML = `
+    <span>${badForNameElement.value.trim()}</span>
+    <button type="button" class="btn btn-sm btn-outline-danger btn-w-icon"
+    onclick="removeItemFromBadForList(this)">
+        <i class="fa fa-solid fa-trash me-1"></i>
+        حذف
+    </button>
+    `;
+    badForItemsElement.appendChild(newBadForElement);
+    badForNameElement.value = "";
+    saveAllBadForTextsInTheHiddenField();
+}
+
 const removeItemFromGoodForList = (element) => {
     element.closest("li").remove();
     saveAllGoodForTextsInTheHiddenField();
@@ -106,6 +127,12 @@ const handlePressingEnterOnGoodForElement = (event) => {
         addNewItemToGoodForList();
     }
 }
+const handlePressingEnterOnBadForElement = (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        addNewItemToBadForList();
+    }
+}
 
 const getAllGoodForTexts = () => {
     let itemsText = [];
@@ -114,9 +141,20 @@ const getAllGoodForTexts = () => {
     });
     return itemsText.toString();
 }
+const getAllBadForTexts = () => {
+    let itemsText = [];
+    badForItemsElement.querySelectorAll("li").forEach((item)=>{
+        itemsText.push(item.children[0].innerText.trim());
+    });
+    return itemsText.toString();
+}
 
 const saveAllGoodForTextsInTheHiddenField = () => {
     goodForItemsInputElement.value = getAllGoodForTexts();
 }
+const saveAllBadForTextsInTheHiddenField = () => {
+    badForItemsInputElement.value = getAllBadForTexts();
+}
 
 goodForNameElement.addEventListener('keypress', (event) => { handlePressingEnterOnGoodForElement(event) })
+badForNameElement.addEventListener('keypress', (event) => { handlePressingEnterOnBadForElement(event) })

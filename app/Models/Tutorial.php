@@ -23,7 +23,8 @@ class Tutorial extends Model
         'poster',
         'duration',
         'slug',
-        'good_for_items'
+        'good_for_items',
+        'bad_for_items',
     ];
 
     public function tutor()
@@ -66,6 +67,11 @@ class Tutorial extends Model
     public function getGoodForItems() : Array
     {
         return explode(',', $this->good_for_items ?? "");
+    }
+
+    public function getBadForItems() : Array
+    {
+        return explode(',', $this->bad_for_items ?? "");
     }
 
     public function getExcerptAttribute($limit = 10)

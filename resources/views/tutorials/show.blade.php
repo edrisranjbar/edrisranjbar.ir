@@ -49,8 +49,8 @@
     <div class="tutorial-content">
         <div class="video-player-container">
             <img src="https://i.stack.imgur.com/zZNgk.png">
-            <video src="{{ asset('storage/upload/' . $tutorial->lessons->first()->video_path) }}" class="video-player"
-                poster="{{ asset('storage/upload/' . $tutorial->lessons->first()->thumbnail) }}" controls></video>
+            <video src="{{ asset('storage/upload/' . $tutorial->lessons?->first()->video_path) }}" class="video-player"
+                poster="{{ asset('storage/upload/' . $tutorial->lessons?->first()->thumbnail) }}" controls></video>
         </div>
         <p class="video-caption">{{ $tutorial->lessons->first()->title }}</p>
         <br>
@@ -92,17 +92,13 @@
                 </p>
             </div>
             <div class="tutorial-is-bad-for-content">
+                @foreach($tutorial->getBadForItems() ?? [] as $item)
                 <span class="text-danger">
                     ✖
-                </span> کسانی که به برنامه‌نویسی Back-End سایت علاقه دارند.
+                </span>
+                {{ $item }}
                 <br>
-                <span class="text-danger">
-                    ✖
-                </span> کسانی که به همکاری با شرکت‌های خارجی و یا مهاجرت فکر می‌کنند.
-                <br>
-                <span class="text-danger">
-                    ✖
-                </span> کسانی که علاقه‌مند به یادگیری فریم‌ورک لاراول هستند.
+                @endforeach
             </div>
         </div>
     </div>

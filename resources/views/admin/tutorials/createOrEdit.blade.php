@@ -59,6 +59,24 @@
                         @endforeach
                     </ul>
                 </div>
+                <div class="mb-3">
+                    <input type="hidden" name="bad_for_items">
+                    <label class="form-label">این دوره برای چه کسانی مناسب است؟</label>
+                    <input type="text" id="badForElement" name="bad_for" class="form-control mb-2">
+                    <ul class="list-group" id="badForItems">
+                        @foreach($tutorial->getBadForItems() ?? [] as $item)
+                        @if($item === "") @continue @endif
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ $item ?? "" }}</span>
+                            <button type="button" class="btn btn-sm btn-outline-danger btn-w-icon"
+                            onclick="removeItemFromBadForList(this)">
+                                <i class="fa fa-solid fa-trash me-1"></i>
+                                حذف
+                            </button>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
 
                 @if(isset($tutorial))
                 <div class="d-flex flex-wrap">

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('tutorials', function (Blueprint $table) {
             $table->string('good_for_items')->nullable();
+            $table->string('bad_for_items')->nullable();
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('tutorials', function (Blueprint $table) {
             $table->dropColumn('good_for_items');
+            $table->dropColumn('bad_for_items');
         });
     }
 };

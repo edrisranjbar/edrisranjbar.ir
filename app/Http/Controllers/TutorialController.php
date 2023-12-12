@@ -41,7 +41,8 @@ class TutorialController extends Controller
             'poster' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'slug' => 'required|string|max:50|unique:tutorials,slug',
             'sections' => 'string|required',
-            'good_for_items' => 'nullable'
+            'good_for_items' => 'nullable',
+            'bad_for_items' => 'nullable'
         ]);
 
         // Store the actual thumbnail if exists
@@ -66,7 +67,8 @@ class TutorialController extends Controller
             'thumbnail' => $validatedData['thumbnail'],
             'poster' => $validatedData['poster'],
             'slug' => $validatedData['slug'],
-            'good_for_items' => $validatedData['good_for_items']
+            'good_for_items' => $validatedData['good_for_items'],
+            'bad_for_items' => $validatedData['bad_for_items']
         ]);
 
         $sectionsArray = explode(",", $validatedData['sections']);
@@ -101,7 +103,8 @@ class TutorialController extends Controller
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'poster' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'sections' => 'string|required',
-            'good_for_items' => 'nullable'
+            'good_for_items' => 'nullable',
+            'bad_for_items' => 'nullable'
         ]);
 
         if ($request->hasFile('thumbnail')) {
