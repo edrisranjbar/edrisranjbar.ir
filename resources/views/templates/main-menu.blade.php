@@ -16,12 +16,37 @@
         </li>
         @endforeach
     </ul>
-    @auth
-    <button class="btn btn-primary btn-w-icon">
+    @auth('user')
+    <div class="navbar-nav navbar-dark ms-auto">
+        <div class="btn-group">
+            <button class="btn btn-outline-primary dropdown-toggle" id="profileDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+                @if($user->profile_photo)
+                <img src="{{ $user->profile_photo ? asset('storage/upload/' . $user->profile_photo) : asset('images/profile-placeholder.jpg') }}" alt="{{ $user->name }}" class="rounded-circle"
+                    width="30" height="30" style="width: 30px; height: 30px;">
+                @endif
+                {{ $user->name }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                <li>
+                    <a class="dropdown-item text-dark" href="{{ route('user.profile') }}">پروفایل کاربری</a>
+                </li>
+                <li>
+                    <a class="dropdown-item text-dark" href="{{ route('user.courses') }}">دوره های من</a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a class="dropdown-item text-dark" href="{{ route('user.logout') }}">خروج</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @else
+    <a class="btn btn-primary btn-w-icon" href="{{ route('user.login') }}">
         <i class="fa fa-solid fa-sign-in me-1"></i>
         ورود / عضویت
-    </button>
-    @else
-    خوش آمدید
+    </a>
     @endauth
 </nav>

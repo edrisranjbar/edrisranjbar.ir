@@ -7,6 +7,7 @@ use App\Models\Tutorial;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,8 @@ class HomeController extends Controller
         $blogUrl = '#';
         $tutorials = Tutorial::all();
         $posts = Post::all();
-        return view('index', compact('widgets', 'coursesUrl', 'blogUrl', 'tutorials', 'posts'));
+        $user = Auth::guard('user')?->user();
+        return view('index', compact('widgets', 'coursesUrl', 'blogUrl', 'tutorials', 'posts', 'user'));
     }
 
     public function getAllWidgets()
@@ -79,7 +81,7 @@ class HomeController extends Controller
     {
         $tutorial = Tutorial::where('slug', $slug)->first();
         $lessons = Lesson::where('tutorial_id', $tutorial->id)->first();
-        if(!$tutorial){
+        if (!$tutorial) {
             abort(404);
         }
         return view('tutorials.show', compact('tutorial', 'lessons'));
