@@ -35,8 +35,9 @@
                                 <a class="nav-link dropdown-toggle ml-2 border rounded" href="#" id="userDropdown"
                                     role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-user fa-sm fa-fw text-gray-600"></i>
-                                    <span class="mr-2 d-none d-lg-inline text-dark">{{ auth('user')->user()->fullName
-                                        }}</span>
+                                    <span class="mr-2 d-none d-lg-inline text-dark">
+                                        {{ auth('user')->user()->name }}
+                                    </span>
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu shadow animated--grow-in text-right"
@@ -54,7 +55,9 @@
                             </li>
                         </ul>
                     </nav>
-                    @yield('content')
+                    <main class="container-lg">
+                        @yield('content')
+                    </main>
                 </div>
                 <!-- End of Content Wrapper -->
                 <footer class="sticky-footer bg-white rounded-bottom-left-1">

@@ -4,9 +4,9 @@
 
     <!-- Sidebar - Brand -->
     <li>
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('admin') }}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('user') }}">
             <div class="sidebar-brand-text mx-3">
-                مدیریت
+                پنل دانش آموزان
             </div>
         </a>
     </li>
@@ -18,35 +18,21 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('admin') }}">
+        <a class="nav-link" href="{{ url('user') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>داشبورد</span>
         </a>
     </li>
 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#collapsePosts"
-            aria-expanded="false" aria-controls="collapsePosts">
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('user.tutorials') }}">
             <i class="fas fa-fw fa-pen"></i>
             <span>دوره های من</span>
         </a>
-        <div id="collapsePosts" class="collapse" aria-labelledby="collapsePosts" data-parent="#accordionSidebar">
-            <div class="collapse-inner">
-                <a class="collapse-item" href="{{ route('posts.index') }}">
-                    <span>لیست نوشته ها</span>
-                </a>
-                <a class="collapse-item" href="{{ route('posts.create') }}">
-                    <span>ایجاد نوشته</span>
-                </a>
-                <a href="{{ route('categories.index') }}" class="collapse-item">
-                    دسته بندی ها
-                </a>
-            </div>
-        </div>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('admin/settings') }}">
+        <a class="nav-link" href="{{ route('user.profile') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>حساب کاربری</span>
         </a>

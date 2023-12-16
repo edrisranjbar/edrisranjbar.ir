@@ -32,7 +32,7 @@
                     <a class="dropdown-item text-dark" href="{{ route('user.profile') }}">پروفایل کاربری</a>
                 </li>
                 <li>
-                    <a class="dropdown-item text-dark" href="{{ route('user.courses') }}">دوره های من</a>
+                    <a class="dropdown-item text-dark" href="{{ route('user.tutorials') }}">دوره های من</a>
                 </li>
                 <li>
                     <hr class="dropdown-divider">
