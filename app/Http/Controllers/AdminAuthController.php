@@ -29,13 +29,13 @@ class AdminAuthController extends Controller
     public function processLogin(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
-            'username' => ['required'],
-            'password' => ['required'],
+            'username' => 'required',
+            'password' => 'required',
         ]);
         if (Auth::guard('admin')->attempt($credentials, true)) {
-            return redirect()->intended('/admin');
+            return redirect()->intended('/admin')->with('success', 'مدیر گرامی، به پنل مدیریت خوش آمدید!');
         }
-        return redirect()->route('admin.login')->with('errors', ['usernameOrPassword' => 'نام کاربری یا رمز عبور اشتباه است!']);
+        return redirect()->route('admin.login')->with('error', 'نام کاربری یا رمز عبور اشتباه است!');
     }
 
     public function logout(): RedirectResponse|Redirector

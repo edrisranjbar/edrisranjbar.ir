@@ -9,7 +9,7 @@
                 <div class="card rounded-4">
                     <div class="row g-0">
                         <div class="col-12 col-md-6 col-lg-5 d-none d-md-block d-flex align-items-center justify-content-center">
-                            <img src="{{ asset('images/login.svg') }}" class="mx-5 w-100 h-100 rounded">
+                            <img src="{{ asset('images/login.svg') }}" class="mx-5 mt-3 mt-md-0 w-100 h-100 rounded">
                         </div>
                         <div class="col-12 col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body px-4 px-lg-5 text-black">
