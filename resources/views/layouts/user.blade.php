@@ -15,18 +15,13 @@
 </head>
 
 <body id="page-top" dir="rtl">
-    <!-- Page Wrapper -->
-
-    <div class="row justify-content-center my-md-5 mx-0">
-        <div id="wrapper"
-            class="col-md-11 px-0 shadow rounded-top-right-1 rounded-bottom-right-1 rounded-bottom-left-1">
+        <div id="wrapper">
             @include('templates.user-sidebar')
             <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column rounded-bottom-left-1">
+            <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
                 <div id="content">
-                    <nav
-                        class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow rounded-top-left-1">
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                         <button id="sidebarToggleTop" class="btn d-md-none btn-circle">
                             <i class="fa fa-bars"></i>
                         </button>
@@ -60,7 +55,7 @@
                     </main>
                 </div>
                 <!-- End of Content Wrapper -->
-                <footer class="sticky-footer bg-white rounded-bottom-left-1">
+                <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center text-muted my-auto">
                             <span>
@@ -76,11 +71,10 @@
             </div>
             <!-- End of Page Wrapper -->
         </div>
-
-
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
         <script src="{{ asset('assets/js/sb-admin-2.js') }}"></script>
+        <script src="{{ asset('assets/js/sidebar.js') }}" defer></script>
         <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 

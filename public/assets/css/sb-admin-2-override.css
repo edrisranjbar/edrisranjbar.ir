@@ -681,3 +681,7 @@ body.sidebar-open {
 input#email::placeholder {
     text-align: right;
 }
+
+#accordionSidebar{
+    background-color: var(--primary-dark-color, #6C63FF) !important;
+}
