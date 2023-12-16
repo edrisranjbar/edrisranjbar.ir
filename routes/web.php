@@ -47,11 +47,11 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
 Route::get('user/login', [UserAuthController::class, 'login'])->name('user.login');
 Route::post('user/login', [UserAuthController::class, 'processLogin']);
+Route::get('user/login/resetPassword', [UserAuthController::class, 'showResetPasswordForm'])->name('user.password.reset');
 Route::middleware(['user'])->prefix('user')->group(function () {
     Route::get('/', [UserController::class, 'dashboard']);
     Route::get('tutorials', [UserController::class, 'courses'])->name('user.tutorials');
     Route::get('profile', [UserController::class, 'show'])->name('user.profile');
     Route::patch('profile', [UserController::class, 'update'])->name('user.update');
     Route::get('logout', [UserAuthController::class, 'logout'])->name('user.logout');
-
 });

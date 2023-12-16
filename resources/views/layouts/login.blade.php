@@ -8,11 +8,11 @@
     <title>ورود</title>
     <link href="{{ asset('assets/css/fonts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/bootstrap.rtl.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/sb-admin-2-override.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 </head>
-<body>
-    <main class="form-signin">
+<body dir="rtl">
+    <main class="row justify-content-center mx-0">
         @yield('content')
     </main>
 </body>
