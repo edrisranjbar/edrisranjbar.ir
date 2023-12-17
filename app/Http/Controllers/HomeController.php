@@ -84,6 +84,8 @@ class HomeController extends Controller
         if (!$tutorial) {
             abort(404);
         }
-        return view('tutorials.show', compact('tutorial', 'lessons'));
+        $user = Auth::guard('user')?->user();
+        $userHasEnrolled = $user && $user->tutorials->contains($tutorial->id);
+        return view('tutorials.show', compact('tutorial', 'lessons', 'userHasEnrolled'));
     }
 }

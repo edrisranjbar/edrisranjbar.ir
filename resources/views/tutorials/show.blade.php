@@ -16,7 +16,14 @@
                 {{ $tutorial->short_description }}
             </p>
             <div class="d-flex tutorial-action-buttons mb-4 mb-md-0">
-                <button class="button button-secondary">همین حالا شروع کن!</button>
+                <form action="{{ route('tutorials.enroll', ['slug' => $tutorial->id]) }}" method="post">
+                    @csrf
+                    @if(!$userHasEnrolled)
+                    <button type="submit" class="button button-secondary">همین حالا شروع کن!</button>
+                    @else
+                    <a class="button button-secondary" href="#">شروع درس ها</a>
+                    @endif
+                </form>
                 <button class="button button-outline-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                         <path
@@ -49,12 +56,12 @@
     <div class="tutorial-content">
         <div class="video-player-container">
             <img src="https://i.stack.imgur.com/zZNgk.png">
-            <video src="{{ asset('storage/upload/' . $tutorial->lessons?->first()->video_path) }}" class="video-player"
-                poster="{{ asset('storage/upload/' . $tutorial->lessons?->first()->thumbnail) }}" controls></video>
+            <video src="{{ $tutorial->lessons?->first() ? asset('storage/upload/' . $tutorial->lessons?->first()->video_path) : "" }}" class="video-player"
+                poster="{{ $tutorial->lessons?->first() ? asset('storage/upload/' . $tutorial->lessons?->first()->thumbnail) : "" }}" controls></video>
         </div>
-        <p class="video-caption">{{ $tutorial->lessons->first()->title }}</p>
+        <p class="video-caption">{{ $tutorial->lessons->first()?->title }}</p>
         <br>
-        <p class="about-tutorial-title display-5">درباره دوره {{ $tutorial->title }}</p>
+        <p class="about-tutorial-title display-5">درباره دوره {{ $tutorial?->title }}</p>
         <span class="tutorial-description">
             {!! $tutorial->description !!}
         </span>

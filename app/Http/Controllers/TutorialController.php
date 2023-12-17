@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Models\CourseSection;
 use App\Models\Tutorial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TutorialController extends Controller
 {
@@ -148,4 +149,16 @@ class TutorialController extends Controller
         $tutorial->delete();
         return redirect()->route('tutorials.index')->with('success', 'دوره آموزشی با موفقیت حذف شد.');
     }
+
+    public function enroll(Request $request, int $tutorial_id)
+    {
+        $tutorial = Tutorial::findOrFail($tutorial_id);
+        $user = Auth::guard('user')?->user();
+        if (!$user->tutorials->contains($tutorial->id)) {
+            $user->tutorials()->attach($tutorial->id);
+            return redirect()->back()->with('success', 'با موفقیت در دوره ثبت نام شدید!');
+        }
+        return redirect()->back()->with('error', 'شما در این دوره عضو هستید');
+    }
+
 }

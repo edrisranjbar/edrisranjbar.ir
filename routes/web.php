@@ -17,6 +17,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('podcasts', [HomeController::class, 'podcasts']);
 Route::get('tutorials', [HomeController::class, 'tutorials'])->name('tutorials');
 Route::get('tutorials/{slug}', [HomeController::class, 'tutorial'])->name('tutorials.show');
+Route::post('tutorials/{slug}/enroll', [TutorialController::class, 'enroll'])->name('tutorials.enroll');
 Route::get('podcasts', [HomeController::class, 'podcasts']);
 Route::get('blog', [HomeController::class, 'blog']);
 Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
