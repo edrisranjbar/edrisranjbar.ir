@@ -35,6 +35,9 @@
                     <a class="dropdown-item text-dark" href="{{ route('user.tutorials') }}">دوره های من</a>
                 </li>
                 <li>
+                    <a class="dropdown-item text-dark" href="{{ route('user.wishlist') }}">علاقه‌مندی ها</a>
+                </li>
+                <li>
                     <hr class="dropdown-divider">
                 </li>
                 <li>

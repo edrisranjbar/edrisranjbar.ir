@@ -12,7 +12,7 @@ class WishlistController extends Controller
     public function index()
     {
         $user = Auth::guard('user')?->user();
-        $wishlistItems = Wishlist::where('user_id','=', $user->id);
+        $wishlistItems = Wishlist::all();#Wishlist::where('user_id','=', $user->id);
         return view('user.wishlist', compact('wishlistItems'));
     }
 
