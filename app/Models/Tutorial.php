@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -91,4 +92,14 @@ class Tutorial extends Model
             return $this->price . " تومان";
         }
     }
+
+    public function isInWishlist()
+    {
+        // Get the currently authenticated user
+        $user = Auth::guard('user')?->user();
+
+        // Check if the tutorial is in the user's wishlist
+        return $user->wishlist()->where('tutorial_id', $this->id)->exists();
+    }
+
 }

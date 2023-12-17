@@ -12,12 +12,14 @@ use App\Http\Controllers\CourseSectionController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\WishlistController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('podcasts', [HomeController::class, 'podcasts']);
 Route::get('tutorials', [HomeController::class, 'tutorials'])->name('tutorials');
 Route::get('tutorials/{slug}', [HomeController::class, 'tutorial'])->name('tutorials.show');
 Route::post('tutorials/{slug}/enroll', [TutorialController::class, 'enroll'])->name('tutorials.enroll');
+Route::post('wishlist/{id}', [WishlistController::class, 'addOrRemove'])->name('wishlist.addOrRemove');
 Route::get('podcasts', [HomeController::class, 'podcasts']);
 Route::get('blog', [HomeController::class, 'blog']);
 Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
@@ -51,6 +53,7 @@ Route::post('user/login', [UserAuthController::class, 'processLogin']);
 Route::get('user/login/resetPassword', [UserAuthController::class, 'showResetPasswordForm'])->name('user.password.reset');
 Route::middleware(['user'])->prefix('user')->group(function () {
     Route::get('/', [UserController::class, 'dashboard']);
+    Route::get('wishlist', [WishlistController::class, 'index'])->name('user.wishlist');
     Route::get('tutorials', [UserController::class, 'courses'])->name('user.tutorials');
     Route::get('profile', [UserController::class, 'show'])->name('user.profile');
     Route::patch('profile', [UserController::class, 'update'])->name('user.update');

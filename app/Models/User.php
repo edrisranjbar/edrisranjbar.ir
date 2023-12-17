@@ -32,4 +32,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Tutorial::class, 'user_tutorial');
     }
 
+    public function wishlist()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
 }
