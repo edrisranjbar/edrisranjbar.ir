@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Tutorial;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,7 +12,9 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        return view('user.index');
+        $user = Auth::guard('user')->user();
+        $suggestedTutorial = Tutorial::first();
+        return view('user.index', compact('user', 'suggestedTutorial'));
     }
 
     public function show()
