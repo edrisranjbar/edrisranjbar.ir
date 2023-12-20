@@ -154,7 +154,7 @@ class TutorialController extends Controller
     {
         $tutorial = Tutorial::findOrFail($tutorial_id);
         $user = Auth::guard('user')?->user();
-        if (!$user->tutorials->contains($tutorial->id)) {
+        if (!$user?->tutorials->contains($tutorial->id)) {
             $user->tutorials()->attach($tutorial->id);
             return redirect()->back()->with('success', 'با موفقیت در دوره ثبت نام شدید!');
         }

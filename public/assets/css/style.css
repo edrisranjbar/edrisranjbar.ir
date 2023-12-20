@@ -2667,13 +2667,56 @@ nav a:hover {
     background-color: transparent;
     appearance: unset;
 }
-.form-signin button{
+
+.form-signin button {
     margin-top: 32px;
     font-size: 20px;
 }
 
-.form-signin a{
+.form-signin a {
     margin-top: 64px;
     text-align: right;
     align-self: flex-start;
+}
+
+.progress {
+    background-color: var(--primary-color);
+    border-radius: 32px;
+    position: relative;
+    margin: 15px 0;
+    height: 41px;
+    width: 387px;
+}
+
+.progress-done {
+    background: var(--secondary-color);
+    border-radius: 32px;
+    height: 100%;
+}
+
+.progress-label {
+    margin-top: 8px;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#lessonContent {
+    margin-top: 80px;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 3rem;
+}
+
+.lesson-title {
+    margin-bottom: 48px;
+    color: #323030;
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }

@@ -88,4 +88,11 @@ class HomeController extends Controller
         $userHasEnrolled = $user && $user->tutorials->contains($tutorial->id);
         return view('tutorials.show', compact('tutorial', 'lessons', 'userHasEnrolled'));
     }
+
+    public function lesson(string $tutorialSlug, string $id)
+    {
+        $lesson = Lesson::findOrFail($id);
+        return view('tutorials.lessons.show', compact('lesson'));
+    }
+
 }

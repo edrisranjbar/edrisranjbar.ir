@@ -99,7 +99,7 @@ class Tutorial extends Model
         $user = Auth::guard('user')?->user();
 
         // Check if the tutorial is in the user's wishlist
-        return $user->wishlist()->where('tutorial_id', $this->id)->exists();
+        return $user?->wishlist()->where('tutorial_id', $this->id)->exists() || false;
     }
 
 }

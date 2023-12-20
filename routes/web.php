@@ -18,6 +18,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('podcasts', [HomeController::class, 'podcasts']);
 Route::get('tutorials', [HomeController::class, 'tutorials'])->name('tutorials');
 Route::get('tutorials/{slug}', [HomeController::class, 'tutorial'])->name('tutorials.show');
+Route::get('tutorials/{slug}/lessons/{id}', [HomeController::class, 'lesson'])->name('lessons.show');
 Route::post('tutorials/{slug}/enroll', [TutorialController::class, 'enroll'])->name('tutorials.enroll');
 Route::post('wishlist/{id}', [WishlistController::class, 'addOrRemove'])->name('wishlist.addOrRemove');
 Route::get('podcasts', [HomeController::class, 'podcasts']);
