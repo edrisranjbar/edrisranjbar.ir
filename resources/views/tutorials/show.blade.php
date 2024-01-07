@@ -6,7 +6,7 @@
     <div class="hero-section row align-items-center w-100 mx-0">
         <div class="col-12 col-md-8">
             <span class="breadcrumb">
-                <a href="#">دوره های آموزشی</a>&nbsp;»&nbsp;
+                <a href="{{ url('tutorials') }}">دوره های آموزشی</a>&nbsp;»&nbsp;
                 <a href="#">برنامه نویسی</a>
             </span>
             <h1 class="tutorial-title display-3">
