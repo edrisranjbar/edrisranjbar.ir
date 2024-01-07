@@ -81,8 +81,9 @@
         <span class="tutorial-description">
             {!! $tutorial->description !!}
         </span>
+        <br><br>
     </div>
-
+    @if(count($tutorial->getGoodForItems()) > 0 && $tutorial->getGoodForItems()[0])
     <div class="good-bad-section">
         <div class="good-or-bad-box first">
             <div class="tutorial-is-good-for">
@@ -105,6 +106,8 @@
                 </p>
             </div>
         </div>
+        @endif
+        @if(count($tutorial->getBadForItems()) > 0 && $tutorial->getBadForItems()[0])
         <div class="good-or-bad-box last">
             <div class="tutorial-is-bad-for">
                 <img src="{{asset('images/thumbs-down.png') }}" class="thumbs-down">
@@ -124,6 +127,7 @@
                 @endforeach
             </div>
         </div>
+        @endif
     </div>
 
     <div id="tutorial-syllabus">
