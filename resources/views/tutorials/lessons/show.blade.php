@@ -43,7 +43,7 @@
             </a>
         </div>
     </div>
-    <div class="mb-5" id="lessonContent">
+    <div class="mb-3" id="lessonContent">
         <h1 class="lesson-title">درس اول - مقدمه ای بر تاریخچه اینترنت</h1>
         <video src="{{ asset('storage/upload/' . $lesson->video_path) }}"
             poster="{{ asset('storage/upload/' . $lesson->thumbnail) }}" controls class="w-75 mx-auto rounded">
@@ -51,6 +51,33 @@
         <span class="tutorial-description">
             {!! $lesson->description !!}
         </span>
+    </div>
+    <div class="mb-5" id="tabBarSection">
+        <div class="tabBarHeader">
+            <ul>
+                <li data-target="#downloadFiles" class="active">دانلود فایلها</li>
+                <li>حل تمرین</li>
+                <li>پرسش و پاسخ</li>
+            </ul>
+        </div>
+        <div class="tabBarBody">
+            <div id="downloadFiles">
+                <ul>
+                    <li>
+                        <a href="#">
+                        دانلود فایلهای تمرین
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        دانلود کد های درس
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 </main>
 @stop

@@ -1,4 +1,4 @@
-<footer class="py-5 bg-dark">
+<footer class="mt-5 py-5 bg-dark">
     <h2 class="my-text-primary">ادریس رنجبر</h2>
     <p class="my-text-orange">توسعه دهنده بک اند و مدرس</p>
     <ul class="px-0">

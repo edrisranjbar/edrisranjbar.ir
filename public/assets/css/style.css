@@ -2720,3 +2720,41 @@ nav a:hover {
     font-weight: 700;
     line-height: normal;
 }
+
+/* TabBar section */
+.tabBarHeader ul{
+    list-style: none;
+    display: flex;
+    color: #595858;
+    text-align: right;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0px;
+    padding: 0px;
+}
+.tabBarHeader > ul li{
+    margin-left: 16px;
+    font-size: 22px;
+    padding: 8px 16px 8px 40px;
+    border-radius: 16px;
+    border: 2px solid var(--primary-dark-color);
+    cursor: pointer;
+}
+.tabBarHeader > ul li.active{
+    background-color: var(--primary-dark-color);
+    color: var(--pure-white);
+}
+.tabBarBody{
+    margin-top: 16px;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: #DFDFDF;
+}
+.tabBarBody #downloadFiles > ul{
+    margin: 0px;
+}
+.tabBarBody #downloadFiles li:not(:last-child){
+    margin-bottom: 8px;
+}
