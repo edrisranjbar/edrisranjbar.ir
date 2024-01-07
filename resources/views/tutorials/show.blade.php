@@ -21,7 +21,7 @@
                     @if(!$userHasEnrolled)
                     <button type="submit" class="button button-secondary">همین حالا شروع کن!</button>
                     @else
-                    <a class="button button-secondary" href="#">شروع درس ها</a>
+                    <a class="button button-secondary" href="{{ url("tutorials/" . $tutorial->slug . "/lessons/" . $tutorial->lessons?->first()->id) }}">شروع درس ها</a>
                     @endif
                 </form>
                 <form action="{{ route('wishlist.addOrRemove', ['id' => $tutorial->id]) }}" method="POST">

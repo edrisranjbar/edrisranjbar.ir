@@ -21,4 +21,5 @@ class Lesson extends Model implements HasMedia
     {
         $this->addMediaCollection('thumbnail')->singleFile();
     }
+
 }
