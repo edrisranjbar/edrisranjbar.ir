@@ -19,6 +19,10 @@ class WishlistController extends Controller
     public function addOrRemove (Request $request, $id) {
         $tutorial = Tutorial::findOrFail($id);
         $user = Auth::guard('user')?->user();
+        
+        if (!$user){
+            return redirect('user/login');    
+        }
 
         // Check if the tutorial is already in the wishlist
         $wishlistItem = Wishlist::where('user_id', $user->id)
