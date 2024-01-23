@@ -5,7 +5,7 @@
 <main>
     <div class="lesson-nav-bar w-100 d-flex flex-row-reverse justify-content-between align-items-start">
         <div>
-            <a href="#" class="button button-secondary btn-w-icon">
+            <a href="{{ url($prevLessonURL) }}" class="button button-secondary btn-w-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
                     <g clip-path="url(#clip0_2838_293)">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -24,10 +24,13 @@
             <div class="progress" dir="ltr">
                 <div class="progress-done" style="width: 80%;"></div>
             </div>
-            <p class="progress-label mx-auto">85% تکمیل شده</p>
+            <p class="progress-label mx-auto">
+                {{-- 85% تکمیل شده --}}
+                ادامه بده، داری میرسی
+            </p>
         </div>
         <div>
-            <a href="#" class="button button-secondary btn-w-icon">
+            <a href="{{ url($nextLessonURL) }}" class="button button-secondary btn-w-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
                     <g clip-path="url(#clip0_2838_286)">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -43,10 +46,10 @@
             </a>
         </div>
     </div>
-    <div class="mb-3" id="lessonContent">
+    <div class="mb-4" id="lessonContent">
         <h1 class="lesson-title">درس اول - مقدمه ای بر تاریخچه اینترنت</h1>
         <video src="{{ asset('storage/upload/' . $lesson->video_path) }}"
-            poster="{{ asset('storage/upload/' . $lesson->thumbnail) }}" controls class="w-75 mx-auto rounded">
+            poster="{{ asset('storage/upload/' . $lesson->thumbnail) }}" controls class="w-75 mx-auto rounded mb-2">
         </video>
         <span class="tutorial-description">
             {!! $lesson->description !!}
@@ -83,10 +86,8 @@
                 </ul>
             </div>
             <div class="tab-pane fade" id="excersices" role="tabpanel" tabindex="0">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ea, sit placeat adipisci minus aperiam laborum maiores aut illo quidem. Inventore, tempora? Hic rem praesentium ipsam natus! Quidem, quaerat modi!
             </div>
             <div class="tab-pane fade" id="qa" role="tabpanel" tabindex="0">
-                پرسش و پاسخ
             </div>
         </div>
     </div>

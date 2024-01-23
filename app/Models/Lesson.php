@@ -22,4 +22,19 @@ class Lesson extends Model implements HasMedia
         $this->addMediaCollection('thumbnail')->singleFile();
     }
 
+    public function previousLesson()
+    {
+        return $this->section->tutorial->lessons()
+            ->where('order_id', '<', $this->order_id)
+            ->orderBy('order_id', 'desc')
+            ->first();
+    }
+
+    public function nextLesson()
+    {
+        return $this->section->tutorial->lessons()
+            ->where('order_id', '>', $this->order_id)
+            ->orderBy('order_id', 'asc')
+            ->first();
+    }
 }

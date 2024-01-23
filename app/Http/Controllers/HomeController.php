@@ -92,7 +92,10 @@ class HomeController extends Controller
     public function lesson(string $tutorialSlug, string $id)
     {
         $lesson = Lesson::findOrFail($id);
-        return view('tutorials.lessons.show', compact('lesson'));
+        $prevLessonURL = $lesson->previousLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->previousLesson()?->id : '#';
+        $nextLessonURL =
+        $lesson->nextLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->nextLesson()?->id : '#';
+        return view('tutorials.lessons.show', compact('lesson', 'prevLessonURL', 'nextLessonURL'));
     }
 
 }
