@@ -53,7 +53,7 @@
         </span>
     </div>
     <div class="mb-5" id="tabBarSection">
-        <nav class="nav nav-pills nav-fill" role="tablist">
+        <nav class="nav nav-pills nav-fill tabBarHeader" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#downloadSection" type="button"
                     role="tab" aria-controls="pills-downloadSection" aria-selected="true">دانلود فایلها</button>

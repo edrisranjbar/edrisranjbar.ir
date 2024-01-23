@@ -2734,15 +2734,17 @@ nav a:hover {
     margin: 0px;
     padding: 0px;
 }
-.tabBarHeader > ul li{
+.tabBarHeader li{
     margin-left: 16px;
+}
+.tabBarHeader .nav-link{
     font-size: 22px;
     padding: 8px 16px 8px 40px;
     border-radius: 16px;
     border: 2px solid var(--primary-dark-color);
     cursor: pointer;
 }
-.tabBarHeader > ul li.active{
+.tabBarHeader .nav-link.active{
     background-color: var(--primary-dark-color);
     color: var(--pure-white);
 }
