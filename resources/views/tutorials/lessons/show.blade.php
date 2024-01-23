@@ -3,6 +3,13 @@
 @extends('layouts.app')
 @section('content')
 <main>
+    <div class="page-path text-primary mb-3">
+        <a href="{{ url('/') }}">خانه</a>
+        »
+        <a href="{{ route('tutorials') }}">دوره ها</a>
+        »
+        <a href="{{ url($lesson->section->tutorial->link) }}">{{ $lesson->section->tutorial->title }}</a>
+    </div>
     <div class="lesson-nav-bar w-100 d-flex flex-row-reverse justify-content-between align-items-start">
         <div>
             <a href="{{ url($prevLessonURL) }}" class="button button-secondary btn-w-icon">
