@@ -53,30 +53,41 @@
         </span>
     </div>
     <div class="mb-5" id="tabBarSection">
-        <div class="tabBarHeader">
-            <ul>
-                <li data-target="#downloadFiles" class="active">دانلود فایلها</li>
-                <li>حل تمرین</li>
-                <li>پرسش و پاسخ</li>
-            </ul>
-        </div>
+        <nav class="nav nav-pills nav-fill" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#downloadSection" type="button"
+                    role="tab" aria-controls="pills-downloadSection" aria-selected="true">دانلود فایلها</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#excersices" type="button" role="tab"
+                    aria-controls="pills-excersices" aria-selected="true">حل تمرین</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#qa" type="button" role="tab"
+                    aria-controls="pills-qa" aria-selected="true">پرسش و پاسخ</button>
+            </li>
+        </nav>
         <div class="tabBarBody">
-            <div id="downloadFiles">
+            <div class="tab-pane fade show active" role="tabpanel" tabindex="0" id="downloadSection">
                 <ul>
                     <li>
                         <a href="#">
-                        دانلود فایلهای تمرین
+                            دانلود فایلهای تمرین
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                        دانلود کد های درس
+                            دانلود کد های درس
                         </a>
                     </li>
                 </ul>
             </div>
-            <div></div>
-            <div></div>
+            <div class="tab-pane fade" id="excersices" role="tabpanel" tabindex="0">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ea, sit placeat adipisci minus aperiam laborum maiores aut illo quidem. Inventore, tempora? Hic rem praesentium ipsam natus! Quidem, quaerat modi!
+            </div>
+            <div class="tab-pane fade" id="qa" role="tabpanel" tabindex="0">
+                پرسش و پاسخ
+            </div>
         </div>
     </div>
 </main>

@@ -2752,9 +2752,9 @@ nav a:hover {
     border-radius: 16px;
     background-color: #DFDFDF;
 }
-.tabBarBody #downloadFiles > ul{
+.tabBarBody #downloadSection > ul{
     margin: 0px;
 }
-.tabBarBody #downloadFiles li:not(:last-child){
+.tabBarBody #downloadSection li:not(:last-child){
     margin-bottom: 8px;
 }
