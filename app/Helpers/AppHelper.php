@@ -2,7 +2,6 @@
 
 namespace App\Helpers;
 
-
 class Number2Word
 {
     protected $digit1 = array(
@@ -138,6 +137,14 @@ class Number2Word
 
 class AppHelper
 {
+    public static function calculateProgress($currentLessonOrder, $totalNumberOfLessons): int
+    {
+        if ($totalNumberOfLessons > 0 && $currentLessonOrder >= 1 && $currentLessonOrder <= $totalNumberOfLessons) {
+            return (int)($currentLessonOrder / $totalNumberOfLessons) * 100;
+        } else {
+            return 0;
+        }
+    }
 
     public static function numberToWords(int $number)
     {

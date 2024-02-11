@@ -68,7 +68,7 @@
                     <ul class="list-group">
                         @forelse($user->tutorials ?? [] as $enrolledTutorial)
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            {{ $enrolledTutorial->title }}
+                            <a href="{{ $enrolledTutorial->link}}">{{ $enrolledTutorial->title }}</a>
                             <span class="badge bg-success rounded-pill">کامل شده</span>
                         </li>
                         @empty
@@ -106,7 +106,7 @@
             <p class="lead text-muted">
                 اگر از دوره‌های ما استفاده می‌کنید و می‌خواهید ما را حمایت کنید، می‌توانید با یک مبلغ دلخواه به ما کمک کنید.
             </p>
-            <a href="https://your-donation-link" target="_blank" class="btn btn-outline-primary btn-w-icon mx-auto">
+            <a href="https://zarinp.al/edrisranjbar" target="_blank" class="btn btn-outline-primary btn-w-icon mx-auto">
                 یه مقداری حمایت میکنم
             </a>
         </div>

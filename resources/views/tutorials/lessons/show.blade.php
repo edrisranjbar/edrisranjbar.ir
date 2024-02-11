@@ -29,11 +29,10 @@
         </div>
         <div>
             <div class="progress" dir="ltr">
-                <div class="progress-done" style="width: 80%;"></div>
+                <div class="progress-done" style="width: {{ $progress }}%;"></div>
             </div>
             <p class="progress-label mx-auto">
-                {{-- 85% تکمیل شده --}}
-                ادامه بده، داری میرسی
+                {{ $progress }}% تکمیل شده
             </p>
         </div>
         <div>

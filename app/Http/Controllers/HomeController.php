@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\AppHelper;
 use App\Models\Post;
 use App\Models\Tutorial;
 use App\Models\Lesson;
@@ -92,10 +93,13 @@ class HomeController extends Controller
     public function lesson(string $tutorialSlug, string $id)
     {
         $lesson = Lesson::findOrFail($id);
+        $totalLessonsCount = $lesson->section->tutorial->lessonsCount();
+        $currentLessonOrder = $lesson->getOrder();
+        $progress = AppHelper::calculateProgress(currentLessonOrder: $currentLessonOrder, totalNumberOfLessons: $totalLessonsCount);
         $prevLessonURL = $lesson->previousLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->previousLesson()?->id : '#';
         $nextLessonURL =
         $lesson->nextLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->nextLesson()?->id : '#';
-        return view('tutorials.lessons.show', compact('lesson', 'prevLessonURL', 'nextLessonURL'));
+        return view('tutorials.lessons.show', compact('lesson', 'prevLessonURL', 'nextLessonURL', 'progress'));
     }
 
 }

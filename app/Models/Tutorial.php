@@ -48,6 +48,10 @@ class Tutorial extends Model
         return $this->hasMany(Lesson::class);
     }
 
+    public function lessonsCount()
+    {
+        return $this->lessons()->count();
+    }
 
     public function getStatusLabelAttribute()
     {

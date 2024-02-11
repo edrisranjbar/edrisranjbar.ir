@@ -37,4 +37,9 @@ class Lesson extends Model implements HasMedia
             ->orderBy('order_id', 'asc')
             ->first();
     }
+
+    public function getOrder()
+    {
+        return $this->order_id;
+    }
 }
