@@ -39,5 +39,12 @@
         </a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('/') }}">
+            <i class="fas fa-fw fa-arrow-right"></i>
+            برگشتن به سایت
+        </a>
+    </li>
+
 </ul>
 <!-- End of Sidebar -->

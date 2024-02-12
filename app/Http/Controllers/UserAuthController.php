@@ -18,6 +18,14 @@ class UserAuthController extends Controller
         return view('user.login');
     }
 
+    public function register()
+    {
+        if (Auth::guard('user')->check()) {
+            return redirect('/user');
+        }
+        return view('user.register');
+    }
+
 
     public function processLogin(Request $request)
     {
@@ -36,6 +44,21 @@ class UserAuthController extends Controller
         }
 
         return redirect()->route('user.login')->with('errors', ['usernameOrPassword' => 'نام کاربری یا رمز عبور اشتباه است!']);
+    }
+
+    public function processRegister(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
+        User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => bcrypt($validatedData['password']),
+        ]);
+        return redirect()->route('user.login')->with('success', 'ثبت نام با موفقیت انجام شد. حالا می‌توانید وارد حساب کاربری خود شوید.');
     }
 
 

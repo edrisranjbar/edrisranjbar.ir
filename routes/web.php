@@ -50,7 +50,9 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 });
 
 Route::get('user/login', [UserAuthController::class, 'login'])->name('user.login');
+Route::get('user/register', [UserAuthController::class, 'register'])->name('user.register');
 Route::post('user/login', [UserAuthController::class, 'processLogin']);
+Route::post('user/register', [UserAuthController::class, 'processRegister']);
 Route::get('user/login/resetPassword', [UserAuthController::class, 'showResetPasswordForm'])->name('user.password.reset');
 Route::middleware(['user'])->prefix('user')->group(function () {
     Route::get('/', [UserController::class, 'dashboard']);

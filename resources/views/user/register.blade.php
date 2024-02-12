@@ -1,7 +1,6 @@
-@section('title', 'ورود')
 @extends('layouts.login')
+@section('title', 'ثبت نام')
 @section('content')
-
     <section class="vh-100 bg-primary">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -14,26 +13,21 @@
                             </div>
                             <div class="col-12 col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body px-4 px-lg-5 text-black">
-                                    @if (session('success'))
-                                        <div class="alert alert-success alert-dismissible d-flex align-items-center fade show"
-                                             role="alert">
-                                            <i class="bi-check-circle-fill"></i>
-                                            <div>
-                                                {{ session('success') }}
-                                            </div>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                                        </div>
-                                    @endif
-                                    <form method="post" action="{{ url('user/login') }}" class="needs-validation"
+                                    <form method="post" action="{{ route('user.register') }}" class="needs-validation"
                                           novalidate>
                                         @csrf
-                                        <h1 class="h3 fw-normal text-center mt-3 mb-5">لطفا وارد شوید</h1>
-                                        @if (session('error'))
-                                            <div class="alert alert-danger alert-dismissible d-flex align-items-center fade show"
-                                                 role="alert">
-                                                {{ session('error') }}
+                                        <h1 class="h3 fw-normal text-center mt-3 mb-5">فرم ثبت نام</h1>
+                                        <div class="form-group">
+                                            <label for="name" class="float-right">نام و نام خانوادگی</label>
+                                            <input name="name" type="text" class="form-control" id="name"
+                                                   placeholder="نام و نام خانوادگی" value="{{ old('name') }}" required>
+                                            <div class="invalid-feedback text-right">
+                                                لطفا نام و نام خانوادگی خود را وارد کنید
                                             </div>
-                                        @endif
+                                            @error('name')
+                                            <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                         <div class="form-group">
                                             <label for="email" class="float-right">ایمیل</label>
                                             <input name="email" type="email" class="form-control" id="email"
@@ -57,13 +51,11 @@
                                             @enderror
                                         </div>
                                         <button class="w-100 btn btn-lg btn-primary" type="submit">
-                                            ورود
-                                        </button>
-                                        <a class="w-100 btn btn-lg btn-outline-primary mt-2" href="{{ route('user.register') }}">
                                             ثبت نام
-                                        </a>
-                                        <a class="mt-4 d-block btn-link" href="{{ route('user.password.reset') }}">
-                                            فراموشی رمز عبور
+                                        </button>
+                                        <a class="w-100 btn btn-lg btn-outline-primary mt-2"
+                                           href="{{ route('user.login') }}">
+                                            ورود به حساب کاربری
                                         </a>
                                     </form>
                                 </div>
@@ -74,6 +66,4 @@
             </div>
         </div>
     </section>
-
-@stop
-<script src="{{ asset('assets\js\login.js') }}" defer></script>
+@endsection
