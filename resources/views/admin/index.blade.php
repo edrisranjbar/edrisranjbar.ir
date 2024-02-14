@@ -11,7 +11,7 @@
                         <div class="col mr-2">
                             <h6 class="font-weight-bold text-primary mb-2">نوشته ها</h6>
                             <div class="h3 ml-3 mb-0 text-gray-800">
-                                ۱۷
+                                {{ $postsCount }}
                             </div>
                         </div>
                         <div class="col-auto">
