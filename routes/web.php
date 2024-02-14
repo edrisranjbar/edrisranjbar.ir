@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminAuthController;
@@ -36,9 +37,7 @@ Route::post('admin/login', [AdminAuthController::class, 'processLogin']);
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('profile', [AdminProfileController::class, 'show'])->name('admin.profile');
     Route::get('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
-    Route::get('/', function () {
-        return view('admin.index');
-    });
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('pages', PageController::class);
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);

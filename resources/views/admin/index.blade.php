@@ -28,7 +28,7 @@
                         <div class="col mr-2">
                             <h6 class="font-weight-bold text-success mb-2">دانش آموزان</h6>
                             <div class="ml-3 h3 mb-0 text-gray-800">
-                                <span>۲۰</span>
+                                <span>{{ $studentsCount }}</span>
                             </div>
                         </div>
                         <div class="col-auto">
