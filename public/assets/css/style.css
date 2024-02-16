@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
@@ -29,7 +29,7 @@ a {
 
 body {
     direction: rtl !important;
-    font-family: "Vazirmatn FD" !important;
+    font-family: "Vazirmatn FD", serif !important;
 }
 
 main {
@@ -46,11 +46,10 @@ p {
 
 /* Header */
 header {
-    padding: 0px 32px 0px 32px;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding-bottom: 64px;
+    padding: 0 32px 64px;
     font-size: 24px;
     box-sizing: border-box;
 }
@@ -131,7 +130,7 @@ nav a:hover {
 
 .icon {
     padding: 8px;
-    margin: 0px;
+    margin: 0;
     font-size: 28px;
     display: flex !important;
     justify-content: center;
@@ -139,7 +138,7 @@ nav a:hover {
 }
 
 .m-0 {
-    margin: 0px;
+    margin: 0;
 }
 
 .d-flex {
@@ -185,7 +184,7 @@ nav a:hover {
 }
 
 main.container-404 {
-    margin: 0px;
+    margin: 0;
 }
 
 main>section,
@@ -311,7 +310,7 @@ img.profile {
 .students {
     position: absolute !important;
     background-color: var(--white-color);
-    width: 235.77px !important;
+    width: 236px !important;
     height: 146px;
     padding: 22px;
     border-radius: 32px;
@@ -383,7 +382,7 @@ img.profile {
     height: 250px;
     background-color: var(--white-color);
     display: flex;
-    padding: 43px 0px 43px 0px;
+    padding: 43px 0 43px 0;
     aspect-ratio: 1/1;
 }
 
@@ -427,7 +426,7 @@ img.profile {
 
 .waves {
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: -120px;
     z-index: -1;
 }
@@ -466,7 +465,7 @@ img.profile {
     min-width: 322px;
     max-width: 400px;
     background: #FFFFFF;
-    box-shadow: 0px 0px 32px -8px rgba(50, 48, 48, 0.16);
+    box-shadow: 0 0 32px -8px rgba(50, 48, 48, 0.16);
     border-radius: 16px;
 }
 
@@ -627,11 +626,8 @@ a {
 
 /* Contact */
 #contact {
-    margin-top: 8rem;
-    margin-bottom: 2rem;
     border-radius: 16px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 8rem 10% 2rem;
     font-size: 12px;
     padding: 2rem;
 }
@@ -948,7 +944,7 @@ footer p.copyright {
 }
 
 .post-card-header {
-    border-radius: 16px 16px 0px 0px;
+    border-radius: 16px 16px 0 0;
     background-color: var(--primary-color);
     padding: 16px;
 }
@@ -980,7 +976,7 @@ footer p.copyright {
     padding: 16px;
     background-color: var(--white-color);
     margin-bottom: 194px;
-    border-radius: 0px 0px 16px 16px;
+    border-radius: 0 0 16px 16px;
 }
 
 .post-content {
@@ -1005,8 +1001,8 @@ footer p.copyright {
 .comment-form textarea {
     border-radius: 8px;
     background: #FFF;
-    border: 0px;
-    outline: 0px;
+    border: 0;
+    outline: 0;
     padding: 8px 16px;
 }
 
@@ -1027,7 +1023,7 @@ footer p.copyright {
     gap: 8px;
     border-radius: 8px;
     background: var(--secondary-light-color);
-    border: 0px;
+    border: 0;
     width: fit-content;
     margin-top: 16px;
     color: var(--dark-color);
@@ -1049,8 +1045,8 @@ footer p.copyright {
 
 .comments_list ul {
     list-style: none;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
 }
@@ -1059,12 +1055,11 @@ footer p.copyright {
     transition: display 0.5s;
     max-width: 456px;
     min-width: 256px;
-    background-color: var(--smoke_white);
-    background-color: var(--white-color);
-    box-shadow: 0px 4px 30px rgb(204 204 204 / 70%);
+    background-color: var(--smoky-white-color);
+    box-shadow: 0 4px 30px rgb(204 204 204 / 70%);
     border-radius: 10px;
     padding: 13px 20px;
-    margin: 15px 25px 0px 25px;
+    margin: 15px 25px 0 25px;
     position: relative;
 }
 
@@ -1080,7 +1075,7 @@ footer p.copyright {
     font-size: 16px;
     line-height: 28px;
     text-align: right;
-    color: var(--dark80);
+    color: var(--dark-color);
     max-width: none;
 }
 
@@ -1112,11 +1107,11 @@ footer p.copyright {
 .reply {
     width: 456px;
     min-width: unset;
-    margin: 0px;
+    margin: 0;
 }
 
 aside .widget {
-    box-shadow: 0px 4px 16px 0px rgba(75, 73, 73, 0.16);
+    box-shadow: 0 4px 16px 0 rgba(75, 73, 73, 0.16);
     border-radius: 16px;
     background-color: var(--white-color);
     margin-bottom: 32px;
@@ -1125,14 +1120,14 @@ aside .widget {
 .widget-title {
     padding: 22px 15px;
     background-color: var(--primary-color);
-    border-radius: 16px 16px 0px 0px;
+    border-radius: 16px 16px 0 0;
     font-weight: bold;
     font-size: 27px;
     color: var(--white-color);
 }
 
 .widget-title h2 {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .widget-body {
@@ -1160,7 +1155,6 @@ ul.recent-blog-posts-widget li {
 }
 
 .widget .badge {
-    display: flex;
     padding: 8px 16px;
     justify-content: center;
     align-items: center;
@@ -1175,7 +1169,7 @@ ul.recent-blog-posts-widget li {
 
 .widget-body ul {
     list-style: none;
-    padding: 0px;
+    padding: 0;
 }
 
 .widget-body img {
@@ -1208,12 +1202,12 @@ ul.recent-blog-posts-widget li {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 /* Responsive Design */
 
-/** 1. Samall Mobiles **/
+/** 1. Small Mobiles **/
 @media screen and (max-width: 1000px) {
     .tutorials-section-description {
         text-align: center;
@@ -1230,7 +1224,7 @@ ul.recent-blog-posts-widget li {
     }
 
     .hero {
-        margin-top: 0px !important;
+        margin-top: 0 !important;
     }
 
     .hero-details-section {
@@ -1251,7 +1245,7 @@ ul.recent-blog-posts-widget li {
 
     .hero-subtitle {
         text-align: center;
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 
     .hero-description {
@@ -1267,7 +1261,7 @@ ul.recent-blog-posts-widget li {
         margin-top: 64px;
         width: 75px;
         height: 75px;
-        left: 0px;
+        left: 0;
     }
 
     .circle-sm,
@@ -1277,7 +1271,7 @@ ul.recent-blog-posts-widget li {
 
     .title {
         font-size: 24px;
-        margin: 32px 0px 0px 0px !important;
+        margin: 32px 0 0 0 !important;
         line-height: 1.6;
     }
 
@@ -1297,7 +1291,7 @@ ul.recent-blog-posts-widget li {
 
     .skill-box {
         height: fit-content;
-        padding: 16px 0px 0px 0px;
+        padding: 16px 0 0 0;
     }
 
     .skill-box .icon-box img {
@@ -1311,7 +1305,7 @@ ul.recent-blog-posts-widget li {
     }
 
     .flex-column {
-        padding: 0px;
+        padding: 0;
     }
 
     .waves {
@@ -1344,8 +1338,8 @@ ul.recent-blog-posts-widget li {
 
     .tutorials-right {
         margin-top: 64px !important;
-        margin-left: 0px !important;
-        margin-right: 0px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .tutorial.card,
@@ -1387,7 +1381,7 @@ ul.recent-blog-posts-widget li {
     #about h2 {
         font-size: 24px;
         font-weight: 400;
-        margin: 0px auto 16px auto !important;
+        margin: 0 auto 16px auto !important;
         line-height: 1.5;
     }
     #about p,
@@ -1416,7 +1410,7 @@ ul.recent-blog-posts-widget li {
 
     #contact {
         margin: 8rem 32px 64px 32px !important;
-        padding: 0px !important;
+        padding: 0 !important;
         text-align: center;
     }
 
@@ -1425,12 +1419,12 @@ ul.recent-blog-posts-widget li {
     }
 
     .contact-info {
-        padding: 0px;
+        padding: 0;
     }
 
     footer h2 {
         font-size: 24px;
-        margin-bottom: 0px;
+        margin-bottom: 0;
         line-height: 1.5;
     }
 
@@ -1463,9 +1457,9 @@ ul.recent-blog-posts-widget li {
 
 @media screen and (max-width: 480px) {
     #about {
-        border-radius: 0px;
-        margin: 8rem 0px !important;
-        border: 0px !important;
+        border-radius: 0;
+        margin: 8rem 0 !important;
+        border: 0 !important;
     }
 
     .students {
@@ -1499,7 +1493,7 @@ ul.recent-blog-posts-widget li {
     }
 
     .comment-form {
-        padding: 34px 15px 0px 15px;
+        padding: 34px 15px 0 15px;
         font-size: 16px;
         line-height: 25px;
     }
@@ -1532,12 +1526,12 @@ ul.recent-blog-posts-widget li {
     }
 
     .comments {
-        margin: 0px 5px;
+        margin: 0 5px;
     }
 
     .comment {
         padding: 13px;
-        margin: 15px 0px 0px 0px;
+        margin: 15px 0 0 0;
         width: 100%;
     }
 
@@ -1553,7 +1547,7 @@ ul.recent-blog-posts-widget li {
 @media screen and (max-width: 720px) {
     .comment {
         padding: 13px;
-        margin: 15px 0px 0px 0px;
+        margin: 15px 0 0 0;
         width: 100%;
     }
 }
@@ -1622,11 +1616,10 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: fit-content;
     max-width: 322px;
     padding: 8px;
     border-radius: 16px;
-    box-shadow: 0px 0px 32px -8px rgba(50, 48, 48, 0.16);
+    box-shadow: 0 0 32px -8px rgba(50, 48, 48, 0.16);
     width: 322px;
     background-color: var(--white-color);
 }
@@ -1658,7 +1651,7 @@ nav a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin: 0px 32px;
+    margin: 0 32px;
     justify-content: center;
 }
 
@@ -1756,7 +1749,7 @@ nav a:hover {
 .button {
     border-radius: 16px;
     display: flex;
-    padding: 8px 15.5px 8px 16.5px;
+    padding: 8px 16px 8px 16px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
@@ -1821,10 +1814,7 @@ nav a:hover {
 
 .tutorial-content {
     display: block;
-    margin-top: 79px;
-    margin-bottom: 280px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 79px auto 280px;
     max-width: 1200px;
 }
 
@@ -1866,10 +1856,7 @@ nav a:hover {
 }
 
 .tutorial-description {
-    margin-top: 32px;
-    margin-bottom: 256px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 32px auto 256px;
     color: var(--dark-color);
     text-align: right;
     font-size: 24px;
@@ -1888,14 +1875,14 @@ nav a:hover {
 
 .tutorial-is-bad-for {
     position: absolute !important;
-    left: 0px;
+    left: 0;
 }
 
 .tutorial-is-good-for,
 .tutorial-is-bad-for {
     border-radius: 16px;
     background: var(--white-color, #FAFAFA);
-    box-shadow: 0px 0px 30px 0px rgba(41, 41, 41, 0.20);
+    box-shadow: 0 0 30px 0 rgba(41, 41, 41, 0.20);
     width: 277px;
     height: 277px;
     flex-shrink: 0;
@@ -1904,7 +1891,7 @@ nav a:hover {
 .tutorial-is-good-for {
     position: absolute;
     bottom: 64px;
-    right: 0px;
+    right: 0;
 }
 
 .tutorial-is-bad-for {
@@ -1939,8 +1926,8 @@ nav a:hover {
 }
 
 .tutorial-is-good-for .thumbs-up {
-    width: 92.628px;
-    height: 79.031px;
+    width: 93px;
+    height: 79px;
     transform: rotate(-13.967deg);
     flex-shrink: 0;
     position: absolute;
@@ -1949,12 +1936,12 @@ nav a:hover {
 }
 
 .tutorial-is-bad-for .thumbs-down {
-    width: 92.628px;
-    height: 79.031px;
+    width: 93px;
+    height: 79px;
     flex-shrink: 0;
     position: absolute;
-    left: 16.94px;
-    top: 15.91px;
+    left: 17px;
+    top: 16px;
 }
 
 .good-or-bad-box.first {
@@ -1987,7 +1974,7 @@ nav a:hover {
     line-height: 190%;
     border-radius: 16px;
     background: var(--light, #FAFAFA);
-    box-shadow: 0px 0px 30px 0px rgba(41, 41, 41, 0.20);
+    box-shadow: 0 0 30px 0 rgba(41, 41, 41, 0.20);
     padding: 44px 0 43px 51px;
     width: 100%;
 }
@@ -2019,7 +2006,7 @@ nav a:hover {
 }
 
 .accordion-header {
-    padding: 0px 32px;
+    padding: 0 32px;
     border-radius: 16px;
     background-color: #D9D9D9;
     display: flex;
@@ -2036,7 +2023,7 @@ nav a:hover {
 }
 
 .accordion-title {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     color: #323030;
     text-align: right;
     font-style: normal;
@@ -2060,11 +2047,11 @@ nav a:hover {
 
 .accordion-body {
     margin-top: 16px;
-    padding: 0px;
+    padding: 0;
     border-radius: 16px;
     background: #E8E8E8;
     margin-bottom: 16px;
-    max-height: 0px;
+    max-height: 0;
     opacity: 0;
     overflow: hidden;
     transition-property: padding, max-height, opacity;
@@ -2487,7 +2474,7 @@ nav a:hover {
     }
 
     .accordion-header {
-        padding: 0px 8px;
+        padding: 0 8px;
         border-radius: 8px;
     }
 
@@ -2612,7 +2599,7 @@ nav a:hover {
         width: 24px;
         height: 24px;
         background-size: 24px 24px;
-        top: 0px;
+        top: 0;
     }
 
     #tutorial-overview button {
@@ -2745,8 +2732,8 @@ nav a:hover {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 .tabBarHeader li{
     margin-left: 16px;
@@ -2769,7 +2756,7 @@ nav a:hover {
     background-color: #DFDFDF;
 }
 .tabBarBody #downloadSection > ul{
-    margin: 0px;
+    margin: 0;
 }
 .tabBarBody #downloadSection li:not(:last-child){
     margin-bottom: 8px;
