@@ -1,5 +1,5 @@
 <section id="contact">
-    <h2 class="title text-center">اگه پروژه ای چیزی داشتی یا باهام کاری داشتی👇</h2>
+    <h2 class="title text-center">اگه پروژه یا کاری داشتی👇</h2>
     <div class="form-container">
         <div class="background">
             <div class="screen">
