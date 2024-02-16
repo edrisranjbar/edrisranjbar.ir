@@ -781,7 +781,7 @@ input {
 
 .app-form-control {
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 4px;
     background: none;
     border: none;
     border-bottom: 1px solid #666;

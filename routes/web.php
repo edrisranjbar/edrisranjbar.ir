@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -25,6 +26,7 @@ Route::post('wishlist/{id}', [WishlistController::class, 'addOrRemove'])->name('
 Route::get('podcasts', [HomeController::class, 'podcasts']);
 Route::get('blog', [HomeController::class, 'blog']);
 Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
+Route::post('contact', [ContactFormController::class, 'store'])->name('contact.store');
 
 
 Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.login');

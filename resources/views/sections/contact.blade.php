@@ -41,23 +41,40 @@
                         </div>
                     </div>
                     <div class="screen-body-item">
-                        <div class="app-form">
+                        <form class="app-form" method="post" action="{{ route('contact.store') }}">
+                            @csrf
                             <div class="app-form-group">
-                                <input class="app-form-control" placeholder="نام و نام خانوادگی">
+                                <input name="name" class="app-form-control" placeholder="نام و نام خانوادگی" value="{{ old('name') }}">
+                                @if ($errors->has('name'))
+                                    <div class="error">
+                                        {{ $errors->first('name') }}
+                                    </div>
+                                @endif
                             </div>
                             <div class="app-form-group">
-                                <input class="app-form-control" placeholder="ایمیل">
+                                <input name="email" class="app-form-control" placeholder="ایمیل" required value="{{ old('email') }}">
+                                @if ($errors->has('email'))
+                                    <div class="error">
+                                        {{ $errors->first('email') }}
+                                    </div>
+                                @endif
                             </div>
                             <div class="app-form-group message">
-                                <input class="app-form-control" placeholder="متن پیام">
+                                <textarea name="message" class="app-form-control" placeholder="متن پیام" required>{{ old('message') }}</textarea>
+                                @if ($errors->has('message'))
+                                    <div class="error">
+                                        {{ $errors->first('message') }}
+                                    </div>
+                                @endif
                             </div>
-                            <btn class="btn btn-sm btn-outline-secondary text-white btn-w-icon">
+                            <button type="submit" class="btn btn-sm btn-outline-secondary text-white btn-w-icon">
                                 <i class="fa fa-send ml-1"></i>
                                 ثبت فرم
-                            </btn>
-                        </div>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </section>
