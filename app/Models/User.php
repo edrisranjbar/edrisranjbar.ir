@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -47,6 +48,11 @@ class User extends Authenticatable
         $totalProgress = $this->tutorialProgress()->sum('progress');
         $totalTutorials = $this->tutorialProgress()->count();
         return $totalTutorials > 0 ? $totalProgress / $totalTutorials : 0;
+    }
+
+    public function getTotalPassedLessonsCount()
+    {
+        return $this->tutorialProgress()->where('progress','=', 100)->count() ?? 0;
     }
 
 }

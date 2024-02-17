@@ -48,9 +48,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <h5 class="font-weight-bold text-success mb-2">درس های پاس شده</h5>
+                                <h5 class="font-weight-bold text-success mb-2">دوره های پاس شده</h5>
                                 <div class="h3 mb-0 ml-3 text-gray-800">
-                                    0
+                                    {{ $totalPassedLessonsCount }}
                                 </div>
                             </div>
                             <div class="col-auto">

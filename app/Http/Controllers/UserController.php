@@ -15,7 +15,8 @@ class UserController extends Controller
         $user = Auth::guard('user')->user();
         $suggestedTutorial = Tutorial::first();
         $averageTotalProgress = $user->getAverageTotalProgress();
-        return view('user.index', compact('user', 'suggestedTutorial', 'averageTotalProgress'));
+        $totalPassedLessonsCount = $user->getTotalPassedLessonsCount();
+        return view('user.index', compact('user', 'suggestedTutorial', 'averageTotalProgress', 'totalPassedLessonsCount'));
     }
 
     public function show()
