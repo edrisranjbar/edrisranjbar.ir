@@ -42,4 +42,11 @@ class User extends Authenticatable
         return $this->hasMany(UserTutorialProgress::class);
     }
 
+    public function getAverageTotalProgress(): int
+    {
+        $totalProgress = $this->tutorialProgress()->sum('progress');
+        $totalTutorials = $this->tutorialProgress()->count();
+        return $totalTutorials > 0 ? $totalProgress / $totalTutorials : 0;
+    }
+
 }

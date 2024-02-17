@@ -26,13 +26,13 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col me-3 d-flex flex-column">
                             <h5 class="font-weight-bold text-info mb-2">پیشرفت کل</h5>
-                            <div class="progress" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                            <div class="progress" role="progressbar" aria-valuenow="{{ $averageTotalProgress }}" aria-valuemin="0"
                                 aria-valuemax="100">
                                 <div class="progress-bar progress-bar-striped bg-info progress-bar-animated"
-                                    style="width: 75%"></div>
+                                    style="width: {{$averageTotalProgress}}%"></div>
                             </div>
                             <div class="fs-5 mt-2 mb-0 text-gray-800">
-                                75% پیش رفتی ایول🎉
+                                {{ $averageTotalProgress }}% پیش رفتی ایول🎉
                             </div>
                         </div>
                         <div class="col-auto">
