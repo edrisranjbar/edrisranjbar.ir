@@ -108,7 +108,7 @@
     <div class="row">
         @forelse($posts as $post)
         <div class="col-md-4 mb-4">
-            <div class="card">
+            <div class="card post animated-card">
                 <a href="{{ $post->link }}">
                     <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="card-img-top"
                         alt="{{ $post->title }}">

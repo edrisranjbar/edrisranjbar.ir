@@ -12,9 +12,9 @@
             <a href="{{ route('tutorials') }}">دوره ها</a>
         </div>
     </div>
-    <div class="my-card-group">
+    <div class="my-card-group mb-5">
         @foreach($tutorials as $tutorial)
-        <div class="card bg-light tutorial">
+        <div class="card bg-light tutorial animated-card">
             <a href="{{ $tutorial->link }}">
                 @if ($tutorial->thumbnail)
                 <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}" class="thumbnail" alt="{{ $tutorial->title }}">
