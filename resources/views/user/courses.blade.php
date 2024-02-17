@@ -11,7 +11,8 @@
                 <div class="card rounded bg-light tutorial">
                     <a href="{{ $tutorial->link }}">
                         @if ($tutorial->thumbnail)
-                            <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}" class="thumbnail w-100 rounded-top"
+                            <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}"
+                                 class="thumbnail w-100 rounded-top"
                                  alt="{{ $tutorial->title }}">
                         @endif
                         <h3 class="post-title mx-3">{{ $tutorial->title }}</h3>
