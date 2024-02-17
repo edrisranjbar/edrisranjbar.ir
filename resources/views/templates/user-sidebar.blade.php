@@ -1,7 +1,6 @@
 <ul class="m-0 p-0 navbar-nav sidebar sidebar-dark text-right"
     id="accordionSidebar">
 
-    <!-- Sidebar - Brand -->
     <li class="d-flex d-md-block align-items-center justify-content-between">
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('user') }}">
             <div class="sidebar-brand-text mx-3">
@@ -12,12 +11,10 @@
         </button>
     </li>
 
-    <!-- Divider -->
     <li>
         <hr class="sidebar-divider my-0">
     </li>
 
-    <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link" href="{{ url('user') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -29,6 +26,13 @@
         <a class="nav-link" href="{{ route('user.tutorials') }}">
             <i class="fas fa-fw fa-film"></i>
             <span>دوره های من</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('user.wishlist') }}">
+            <i class="fas fa-fw fa-heart"></i>
+            <span>علاقه مندی ها</span>
         </a>
     </li>
 
@@ -47,4 +51,3 @@
     </li>
 
 </ul>
-<!-- End of Sidebar -->
