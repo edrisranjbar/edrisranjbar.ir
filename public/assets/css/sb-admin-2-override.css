@@ -685,3 +685,15 @@ input#email::placeholder {
 #accordionSidebar{
     background-color: var(--primary-dark-color, #6C63FF) !important;
 }
+.post-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: var(--semi-dark-color);
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
