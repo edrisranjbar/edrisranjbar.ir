@@ -12,32 +12,28 @@ class WishlistController extends Controller
     public function index()
     {
         $user = Auth::guard('user')?->user();
-        $wishlistItems = Wishlist::all();#Wishlist::where('user_id','=', $user->id);
+        $wishlistItems = Wishlist::where('user_id','=', $user->id)->get();
         return view('user.wishlist', compact('wishlistItems'));
     }
 
     public function addOrRemove (Request $request, $id) {
-        $tutorial = Tutorial::findOrFail($id);
         $user = Auth::guard('user')?->user();
         
         if (!$user){
             return redirect('user/login');    
         }
 
-        // Check if the tutorial is already in the wishlist
         $wishlistItem = Wishlist::where('user_id', $user->id)
-        ->where('tutorial_id', $tutorial->id)
+        ->where('tutorial_id', $id)
         ->first();
 
         if ($wishlistItem) {
-            // If the tutorial is in the wishlist, remove it
             $wishlistItem->delete();
             $message = 'دوره باموفقیت از لیست علاقه‌مندی های شما حذف شد.';
         } else {
-            // If the tutorial is not in the wishlist, add it
             Wishlist::create([
                 'user_id' => $user->id,
-                'tutorial_id' => $tutorial->id,
+                'tutorial_id' =>  $id,
             ]);
             $message = 'دوره با موفقیت به لیست علاقه‌مندی های شما اضافه شد.';
         }

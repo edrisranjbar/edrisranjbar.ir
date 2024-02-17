@@ -3,6 +3,7 @@
 @section('content')
 <main class="container-lg">
     <h2 class="mb-3">لیست علاقه‌مندی‌های شما</h2>
+    @include('templates.messages')
     <ul class="list-group">
         @if($wishlistItems->count() <= 0)
             <li class="list-group-item d-flex justify-content-between align-items-center">
