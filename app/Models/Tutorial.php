@@ -106,4 +106,16 @@ class Tutorial extends Model
         return $user?->wishlist()->where('tutorial_id', $this->id)->exists() || false;
     }
 
+    public function enrolledUsers()
+    {
+        return $this->belongsToMany(User::class, 'user_tutorial_progress')
+            ->withPivot('progress')
+            ->withTimestamps();
+    }
+
+    public function userProgress()
+    {
+        return $this->hasMany(UserTutorialProgress::class);
+    }
+
 }

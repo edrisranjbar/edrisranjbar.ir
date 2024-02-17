@@ -6,6 +6,7 @@ use App\Helpers\AppHelper;
 use App\Models\Post;
 use App\Models\Tutorial;
 use App\Models\Lesson;
+use App\Models\UserTutorialProgress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
@@ -99,6 +100,13 @@ class HomeController extends Controller
         $prevLessonURL = $lesson->previousLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->previousLesson()?->id : '#';
         $nextLessonURL =
         $lesson->nextLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->nextLesson()?->id : '#';
+
+        $user = Auth::guard('user')?->user();
+        UserTutorialProgress::updateOrCreate(
+            ['user_id' => $user->id, 'tutorial_id' => $lesson->section->tutorial->id],
+            ['progress' => $progress]
+        );
+
         return view('tutorials.lessons.show', compact('lesson', 'prevLessonURL', 'nextLessonURL', 'progress'));
     }
 
