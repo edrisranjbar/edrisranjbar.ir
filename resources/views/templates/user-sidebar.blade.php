@@ -27,7 +27,7 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user.tutorials') }}">
-            <i class="fas fa-fw fa-pen"></i>
+            <i class="fas fa-fw fa-film"></i>
             <span>دوره های من</span>
         </a>
     </li>
