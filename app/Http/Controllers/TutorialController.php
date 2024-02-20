@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\CourseSection;
 use App\Models\Tutorial;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -158,10 +159,30 @@ class TutorialController extends Controller
             return redirect()->route('user.login');
         }
         if (!$user?->tutorials->contains($tutorial->id)) {
+            if($tutorial->price > 0) {
+                $this->payOnlineUsingZarrinpal($tutorial->price, $tutorial->title, $user);
+            }
             $user->tutorials()->attach($tutorial->id);
             return redirect()->back()->with('success', 'با موفقیت در دوره ثبت نام شدید!');
         }
         return redirect()->back()->with('error', 'شما در این دوره عضو هستید');
+    }
+
+    private function payOnlineUsingZarrinpal(int $price, string $description, User $user)
+    {
+        $response = zarinpal()
+            ->amount($price)
+            ->request()
+            ->description($description)
+            ->callbackUrl("")
+            ->email($user->email)
+            ->send();
+
+        if (!$response->success()) {
+            return $response->error()->message();
+        }
+        // $response->authority();
+        return $response->redirect('');
     }
 
 }

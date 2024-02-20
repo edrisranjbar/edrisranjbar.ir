@@ -29,8 +29,7 @@
                             مشاهده
                         </a>
                         <div class="d-flex align-items-center students-count">
-                            <i class="fas fa-user-circle"></i>
-                            دانشجویان: {{ $tutorial->students()->count() }}
+                            {{ $tutorial->priceLabel }}
                         </div>
                     </div>
                 </li>

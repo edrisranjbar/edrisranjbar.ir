@@ -482,11 +482,12 @@ img.profile {
     font-size: 20px;
     line-height: 31px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     text-align: right;
     color: var(--semi-dark-color);
     margin-top: 16px;
     margin-bottom: 16px;
+    min-height: 64px;
 }
 
 .tutorial .post-meta,
