@@ -47,7 +47,7 @@ class TutorialController extends Controller
             'tutor' => 'required|exists:admins,id',
             'description' => 'nullable|string',
             'short_description' => 'nullable|string|max:255',
-            'status' => 'required|in:public,private,draft',
+            'status' => 'required|in:published,private,draft',
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'poster' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'slug' => 'required|string|max:50|unique:tutorials,slug',
@@ -110,7 +110,7 @@ class TutorialController extends Controller
             'duration' => 'required|integer|min:0',
             'description' => 'required',
             'short_description' => 'nullable|max:255',
-            'status' => 'required|in:public,private,draft',
+            'status' => 'required|in:published,private,draft',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'poster' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'sections' => 'string|required',
@@ -156,6 +156,7 @@ class TutorialController extends Controller
     public function destroy(int $id)
     {
         $tutorial = Tutorial::findOrFail($id);
+        $tutorial->sections()->delete();
         $tutorial->delete();
         return redirect()->route('tutorials.index')->with('success', 'دوره آموزشی با موفقیت حذف شد.');
     }

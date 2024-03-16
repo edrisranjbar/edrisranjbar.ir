@@ -95,9 +95,10 @@
                                     <i class="fa-solid fa-fw fa-edit me-1"></i>
                                     ویرایش
                                 </button>
-                                <a class="btn bt-w-icon btn-outline-secondary mt-2 me-2"
-                                   href="{{ url('admin/tutorials') }}">
-                                    برگشت
+                                <a href="#" class="btn btn-outline-danger btn-w-icon d-inline-block mt-2 me-2"
+                                   data-bs-toggle="modal" data-bs-target="#deleteTutorialModal">
+                                    <i class="fa fa-solid fa-trash me-1"></i>
+                                    حذف
                                 </a>
                             @else
                                 <button class="btn btn-w-icon btn-primary me-2" type="submit">
@@ -215,13 +216,6 @@
                                          class="img-fluid rounded">
                                 </div>
                             @endif
-                        </div>
-                        <div class="mb-3">
-                            <a href="#" class="btn btn-sm btn-outline-danger btn-w-icon d-inline-block"
-                               data-bs-toggle="modal" data-bs-target="#deleteTutorialModal">
-                                <i class="fa fa-solid fa-trash me-1"></i>
-                                حذف
-                            </a>
                         </div>
                     </div>
                 </div>
