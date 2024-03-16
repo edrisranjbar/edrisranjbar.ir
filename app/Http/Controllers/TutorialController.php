@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class TutorialController extends Controller
 {
+
+    private array $statusOptions;
+
+    public function __construct()
+    {
+        $this->statusOptions = ['published' => 'عمومی', 'private' => 'خصوصی', 'draft' => 'پیش‌نویس'];
+    }
+
     public function publicPage()
     {
         $tutorials = Tutorial::all();
@@ -26,7 +34,8 @@ class TutorialController extends Controller
     public function create()
     {
         $tutors = Admin::all();
-        return view('admin.tutorials.createOrEdit', compact('tutors'));
+        $statusOptions = $this->statusOptions;
+        return view('admin.tutorials.createOrEdit', compact('tutors', 'statusOptions'));
     }
 
     public function store(Request $request)
@@ -74,8 +83,7 @@ class TutorialController extends Controller
         ]);
 
         $sectionsArray = explode(",", $validatedData['sections']);
-        foreach($sectionsArray as $sectionName)
-        {
+        foreach ($sectionsArray as $sectionName) {
             CourseSection::create([
                 'title' => $sectionName,
                 'tutorial_id' => $tutorial->id
@@ -88,7 +96,8 @@ class TutorialController extends Controller
     {
         $tutorial = Tutorial::findOrFail($id);
         $tutors = Admin::all();
-        return view('admin.tutorials.createOrEdit', compact('tutorial', 'tutors'));
+        $statusOptions = $this->statusOptions;
+        return view('admin.tutorials.createOrEdit', compact('tutorial', 'tutors', 'statusOptions'));
     }
 
     public function update(Request $request, int $id)
@@ -130,16 +139,16 @@ class TutorialController extends Controller
         // Update existing sections
         $updatedSections = array_intersect($sectionsArray, $existingSections);
         foreach ($updatedSections as $sectionName) {
-            $section = $tutorial->sections->where('title', $sectionName)->where('tutorial_id',$tutorial->id)->first();
+            $section = $tutorial->sections->where('title', $sectionName)->where('tutorial_id', $tutorial->id)->first();
             if ($section) {
                 $section->update(['title' => $sectionName]);
             }
         }
         // Remove sections that are no longer present
         $removedSections = array_diff($existingSections, $sectionsArray);
-        CourseSection::where('title','=', $removedSections)
-        ->where('tutorial_id','=',$tutorial->id)
-        ->delete();
+        CourseSection::where('title', '=', $removedSections)
+            ->where('tutorial_id', '=', $tutorial->id)
+            ->delete();
         $tutorial->update($validatedData);
         return redirect()->route('tutorials.index')->with('success', 'دوره آموزشی با موفقیت به روزرسانی شد.');
     }
@@ -155,11 +164,11 @@ class TutorialController extends Controller
     {
         $tutorial = Tutorial::findOrFail($tutorial_id);
         $user = Auth::guard('user')?->user();
-        if(!$user) {
+        if (!$user) {
             return redirect()->route('user.login');
         }
         if (!$user?->tutorials->contains($tutorial->id)) {
-            if($tutorial->price > 0) {
+            if ($tutorial->price > 0) {
                 $this->payOnlineUsingZarrinpal($tutorial->price, $tutorial->title, $user);
             }
             $user->tutorials()->attach($tutorial->id);

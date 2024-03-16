@@ -74,34 +74,44 @@
                             @endforeach
                         </ul>
                     </div>
-
-                    @if(isset($tutorial))
-                        <div class="d-flex flex-wrap">
-                            <button class="btn btn-w-icon btn-primary mt-2 me-2" type="submit">
-                                <i class="fa-solid fa-fw fa-edit me-1"></i>
-                                ویرایش
-                            </button>
-                            <a class="btn bt-w-icon btn-outline-secondary mt-2 me-2"
-                               href="{{ url('admin/tutorials') }}">
-                                برگشت
-                            </a>
-                        </div>
-                    @else
-                        <div class="d-flex flex-wrap">
-                            <button class="btn btn-w-icon btn-primary me-2" type="submit">
-                                <i class="fa-solid fa-fw fa-check me-1"></i>
-                                ثبت
-                            </button>
-                            <a class="btn btn-w-icon btn-outline-primary me-2">
-                                <i class="fa-solid fa-fw fa-list-check me-1"></i>
-                                ثبت و ساخت جدید
-                            </a>
-                        </div>
-                    @endif
-
                 </div>
                 <div class="col-12 col-lg-4">
-                    <div class="w-100 p-3 bg-white rounded shadow-sm border">
+                    <div id="action-section" class="w-100 p-3 bg-white rounded border mb-3">
+                        <div class="mb-3">
+                            <label for="status" class="form-label fs-5">وضعیت</label>
+                            <select name="status" id="status" class="form-select" required>
+                                @foreach ($statusOptions as $value => $label)
+                                    <option value="{{ $value }}" @selected(old('status', isset($property) ? $property->status : '') === $value)>
+                                        {{ $label }}</option>
+                                @endforeach
+                            </select>
+                            @error('status')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="d-flex flex-wrap mb-3">
+                            @if(isset($tutorial))
+                                <button class="btn btn-w-icon btn-primary mt-2 me-2" type="submit">
+                                    <i class="fa-solid fa-fw fa-edit me-1"></i>
+                                    ویرایش
+                                </button>
+                                <a class="btn bt-w-icon btn-outline-secondary mt-2 me-2"
+                                   href="{{ url('admin/tutorials') }}">
+                                    برگشت
+                                </a>
+                            @else
+                                <button class="btn btn-w-icon btn-primary me-2" type="submit">
+                                    <i class="fa-solid fa-fw fa-check me-1"></i>
+                                    ثبت
+                                </button>
+                                <button name="save_and_create_new" class="btn btn-w-icon btn-outline-primary me-2">
+                                    <i class="fa-solid fa-fw fa-list-check me-1"></i>
+                                    ثبت و ساخت جدید
+                                </button>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="w-100 p-3 bg-white rounded border">
                         <div class="mb-3">
                             <label for="slug" class="form-label">شناسه یکتا</label>
                             <input name="slug" type="text" class="form-control" id="slug" maxlength="50" min="1"
@@ -151,24 +161,7 @@
                             <input type="number" name="price" id="price" class="form-control money" required min="0"
                                    value="{{ $tutorial->price ?? 0 }}">
                         </div>
-                        <div class="mb-3">
-                            <label for="status" class="form-label">وضعیت</label>
-                            <select name="status" id="status" class="form-select" required>
-                                <option value="public" @if(isset($tutorial) && $tutorial->status === 'public') selected
-                                        @endif>عمومی
-                                </option>
-                                <option value="private"
-                                        @if(isset($tutorial) && $tutorial->status === 'private') selected
-                                        @endif>خصوصی
-                                </option>
-                                <option value="draft" @if(isset($tutorial) && $tutorial->status === 'draft') selected
-                                        @endif>پیش‌نویس
-                                </option>
-                            </select>
-                            @error('status')
-                            <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
+
                         <div class="mb-3">
                             <label for="tutor" class="form-label">مدرس</label>
                             <select name="tutor" id="tutor" class="form-select" required>
