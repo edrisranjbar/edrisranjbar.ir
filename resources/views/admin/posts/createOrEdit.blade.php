@@ -133,7 +133,7 @@
                                     <label for="tags" class="d-none">
                                         برچسب ها
                                         <input class="hidden-value-input" name="tags" id="tags" type="text"
-                                               value="{{ old('tags', isset($post) ? $post->tags : '') }}">
+                                               value="{{ old('tags', isset($post) ? $post->tagNamesAsArray : '') }}">
                                     </label>
                                     <ul class="flex gap-2 mt-2 px-0" id="tag-list"></ul>
                                 </div>

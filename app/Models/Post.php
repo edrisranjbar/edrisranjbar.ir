@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 class Post extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'slug',
         'title',
@@ -41,6 +42,11 @@ class Post extends Model
     public function getLinkAttribute()
     {
         return url("/blog/{$this->slug}");
+    }
+
+    public function getTagNamesAsArrayAttribute()
+    {
+        return implode(',', $this->tags->pluck('name')->toArray());
     }
 
     public function getExcerptAttribute($length = 100)

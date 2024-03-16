@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -34,12 +35,27 @@ class PostController extends Controller
             'author' => 'required|exists:admins,id',
             'categories' => 'array|exists:categories,id',
         ]);
+
         if ($request->hasFile('thumbnail')) {
             $request->thumbnail->store('public/upload');
             $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
-        unset($validatedData['categories']);
+
+        unset($validatedData['categories'], $validatedData['tags']);
         $post = Post::create($validatedData);
+
+        // handle tags
+        $tagsArray = explode(',', $request->input('tags', ''));
+        if (!empty($tagsArray)) {
+            $tagsArray = array_map('trim', $tagsArray);
+            $tags = [];
+            foreach ($tagsArray as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                $tags[] = $tag->id;
+            }
+            $post->tags()->sync($tags);
+        }
+
         $post->categories()->sync($request->input('categories', []));
 
         $successMessage = 'نوشته جدید با موفقیت ذخیره شد.';
