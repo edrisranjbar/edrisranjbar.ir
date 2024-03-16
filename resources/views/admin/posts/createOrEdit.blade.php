@@ -23,13 +23,16 @@
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
-                                <label for="content" class="form-label fs-5">محتوا</label>
-                                <textarea name="content" id="content" class="form-control" rows="15">{{ old('content', isset($post) ? $post->content : '') }}</textarea>
-                                @error('content')
-                                <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
+{{--                            <div class="mb-3">--}}
+{{--                                <label for="content" class="form-label fs-5">محتوا</label>--}}
+{{--                                <textarea name="content" id="content" class="form-control" rows="15">{{ old('content', isset($post) ? $post->content : '') }}</textarea>--}}
+{{--                                @error('content')--}}
+{{--                                <p class="text-danger">{{ $message }}</p>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
+
+                            <div id="editorJS" class="w-100 rounded border px-4 py-3" data-placeholder="لورم ایپسوم"></div>
+
                         </div>
                         <div class="col-lg-4">
                             <div id="action-section" class="w-100 p-3 bg-white rounded shadow-sm border mb-3">

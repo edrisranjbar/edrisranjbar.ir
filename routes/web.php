@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;

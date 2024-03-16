@@ -12,6 +12,7 @@
     <link href="{{ asset('assets/css/bootstrap.rtl.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/sb-admin-2-override.css') }}" rel="stylesheet">
+    @vite('resources/js/app.js')
 </head>
 
 <body id="page-top" dir="rtl">
