@@ -29,13 +29,7 @@ body {
 .media-body {
     flex: 1;
 }
-.card{
-    transition: all 0.3s ease;
-}
-.animated-card {
-    box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.10);
-    transform: scale(1.05);
-}
+
 .card-body {
     padding: 1.875rem;
 }
@@ -118,17 +112,17 @@ a:hover {
     padding: 8px 10px
 }
 
-.datatable-bottom>div:first-child,
-.datatable-bottom>nav:first-child,
-.datatable-top>div:first-child,
-.datatable-top>nav:first-child {
+.datatable-bottom > div:first-child,
+.datatable-bottom > nav:first-child,
+.datatable-top > div:first-child,
+.datatable-top > nav:first-child {
     float: left
 }
 
-.datatable-bottom>div:last-child,
-.datatable-bottom>nav:last-child,
-.datatable-top>div:last-child,
-.datatable-top>nav:last-child {
+.datatable-bottom > div:last-child,
+.datatable-bottom > nav:last-child,
+.datatable-top > div:last-child,
+.datatable-top > nav:last-child {
     float: right
 }
 
@@ -206,23 +200,23 @@ a:hover {
     border-collapse: separate
 }
 
-.datatable-table>tbody>tr>td,
-.datatable-table>tbody>tr>th,
-.datatable-table>tfoot>tr>td,
-.datatable-table>tfoot>tr>th,
-.datatable-table>thead>tr>td,
-.datatable-table>thead>tr>th {
+.datatable-table > tbody > tr > td,
+.datatable-table > tbody > tr > th,
+.datatable-table > tfoot > tr > td,
+.datatable-table > tfoot > tr > th,
+.datatable-table > thead > tr > td,
+.datatable-table > thead > tr > th {
     vertical-align: top;
     padding: 8px 10px
 }
 
-.datatable-table>thead>tr>th {
+.datatable-table > thead > tr > th {
     vertical-align: bottom;
     text-align: right;
     border-bottom: 1px solid #d9d9d9
 }
 
-.datatable-table>tfoot>tr>th {
+.datatable-table > tfoot > tr > th {
     vertical-align: bottom;
     text-align: left;
     border-top: 1px solid #d9d9d9
@@ -305,7 +299,7 @@ a:hover {
     display: table
 }
 
-table.datatable-table:focus tr.datatable-cursor>td:first-child {
+table.datatable-table:focus tr.datatable-cursor > td:first-child {
     border-left: 3px #00f solid
 }
 
@@ -475,10 +469,6 @@ footer.sticky-footer {
     }
 }
 
-#wrapper {
-    max-width: 2000px;
-}
-
 .sidebar {
     width: 18rem;
     height: 100vh;
@@ -494,6 +484,10 @@ body.sidebar-open {
 
 .sidebar .sidebar-brand-text {
     display: block !important;
+}
+
+.nav-item {
+    cursor: pointer;
 }
 
 .sidebar .nav-item .collapse {
@@ -688,18 +682,237 @@ input#email::placeholder {
     text-align: right;
 }
 
-#accordionSidebar{
-    background-color: var(--primary-dark-color, #6C63FF) !important;
+/* abdollah code */
+.datatable-sorter {
+    padding-left: 24px;
 }
-.post-title {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 31px;
+
+.page-item:last-child .page-link {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+
+.form-check-group {
+    max-height: 172px;
+    overflow-y: auto;
+    border: 1px solid var(--bs-gray-300);
+    border-radius: 0.5rem;
+}
+
+.form-check.form-check-label {
     display: flex;
     align-items: center;
-    text-align: right;
-    color: var(--semi-dark-color);
-    margin-top: 16px;
-    margin-bottom: 16px;
+    min-height: 48px;
+    padding: 0.5rem 2.25rem 0.5rem 0.5rem;
+    margin-bottom: 0;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    user-select: none;
+}
+
+.form-check.form-check-label:hover {
+    background-color: var(--bs-gray-200);
+}
+
+.form-check-input {
+    width: 1.25em;
+    height: 1.25em;
+    margin-top: 0;
+    margin-left: 0.5em;
+    border: 2px solid var(--bs-gray-400);
+    cursor: pointer;
+}
+
+.max-w-sm {
+    max-width: 430px
+}
+
+.max-w-md {
+    max-width: 500px
+}
+
+.wh-icon-sm {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+
+.wh-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.wh-icon-lg {
+    width: 3rem;
+    height: 3rem;
+}
+
+.success-icon-wrapper {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.center-body {
+    display: grid;
+    place-items: center;
+}
+
+/* custom table css */
+
+.custom-table {
+    margin-top: 16px !important;
+}
+
+.custom-table tbody:before {
+    line-height: 0.8em;
+    content: "\200C";
+    display: block;
+}
+
+/* good replacemnet color #E9EDF3:   #F4F5FB */
+
+.custom-table thead tr th {
+    background-color: #F4F5FB !important;
+    padding: 16px 10px !important;
+    border: 0px !important;
+}
+
+.custom-table thead th:first-child {
+    border-radius: 0px 16px 16px 0px;
+}
+
+.custom-table thead th:last-child {
+    border-radius: 16px 0px 0px 16px;
+}
+
+.custom-table td {
+    padding: 14px 8px !important;
+}
+
+.custom-table tbody tr:hover td {
+    background-color: #F4F5FB;
+}
+
+/* TODO: reconsider seperator color */
+.custom-table tbody tr td {
+    border-color: #F4F5FB !important;
+}
+
+.custom-table tbody tr:first-child td {
+    border-top: 0px !important;
+}
+
+/* TODO: find a way to use this style only for custom tables */
+/* .datatable-input {
+    background-color: #F4F5FB;
+    border-width: 0;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    padding: 20px 8px !important;
+} */
+
+.custom-table-bordered td {
+    border: solid 1px #F4F5FB
+}
+
+.custom-table-bordered tbody tr:first-child td:last-child {
+    border-radius: 16px 0px 0px 0px;
+}
+
+.custom-table-bordered tbody tr:first-child td:first-child {
+    border-radius: 0px 16px 0px 0px;
+}
+
+.custom-table-bordered tbody tr:last-child td:first-child {
+    border-radius: 0px 0px 16px 0px;
+}
+
+.custom-table-bordered tbody tr:last-child td:last-child {
+    border-radius: 0px 0px 0px 16px;
+}
+
+.custom-table .badge:not(.badge-pill) {
+    padding: 8px 6px !important;
+}
+
+.custom-table .badge.badge-pill {
+    padding: 6px !important
+}
+
+.badge.badge-custom-success {
+    background-color: #D1FAE5;
+    color: #064E3B
+}
+
+.badge.badge-custom-secondary {
+    background-color: #F1F5F9;
+    color: #0F172A;
+}
+
+.badge.badge-custom-primary {
+    background-color: #EEF4FF;
+    color: #1A72F9;
+}
+
+.badge.badge-custom-purple {
+    background-color: #FAEEFF;
+    color: #B050FF;
+}
+
+.clickable-badge {
+    transition: all;
+    transition-duration: 200ms
+}
+
+.clickable-badge:hover {
+    transform: scale(1.1)
+}
+
+.custom-table-wrapper .datatable-input {
+    padding: 24px 42px;
+    border: solid 1px #E3E6F0;
+    background-color: #F4F5FB;
+    border-radius: 16px;
+}
+
+.custom-table-wrapper .datatable-search::before {
+    content: url('../icons/search.svg') !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 36px;
+    top: 4px;
+}
+
+.custom-table-wrapper .datatable-search {
+    position: relative;
+    left: 28px
+}
+
+/* end of custom table css */
+
+.image-overlay {
+    transition: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    background-color: rgba(0, 0, 0, 0.348);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.top-left-position {
+    top: 8px;
+    left: 8px;
+}
+
+.max-h-150 {
+    max-height: 150px
 }

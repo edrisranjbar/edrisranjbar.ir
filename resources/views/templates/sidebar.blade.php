@@ -1,4 +1,4 @@
-<ul class="m-0 p-0 navbar-nav sidebar sidebar-dark text-right"
+<ul class="m-0 p-0 navbar-nav bg-gradient-primary sidebar sidebar-dark text-right"
     id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
