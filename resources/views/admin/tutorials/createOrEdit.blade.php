@@ -1,26 +1,22 @@
 @section('title', isset($tutorial) ? 'ایجاد دوره جدید' : 'ویرایش دوره')
 @extends('layouts.admin')
-
 @section('content')
-    <div class="container-fluid">
-        <h1 class="h3 mb-3 fw-normal text-right" id="page-title">
-            {{ !isset($tutorial) ? 'ایجاد آموزش جدید' : $tutorial->title }}
-        </h1>
+    <div class="container-lg text-black">
         @include('templates.messages')
-        <form class="w-100 p-3 bg-white rounded shadow-sm border needs-validation" @if(isset($tutorial))
-            action="{{ route('tutorials.update', ['tutorial'=> $tutorial->id]) }}" @else
-                  action="{{ route('tutorials.store') }}" @endif method="POST" enctype="multipart/form-data" novalidate>
+        <form class="w-100 p-3 bg-white rounded shadow-sm border needs-validation"
+              action="{{ isset($tutorial) ? route('tutorials.update', ['tutorial'=> $tutorial->id]) : route('tutorials.store') }}"
+              method="POST" enctype="multipart/form-data" novalidate>
             @csrf
             @if(isset($tutorial))
                 @method('patch')
             @endif
             <div class="row">
                 <div class="col-12 col-lg-8">
+
                     <div class="mb-3">
                         <label for="title" class="form-label">عنوان</label>
                         <input type="text" name="title" id="title" class="form-control"
-                               value="{{ isset($tutorial) ? $tutorial->title : '' }}" required
-                               onkeyup="updatePageTitle()">
+                               value="{{ isset($tutorial) ? $tutorial->title : '' }}" required>
                         <div class="invalid-feedback">
                             لطفا عنوان معتبری وارد کنید
                         </div>
@@ -40,7 +36,7 @@
 
                     <div class="mb-3">
                         <input type="hidden" name="good_for_items">
-                        <label class="form-label">این دوره برای چه کسانی مناسب است؟</label>
+                        <label for="goodForElement" class="form-label">این دوره برای چه کسانی مناسب است؟</label>
                         <input type="text" id="goodForElement" name="good_for" class="form-control mb-2">
                         <ul class="list-group" id="goodForItems">
                             @foreach(isset($tutorial) ? $tutorial->getGoodForItems() ?? [] : [] as $item)
@@ -60,7 +56,7 @@
                     </div>
                     <div class="mb-3">
                         <input type="hidden" name="bad_for_items">
-                        <label class="form-label">این دوره برای چه کسانی مناسب است؟</label>
+                        <label for="badForElement" class="form-label">این دوره برای چه کسانی مناسب است؟</label>
                         <input type="text" id="badForElement" name="bad_for" class="form-control mb-2">
                         <ul class="list-group" id="badForItems">
                             @foreach(isset($tutorial) ? $tutorial->getBadForItems() ?? [] : [] as $item)
