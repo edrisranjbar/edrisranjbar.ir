@@ -1,9 +1,7 @@
 @section('title', 'دسته‌بندی‌ها')
 @extends('layouts.admin')
-
 @section('content')
 <div class="container-fluid">
-    <h1 class="h3 mb-3 fw-normal text-right">لیست دسته‌بندی‌ها</h1>
     <div class="d-flex flex-wrap mb-2">
         <a class="btn btn-w-icon btn-primary mb-2 me-2" href="{{ route('categories.create') }}">
             <i class="fa-solid fa-fw fa-plus me-1"></i>

@@ -53,4 +53,14 @@ class Post extends Model
         // If the content is longer, return a limited excerpt
         return mb_substr($this->content, 0, $length, 'UTF-8') . '...';
     }
+
+    public function getStatusStringAttribute()
+    {
+        return match ($this->status) {
+            'published' => 'منتشر شده',
+            'draft' => 'پیش نویس',
+            'private' => 'خصوصی',
+            default => 'وضعیت نامعلوم',
+        };
+    }
 }

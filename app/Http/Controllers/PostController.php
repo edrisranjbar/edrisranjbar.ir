@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Tag;
-use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(10);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(30);
         return view('admin.posts.index', compact('posts'));
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        $admins = Admin::all();
+        return view('admin.posts.createOrEdit', compact('categories', 'admins'));
     }
 
     public function store(Request $request)
@@ -27,61 +27,34 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
-            'status' => 'required',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'categories' => 'nullable|array',
-            'tags' => 'nullable|string',
-            'slug' => 'required|string|max:50'
+            'status' => 'required|in:draft,published,private',
+            'slug' => 'required|unique:posts',
+            'tags' => 'nullable',
+            'short_description' => 'nullable',
+            'author' => 'required|exists:admins,id',
+            'categories' => 'array|exists:categories,id',
         ]);
-
-        $post = new Post();
-        $post->title = $validatedData['title'];
-        $post->content = $validatedData['content'];
-        $post->status = $validatedData['status'];
-        $post->slug = $validatedData['slug'];
-        $post->author = Auth::guard('admin')->user()->id;
-        // Upload and save the thumbnail if provided
         if ($request->hasFile('thumbnail')) {
-            $thumbnail = $request->file('thumbnail');
-            $thumbnailPath = $thumbnail->store('thumbnails', 'public');
-            $post->thumbnail = $thumbnailPath;
+            $request->thumbnail->store('public/upload');
+            $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
+        unset($validatedData['categories']);
+        $post = Post::create($validatedData);
+        $post->categories()->sync($request->input('categories', []));
 
-        // Save the post
-        $post->save();
-
-        // Save the categories
-        $categories = $validatedData['categories'] ?? [];
-        $post->categories()->attach($categories);
-
-        // Save the tags if provided
-        if (!empty($validatedData['tags'])) {
-            $tagNames = explode(',', $validatedData['tags']);
-            $tagNames = array_map('trim', $tagNames);
-
-            $tags = [];
-            foreach ($tagNames as $tagName) {
-                $tag = Tag::firstOrCreate(['name' => $tagName]);
-                $tags[] = $tag->id;
-            }
-
-            $post->tags()->sync($tags);
+        $successMessage = 'نوشته جدید با موفقیت ذخیره شد.';
+        if ($request->has('save_and_create_new')) {
+            return redirect()->route('posts.create')->with('success', $successMessage);
         }
-        return redirect()->route('posts.index')->with('success', 'نوشته با موفقیت ایجاد شد.');
-    }
-
-
-    public function show(int $id)
-    {
-        $post = Post::findOrFail($id);
-        return view('admin.posts.show', compact('post'));
+        return redirect()->route('posts.index')->with('success', $successMessage);
     }
 
     public function edit(int $id)
     {
         $post = Post::findOrFail($id);
         $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        $admins = Admin::all();
+        return view('admin.posts.createOrEdit', compact('post', 'categories', 'admins'));
     }
 
     public function update(Request $request, int $id)
@@ -90,54 +63,32 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
-            'status' => 'required',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'categories' => 'nullable|array',
-            'tags' => 'nullable|string',
-            'slug' => 'required|string|max:50'
+            'status' => 'required|in:draft,published,private',
+            'slug' => 'required|unique:posts,slug,' . $post->id,
+            'tags' => 'nullable',
+            'short_description' => 'nullable',
+            'author' => 'required|exists:admins,id',
+            'categories' => 'array|exists:categories,id',
         ]);
 
-        $post->title = $validatedData['title'];
-        $post->content = $validatedData['content'];
-        $post->status = $validatedData['status'];
-        $post->slug = $validatedData['slug'];
-
-        // Update the thumbnail if provided
         if ($request->hasFile('thumbnail')) {
             $request->thumbnail->store('public/upload');
-            $post->thumbnail = $request->thumbnail->hashName();
+            $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
 
-        // Update the post
-        $post->save();
+        unset($validatedData['categories']);
+        $post->update($validatedData);
+        $post->categories()->sync($request->input('categories', []));
 
-        // Update the categories
-        $categories = $validatedData['categories'] ?? [];
-        $post->categories()->sync($categories);
-
-        // Update the tags if provided
-        if (!empty($validatedData['tags'])) {
-            $tagNames = explode(',', $validatedData['tags']);
-            $tagNames = array_map('trim', $tagNames);
-
-            $tags = [];
-            foreach ($tagNames as $tagName) {
-                $tag = Tag::firstOrCreate(['name' => $tagName]);
-                $tags[] = $tag->id;
-            }
-
-            $post->tags()->sync($tags);
-        }
-
-        return redirect()->route('posts.index')->with('success', 'نوشته با موفقیت بروزرسانی شد.');
+        return redirect()->route('posts.index')->with('success', 'نوشته مورد نظر با موفقیت ویرایش شد.');
     }
 
 
     public function destroy(int $id)
     {
         $post = Post::findOrFail($id);
+        $post->categories()->detach();
         $post->delete();
-        return redirect()->route('posts.index')
-            ->with('success', 'نوشته با موفقیت حذف شد');
+        return redirect()->route('posts.index')->with('success', 'نوشته مورد نظر با موفقیت حذف شد.');
     }
 }

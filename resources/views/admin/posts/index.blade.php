@@ -3,7 +3,6 @@
 
 @section('content')
 <div class="container-fluid">
-    <h1 class="h3 mb-3 fw-normal text-right">لیست نوشته‌ها</h1>
     <div class="d-flex flex-wrap mb-2">
         <a class="btn btn-w-icon btn-primary mb-2 me-2" href="{{ route('posts.create') }}">
             <i class="fa-solid fa-fw fa-plus me-1"></i>
@@ -32,7 +31,7 @@
                         <span class="badge py-2 px-2 text-bg-secondary">{{ $category->title }}</span>
                         @endforeach
                     </td>
-                    <td class="align-middle py-2">{{ $post->status }}</td>
+                    <td class="align-middle py-2">{{ $post->statusString }}</td>
                     <td class="text-muted align-middle py-2">
 
                         <a href="{{ url('blog/' . $post->slug) }}"
