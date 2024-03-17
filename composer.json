@@ -14,7 +14,8 @@
         "morilog/jalali": "^3.4",
         "pishran/zarinpal": "^4.3",
         "spatie/laravel-medialibrary": "^10.15",
-      "ext-dom": "*"
+      "ext-dom": "*",
+      "ext-http": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

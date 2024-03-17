@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use http\Url;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use App\Models\Navbar;
@@ -24,7 +25,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrap();
-
+        if($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
         View::composer('*', function ($view) {
             $navbarItems = Navbar::orderBy('ordering')->get();
             $view->with('navbarItems', $navbarItems);
