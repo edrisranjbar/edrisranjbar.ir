@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use http\Url;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use App\Models\Navbar;
