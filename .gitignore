@@ -24,3 +24,4 @@ Homestead.json
 .phpunit.result.cache
 public/upload
 public/build
+composer.lock
