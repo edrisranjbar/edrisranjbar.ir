@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SiteMapController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminAuthController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\WishlistController;
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('sitemap', [SiteMapController::class, 'generate']);
 Route::get('podcasts', [HomeController::class, 'podcasts']);
 Route::get('tutorials', [HomeController::class, 'tutorials'])->name('tutorials');
 Route::get('tutorials/{slug}', [HomeController::class, 'tutorial'])->name('tutorials.show');
