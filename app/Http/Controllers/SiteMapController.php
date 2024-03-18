@@ -17,8 +17,7 @@ class SiteMapController extends Controller
             ->add(Url::create('/blog'))
             ->add(Url::create('/podcasts'))
             ->add(Url::create('/tutorials'))
-            ->add(Url::create('/user/login'))
-            ->writeToFile(public_path('sitemap.xml'));
+            ->add(Url::create('/user/login'));
 
         Post::all()->each(function (Post $post) use ($siteMap) {
             $siteMap->add(Url::create($post->link));
@@ -27,6 +26,8 @@ class SiteMapController extends Controller
         Tutorial::all()->each(function (Tutorial $tutorial) use ($siteMap) {
             $siteMap->add(Url::create($tutorial->link));
         });
+
+        $siteMap->writeToFile(public_path('sitemap.xml'));
 
         return $siteMap;
     }
