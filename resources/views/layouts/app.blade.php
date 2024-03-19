@@ -2,15 +2,22 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRJ03W1SCK"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    @if($this->app->environment('production'))
+        {
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRJ03W1SCK"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-        gtag('config', 'G-GRJ03W1SCK');
-    </script>
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'G-GRJ03W1SCK');
+        </script>
+    @endif
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ادریس رنجبر - @yield('title')</title>
@@ -22,22 +29,22 @@
 </head>
 
 <body class="@yield('body-class', '')">
-    
-    @if (!isset($hideHeader))
+
+@if (!isset($hideHeader))
     <header class="@yield('header-class', '')">
         @include('templates.main-menu')
     </header>
-    @endif
+@endif
 
-    @yield('content')
+@yield('content')
 
-    @if (!isset($hideFooter))
+@if (!isset($hideFooter))
     @include('templates.footer')
-    @endif
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/splide.min.js') }}"></script>
-    <script src="{{ asset('assets/js/moovie.min.js') }}"></script>
-    <script src="{{ asset('assets/js/script.js') }}" defer></script>
+@endif
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/splide.min.js') }}"></script>
+<script src="{{ asset('assets/js/moovie.min.js') }}"></script>
+<script src="{{ asset('assets/js/script.js') }}" defer></script>
 </body>
 
 </html>
