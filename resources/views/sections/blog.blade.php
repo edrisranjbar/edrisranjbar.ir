@@ -15,14 +15,20 @@
                 @forelse($posts as $post)
                 <li class="card blog splide__slide">
                     <a href="{{ $post->link }}">
-                        <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="thumbnail"
-                            alt="{{ $post->title }}">
+                        <img src="{{ asset('storage/upload/' . $post->thumbnail) }}"
+                             class="card-img-top" alt="{{ $post->title }}">
                     </a>
-                    <h3 class="post-title">{{ $post->title }}</h3>
-                    <div class="d-flex post-meta">
-                        <a href="{{ $post->link }}" class="btn btn-sm text-light btn-primary btn-w-icon">
+                    <div class="card-body">
+                        <div class="small text-muted">
+                            {{ Jalalian::fromDateTime($post->created_at)->format('d F Y') }}
+                        </div>
+                        <a href="{{ $post->link }}">
+                            <h3 class="card-title h4">{{ $post->title }}</h3>
+                        </a>
+                        <p class="card-text">{{ $post->excerpt }}</p>
+                        <a href="{{ $post->link }}" class="btn text-light btn-primary btn-w-icon">
                             <i class="fa fa-solid fa-eye me-1"></i>
-                            مشاهده
+                            ادامه مطلب
                         </a>
                     </div>
                 </li>
