@@ -92,7 +92,7 @@ class PostController extends Controller
             $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
 
-        unset($validatedData['categories']);
+        unset($validatedData['categories'], $validatedData['tags']);
         $post->update($validatedData);
         $post->categories()->sync($request->input('categories', []));
 
