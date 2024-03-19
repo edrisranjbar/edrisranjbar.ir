@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-md mt-2">
     <a class="navbar-brand me-5" href="{{ url('/') }}">
-        <span class="h3 text-primary">ادریس رنجبر</span>
+        <span class="d-none h3 text-primary">ادریس رنجبر</span>
+        <img src="{{ asset('images/logo.svg') }}" alt="ادریس رنجبر - توسعه دهنده بک اند وب" style="height: 48px; width: auto;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background: none; border:none;">
