@@ -1,4 +1,4 @@
-@section('title', isset($tutorial) ? 'ایجاد دوره جدید' : 'ویرایش دوره')
+@section('title', !isset($tutorial) ? 'ایجاد دوره جدید' : 'ویرایش دوره')
 @extends('layouts.admin')
 @section('content')
     <div class="container-lg text-black">
@@ -16,7 +16,7 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">عنوان</label>
                         <input type="text" name="title" id="title" class="form-control"
-                               value="{{ isset($tutorial) ? $tutorial->title : '' }}" required>
+                               value="{{ old('title', isset($tutorial) ? $tutorial->title : '') }}" required>
                         <div class="invalid-feedback">
                             لطفا عنوان معتبری وارد کنید
                         </div>
@@ -28,7 +28,7 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">توضیحات</label>
                         <textarea name="description" id="description" class="form-control"
-                                  rows="5">{{ isset($tutorial) ? $tutorial->description : '' }}</textarea>
+                                  rows="5">{{ old('description', isset($tutorial) ? $tutorial->description : '') }}</textarea>
                         @error('description')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -127,7 +127,7 @@
                             <div class="w-100 input-group">
                                 <input id="sectionName" type="text" class="form-control rounded-start"
                                        placeholder="نام بخش را بنویسید"
-                                       onkeypress="handlePressingEnterOnSectionNameElement(event)">
+                                       onkeyup="handlePressingEnterOnSectionNameElement(event)">
                                 <button type="button" class="btn btn-sm btn-outline-secondary btn-w-icon"
                                         onclick="addNewSectionToSectionsList();">
                                     <i class="fa fa-solid fa-plus me-1"></i>

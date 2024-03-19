@@ -121,6 +121,11 @@ const removeItemFromGoodForList = (element) => {
     saveAllGoodForTextsInTheHiddenField();
 }
 
+const removeItemFromBadForList = (element) => {
+    element.closest("li").remove();
+    saveAllBadForTextsInTheHiddenField();
+}
+
 const handlePressingEnterOnGoodForElement = (event) => {
     if (event.key === 'Enter') {
         event.preventDefault();

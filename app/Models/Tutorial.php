@@ -37,7 +37,7 @@ class Tutorial extends Model
     {
         return $this->hasMany(CourseSection::class);
     }
-    
+
     public function students()
     {
         return $this->belongsToMany(User::class, 'user_tutorial');
@@ -56,7 +56,7 @@ class Tutorial extends Model
     public function getStatusLabelAttribute()
     {
         $visibilityLabels = [
-            'public' => 'عمومی',
+            'published' => 'عمومی',
             'private' => 'خصوصی',
             'draft' => 'پیش‌نویس',
         ];
@@ -69,30 +69,32 @@ class Tutorial extends Model
         return url("/tutorials/{$this->slug}");
     }
 
-    public function getGoodForItems() : Array
+    public function getGoodForItems(): array
     {
         return explode(',', $this->good_for_items ?? "");
     }
 
-    public function getBadForItems() : Array
+    public function getBadForItems(): array
     {
         return explode(',', $this->bad_for_items ?? "");
     }
 
-    public function getExcerptAttribute($limit = 10)
+    public function getExcerptAttribute($limit = 50)
     {
+        if (!isset($limit)) $limit = 50;
         return Str::limit($this->description, $limit);
     }
 
-    public function getTotalDurationAttribute(){
+    public function getTotalDurationAttribute()
+    {
         return $this->lessons->sum('duration') ?? 0;
     }
 
-    public function getPriceLabelAttribute(){
-        if($this->price === 0){
+    public function getPriceLabelAttribute()
+    {
+        if ($this->price === 0) {
             return "رایگان";
-        }
-        else{
+        } else {
             return $this->price . " تومان";
         }
     }

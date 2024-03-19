@@ -916,3 +916,6 @@ input#email::placeholder {
 .max-h-150 {
     max-height: 150px
 }
+td > p{
+    margin-bottom: unset;
+}

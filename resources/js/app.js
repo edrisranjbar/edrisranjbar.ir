@@ -7,33 +7,35 @@ import Checklist from '@editorjs/checklist';
 import Embed from '@editorjs/embed';
 import Quote from '@editorjs/quote';
 
-const editor = new EditorJS({
-    i18n: {
-        direction: 'rtl',
-    },
-    holder: 'editorJS',
-    placeholder: 'لورم ایپسوم',
-    tools: {
-        checklist: {
-            class: Checklist,
-            inlineToolbar: true,
+if (document.querySelectorAll("#editorJS").length > 0) {
+    const editor = new EditorJS({
+        i18n: {
+            direction: 'rtl',
         },
-        quote: Quote,
-        embed: Embed,
-        raw: RawTool,
-        header: {
-            class: Header,
-            inlineToolbar: true
-        },
-        list: {
-            class: List,
-            inlineToolbar: true
-        },
-        linkTool: {
-            class: LinkTool,
-            config: {
-                endpoint: 'http://localhost:8000/api/fetchUrl',
+        holder: 'editorJS',
+        placeholder: 'لورم ایپسوم',
+        tools: {
+            checklist: {
+                class: Checklist,
+                inlineToolbar: true,
             },
+            quote: Quote,
+            embed: Embed,
+            raw: RawTool,
+            header: {
+                class: Header,
+                inlineToolbar: true
+            },
+            list: {
+                class: List,
+                inlineToolbar: true
+            },
+            linkTool: {
+                class: LinkTool,
+                config: {
+                    endpoint: 'http://localhost:8000/api/fetchUrl',
+                },
+            }
         }
-    }
-})
+    })
+}

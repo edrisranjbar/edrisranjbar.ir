@@ -1,10 +1,7 @@
 @extends('layouts.admin')
-
 @section('title', 'لیست دوره‌ها')
-
 @section('content')
 <div class="container-fluid">
-    <h1 class="h3 mb-3 fw-normal text-right">لیست دوره‌های آموزشی</h1>
     <div class="d-flex flex-wrap mb-2">
         <a class="btn btn-w-icon btn-primary mb-2 me-2" href="{{ route('tutorials.create') }}">
             <i class="fa-solid fa-fw fa-plus me-1"></i>
@@ -35,9 +32,9 @@
                     <td class="align-middle py-2">
                         <a href="{{ route('tutorials.edit', $tutorial) }}">{{ $tutorial->title }}</a>
                     </td>
-                    <td class="align-middle py-2">{{ $tutorial->price }}</td>
+                    <td class="align-middle py-2 money">{{ $tutorial->price }}</td>
                     <td class="align-middle py-2">
-                        {{ $tutorial->excerpt }}
+                        {!! $tutorial->excerpt !!}
                     </td>
                     <td class="align-middle py-2">{{ $tutorial->status_label }}</td>
                     <td class="align-middle py-2">
