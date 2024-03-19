@@ -3,7 +3,7 @@
 @section('header-class', 'bg-light')
 @extends('layouts.app')
 @section('content')
-    <main class="container-lg text-light">
+    <main class="container-lg text-light" id="blog-page">
         <div class="row">
             <div class="col-12">
                 <article>

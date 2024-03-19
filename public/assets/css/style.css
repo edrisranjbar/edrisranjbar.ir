@@ -614,6 +614,12 @@ a {
     justify-content: space-between;
 }
 
+#blog-page a {
+    color: var(--primary-color) !important;
+    border-bottom: var(--white-color) dotted 3px;
+    padding-bottom: 2px;
+}
+
 #blog .blog-section-description {
     color: var(--white-color);
     font-weight: 400;
