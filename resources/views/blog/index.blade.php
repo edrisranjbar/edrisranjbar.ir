@@ -1,8 +1,8 @@
+@php use Morilog\Jalali\Jalalian; @endphp
 @section('title', 'وبلاگ')
 @extends('layouts.app')
 @section('content')
     <main class="container">
-
         <div class="col-md-8 offset-md-2 mb-5">
             <form action="{{ url('blog') }}" method="GET" class="input-group">
                 <input type="text" name="search" class="form-control form-control-lg ms-sm-2"
@@ -11,7 +11,6 @@
                 <button type="submit" class="btn btn-primary my-2 my-sm-0">جست و جو</button>
             </form>
         </div>
-
         @if(strlen($searchQuery) === 0)
             <div class="p-4 p-md-5 m-4 rounded text-center text-bg-dark">
                 <div class="col-12 px-0">
