@@ -1,9 +1,7 @@
 @section('title', 'ایجاد دسته‌بندی جدید')
 @extends('layouts.admin')
-
 @section('content')
 <div class="container-fluid">
-    <h1 class="h3 mb-3 fw-normal text-right">ایجاد دسته‌بندی جدید</h1>
     @if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}

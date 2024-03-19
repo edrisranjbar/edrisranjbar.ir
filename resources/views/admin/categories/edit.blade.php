@@ -1,9 +1,7 @@
 @section('title', 'ویرایش دسته‌بندی')
 @extends('layouts.admin')
-
 @section('content')
 <div class="container-fluid">
-    <h1 class="h3 mb-3 fw-normal text-right">ویرایش دسته‌بندی</h1>
     @if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
@@ -32,7 +30,7 @@
 
         <div class="mb-3">
             <label for="slug" class="form-label">شناسه یکتا</label>
-            <input type="text" name="slug" id="slug" class="form-control" pattern="[a-zA-Z]+" maxlength="50" min="1"
+            <input type="text" name="slug" id="slug" class="form-control" pattern="[a-zA-Z]+" maxlength="50"
                 value="{{ $category->slug }}" required>
             @error('slug')
             <p class="text-danger">{{ $message }}</p>
@@ -41,11 +39,11 @@
 
         <div class="d-flex flex-wrap mt-2">
             <button type="submit" class="btn btn-w-icon btn-primary mt-2 me-2">
-                <i class="fa-solid fa-fw fa-check me-1"></i>
-                بروزرسانی
+                <i class="fa-solid fa-fw fa-edit me-1"></i>
+                ذخیره تغییرات
             </button>
             <a href="{{ route('categories.index') }}" class="btn btn-w-icon btn-outline-primary mt-2 me-2">
-                <i class="fa-solid fa-fw fa-list-check me-1"></i>
+                <i class="fa-solid fa-fw fa-arrow-right me-1"></i>
                 برگشتن
             </a>
         </div>
