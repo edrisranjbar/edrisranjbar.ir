@@ -1,3 +1,4 @@
+@php use Morilog\Jalali\Jalalian; @endphp
 <section id="blog" class="row">
     <div class="col-12 col-xl-6 blog-left">
         <h2 class="title">جدیدترین نوشته ها</h2>
