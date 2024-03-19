@@ -6,7 +6,8 @@
             <div class="card-body">
                 @include('templates.messages')
                 <form class="w-100 main-form" id="post-form"
-                      action="{{ isset($post) ? route('posts.update', $post->id) : route('posts.store') }}" method="post"
+                      action="{{ isset($post) ? route('posts.update', $post->id) : route('posts.store') }}"
+                      method="post"
                       enctype="multipart/form-data">
                     @csrf
                     @if (isset($post))
@@ -17,21 +18,24 @@
                             <div class="mb-3">
                                 <label for="title" class="form-label fs-5">عنوان</label>
                                 <input type="text" name="title" id="title" class="form-control"
-                                       value="{{ old('title', isset($post) ? $post->title : '') }}" required maxlength="255">
+                                       value="{{ old('title', isset($post) ? $post->title : '') }}" required
+                                       maxlength="255">
                                 @error('title')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
 
                             <div class="mb-3">
-                                <label for="content" class="form-label fs-5">محتوا</label>
-                                <textarea name="content" id="content" class="form-control" rows="15">{{ old('content', isset($post) ? $post->content : '') }}</textarea>
+                                <label for="post-content" class="form-label fs-5">محتوا</label>
+                                <textarea name="content" id="post-content" class="form-control"
+                                          rows="15">{{ old('content', isset($post) ? $post->content : '') }}</textarea>
                                 @error('content')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
 
-                            <div id="editorJS" class="w-100 rounded border px-4 py-3" data-placeholder="لورم ایپسوم"></div>
+                            {{--                            <div id="editorJS" class="w-100 rounded border px-4 py-3"--}}
+                            {{--                                 data-placeholder="لورم ایپسوم"></div>--}}
 
                         </div>
                         <div class="col-lg-4">
@@ -114,7 +118,8 @@
                                                 <label for="category-{{ $category->id }}"
                                                        class="form-check-label form-check">
                                                     <input id="category-{{ $category->id }}" class="form-check-input"
-                                                           name="categories[]" value="{{ $category->id }}" type="checkbox"
+                                                           name="categories[]" value="{{ $category->id }}"
+                                                           type="checkbox"
                                                             @checked(old('category_id', isset($post) && in_array($category->id, $post->categories->pluck('id')->toArray())))>
                                                     {{ $category->title }}
                                                 </label>
@@ -192,5 +197,19 @@
             </div>
         </div>
     @endif
-
+@endsection
+@section('js')
+    <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#post-content'),
+                {
+                    language: {
+                        content: 'fa'
+                    }
+                })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endsection

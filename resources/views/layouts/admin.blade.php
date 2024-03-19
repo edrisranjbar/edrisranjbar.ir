@@ -73,6 +73,7 @@
         <script src="{{ asset('assets/js/sidebar.js') }}" defer></script>
         <script src="{{ asset('assets/js/script.js') }}"></script>
         <script src="{{ asset('assets/js/admin/dynamic-lists.js') }}" defer></script>
+        @yield('js')
 </body>
 
 </html>
