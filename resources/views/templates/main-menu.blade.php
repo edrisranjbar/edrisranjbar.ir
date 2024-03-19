@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md mt-2">
     <a class="navbar-brand me-5" href="{{ url('/') }}">
-        <h1 class="h3 text-primary">ادریس رنجبر</h1>
+        <span class="h3 text-primary">ادریس رنجبر</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background: none; border:none;">

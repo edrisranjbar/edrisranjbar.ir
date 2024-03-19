@@ -1,27 +1,27 @@
+@php use Morilog\Jalali\Jalalian; @endphp
 @section('title', $post->title)
 @section('header-class', 'bg-light')
 @extends('layouts.app')
 @section('content')
-    <main class="container-fluid">
+    <main class="container-lg text-light">
         <div class="row">
             <div class="col-12">
-                <!-- Post content-->
                 <article>
-                    <!-- Post header-->
-                    <header class="mb-4">
-                        <!-- Post title-->
-                        <h1 class="fw-bolder mb-1">{{ $post->title }}</h1>
-                        <!-- Post meta content-->
-                        <div class="text-muted fst-italic mb-2">
-                            {{ \Morilog\Jalali\Jalalian::fromDateTime($post->created_at)->format('d F Y') }}
+                    <header class="d-block mb-4">
+                        <h1 class="fw-bolder mb-3">{{ $post->title }}</h1>
+                        <div class="mb-2">
+                            <span class="small">نویسنده: {{ $post->author->fullName }}</span>
+                            <div class="small ms-1 mt-2">
+                                آخرین به روزرسانی:
+                            {{ Jalalian::fromDateTime($post->updated_at)->format('d F Y') }}
+                            </div>
                         </div>
                     </header>
-                    <!-- Preview image figure-->
                     <figure class="mb-4">
-                        <img class="img-fluid rounded mx-auto d-block"
-                             src="{{ asset('storage/upload/' . $post->thumbnail) }}" alt="{{ $post->title }}">
+                        <img class="w-75 rounded mx-auto d-block"
+                             src="{{ asset('storage/upload/' . $post->thumbnail) }}"
+                             alt="{{ $post->title }}">
                     </figure>
-                    <!-- Post content-->
                     <section class="mb-5 fs-4 lh-md">
                         {!! $post->content !!}
                     </section>

@@ -57,10 +57,10 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="author" class="form-label fs-5">نویسنده</label>
-                                    <select name="author" id="author" class="form-select" required>
+                                    <label for="author_id" class="form-label fs-5">نویسنده</label>
+                                    <select name="author_id" id="author_id" class="form-select" required>
                                         @foreach ($admins as $admin)
-                                            <option value="{{ $admin->id }}" @selected(old('author', isset($post) ? $post->author : '') === $admin->id)>
+                                            <option value="{{ $admin->id }}" @selected(old('author_id', isset($post) ? $post->author_id : '') === $admin->id)>
                                                 {{ $admin->fullName }}
                                             </option>
                                         @endforeach

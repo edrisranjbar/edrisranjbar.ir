@@ -35,7 +35,7 @@
 <body class="@yield('body-class', '')">
 
 @if (!isset($hideHeader))
-    <header class="@yield('header-class', '')">
+    <header>
         @include('templates.main-menu')
     </header>
 @endif

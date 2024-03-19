@@ -21,7 +21,7 @@ class Post extends Model
 
     public function author()
     {
-        return $this->belongsTo(Admin::class, 'author');
+        return $this->belongsTo(Admin::class, 'author_id');
     }
 
     public function categories()

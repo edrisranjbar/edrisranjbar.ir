@@ -32,7 +32,7 @@ class PostController extends Controller
             'slug' => 'required|unique:posts',
             'tags' => 'nullable',
             'short_description' => 'nullable',
-            'author' => 'required|exists:admins,id',
+            'author_id' => 'required|exists:admins,id',
             'categories' => 'array|exists:categories,id',
         ]);
 
@@ -83,7 +83,7 @@ class PostController extends Controller
             'slug' => 'required|unique:posts,slug,' . $post->id,
             'tags' => 'nullable',
             'short_description' => 'nullable',
-            'author' => 'required|exists:admins,id',
+            'author_id' => 'required|exists:admins,id',
             'categories' => 'array|exists:categories,id',
         ]);
 

@@ -30,6 +30,7 @@ a {
 body {
     direction: rtl !important;
     font-family: "Vazirmatn FD", serif !important;
+    background-color: var(--dark-color);
 }
 
 main {
@@ -68,10 +69,6 @@ nav ul {
 nav a {
     text-decoration: none;
     color: var(--white-color) !important;
-}
-
-.bg-light nav a {
-    color: var(--dark-color) !important;
 }
 
 .hamburger-menu {
