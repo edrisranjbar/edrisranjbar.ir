@@ -23,11 +23,11 @@
                     </figure>
                     <!-- Post content-->
                     <section class="mb-5 fs-4 lh-md">
-                        {!! $post->content !!}}
-                </section>
-            </article>
-        </div>
+                        {!! $post->content !!}
+                    </section>
+                </article>
+            </div>
 
-    </div>
-</main>
+        </div>
+    </main>
 @stop
