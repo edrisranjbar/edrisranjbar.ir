@@ -8,6 +8,7 @@
         "php": "^8.1",
         "ext-dom": "*",
         "ext-http": "*",
+        "andreaselia/analytics": "^1.14",
         "doctrine/dbal": "^3.7",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
@@ -15,7 +16,6 @@
         "laravel/tinker": "^2.8",
         "morilog/jalali": "^3.4",
         "pishran/zarinpal": "^4.3",
-        "spatie/laravel-analytics": "^5.3",
         "spatie/laravel-medialibrary": "^10.15",
         "spatie/laravel-sitemap": "^7.2"
     },

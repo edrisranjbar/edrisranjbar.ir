@@ -18,19 +18,20 @@ use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\WishlistController;
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('sitemap', [SiteMapController::class, 'generate']);
-Route::get('podcasts', [HomeController::class, 'podcasts']);
-Route::get('tutorials', [HomeController::class, 'tutorials'])->name('tutorials');
-Route::get('tutorials/{slug}', [HomeController::class, 'tutorial'])->name('tutorials.show');
-Route::get('tutorials/{slug}/lessons/{id}', [HomeController::class, 'lesson'])->name('lessons.show');
-Route::post('tutorials/{slug}/enroll', [TutorialController::class, 'enroll'])->name('tutorials.enroll');
-Route::post('wishlist/{id}', [WishlistController::class, 'addOrRemove'])->name('wishlist.addOrRemove');
-Route::get('podcasts', [HomeController::class, 'podcasts']);
-Route::get('blog', [HomeController::class, 'blog']);
-Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
-Route::post('contact', [ContactFormController::class, 'store'])->name('contact.store');
-
+Route::middleware('analytics')->group(function () {
+    Route::get('/', [HomeController::class, 'index']);
+    Route::get('sitemap', [SiteMapController::class, 'generate']);
+    Route::get('podcasts', [HomeController::class, 'podcasts']);
+    Route::get('tutorials', [HomeController::class, 'tutorials'])->name('tutorials');
+    Route::get('tutorials/{slug}', [HomeController::class, 'tutorial'])->name('tutorials.show');
+    Route::get('tutorials/{slug}/lessons/{id}', [HomeController::class, 'lesson'])->name('lessons.show');
+    Route::post('tutorials/{slug}/enroll', [TutorialController::class, 'enroll'])->name('tutorials.enroll');
+    Route::post('wishlist/{id}', [WishlistController::class, 'addOrRemove'])->name('wishlist.addOrRemove');
+    Route::get('podcasts', [HomeController::class, 'podcasts']);
+    Route::get('blog', [HomeController::class, 'blog']);
+    Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
+    Route::post('contact', [ContactFormController::class, 'store'])->name('contact.store');
+});
 
 Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
 Route::get('admin/login/resetPassword', [AdminAuthController::class, 'showResetPasswordForm'])->name('password.reset');
