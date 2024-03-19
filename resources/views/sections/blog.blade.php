@@ -4,7 +4,7 @@
         <div class="breaker"></div>
         <p class="blog-section-description">این یک متن تستیه، این یک متن تستیه، این یک متن تستیه، این یک
             متن تستیه، این یک متن تستیه...</p>
-        <a href="#" class="btn btn-lg btn-outline-primary text-light d-inline-block btn-w-icon">
+        <a href="{{ $blogUrl }}" class="btn btn-lg btn-outline-primary text-light d-inline-block btn-w-icon">
             <i class="fa fa-eye me-1"></i>
             مشاهده همه
         </a>

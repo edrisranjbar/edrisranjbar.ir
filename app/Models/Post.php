@@ -10,14 +10,9 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'slug',
-        'title',
-        'content',
-        'status',
-        'thumbnail',
-        'author',
-    ];
+    public const blogLink = "/blog";
+
+    protected $guarded = [];
 
     public function author()
     {
@@ -41,7 +36,7 @@ class Post extends Model
 
     public function getLinkAttribute()
     {
-        return url("/blog/{$this->slug}");
+        return url(self::blogLink . "/{$this->slug}");
     }
 
     public function getTagNamesAsArrayAttribute()

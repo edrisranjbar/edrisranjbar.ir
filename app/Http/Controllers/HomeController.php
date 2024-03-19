@@ -16,8 +16,8 @@ class HomeController extends Controller
     public function index()
     {
         $widgets = $this->getAllWidgets();
-        $coursesUrl = url('tutorials');
-        $blogUrl = url('blog');
+        $coursesUrl = url(Tutorial::tutorialsLink);
+        $blogUrl = url(Post::blogLink);
         $tutorials = Tutorial::all();
         $posts = Post::all();
         $user = Auth::guard('user')?->user();

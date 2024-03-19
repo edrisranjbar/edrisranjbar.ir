@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 class Tutorial extends Model
 
 {
+    public const tutorialsLink = '/tutorials';
     protected $casts = [
         'duration' => 'integer',
     ];
@@ -66,7 +67,7 @@ class Tutorial extends Model
 
     public function getLinkAttribute()
     {
-        return url("/tutorials/{$this->slug}");
+        return url(self::tutorialsLink . "/{$this->slug}");
     }
 
     public function getGoodForItems(): array

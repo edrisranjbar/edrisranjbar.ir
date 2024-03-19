@@ -6,7 +6,7 @@
             من توی دوره های آموزشیم سعی میکنم مفاهیم و مهارت ها رو به صورت واضح و ساده بیان کنم. تا جای ممکن هم
             پروژه محور پیش میریم که براتون کاربردی باشه.
         </p>
-        <a href="#" class="btn btn-lg btn-outline-primary text-light d-inline-block btn-w-icon">
+        <a href="{{ $coursesUrl }}" class="btn btn-lg btn-outline-primary text-light d-inline-block btn-w-icon">
             <i class="fa fa-eye me-1"></i>
             مشاهده همه
         </a>
@@ -15,24 +15,29 @@
         <div class="splide__track">
             <ul class="splide__list">
                 @forelse($tutorials as $tutorial)
-                <li class="card tutorial splide__slide">
-                    <a href="{{ $tutorial->link }}">
-                        @if ($tutorial->thumbnail)
-                        <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}" class="thumbnail"
-                            alt="{{ $tutorial->title }}">
-                        @endif
-                        <h3 class="post-title">{{ $tutorial->title }}</h3>
-                    </a>
-                    <div class="d-flex post-meta">
-                        <a href="{{ $tutorial->link }}" class="btn btn-sm btn-outline-primary btn-w-icon">
-                            <i class="fa fa-solid fa-eye me-1"></i>
-                            مشاهده
+                    <div class="card tutorial splide__slide">
+                        <a href="{{ $tutorial->link }}">
+                            @if ($tutorial->thumbnail)
+                                <img src="{{ asset('storage/upload/' . $tutorial->thumbnail) }}"
+                                     class="card-img-top" alt="{{ $tutorial->title }}">
+                            @endif
                         </a>
-                        <div class="d-flex align-items-center students-count">
-                            {{ $tutorial->priceLabel }}
+                        <div class="card-body w-100">
+                            <a href="{{ $tutorial->link }}">
+                                <h3 class="card-title h4">{{ $tutorial->title }}</h3>
+                            </a>
+                            <p class="card-text">{{ $tutorial->excerpt }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="{{ $tutorial->link }}" class="btn btn-outline-primary btn-w-icon">
+                                    <i class="fa fa-solid fa-eye me-1"></i>
+                                    مشاهده دوره
+                                </a>
+                                <div class="d-flex align-items-center students-count">
+                                    {{ $tutorial->priceLabel }}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </li>
                 @empty
                 <li class="card tutorial splide__slide w-100 m-0">
                     <img src="{{ asset('images/empty.svg') }}">
