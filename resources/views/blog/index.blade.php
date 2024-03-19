@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <h2 class="ms-4 mt-5 mb-3">✨مقالات ویژه</h2>
+            <h2 class="text-light ms-4 mt-5 mb-4">✨مقالات ویژه</h2>
             <section class="row mb-2">
                 <div class="col-md-6">
                     <div class="row g-0 px-0 border rounded overflow-hidden flex-md-row mb-4 position-relative bg-light">
@@ -106,7 +106,7 @@
             </section>
         @endif
 
-        <h2 class="ms-4 mt-5 mb-3">
+        <h2 class="text-light ms-4 mt-5 mb-4">
             @if(strlen($searchQuery) === 0)
                 ☕ جدیدترین مقالات
             @else
@@ -118,15 +118,15 @@
                 <div class="col-md-4 mb-4">
                     <div class="card post animated-card">
                         <a href="{{ $post->link }}">
-                            <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="card-img-top"
-                                 alt="{{ $post->title }}">
+                            <img src="{{ asset('storage/upload/' . $post->thumbnail) }}"
+                                 class="card-img-top" alt="{{ $post->title }}">
                         </a>
                         <div class="card-body">
                             <div class="small text-muted">
-                                {{ \Morilog\Jalali\Jalalian::fromDateTime($post->created_at)->format('d F Y') }}
+                                {{ Jalalian::fromDateTime($post->created_at)->format('d F Y') }}
                             </div>
                             <a href="{{ $post->link }}">
-                                <h5 class="card-title h4">{{ $post->title }}</h5>
+                                <h3 class="card-title h4">{{ $post->title }}</h3>
                             </a>
                             <p class="card-text">{{ $post->excerpt }}</p>
                             <a href="{{ $post->link }}" class="btn text-light btn-primary btn-w-icon">

@@ -79,10 +79,16 @@ class Tutorial extends Model
         return explode(',', $this->bad_for_items ?? "");
     }
 
-    public function getExcerptAttribute($limit = 50)
+    public function getExcerptAttribute($length = 100)
     {
-        if (!isset($limit)) $limit = 50;
-        return Str::limit($this->description, $limit);
+        if (!isset($length)) $length = 100;
+        $contentWithoutEntities = strip_tags($this->description);
+        // Check if the content length is less than the specified length
+        if (mb_strlen($contentWithoutEntities, 'UTF-8') <= $length) {
+            return $contentWithoutEntities;
+        }
+        // If the content is longer, return a limited excerpt
+        return mb_substr($contentWithoutEntities, 0, $length, 'UTF-8') . '...';
     }
 
     public function getTotalDurationAttribute()
