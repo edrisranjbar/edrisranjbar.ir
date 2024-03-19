@@ -51,6 +51,8 @@ class Post extends Model
 
     public function getExcerptAttribute($length = 100)
     {
+        if (!isset($length)) $length = 100;
+
         // Check if the content length is less than the specified length
         if (mb_strlen($this->content, 'UTF-8') <= $length) {
             return $this->content;
