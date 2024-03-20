@@ -12,7 +12,7 @@ return [
     'prefix' => 'analytics',
 
     'middleware' => [
-        'web',
+        'admin',
     ],
 
     /**
