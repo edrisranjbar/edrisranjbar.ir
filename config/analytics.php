@@ -9,7 +9,7 @@ return [
      *
      * The prefix and middleware for the analytics dashboard.
      */
-    'prefix' => 'analytics',
+    'prefix' => 'admin/analytics',
 
     'middleware' => [
         'admin',
