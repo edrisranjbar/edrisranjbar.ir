@@ -9,7 +9,7 @@
             افزودن نوشته جدید
         </a>
     </div>
-
+    @include('templates.messages')
     <div class="w-100 bg-white rounded shadow-sm table-responsive border">
         <table class="table table-striped table-clickable">
             <thead>
@@ -25,7 +25,10 @@
                 @forelse($posts as $post)
                 <tr>
                     <th class="align-middle py-2" scope="row">{{ $loop->iteration }}</th>
-                    <td class="align-middle py-2">{{ $post->title }}</td>
+                    <td class="align-middle py-2">
+                        @if($post->pinned) 📌 @endif
+                        {{ $post->title }}
+                    </td>
                     <td class="align-middle py-2">
                         @foreach($post->categories as $category)
                         <span class="badge py-2 px-2 text-bg-secondary">{{ $category->title }}</span>

@@ -6,20 +6,20 @@
         <li>{{ $error }}</li>
         @endforeach
     </ul>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button type="button" class="btn-close py-3" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
 
 @if (session('success'))
 <div class="alert alert-success alert-dismissible fade show text-right" role="alert">
     {{ session('success') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button type="button" class="btn-close py-3" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
 
 @if (session('info'))
 <div class="alert alert-info alert-dismissible fade show text-right" role="alert">
     {{ session('info') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button type="button" class="btn-close py-3" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
