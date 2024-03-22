@@ -35,7 +35,7 @@
                                         </div>
                                     @endif
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     <a href="{{ url('admin/comments/' . $comment->id . '/toggleApprovementStatus') }}">
                                             <span
                                                     class="badge badge-pill @if ($comment->confirmed) text-bg-success @else text-bg-secondary @endif p-2 cursor-pointer clickable-badge">
