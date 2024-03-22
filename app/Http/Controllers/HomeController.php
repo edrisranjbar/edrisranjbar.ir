@@ -66,7 +66,8 @@ class HomeController extends Controller
         if (!$post) {
             abort(404);
         }
-        return view('blog.show', compact('post'));
+        $comments = $post->confirmedComments;
+        return view('blog.show', compact('post', 'comments'));
     }
 
     public function podcasts()

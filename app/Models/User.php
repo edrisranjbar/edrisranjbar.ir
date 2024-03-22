@@ -55,4 +55,12 @@ class User extends Authenticatable
         return $this->tutorialProgress()->where('progress','=', 100)->count() ?? 0;
     }
 
+    public function getProfilePhotoSrcAttribute()
+    {
+        if($this->profile_photo) {
+            return asset('storage/upload/' . $this->profile_photo);
+        }
+        return asset('images/profile.svg');
+    }
+
 }

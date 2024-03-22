@@ -1,4 +1,7 @@
-@php use Morilog\Jalali\Jalalian; @endphp
+@php
+    use Morilog\Jalali\Jalalian;
+    use App\Helpers\AppHelper;
+ @endphp
 @section('title', $post->title)
 @section('header-class', 'bg-light')
 @extends('layouts.app')
@@ -25,7 +28,7 @@
                     <section class="mb-5 fs-4 lh-md">
                         {!! $post->content !!}
                     </section>
-                    <section class="d-flex flex-column" id="comments">
+                    <section class="d-flex flex-column" id="comments-section">
                         <div class="" id="comment-form">
                             @include('templates.messages')
                             <form method="post" action="{{ url('comments') }}" class="mb-5 d-flex flex-column gap-2">
@@ -39,6 +42,32 @@
                                     ارسال نظر
                                 </button>
                             </form>
+                        </div>
+                        <div id="comments">
+                            @foreach($comments as $comment)
+                                <article class="p-3 bg-white rounded-lg">
+                                    <footer class="d-flex justify-content-between align-items-center mb-2 relative">
+                                        <div class="d-flex align-items-center">
+                                            <p class="d-inline-flex align-items-center me-3 fs-5 fw-semibold text-dark">
+                                                <img class="me-2 rounded-circle" style="width: 50px; height: 50px;"
+                                                     src=" {{ $comment->author->profile_photo_src }}"
+                                                     alt=" {{ $comment->author->name }}">
+                                                {{ $comment->author->name }}
+                                            </p>
+                                            <p class="small text-muted">
+                                                <time pubdate
+                                                      datetime="{{ $comment->updated_at->toIso8601String() }}"
+                                                      title="{{ AppHelper::jdate('d F Y', strtotime($post->updated_at)) }}">
+                                                    {{ AppHelper::jdate('d F Y', strtotime($post->updated_at)) }}
+                                                </time>
+                                            </p>
+                                        </div>
+                                    </footer>
+                                    <p class="text-dark">
+                                        {{ $comment->message }}
+                                    </p>
+                                </article>
+                            @endforeach
                         </div>
                     </section>
                 </article>
