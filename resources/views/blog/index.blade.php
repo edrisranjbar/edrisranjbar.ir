@@ -46,7 +46,9 @@
                     </div>
                 </div>
             </div>
-            @include('blog.widgets.pinnedPostsSection')
+            @if(!$pinnedPosts->isEmpty())
+                @include('blog.widgets.pinnedPostsSection')
+            @endif
         @endif
         <h2 class="text-light ms-4 mt-5 mb-4">
             @if(strlen($searchQuery) === 0)
