@@ -72,7 +72,7 @@
                             <a href="{{ $post->link }}">
                                 <h3 class="post-title">{{ $post->title }}</h3>
                             </a>
-                            <p class="card-text">{{ $post->excerpt }}</p>
+                            <p class="post-description card-text">{{ $post->excerpt }}</p>
                             <a href="{{ $post->link }}" class="btn text-light btn-primary btn-w-icon">
                                 <i class="fa fa-solid fa-eye me-1"></i>
                                 ادامه مطلب

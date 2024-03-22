@@ -184,8 +184,8 @@ main.container-404 {
     margin: 0;
 }
 
-main>section,
-main>div {
+main > section,
+main > div {
     padding-left: 32px !important;
     padding-right: 32px !important;
 }
@@ -350,7 +350,6 @@ img.profile {
 }
 
 
-
 .title {
     font-style: normal;
     font-weight: 500;
@@ -389,7 +388,7 @@ img.profile {
     width: 100%;
 }
 
-.skills-box>div {
+.skills-box > div {
     justify-content: center;
     align-items: center;
 }
@@ -476,7 +475,7 @@ img.profile {
 .post-title {
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 31px;
     display: flex;
     align-items: flex-start;
@@ -559,9 +558,11 @@ img.profile {
     text-align: center;
     border-radius: 16px;
 }
+
 #about .about-description {
     text-align: right;
 }
+
 .profile-box {
     width: 306px;
     height: 306px;
@@ -892,7 +893,7 @@ footer ul li {
     margin-left: 32px;
 }
 
-footer.bg-dark .nav-item{
+footer.bg-dark .nav-item {
     color: var(--white-color);
 }
 
@@ -1217,8 +1218,8 @@ ul.recent-blog-posts-widget li {
         text-align: center;
     }
 
-    main>section,
-    main>div {
+    main > section,
+    main > div {
         padding-left: 8px !important;
         padding-right: 8px !important;
     }
@@ -1388,6 +1389,7 @@ ul.recent-blog-posts-widget li {
         margin: 0 auto 16px auto !important;
         line-height: 1.5;
     }
+
     #about p,
     a {
         font-size: 14px;
@@ -1408,7 +1410,7 @@ ul.recent-blog-posts-widget li {
         margin-right: auto;
     }
 
-    #blog .blog-left>.btn {
+    #blog .blog-left > .btn {
         margin-bottom: 32px;
     }
 
@@ -1452,7 +1454,7 @@ ul.recent-blog-posts-widget li {
     }
 }
 
-@media screen and (min-width:2560px) {
+@media screen and (min-width: 2560px) {
     .students {
         left: 470px;
         bottom: 120px;
@@ -1659,7 +1661,7 @@ nav a:hover {
     justify-content: center;
 }
 
-@media only screen and (min-width:576px) {
+@media only screen and (min-width: 576px) {
 
     header {
         padding-bottom: 86px;
@@ -1670,7 +1672,7 @@ nav a:hover {
     }
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
     header {
         padding-bottom: 108px;
     }
@@ -2180,7 +2182,7 @@ nav a:hover {
     margin-bottom: 24px;
 }
 
-.attribute-card>.content {
+.attribute-card > .content {
     display: flex;
     max-width: 799px;
     justify-content: flex-start;
@@ -2188,7 +2190,7 @@ nav a:hover {
     gap: 32px;
 }
 
-.attribute-card:hover>.content {
+.attribute-card:hover > .content {
     transform: translateZ(12px);
 }
 
@@ -2514,7 +2516,7 @@ nav a:hover {
         margin-bottom: 64px;
     }
 
-    .attribute-card>.content {
+    .attribute-card > .content {
         gap: 16px;
     }
 
@@ -2564,7 +2566,7 @@ nav a:hover {
         justify-content: center;
     }
 
-    .tutorial-tutor-button-group>button>svg {
+    .tutorial-tutor-button-group > button > svg {
         max-width: 16px;
     }
 
@@ -2727,7 +2729,7 @@ nav a:hover {
 }
 
 /* TabBar section */
-.tabBarHeader ul{
+.tabBarHeader ul {
     list-style: none;
     display: flex;
     color: #595858;
@@ -2739,40 +2741,52 @@ nav a:hover {
     margin: 0;
     padding: 0;
 }
-.tabBarHeader li{
+
+.tabBarHeader li {
     margin-left: 16px;
 }
-.tabBarHeader .nav-link{
+
+.tabBarHeader .nav-link {
     font-size: 22px;
     padding: 8px 16px 8px 40px;
     border-radius: 16px;
     border: 2px solid var(--primary-dark-color);
     cursor: pointer;
 }
-.tabBarHeader .nav-link.active{
+
+.tabBarHeader .nav-link.active {
     background-color: var(--primary-dark-color);
     color: var(--pure-white);
 }
-.tabBarBody{
+
+.tabBarBody {
     margin-top: 16px;
     padding: 32px;
     border-radius: 16px;
     background-color: #DFDFDF;
 }
-.tabBarBody #downloadSection > ul{
+
+.tabBarBody #downloadSection > ul {
     margin: 0;
 }
-.tabBarBody #downloadSection li:not(:last-child){
+
+.tabBarBody #downloadSection li:not(:last-child) {
     margin-bottom: 8px;
 }
-.card{
+
+.card {
     transition: all 0.3s ease;
 }
-.animated-card:hover{
+
+.animated-card:hover {
     box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.10);
     transform: scale(1.05);
 }
 
-.w-fit-content{
+.w-fit-content {
     width: fit-content;
+}
+
+.post-description {
+    min-height: 96px;
 }

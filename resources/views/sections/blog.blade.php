@@ -24,9 +24,9 @@
                             {{ Jalalian::fromDateTime($post->created_at)->format('d F Y') }}
                         </div>
                         <a href="{{ $post->link }}">
-                            <h3 class="card-title h4">{{ $post->title }}</h3>
+                            <h3 class="post-title h4">{{ $post->title }}</h3>
                         </a>
-                        <p class="card-text">{{ $post->excerpt }}</p>
+                        <p class="post-description card-text">{{ $post->excerpt }}</p>
                         <a href="{{ $post->link }}" class="btn text-light btn-primary btn-w-icon">
                             <i class="fa fa-solid fa-eye me-1"></i>
                             ادامه مطلب
