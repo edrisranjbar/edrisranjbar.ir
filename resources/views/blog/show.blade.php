@@ -13,7 +13,7 @@
                             <span class="small">نویسنده: {{ $post->author->fullName }}</span>
                             <div class="small ms-1 mt-2">
                                 آخرین به روزرسانی:
-                            {{ Jalalian::fromDateTime($post->updated_at)->format('d F Y') }}
+                                {{ Jalalian::fromDateTime($post->updated_at)->format('d F Y') }}
                             </div>
                         </div>
                     </header>
@@ -24,6 +24,21 @@
                     </figure>
                     <section class="mb-5 fs-4 lh-md">
                         {!! $post->content !!}
+                    </section>
+                    <section class="d-flex flex-column" id="comments">
+                        <div class="" id="comment-form">
+                            <form method="post" action="{{ url('comments') }}" class="mb-5 d-flex flex-column gap-2">
+                                @csrf
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                <label for="message" class="fs-4 mb-2">متن پیام</label>
+                                <textarea class="fs-5 form-control" name="message" id="message"
+                                          cols="30" rows="10" required maxlength="255">{{ old('message') }}</textarea>
+                                <button type="submit"
+                                        class="btn btn-primary w-fit-content">
+                                    ارسال نظر
+                                </button>
+                            </form>
+                        </div>
                     </section>
                 </article>
             </div>
