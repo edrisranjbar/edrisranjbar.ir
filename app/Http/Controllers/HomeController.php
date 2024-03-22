@@ -19,7 +19,7 @@ class HomeController extends Controller
         $coursesUrl = url(Tutorial::tutorialsLink);
         $blogUrl = url(Post::blogLink);
         $tutorials = Tutorial::all();
-        $posts = Post::all();
+        $posts = Post::where(['status' => 'published'])->get();
         $user = Auth::guard('user')?->user();
         return view('index', compact('widgets', 'coursesUrl', 'blogUrl', 'tutorials', 'posts', 'user'));
     }
@@ -46,16 +46,17 @@ class HomeController extends Controller
     public function blog(Request $request)
     {
         $searchQuery = $request->input('search');
-        // If a search query is provided, perform the search
         if ($searchQuery) {
-            $posts = Post::where('title', 'like', '%' . $searchQuery . '%')
+            $posts = Post::where(['status' => 'published']);
+            $posts = $posts->where('title', 'like', '%' . $searchQuery . '%')
                 ->orWhere('content', 'like', '%' . $searchQuery . '%')
                 ->get();
         } else {
-            // If no search query is provided, get the latest posts
-            $posts = Post::latest()->get();
+            $posts = Post::where(['status' => 'published'])->get();
         }
-        $pinnedPosts = Post::wherePinned(true)->orderBy('created_at', 'desc')->take(2)->get();
+        $pinnedPosts = Post::where(['status' => 'published'])
+            ->wherePinned(true)->orderBy('created_at', 'desc')->take(2)->get();
+
         return view('blog.index', compact('posts', 'searchQuery', 'pinnedPosts'));
     }
 

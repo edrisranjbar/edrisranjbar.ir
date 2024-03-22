@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SiteMapController;
@@ -31,6 +32,7 @@ Route::middleware('analytics')->group(function () {
     Route::get('blog', [HomeController::class, 'blog']);
     Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
     Route::post('contact', [ContactFormController::class, 'store'])->name('contact.store');
+    Route::post('comments', [CommentController::class, 'store']);
 });
 
 Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.login');

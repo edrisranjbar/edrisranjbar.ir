@@ -27,6 +27,7 @@
                     </section>
                     <section class="d-flex flex-column" id="comments">
                         <div class="" id="comment-form">
+                            @include('templates.messages')
                             <form method="post" action="{{ url('comments') }}" class="mb-5 d-flex flex-column gap-2">
                                 @csrf
                                 <input type="hidden" name="post_id" value="{{ $post->id }}">
