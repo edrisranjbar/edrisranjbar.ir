@@ -67,6 +67,16 @@
                                     </select>
                                 </div>
 
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input id="pinned" class="form-check-input" name="pinned" value="1"
+                                               type="checkbox" @checked(old('pinned', isset($post) ? $post->pinned : false) == true)>
+                                        <label for="pinned" class="form-check-label ms-1">
+                                            پین به عنوان نوشته ویژه
+                                        </label>
+                                    </div>
+                                </div>
+
                                 <div class="d-flex flex-wrap mt-2">
                                     @if (isset($post))
                                         <button type="submit" class="btn btn-w-icon btn-primary mt-2 me-2">

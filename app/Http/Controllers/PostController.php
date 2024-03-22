@@ -34,6 +34,7 @@ class PostController extends Controller
             'short_description' => 'nullable',
             'author_id' => 'required|exists:admins,id',
             'categories' => 'array|exists:categories,id',
+            'pinned' => 'nullable|boolean'
         ]);
 
         if ($request->hasFile('thumbnail')) {
@@ -85,7 +86,10 @@ class PostController extends Controller
             'short_description' => 'nullable',
             'author_id' => 'required|exists:admins,id',
             'categories' => 'array|exists:categories,id',
+            'pinned' => 'nullable|boolean'
         ]);
+
+        $validatedData['pinned'] = $request->filled('pinned');
 
         if ($request->hasFile('thumbnail')) {
             $request->thumbnail->store('public/upload');
