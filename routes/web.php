@@ -54,6 +54,9 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::resource('lessons', LessonController::class);
     Route::patch('settings', [SettingController::class, 'updateAll'])->name('settings.updateAll');
     Route::resource('settings', SettingController::class);
+    Route::resource('comments', CommentController::class);
+    Route::patch('comments/{commentId}/reply', [CommentController::class, 'reply']);
+    Route::get('comments/{commentId}/toggleApprovementStatus', [CommentController::class, 'toggleApprovementStatus']);
 });
 
 Route::get('user/login', [UserAuthController::class, 'login'])->name('user.login');

@@ -11,6 +11,10 @@
     <link href="{{ asset('assets/css/bootstrap.rtl.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/sb-admin-2-override.css') }}" rel="stylesheet">
+    <script>
+        const webBaseUrl = "{{ url('/') }}";
+        const apiBaseUrl = `${webBaseUrl}/api`;
+    </script>
     @vite('resources/js/app.js')
     <!-- FavIcon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
