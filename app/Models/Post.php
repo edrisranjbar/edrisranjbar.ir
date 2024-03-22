@@ -31,7 +31,17 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)
+            ->where(['parent_id' => null])
+            ->orderBy('created_at', 'desc');
+    }
+
+    public function confirmedComments()
+    {
+        return $this->hasMany(Comment::class)
+            ->where(['parent_id' => null])
+            ->where(['confirmed' => 1])
+            ->orderBy('created_at', 'desc');
     }
 
     public function getLinkAttribute()
