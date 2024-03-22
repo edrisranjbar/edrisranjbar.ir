@@ -17,7 +17,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($comments as $comment)
+                        @forelse($comments as $comment)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td class="align-middle">
@@ -64,7 +64,11 @@
                                     @endif
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr class="py-3 text-center align-middle">
+                                <td colspan="5">نتیجه ای یافت نشد</td>
+                            </tr>
+                        @endforelse
                         </tbody>
                     </table>
                 </div>
