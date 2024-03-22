@@ -49,59 +49,32 @@
 
             <h2 class="text-light ms-4 mt-5 mb-4">✨مقالات ویژه</h2>
             <section class="row mb-2">
-                <div class="col-md-6">
-                    <div class="row g-0 px-0 border rounded overflow-hidden flex-md-row mb-4 position-relative bg-light">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-primary">هک و امنیت</strong>
-                            <h3 class="mb-0">لورم ایپسوم</h3>
-                            <div class="mb-1 text-muted">10 شهریور 1401</div>
-                            <p class="card-text mb-auto">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                است،
-                                چاپگرها و متون بلکه
-                                روزنامه و مجله در ستون و سطرآنچنان که لازم است
-                            </p>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <svg class="bd-placeholder-img" width="200" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                                 focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect>
-                                <text x="50%" y="50%" fill="#eceeef"
-                                      dy=".3em">Thumbnail
-                                </text>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row px-0 g-0 border rounded overflow-hidden flex-md-row mb-4 position-relative bg-light">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-success">برنامه نویسی</strong>
-                            <h3 class="mb-0">لورم ایپسوم</h3>
-                            <div class="mb-1 text-muted">10 شهریور 1401</div>
-                            <p class="mb-auto">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                است،
-                                چاپگرها و متون بلکه
-                                روزنامه و مجله در ستون و سطرآنچنان که لازم است
-                            </p>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <svg class="bd-placeholder-img" width="200" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                                 focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect>
-                                <text x="50%" y="50%" fill="#eceeef"
-                                      dy=".3em">Thumbnail
-                                </text>
-                            </svg>
-
+                @foreach($pinnedPosts as $post)
+                    <div class="col-md-6">
+                        <div class="card animated-card row g-0 px-0 border rounded overflow-hidden flex-md-row mb-4 position-relative bg-light">
+                            <div class="col p-4 d-flex flex-column position-static">
+                                @if($post->categories?->first())
+                                    <strong class="d-inline-block badge text-bg-primary w-fit-content">
+                                        {{ $post->categories?->first()?->title }}
+                                    </strong>
+                                @endif
+                                <a href="{{ $post->link }}">
+                                    <h3 class="post-title mt-2 mb-1">{{ $post->title }}</h3>
+                                </a>
+                                <div class="mt-2 text-muted">
+                                    {{ Jalalian::fromDateTime($post->created_at)->format('d F Y') }}
+                                </div>
+                            </div>
+                            <div class="col-6 d-none d-lg-block">
+                                <a href="{{ $post->link }}">
+                                    <img style="max-height: 250px; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;"
+                                         src="{{ asset('storage/upload/' . $post->thumbnail) }}"
+                                         alt="{{ $post->title }}">
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </section>
         @endif
 
@@ -125,7 +98,7 @@
                                 {{ Jalalian::fromDateTime($post->created_at)->format('d F Y') }}
                             </div>
                             <a href="{{ $post->link }}">
-                                <h3 class="card-title h4">{{ $post->title }}</h3>
+                                <h3 class="post-title">{{ $post->title }}</h3>
                             </a>
                             <p class="card-text">{{ $post->excerpt }}</p>
                             <a href="{{ $post->link }}" class="btn text-light btn-primary btn-w-icon">

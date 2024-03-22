@@ -55,8 +55,8 @@ class HomeController extends Controller
             // If no search query is provided, get the latest posts
             $posts = Post::latest()->get();
         }
-
-        return view('blog.index', compact('posts', 'searchQuery'));
+        $pinnedPosts = Post::wherePinned(true)->orderBy('created_at', 'desc')->take(2)->get();
+        return view('blog.index', compact('posts', 'searchQuery', 'pinnedPosts'));
     }
 
     public function blogPost($slug)
@@ -99,7 +99,7 @@ class HomeController extends Controller
         $progress = AppHelper::calculateProgress(currentLessonOrder: $currentLessonOrder, totalNumberOfLessons: $totalLessonsCount);
         $prevLessonURL = $lesson->previousLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->previousLesson()?->id : '#';
         $nextLessonURL =
-        $lesson->nextLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->nextLesson()?->id : '#';
+            $lesson->nextLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->nextLesson()?->id : '#';
 
         $user = Auth::guard('user')?->user();
         UserTutorialProgress::updateOrCreate(
