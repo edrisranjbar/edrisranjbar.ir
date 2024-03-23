@@ -12,8 +12,10 @@ deleteModal.addEventListener('show.bs.modal', (e) => {
         deleteReply(commentId).then(
             response => {
                 if (response.ok) {
-                    removeReplyFromDom(rowDeleteBtn)
-                } else { console.log("reply couldn't be deleted"); }
+                    window.location.reload();
+                } else {
+                    console.error("reply couldn't be deleted");
+                }
             }
         )
 
@@ -28,19 +30,6 @@ async function deleteReply(commentId) {
             'Content-Type': 'application/json',
         },
     })
-}
-
-function removeReplyFromDom(rowDeleteBtn) {
-    const row = rowDeleteBtn.closest('tr');
-    const commentId = rowDeleteBtn.dataset.commentId;
-    row.querySelector(".comment_reply").remove();
-    // Replace the delete button with a reply button
-    const actionBtn = row.querySelector('button');
-    actionBtn.outerHTML = `
-    <button class="btn btn-sm btn-outline-primary ml-2 btn-w-icon" onclick="openReplyModal(this, ${commentId})">
-        <i class="fa fa-reply me-1"></i>
-        ثبت پاسخ
-    </button>`;
 }
 
 function openReplyModal(element, id) {

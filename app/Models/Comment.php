@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +11,11 @@ class Comment extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function getUpdatedAgoAttribute()
+    {
+        return Carbon::parse($this->updated_at)->locale('fa')->diffForHumans();
+    }
 
     public function author()
     {

@@ -39,6 +39,12 @@ class CommentController extends Controller
         $comment->update(['reply_message' => '']);
     }
 
+    public function deleteReplyAjax(int $id){
+        $comment = Comment::findOrFail($id);
+        $comment->update(['reply_message' => null]);
+        return response()->json(['success' => 'بازخورد باموفقیت حذف شد'], 200);
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

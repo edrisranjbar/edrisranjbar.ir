@@ -85,22 +85,6 @@
                 <div class="card-body">
                     <ul class="list-group mx-0 px-0 w-100">
                         <li class="list-group-item">
-                            <strong>ادریس رنجبر:</strong> مطلب خوبی بود! مرسی ازت
-                            <br><small
-                                class="d-inline-block mt-1 float-left bdage badge-pill badge-secondary">۱۳۹۹/۰۳/۲۲ -
-                                ۱۰:۳۰
-                                قبل از
-                                ظهر</small>
-                        </li>
-                        <li class="list-group-item">
-                            <strong>لورم ایپسوم:</strong> اون قسمت توی ۲۰:۷۶ چه تگی زدی پیدا نیست؟
-                            <br><small
-                                class="d-inline-block mt-1 float-left bdage badge-pill badge-secondary">۱۳۹۹/۰۳/۲۳ -
-                                ۰۱:۱۴
-                                بعد از
-                                ظهر</small>
-                        </li>
-                        <li class="list-group-item">
                             <strong>لورم ایپسوم:</strong> اون قسمت توی ۲۰:۷۶ چه تگی زدی پیدا نیست؟ اون قسمت توی ۲۰:۷۶ چه
                             تگی زدی پیدا نیست؟ اون قسمت توی ۲۰:۷۶ چه تگی زدی پیدا نیست؟
                             <br><small

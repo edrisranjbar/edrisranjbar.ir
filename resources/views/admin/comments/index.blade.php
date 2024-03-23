@@ -5,73 +5,51 @@
         <div class="card shadow">
             <div class="card-body">
                 @include('templates.messages')
-                <div class="datatable-parent">
-                    <table class="table text-nowrap table-striped table-bordered" id="comments-table">
-                        <thead>
-                        <tr>
-                            <th>ردیف</th>
-                            <th>نام و نام خانوادگی</th>
-                            <th data-sortable="false">متن</th>
-                            <th>وضعیت</th>
-                            <th data-sortable="false">عملیات</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @forelse($comments as $comment)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td class="align-middle">
-                                    <a href='{{ url('admin/users/' . $comment->author_id) }}'>
-                                        {{ $comment->author->name }}
-                                    </a>
-                                </td>
-                                <td class="align-middle">
-                                    <span class="text-wrap">{!! $comment->message !!}</span>
-                                    @if ($comment->reply_message)
-                                        <br>
-                                        <div class="comment_reply rounded shadow bg-light p-3 my-2">
-                                            <i class="fa fa-reply ml-2"></i>
-                                            <span class="text-wrap">{!! nl2br($comment->reply_message) !!}</span>
-                                        </div>
-                                    @endif
-                                </td>
-                                <td>
-                                    <a href="{{ url('admin/comments/' . $comment->id . '/toggleApprovementStatus') }}">
-                                            <span
-                                                    class="badge badge-pill @if ($comment->confirmed) text-bg-success @else text-bg-secondary @endif p-2 cursor-pointer clickable-badge">
-                                                @if ($comment->confirmed)
-                                                    تایید شده
-                                                @else
-                                                    تایید نشده
-                                                @endif
-                                            </span>
-                                    </a>
-                                </td>
-                                <td class="text-center align-middle">
-                                    @if (!$comment->reply_message)
-                                        <button class="btn btn-sm btn-outline-primary ml-2 btn-w-icon"
-                                                onclick="openReplyModal(this,{{ $comment->id }})">
-                                            <i class="fa fa-reply me-1"></i>
-                                            ثبت پاسخ
-                                        </button>
+                <ul class="list-group mx-0 px-0 w-100">
+                    @forelse($comments as $comment)
+                        <li class="list-group-item">
+                            <small class="d-inline-block mt-1 float-left badge badge-pill badge-secondary">
+                                {{ $comment->updatedAgo }}
+                            </small>
+                            <strong>{{ $comment->author->name }}:</strong>
+                            <div class="text-wrap mb-2">{!! $comment->message !!}</div>
+                            @if ($comment->reply_message)
+                                <div class="comment_reply rounded shadow bg-light p-3 my-2">
+                                    <i class="fa fa-reply ml-2"></i>
+                                    <span class="text-wrap">{!! nl2br($comment->reply_message) !!}</span>
+                                </div>
+                            @endif
+                            <div class="d-flex align-items-center gap-2">
+                                <a href="{{ url('admin/comments/' . $comment->id . '/toggleApprovementStatus') }}">
+                                <span class="badge @if ($comment->confirmed) text-bg-success @else text-bg-secondary @endif p-2 cursor-pointer clickable-badge">
+                                    @if ($comment->confirmed)
+                                        تایید شده
                                     @else
-                                        <button class="btn btn-sm btn-outline-danger btn-w-icon" data-bs-toggle="modal"
-                                                data-bs-target="#delete-comment-reply-modal"
-                                                data-comment-id="{{ $comment->id }}">
-                                            <i class="fa fa-trash me-1"></i>
-                                            حذف پاسخ
-                                        </button>
+                                        تایید نشده
                                     @endif
-                                </td>
-                            </tr>
-                        @empty
-                            <tr class="py-3 text-center align-middle">
-                                <td colspan="5">نتیجه ای یافت نشد</td>
-                            </tr>
-                        @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                                </span>
+                                </a>
+                                @if (!$comment->reply_message)
+                                    <button class="btn btn-sm btn-outline-primary ml-2 btn-w-icon"
+                                            onclick="openReplyModal(this,{{ $comment->id }})">
+                                        <i class="fa fa-reply me-1"></i>
+                                        ثبت پاسخ
+                                    </button>
+                                @else
+                                    <button class="btn btn-link text-danger" data-bs-toggle="modal"
+                                            data-bs-target="#delete-comment-reply-modal"
+                                            data-comment-id="{{ $comment->id }}">
+                                        حذف پاسخ
+                                    </button>
+                                @endif
+                            </div>
+                        </li>
+                    @empty
+                        <li class="list-group-item">
+                            نتیجه ای یافت نشد
+                        </li>
+                    @endforelse
+                </ul>
             </div>
         </div>
     </div>

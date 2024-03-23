@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UrlInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('fetchUrl/', [UrlInfoController::class, 'fetch']);
+Route::delete('admin/comments/{commentId}/deleteReply', [CommentController::class, 'deleteReplyAjax']);
