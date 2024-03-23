@@ -62,7 +62,7 @@ class HomeController extends Controller
 
     public function blogPost($slug)
     {
-        $post = Post::where('slug', $slug)->first();
+        $post = Post::where(['slug' => $slug, 'status' => 'published'])->first();
         if (!$post) {
             abort(404);
         }
