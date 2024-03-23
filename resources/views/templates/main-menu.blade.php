@@ -23,7 +23,8 @@
             <button class="btn btn-outline-primary dropdown-toggle" id="profileDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
                 @if($user->profile_photo)
-                <img src="{{ $user->profile_photo ? asset('storage/upload/' . $user->profile_photo) : asset('images/profile-placeholder.jpg') }}" alt="{{ $user->name }}" class="rounded-circle"
+                <img src="{{ $user->profile_photo_src}}"
+                     alt="{{ $user->name }}" class="rounded-circle"
                     width="30" height="30" style="width: 30px; height: 30px;">
                 @endif
                 {{ $user->name }}
