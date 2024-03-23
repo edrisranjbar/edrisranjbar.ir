@@ -44,7 +44,8 @@
                         </div>
                         <div id="comments">
                             @foreach($comments as $comment)
-                                @include('blog.widgets.comment', $comment)
+                                @include('blog.widgets.comment',
+                                    ['comment'=>$comment, 'isReply'=>false])
                             @endforeach
                         </div>
                     </section>
