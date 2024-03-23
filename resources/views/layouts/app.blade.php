@@ -23,15 +23,12 @@
         @include('templates.main-menu')
     </header>
 @endif
-
 @yield('content')
-
 @if (!isset($hideFooter))
     @include('templates.footer')
 @endif
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/js/splide.min.js') }}"></script>
-<script src="{{ asset('assets/js/moovie.min.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}" defer></script>
 </body>
 
