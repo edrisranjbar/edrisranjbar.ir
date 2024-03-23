@@ -69,7 +69,7 @@
             {{ $comment->reply_message }}
         </div>
     @endif
-    @foreach($comment->replies as $comment)
+    @foreach($comment->confirmedReplies as $comment)
         @include('blog.widgets.comment',
             ['comment' => $comment, 'isReply' => true])
     @endforeach
