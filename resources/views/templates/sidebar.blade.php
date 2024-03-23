@@ -88,6 +88,13 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href="{{ url('admin/analytics') }}">
+            <i class="fas fa-fw fa-comment"></i>
+            <span>آمار</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/settings') }}">
             <i class="fas fa-fw fa-wrench"></i>
             <span>تنظیمات</span>
