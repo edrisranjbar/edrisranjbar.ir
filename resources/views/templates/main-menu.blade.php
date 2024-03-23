@@ -24,8 +24,7 @@
             data-bs-toggle="dropdown" aria-expanded="false">
                 @if($user->profile_photo)
                 <img src="{{ $user->profile_photo_src}}"
-                     alt="{{ $user->name }}" class="rounded-circle"
-                    width="30" height="30" style="width: 30px; height: 30px;">
+                     alt="{{ $user->name }}" class="user-profile-photo">
                 @endif
                 {{ $user->name }}
             </button>

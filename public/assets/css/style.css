@@ -2790,3 +2790,10 @@ nav a:hover {
 .post-description {
     min-height: 96px;
 }
+
+.user-profile-photo {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
