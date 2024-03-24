@@ -2001,7 +2001,7 @@ nav a:hover {
 .tabBarHeader .nav-link {
     font-size: 22px;
     padding: 8px 16px 8px 40px;
-    border-radius: 16px;
+    border-radius: 16px 16px 0 0;
     border: 2px solid var(--primary-dark-color);
     cursor: pointer;
 }
@@ -2012,9 +2012,8 @@ nav a:hover {
 }
 
 .tabBarBody {
-    margin-top: 16px;
     padding: 32px;
-    border-radius: 16px;
+    border-radius: 0 0 16px 16px;
     background-color: #DFDFDF;
 }
 

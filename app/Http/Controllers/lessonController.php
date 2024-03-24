@@ -85,7 +85,7 @@ class LessonController extends Controller
             'status' => 'required|in:public,private,draft',
             'duration' => 'required|integer|min:1',
             'isFree' => 'nullable|in:true,false',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'file' => 'nullable|file|mimes:zip',
             'video' => 'nullable|file|mimetypes:video/*',
             'tutorial_id' => 'required|exists:tutorials,id',
