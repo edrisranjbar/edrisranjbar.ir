@@ -16,7 +16,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">عنوان</th>
-                    <th scope="col">بخش و دوره</th>
+                    <th scope="col">دوره و بخش</th>
                     <th scope="col">مدت</th>
                     <th scope="col">عملیات</th>
                 </tr>
@@ -33,19 +33,15 @@
                             </a>
                         </td>
                         <td class="align-middle py-2">
-                            <a href="{{ route('lessons.edit', $lesson) }}">
-                                بخش {{ $lesson->section->title }}،
-                                دوره {{ $lesson->section->tutorial->title }}
+                            <a href="{{ url($lesson->section->tutorial->link) }}">
+                                دوره {{ $lesson->section->tutorial->title }}،
+                                بخش {{ $lesson->section->title }}
                             </a>
                         </td>
                         <td class="align-middle py-2">
                             {{ $lesson->duration }} ثانیه
                         </td>
                         <td class="d-flex align-items-center gap-2 py-2">
-                            <a href="{{ url('tutorials/' . $lesson->section->tutorial->slug) }}"
-                               class="btn btn-w-icon btn-outline-primary btn-sm">
-                                <i class="fa fa-eye ml-1"></i>نمایش دوره
-                            </a>
                             <a href="{{ route('lessons.edit', $lesson->id) }}"
                                class="btn btn-w-icon btn-outline-primary btn-sm">
                                 <i class="fa fa-edit ml-1"></i>ویرایش
