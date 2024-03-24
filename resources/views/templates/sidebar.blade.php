@@ -89,7 +89,7 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/analytics') }}">
-            <i class="fas fa-fw fa-comment"></i>
+            <i class="fas fa-fw fa-chart-pie"></i>
             <span>آمار</span>
         </a>
     </li>
