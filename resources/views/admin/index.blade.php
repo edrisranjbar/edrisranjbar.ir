@@ -106,6 +106,13 @@
                             @endforelse
                         </ul>
                     </div>
+                    <div class="card-footer">
+                        <a class="btn btn-outline-primary btn-w-icon d-inline-block w-fit-content"
+                           href="{{ url('admin/comments') }}">
+                            <i class="fa fas fa-eye me-1"></i>
+                            نمایش همه دیدگاه‌ها
+                        </a>
+                    </div>
                 </div>
             </div>
 
