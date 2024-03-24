@@ -83,7 +83,11 @@ class HomeController extends Controller
 
     public function tutorial(string $slug)
     {
-        $tutorial = Tutorial::where(['slug' => $slug, 'status' => 'published'])?->first();
+        $condition = ['slug' => $slug, 'status' => 'published'];
+        if (Auth::guard('admin')->check()){
+            $condition = ['slug' => $slug];
+        }
+        $tutorial = Tutorial::where($condition)?->first();
         if (!$tutorial) {
             abort(404);
         }
