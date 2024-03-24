@@ -18,7 +18,7 @@ class HomeController extends Controller
         $widgets = $this->getAllWidgets();
         $coursesUrl = url(Tutorial::tutorialsLink);
         $blogUrl = url(Post::blogLink);
-        $tutorials = Tutorial::all();
+        $tutorials = Tutorial::where(['status' => 'published'])->get();
         $posts = Post::where(['status' => 'published'])->get();
         $user = Auth::guard('user')?->user();
         return view('index', compact('widgets', 'coursesUrl', 'blogUrl', 'tutorials', 'posts', 'user'));
@@ -77,13 +77,13 @@ class HomeController extends Controller
 
     public function tutorials()
     {
-        $tutorials = Tutorial::all();
+        $tutorials = Tutorial::where(['status' => 'published'])->get();
         return view('tutorials.index', compact('tutorials'));
     }
 
     public function tutorial(string $slug)
     {
-        $tutorial = Tutorial::where('slug', $slug)->first();
+        $tutorial = Tutorial::where(['slug' => $slug, 'status' => 'published'])->first();
         $lessons = Lesson::where('tutorial_id', $tutorial->id)->first();
         if (!$tutorial) {
             abort(404);
