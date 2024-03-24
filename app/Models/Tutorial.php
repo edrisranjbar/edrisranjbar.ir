@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use AndreasElia\Analytics\Models\PageView;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -68,6 +69,20 @@ class Tutorial extends Model
     public function getLinkAttribute()
     {
         return url(self::tutorialsLink . "/{$this->slug}");
+    }
+
+    public function getViewsAttribute()
+    {
+        return PageView::query()->where(['uri' => self::tutorialsLink . "/{$this->slug}"])->count();
+    }
+
+    public function getViewersAttribute()
+    {
+        return PageView::query()
+            ->where(['uri' => self::tutorialsLink . "/{$this->slug}"])
+            ->groupBy('session')
+            ->pluck('session')
+            ->count();
     }
 
     public function getGoodForItems(): array
