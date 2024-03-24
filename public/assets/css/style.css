@@ -1422,7 +1422,7 @@ nav a:hover {
 
 .video-caption {
     margin-top: 8px;
-    color: var(--dark-color, #000);
+    color: var(--smoky-white-color);
     text-align: center;
     font-size: 24px;
     font-style: normal;
@@ -1431,7 +1431,7 @@ nav a:hover {
 }
 
 .about-tutorial-title {
-    color: var(--dark-color);
+    color: var(--smoky-white-color);
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -1439,7 +1439,7 @@ nav a:hover {
 
 .tutorial-description {
     margin: 32px auto 256px;
-    color: var(--dark-color);
+    color: var(--white-color);
     text-align: right;
     font-size: 24px;
     font-style: normal;
