@@ -16,7 +16,7 @@
                     <th scope="col">#</th>
                     <th scope="col">عنوان</th>
                     <th scope="col">قیمت</th>
-                    <th scope="col">توضیحات</th>
+                    <th scope="col">شرکت‌کنندگان</th>
                     <th scope="col">وضعیت</th>
                     <th scope="col">بازدیدها</th>
                     <th scope="col">بازدیدکننده</th>
@@ -34,7 +34,7 @@
                         </td>
                         <td class="align-middle py-2 money">{{ $tutorial->price }}</td>
                         <td class="align-middle py-2">
-                            {!! $tutorial->short_description !!}
+                            {{ $tutorial->students->count() }}
                         </td>
                         <td class="align-middle py-2">
                             <span class="p-2 badge badge-success">{{ $tutorial->status_label }}</span>
