@@ -45,7 +45,7 @@
                             </div>
                         </li>
                     @empty
-                        <li class="list-group-item">
+                        <li class="list-group-item text-center">
                             نتیجه ای یافت نشد
                         </li>
                     @endforelse

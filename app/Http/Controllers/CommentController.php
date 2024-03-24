@@ -30,7 +30,7 @@ class CommentController extends Controller
         $comment = Comment::findOrFail($commentId);
         $newApprovementStatus = !($comment->confirmed);
         $comment->update(['confirmed' => $newApprovementStatus]);
-        return redirect()->route('comments.index')->with('success', 'وضعیت دیدگاه مورد نظر با موفقیت تغییر یافت.');
+        return redirect()->back()->with('success', 'وضعیت دیدگاه مورد نظر با موفقیت تغییر یافت.');
     }
 
     public function deleteReply(int $comment_id)
