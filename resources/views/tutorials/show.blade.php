@@ -210,7 +210,7 @@
         </div>
     </section>
 
-    <section class="bg-white container-lg" id="tutorial-tutor">
+    <section class="container-lg" id="tutorial-tutor">
         <img src="{{ asset('images/profile-transparent.png') }}" alt="" class="tutor-profile">
         <div>
             <h2>« درباره مدرس دوره »</h2>
@@ -233,7 +233,7 @@
                     </svg>
                     دانلود رزومه
                 </button>
-                <button class="button button-outline-secondary text-dark">
+                <button class="button button-outline-secondary">
                     رفتن به لینکدین
                 </button>
             </div>
@@ -245,11 +245,10 @@
             alt="{{ $tutorial->title }}" class="tutorial-poster">
         <div>
             <p class="tutorial-overview-title display-5">
-                طراحی وب با HTML5
+                {{ $tutorial->title }}
             </p>
             <p class="tutorial-overview-description">
-                اچ تی ام ال پایه ای ترین زبان برای ساختن وب سایت و صفحات تحت وبه. همین الان با دوره ی رایگان HTML5
-                شروع کن.
+                {{ $tutorial->short_description }}
             </p>
             <div class="d-flex attributes-wrapper">
                 <ul class="list-unstyled attributes">
@@ -280,57 +279,6 @@
             </button>
         </div>
     </section>
-
-    <section id="QA">
-        <h2 class="QA_title display-5">« سوالات متداول »</h2>
-        <section class="accordion">
-            <div class="accordion-header" id="accordion-1">
-                <div class="w-100 d-flex justify-content-between align-items-center">
-                    <div class="d-flex flex-row align-items-center">
-                        <svg class="accordion-burger-icon" width="38" height="34" viewBox="0 0 38 34" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path id="Vector"
-                                d="M34.3332 27.5416C35.0715 27.5419 35.7814 27.8264 36.3157 28.3359C36.8501 28.8454 37.1679 29.5409 37.2034 30.2784C37.2389 31.0159 36.9893 31.7388 36.5063 32.2972C36.0234 32.8557 35.3441 33.2069 34.6092 33.2782L34.3332 33.2916H3.6665C2.92817 33.2912 2.21828 33.0068 1.68393 32.4973C1.14958 31.9878 0.831731 31.2922 0.796249 30.5547C0.760767 29.8173 1.01037 29.0944 1.49334 28.5359C1.97631 27.9775 2.65562 27.6262 3.3905 27.555L3.6665 27.5416H34.3332ZM34.3332 14.1249C35.0957 14.1249 35.8269 14.4278 36.3661 14.967C36.9053 15.5062 37.2082 16.2374 37.2082 16.9999C37.2082 17.7624 36.9053 18.4937 36.3661 19.0329C35.8269 19.572 35.0957 19.8749 34.3332 19.8749H3.6665C2.90401 19.8749 2.17274 19.572 1.63357 19.0329C1.0944 18.4937 0.791504 17.7624 0.791504 16.9999C0.791504 16.2374 1.0944 15.5062 1.63357 14.967C2.17274 14.4278 2.90401 14.1249 3.6665 14.1249H34.3332ZM34.3332 0.708252C35.0957 0.708252 35.8269 1.01115 36.3661 1.55032C36.9053 2.08949 37.2082 2.82075 37.2082 3.58325C37.2082 4.34575 36.9053 5.07702 36.3661 5.61618C35.8269 6.15535 35.0957 6.45825 34.3332 6.45825H3.6665C2.90401 6.45825 2.17274 6.15535 1.63357 5.61618C1.0944 5.07702 0.791504 4.34575 0.791504 3.58325C0.791504 2.82075 1.0944 2.08949 1.63357 1.55032C2.17274 1.01115 2.90401 0.708252 3.6665 0.708252H34.3332Z"
-                                fill="black" />
-                        </svg>
-                        <h3 class="accordion-title fs-5">
-                            لورم ایپسوم یعنی چی؟ اینو همه جا میبینم!
-                        </h3>
-                    </div>
-                    <img src="{{ asset('assets/icons/plus-circle.svg') }}" class="accordion-arrow">
-                </div>
-            </div>
-            <div class="accordion-body" id="accordion-1-body">
-                <p class="m-0">
-                    اگر یادگیری php را برای تبدیل شدن به یک بک اند دولوپر (backend developer) مسلط مدنظر دارید، خیر دوره
-                    متخصص php سون لرن
-                    هیچ پیشنیازی ندارد.
-                </p>
-            </div>
-            <div class="accordion-header" id="accordion-2">
-                <div class="w-100 d-flex justify-content-between align-items-center">
-                    <div class="d-flex flex-row align-items-center">
-                        <svg class="accordion-burger-icon" width="38" height="34" viewBox="0 0 38 34" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path id="Vector"
-                                d="M34.3332 27.5416C35.0715 27.5419 35.7814 27.8264 36.3157 28.3359C36.8501 28.8454 37.1679 29.5409 37.2034 30.2784C37.2389 31.0159 36.9893 31.7388 36.5063 32.2972C36.0234 32.8557 35.3441 33.2069 34.6092 33.2782L34.3332 33.2916H3.6665C2.92817 33.2912 2.21828 33.0068 1.68393 32.4973C1.14958 31.9878 0.831731 31.2922 0.796249 30.5547C0.760767 29.8173 1.01037 29.0944 1.49334 28.5359C1.97631 27.9775 2.65562 27.6262 3.3905 27.555L3.6665 27.5416H34.3332ZM34.3332 14.1249C35.0957 14.1249 35.8269 14.4278 36.3661 14.967C36.9053 15.5062 37.2082 16.2374 37.2082 16.9999C37.2082 17.7624 36.9053 18.4937 36.3661 19.0329C35.8269 19.572 35.0957 19.8749 34.3332 19.8749H3.6665C2.90401 19.8749 2.17274 19.572 1.63357 19.0329C1.0944 18.4937 0.791504 17.7624 0.791504 16.9999C0.791504 16.2374 1.0944 15.5062 1.63357 14.967C2.17274 14.4278 2.90401 14.1249 3.6665 14.1249H34.3332ZM34.3332 0.708252C35.0957 0.708252 35.8269 1.01115 36.3661 1.55032C36.9053 2.08949 37.2082 2.82075 37.2082 3.58325C37.2082 4.34575 36.9053 5.07702 36.3661 5.61618C35.8269 6.15535 35.0957 6.45825 34.3332 6.45825H3.6665C2.90401 6.45825 2.17274 6.15535 1.63357 5.61618C1.0944 5.07702 0.791504 4.34575 0.791504 3.58325C0.791504 2.82075 1.0944 2.08949 1.63357 1.55032C2.17274 1.01115 2.90401 0.708252 3.6665 0.708252H34.3332Z"
-                                fill="black" />
-                        </svg>
-                        <h3 class="accordion-title fs-5">مقدمه</h3>
-                    </div>
-                    <img src="{{ asset('assets/icons/plus-circle.svg') }}" class="accordion-arrow">
-                </div>
-            </div>
-            <div class="accordion-body" id="accordion-2-body">
-                <p class="m-0">
-                    اگر یادگیری php را برای تبدیل شدن به یک بک اند دولوپر (backend developer) مسلط مدنظر دارید، خیر دوره
-                    متخصص php سون لرن
-                    هیچ پیشنیازی ندارد.
-                </p>
-            </div>
-        </section>
-    </section>
-
 </main>
 <script src="{{ asset('assets/js/tutorials/show.js') }}"></script>
 @stop

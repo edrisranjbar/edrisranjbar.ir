@@ -1705,33 +1705,8 @@ nav a:hover {
 .tutorial-attributes {
     margin-top: 160px;
     margin-bottom: 160px;
-    background-color: #323030;
     position: relative;
     padding-bottom: 88px;
-}
-
-.tutorial-attributes::before {
-    content: "";
-    background-color: #323030;
-    height: 150px;
-    width: 103%;
-    transform: rotate(-3.65deg);
-    position: absolute;
-    top: -43px;
-    right: -7px;
-    z-index: -1;
-}
-
-.tutorial-attributes::after {
-    content: "";
-    background-color: #323030;
-    height: 150px;
-    width: 100%;
-    transform: rotate(-3.65deg);
-    position: absolute;
-    bottom: -43px;
-    left: -6px;
-    z-index: -1;
 }
 
 .tutorial-attributes-title {
@@ -1816,7 +1791,7 @@ nav a:hover {
 }
 
 #tutorial-tutor p {
-    color: var(--dark-color);
+    color: var(--pure-white);
     text-align: right;
     font-size: 32px;
     font-style: normal;
@@ -1837,14 +1812,15 @@ nav a:hover {
 #tutorial-overview {
     margin-top: 88px;
     padding: 88px 88px;
-    background-color: #323030;
     display: flex;
     position: relative;
 }
 
 #tutorial-overview .tutorial-poster {
+    border-radius: 8px;
     width: 469px;
     max-width: 100%;
+    margin-left: 2rem;
     height: auto;
 }
 
@@ -1905,61 +1881,6 @@ nav a:hover {
 
 #tutorial-overview button {
     margin-right: 188px;
-}
-
-#tutorial-overview::before {
-    content: "";
-    background-color: #323030;
-    height: 147px;
-    width: 103%;
-    transform: rotate(-3.65deg);
-    position: absolute;
-    top: -54px;
-    right: -14px;
-    z-index: 0;
-}
-
-#tutorial-overview::after {
-    content: "";
-    background-color: #323030;
-    height: 126px;
-    width: 103%;
-    transform: rotate(-3.65deg);
-    position: absolute;
-    bottom: -50px;
-    left: -6px;
-    z-index: -1;
-}
-
-#QA {
-    padding: 106px 0;
-}
-
-#QA .QA_title {
-    color: var(--primary-dark-color);
-    text-align: center;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    margin-bottom: 32px;
-}
-
-#QA .accordion-header.active {
-    background-color: var(--primary-dark-color);
-}
-
-#QA .accordion-header.active .accordion-title,
-#QA .accordion-header.active .accordion-arrow {
-    color: var(--pure-white);
-}
-
-#QA .accordion-body.active {
-    padding: 0 16px;
-    font-size: 18px;
-}
-
-#QA .accordion-body:not(.active) {
-    padding: 0;
 }
 
 /* End Tutorial Page */
