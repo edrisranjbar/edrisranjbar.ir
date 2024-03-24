@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use AndreasElia\Analytics\Models\PageView;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -47,6 +48,20 @@ class Post extends Model
     public function getLinkAttribute()
     {
         return url(self::blogLink . "/{$this->slug}");
+    }
+
+    public function getViewsAttribute()
+    {
+        return PageView::query()->where(['uri' => self::blogLink . "/{$this->slug}"])->count();
+    }
+
+    public function getViewersAttribute()
+    {
+        return PageView::query()
+            ->where(['uri' => self::blogLink . "/{$this->slug}"])
+            ->groupBy('session')
+            ->pluck('session')
+            ->count();
     }
 
     public function getTagNamesAsArrayAttribute()

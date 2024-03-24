@@ -18,6 +18,8 @@
                     <th scope="col">عنوان</th>
                     <th scope="col">دسته بندی</th>
                     <th scope="col">وضعیت</th>
+                    <th scope="col">بازدیدها</th>
+                    <th scope="col">بازدیدکنندگان</th>
                     <th scope="col">عملیات</th>
                 </tr>
             </thead>
@@ -35,6 +37,8 @@
                         @endforeach
                     </td>
                     <td class="align-middle py-2">{{ $post->statusString }}</td>
+                    <td class="align-middle py-2">{{ $post->views }}</td>
+                    <td class="align-middle py-2">{{ $post->viewers }}</td>
                     <td class="text-muted align-middle py-2">
 
                         <a href="{{ url('blog/' . $post->slug) }}"
