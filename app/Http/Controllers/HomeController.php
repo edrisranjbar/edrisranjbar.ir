@@ -83,11 +83,11 @@ class HomeController extends Controller
 
     public function tutorial(string $slug)
     {
-        $tutorial = Tutorial::where(['slug' => $slug, 'status' => 'published'])->first();
-        $lessons = Lesson::where('tutorial_id', $tutorial->id)->first();
+        $tutorial = Tutorial::where(['slug' => $slug, 'status' => 'published'])?->first();
         if (!$tutorial) {
             abort(404);
         }
+        $lessons = Lesson::where('tutorial_id', $tutorial->id)->first();
         $user = Auth::guard('user')?->user();
         $userHasEnrolled = $user && $user->tutorials->contains($tutorial->id);
         return view('tutorials.show', compact('tutorial', 'lessons', 'userHasEnrolled'));
