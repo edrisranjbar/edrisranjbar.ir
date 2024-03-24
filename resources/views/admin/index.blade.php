@@ -44,7 +44,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <h6 class="font-weight-bold text-info mb-2">بازدید کنندگان امروز</h6>
-                                <div class="h3 ml-3 mb-0 text-gray-800">۹۸</div>
+                                <div class="h3 ml-3 mb-0 text-gray-800">{{ $totalViewers }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-eye fa-2x text-gray-300"></i>
@@ -60,7 +60,7 @@
                             <div class="col mr-2">
                                 <h6 class="font-weight-bold text-warning mb-2">بازدید های امروز</h6>
                                 <div class="h3 mb-0 ml-3 text-gray-800">
-                                    ۱۲۳
+                                    {{ $totalViews }}
                                 </div>
                             </div>
                             <div class="col-auto">
