@@ -56,7 +56,7 @@
                     </div>
                     <div class="mb-3">
                         <input type="hidden" name="bad_for_items">
-                        <label for="badForElement" class="form-label">این دوره برای چه کسانی مناسب است؟</label>
+                        <label for="badForElement" class="form-label">این دوره برای چه کسانی مناسب نیست؟</label>
                         <input type="text" id="badForElement" name="bad_for" class="form-control mb-2">
                         <ul class="list-group" id="badForItems">
                             @foreach(isset($tutorial) ? $tutorial->getBadForItems() ?? [] : [] as $item)
