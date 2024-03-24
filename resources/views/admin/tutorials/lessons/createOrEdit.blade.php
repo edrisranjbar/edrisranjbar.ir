@@ -4,13 +4,8 @@
 @section('title', 'ویرایش درس ' . $lesson->title)
 @endif
 @extends('layouts.admin')
-
 @section('content')
-
 <div class="container-fluid">
-    <h1 class="h3 mb-3 fw-normal text-right" id="page-title">
-        {{ !isset($lesson) ? 'ایجاد درس جدید' : $lesson->title }}
-    </h1>
     @include('templates.messages')
     <form class="w-100 p-3 bg-white rounded shadow-sm border needs-validation"
         action="{{ isset($lesson) ? route('lessons.update', $lesson->id) : route('lessons.store') }}"

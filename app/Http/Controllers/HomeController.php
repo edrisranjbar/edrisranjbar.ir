@@ -84,7 +84,7 @@ class HomeController extends Controller
     public function tutorial(string $slug)
     {
         $condition = ['slug' => $slug, 'status' => 'published'];
-        if (Auth::guard('admin')->check()){
+        if (Auth::guard('admin')->check()) {
             $condition = ['slug' => $slug];
         }
         $tutorial = Tutorial::where($condition)?->first();
@@ -100,19 +100,22 @@ class HomeController extends Controller
     public function lesson(string $tutorialSlug, string $id)
     {
         $lesson = Lesson::findOrFail($id);
+        if (!Auth::guard('user')->check() && !Auth::guard('admin')->check()) {
+            return redirect()->route('user.login');
+        }
         $totalLessonsCount = $lesson->section->tutorial->lessonsCount();
         $currentLessonOrder = $lesson->getOrder();
         $progress = AppHelper::calculateProgress(currentLessonOrder: $currentLessonOrder, totalNumberOfLessons: $totalLessonsCount);
         $prevLessonURL = $lesson->previousLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->previousLesson()?->id : '#';
         $nextLessonURL =
             $lesson->nextLesson()?->id ? "tutorials/" . $lesson->section->tutorial->slug . "/lessons/" . $lesson->nextLesson()?->id : '#';
-
-        $user = Auth::guard('user')?->user();
-        UserTutorialProgress::updateOrCreate(
-            ['user_id' => $user->id, 'tutorial_id' => $lesson->section->tutorial->id],
-            ['progress' => $progress]
-        );
-
+        if (Auth::guard('user')->check()) {
+            $user = Auth::guard('user')?->user();
+            UserTutorialProgress::updateOrCreate(
+                ['user_id' => $user->id, 'tutorial_id' => $lesson->section->tutorial->id],
+                ['progress' => $progress]
+            );
+        }
         return view('tutorials.lessons.show', compact('lesson', 'prevLessonURL', 'nextLessonURL', 'progress'));
     }
 

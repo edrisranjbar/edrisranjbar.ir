@@ -10,11 +10,17 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Lesson extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
+
     protected $guarded = [];
 
     public function section()
     {
         return $this->belongsTo(CourseSection::class);
+    }
+
+    public function getLinkAttribute()
+    {
+        return url('/tutorials/' . $this->section->tutorial->slug . '/lessons/' . $this->id);
     }
 
     public function registerMediaCollections(): void
