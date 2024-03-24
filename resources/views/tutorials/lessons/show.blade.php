@@ -1,5 +1,4 @@
 @section('title', $lesson->title)
-@section('body-class', 'bg-light')
 @extends('layouts.app')
 @section('content')
 <main>
@@ -55,7 +54,8 @@
     <div class="mb-4" id="lessonContent">
         <h1 class="lesson-title">درس اول - مقدمه ای بر تاریخچه اینترنت</h1>
         <video src="{{ asset('storage/upload/' . $lesson->video_path) }}"
-            poster="{{ asset('storage/upload/' . $lesson->thumbnail) }}" controls class="w-75 mx-auto rounded mb-2">
+            poster="{{ asset('storage/upload/' . $lesson->thumbnail) }}"
+               controls class="w-75 mx-auto rounded mb-2 d-block">
         </video>
         <span class="tutorial-description">
             {!! $lesson->description !!}

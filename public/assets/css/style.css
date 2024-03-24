@@ -1972,7 +1972,7 @@ nav a:hover {
 
 .lesson-title {
     margin-bottom: 48px;
-    color: #323030;
+    color: var(--white-color);
     text-align: center;
     font-size: 40px;
     font-style: normal;
