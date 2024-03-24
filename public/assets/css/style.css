@@ -1396,7 +1396,7 @@ nav a:hover {
 
 .tutorial-content {
     display: block;
-    margin: 79px auto 280px;
+    margin: 79px auto 0;
     max-width: 1200px;
 }
 
@@ -1801,7 +1801,6 @@ nav a:hover {
 
 #tutorial-tutor {
     padding: 88px 64px;
-    background-color: var(--white-color);
     display: flex;
     align-items: center;
     column-gap: 32px;
