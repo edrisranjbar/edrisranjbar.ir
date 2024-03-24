@@ -81,8 +81,9 @@
                             <label for="status" class="form-label fs-5">وضعیت</label>
                             <select name="status" id="status" class="form-select" required>
                                 @foreach ($statusOptions as $value => $label)
-                                    <option value="{{ $value }}" @selected(old('status', isset($property) ? $property->status : '') === $value)>
-                                        {{ $label }}</option>
+                                    <option value="{{ $value }}" @selected(old('status', isset($tutorial) ? $tutorial->status : '') === $value)>
+                                        {{ $label }}
+                                    </option>
                                 @endforeach
                             </select>
                             @error('status')
@@ -93,7 +94,7 @@
                             @if(isset($tutorial))
                                 <button class="btn btn-w-icon btn-primary mt-2 me-2" type="submit">
                                     <i class="fa-solid fa-fw fa-edit me-1"></i>
-                                    ویرایش
+                                    بروزرسانی
                                 </button>
                                 <a href="#" class="btn btn-outline-danger btn-w-icon d-inline-block mt-2 me-2"
                                    data-bs-toggle="modal" data-bs-target="#deleteTutorialModal">
