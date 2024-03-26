@@ -26,7 +26,7 @@ class Lesson extends Model implements HasMedia
 
     public function getLinkAttribute()
     {
-        return url('/tutorials/' . $this->section->tutorial->slug . '/lessons/' . $this->id);
+        return url('/tutorials/' . $this->section?->tutorial?->slug . '/lessons/' . $this->id);
     }
 
     public function registerMediaCollections(): void
