@@ -42,13 +42,14 @@ class LessonController extends Controller
             'order_id' => 'nullable|integer|min:1|max:1000',
             'status' => 'required|in:public,private,draft',
             'isFree' => 'nullable|in:true,false',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'file' => 'nullable|file|mimes:zip',
             'video' => 'required|file|mimetypes:video/*',
             'tutorial_id' => 'required|exists:tutorials,id',
             'section_id' => 'required|exists:sections,id',
         ];
         $validatedData = $request->validate($validationRules);
+
         // Handle file uploads
         if ($request->hasFile('thumbnail')) {
             $request->file('thumbnail')->store('public/upload');
