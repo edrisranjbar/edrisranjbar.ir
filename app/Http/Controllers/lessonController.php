@@ -7,6 +7,7 @@ use App\Models\Lesson;
 use Illuminate\Http\Request;
 use App\Models\Tutorial;
 use FFMpeg;
+use Illuminate\Support\Facades\Storage;
 
 class LessonController extends Controller
 {
@@ -68,9 +69,7 @@ class LessonController extends Controller
 
             // Store the video file
             $videoPath = $video->store('public/upload');
-
-            // Get the full path to the stored video file
-            $videoFullPath = storage_path('app/' . $videoPath);
+            $videoFullPath = $request->file('video')->hashName();
 
             // Use FFmpeg to get the duration of the video
             $ffmpeg = FFMpeg\FFMpeg::create();
@@ -112,12 +111,14 @@ class LessonController extends Controller
         if ($request->hasFile('thumbnail')) {
             $request->file('thumbnail')->store('public/upload');
             $validatedData['thumbnail'] = $request->file('thumbnail')->hashName();
+            Storage::delete('public/upload/' . $lesson->thumbnail);
         }
         
         // Handle file uploads
         if ($request->hasFile('file')) {
             $request->file('file')->store('public/upload');
             $validatedData['file_path'] = $request->file('file')->hashName();
+            Storage::delete('public/upload/' . $lesson->file_path);
         }
 
         // Handle video uploads
@@ -128,7 +129,7 @@ class LessonController extends Controller
             $videoPath = $video->store('public/upload');
 
             // Get the full path to the stored video file
-            $videoFullPath = storage_path('app/' . $videoPath);
+            $videoFullPath = $request->file('video')->hashName();
 
             // Use FFmpeg to get the duration of the video
             $ffmpeg = FFMpeg\FFMpeg::create();
@@ -138,6 +139,8 @@ class LessonController extends Controller
             // Add the duration in seconds to the validated data
             $validatedData['video_path'] = $videoPath;
             $validatedData['duration'] = intval($duration);
+
+            Storage::delete('public/upload/' . $lesson->video_path);
         }
 
         $validatedData['isFree'] = boolval($validatedData['isFree'] ?? false);
