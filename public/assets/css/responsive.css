@@ -1,9 +1,10 @@
-/* Responsive Design */
-
-/** 1. Small Mobiles **/
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 962px) {
     header {
         padding: 0 32px 0;
+    }
+
+    .students {
+        display: none;
     }
 
     .tutorials-section-description {
@@ -251,97 +252,12 @@
         margin-bottom: 16px !important;
     }
 }
-
 @media screen and (min-width: 2560px) {
     .students {
         left: 470px;
         bottom: 120px;
     }
 }
-
-@media screen and (max-width: 480px) {
-    #about {
-        border-radius: 0;
-        margin: 4rem 0 !important;
-        border: 0 !important;
-        padding-bottom: 0 !important;
-    }
-
-    .students {
-        display: none;
-    }
-
-    .container-404 .btn {
-        margin-top: 16px !important;
-        font-size: 16px !important;
-        padding: 4px 8px !important;
-    }
-
-    .post-card-header h1 {
-        font-size: 24px;
-    }
-
-    .post-card-header .post-tag {
-        margin-bottom: 24px;
-    }
-
-    .post-card-body {
-        font-size: 18px;
-        margin-bottom: 32px;
-    }
-
-    .post-comments {
-        padding: 8px;
-    }
-
-    .comment-form {
-        padding: 34px 15px 0 15px;
-        font-size: 16px;
-        line-height: 25px;
-    }
-
-    .comment-form label {
-        font-size: 18px;
-    }
-
-    .comment-form button {
-        font-size: 16px;
-        margin-right: 16px;
-    }
-
-    .comment-form input,
-    textarea {
-        margin: 0 10px 0 0;
-        width: 100%;
-    }
-
-    .comment-form form {
-        width: 100%;
-    }
-
-    .comment-form .btn {
-        margin-left: unset;
-    }
-
-    .comment_date {
-        display: none;
-    }
-
-    .comments {
-        margin: 0 5px;
-    }
-
-    .comment {
-        padding: 13px;
-        margin: 15px 0 0 0;
-        width: 100%;
-    }
-
-    .comment-icon {
-        display: none;
-    }
-}
-
 @media screen and (max-width: 720px) {
     .comment {
         padding: 13px;
@@ -349,22 +265,25 @@
         width: 100%;
     }
 }
-
-
 @media screen and (max-width: 800px) {
     .column {
         flex: 50%;
         max-width: 50%;
     }
 }
-
 @media screen and (max-width: 600px) {
     .column {
         flex: 100%;
         max-width: 100%;
     }
-}
+    .screen-body {
+        padding: 2rem 1rem;
+    }
 
+    .screen-body-item {
+        padding: 0;
+    }
+}
 @media screen and (max-width: 520px) {
     .screen-body {
         flex-direction: column;
@@ -382,17 +301,6 @@
         display: none;
     }
 }
-
-@media screen and (max-width: 600px) {
-    .screen-body {
-        padding: 2rem 1rem;
-    }
-
-    .screen-body-item {
-        padding: 0;
-    }
-}
-
 @media only screen and (min-width: 576px) {
 
     header {
@@ -403,7 +311,6 @@
         margin-bottom: 4rem;
     }
 }
-
 @media only screen and (min-width: 768px) {
     header {
         padding-bottom: 108px;
@@ -421,7 +328,6 @@
     }
 
 }
-
 @media screen and (max-width: 768px) {
     .hero-section {
         padding-bottom: 64px;
@@ -656,5 +562,87 @@
     footer {
         padding: 16px;
         text-align: center;
+    }
+}
+@media screen and (max-width: 480px) {
+    #about {
+        border-radius: 0;
+        margin: 4rem 0 !important;
+        border: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .students {
+        display: none;
+    }
+
+    .container-404 .btn {
+        margin-top: 16px !important;
+        font-size: 16px !important;
+        padding: 4px 8px !important;
+    }
+
+    .post-card-header h1 {
+        font-size: 24px;
+    }
+
+    .post-card-header .post-tag {
+        margin-bottom: 24px;
+    }
+
+    .post-card-body {
+        font-size: 18px;
+        margin-bottom: 32px;
+    }
+
+    .post-comments {
+        padding: 8px;
+    }
+
+    .comment-form {
+        padding: 34px 15px 0 15px;
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .comment-form label {
+        font-size: 18px;
+    }
+
+    .comment-form button {
+        font-size: 16px;
+        margin-right: 16px;
+    }
+
+    .comment-form input,
+    textarea {
+        margin: 0 10px 0 0;
+        width: 100%;
+    }
+
+    .comment-form form {
+        width: 100%;
+    }
+
+    .comment-form .btn {
+        margin-left: unset;
+    }
+
+    .comment_date {
+        display: none;
+    }
+
+    .comments {
+        margin: 0 5px;
+    }
+
+    .comment {
+        padding: 13px;
+        margin: 15px 0 0 0;
+        width: 100%;
+    }
+
+    .comment-icon {
+        display: none;
     }
 }
