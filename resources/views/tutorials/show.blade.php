@@ -115,17 +115,11 @@
                     <div class="good-or-bad-box last">
                         <div class="tutorial-is-bad-for">
                             <img src="{{asset('images/thumbs-down.png') }}" class="thumbs-down">
-                            <p>این دوره
-                                برای چه کسانی
-                                مناسـب
-                                <span style="color: #FF5757;">نیست</span>؟
-                            </p>
+                            <p>این دوره برای چه کسانی مناسـب<span style="color: #FF5757;">نیست</span>؟</p>
                         </div>
                         <div class="tutorial-is-bad-for-content">
                             @foreach($tutorial->getBadForItems() ?? [] as $item)
-                                <span class="text-danger">
-                    ✖
-                </span>
+                                <span class="text-danger">✖</span>
                                 {{ $item }}
                                 <br>
                             @endforeach

@@ -6,6 +6,7 @@ use App\Models\CourseSection;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 use App\Models\Tutorial;
+use FFMpeg;
 
 class LessonController extends Controller
 {
@@ -63,9 +64,24 @@ class LessonController extends Controller
         
         // Handle video uploads
         if ($request->hasFile('video')) {
-            $request->file('video')->store('public/upload');
-            $validatedData['video_path'] = $request->file('video')->hashName();
+            $video = $request->file('video');
+
+            // Store the video file
+            $videoPath = $video->store('public/upload');
+
+            // Get the full path to the stored video file
+            $videoFullPath = storage_path('app/' . $videoPath);
+
+            // Use FFmpeg to get the duration of the video
+            $ffmpeg = FFMpeg\FFMpeg::create();
+            $video = $ffmpeg->open($videoFullPath);
+            $duration = $video->getStreams()->first()->get('duration');
+
+            // Add the duration in seconds to the validated data
+            $validatedData['video_path'] = $videoPath;
+            $validatedData['duration'] = intval($duration);
         }
+
         $validatedData['isFree'] = boolval($validatedData['isFree'] ?? false);
         unset($validatedData['file'],$validatedData['video']);
         Lesson::create($validatedData);
@@ -107,8 +123,22 @@ class LessonController extends Controller
 
         // Handle video uploads
         if ($request->hasFile('video')) {
-            $request->file('video')->store('public/upload');
-            $validatedData['video_path'] = $request->file('video')->hashName();
+            $video = $request->file('video');
+
+            // Store the video file
+            $videoPath = $video->store('public/upload');
+
+            // Get the full path to the stored video file
+            $videoFullPath = storage_path('app/' . $videoPath);
+
+            // Use FFmpeg to get the duration of the video
+            $ffmpeg = FFMpeg\FFMpeg::create();
+            $video = $ffmpeg->open($videoFullPath);
+            $duration = $video->getStreams()->first()->get('duration');
+
+            // Add the duration in seconds to the validated data
+            $validatedData['video_path'] = $videoPath;
+            $validatedData['duration'] = intval($duration);
         }
 
         $validatedData['isFree'] = boolval($validatedData['isFree'] ?? false);

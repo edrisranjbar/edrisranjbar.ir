@@ -179,7 +179,7 @@
                     <div class="mb-3">
                         <label for="tutorial_id" class="form-label">دوره</label>
                         <select name="tutorial_id" id="tutorial_id" class="form-select" required>
-                            <option selected disabled required>لطفا انتخاب کنید</option>
+                            <option selected disabled>لطفا انتخاب کنید</option>
                             @foreach($tutorials as $tutorial)
                                 <option value="{{ $tutorial->id }}" data-tutorialID="{{ $tutorial->id }}"
                                     @selected(old('tutorial_id', isset($lesson) ? $lesson->tutorial_id : null))>
@@ -194,7 +194,7 @@
                     <div class="mb-3">
                         <label for="section_id" class="form-label">بخش</label>
                         <select name="section_id" id="section_id" class="form-select" required>
-                            <option selected disabled required>لطفا انتخاب کنید</option>
+                            <option selected disabled>لطفا انتخاب کنید</option>
                             @foreach($sections as $section)
                             <option value="{{ $section->id }}" data-tutorialID="{{ $section->tutorial->id }}"
                                 @selected(old('section_id', isset($lesson) ? $lesson->section_id : null))>{{ $section->title }}</option>
