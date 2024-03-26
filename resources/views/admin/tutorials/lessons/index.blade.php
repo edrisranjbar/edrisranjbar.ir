@@ -33,7 +33,7 @@
                             </a>
                         </td>
                         <td class="align-middle py-2">
-                            <a href="{{ url($lesson->section->tutorial->link) }}">
+                            <a href="{{ url($lesson?->section?->tutorial?->link ?? '#') }}">
                                 دوره {{ $lesson->section->tutorial->title }}،
                                 بخش {{ $lesson->section->title }}
                             </a>
