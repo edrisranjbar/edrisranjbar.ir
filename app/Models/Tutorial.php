@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use AndreasElia\Analytics\Models\PageView;
+use Carbon\CarbonInterval;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -110,6 +111,11 @@ class Tutorial extends Model
     public function getTotalDurationAttribute()
     {
         return $this->lessons->sum('duration') ?? 0;
+    }
+
+    public function getTotalDurationHumanReadable()
+    {
+        return CarbonInterval::seconds($this->lessons->sum('duration'))->cascade()->locale('fa')->forHumans();
     }
 
     public function getPriceLabelAttribute()

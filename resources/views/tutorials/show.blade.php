@@ -53,17 +53,17 @@
             <div class="col-12 col-md-4">
                 <div class="d-flex flex-column tutorial-attributes-section">
                     <div class="tutorial-attribute">
-                        <img src="{{ asset('assets/icons/coins.png') }}">
+                        <img src="{{ asset('assets/icons/coins.png') }}" alt="هزینه">
                         <span>شهریه دوره: {{ $tutorial->priceLabel }}</span>
                     </div>
                     <div class="tutorial-attribute">
-                        <img src="{{ asset('images/duration-icon.png') }}">
+                        <img src="{{ asset('images/duration-icon.png') }}" alt="طول دوره">
                         <span>طول دوره:
-                        {{ $tutorial->totalDuration }}
-                        دقیقه</span>
+                            {{ $tutorial->getTotalDurationHumanReadable() }}
+                        </span>
                     </div>
                     <div class="tutorial-attribute">
-                        <img src="{{ asset('images/counter-icon.png') }}">
+                        <img src="{{ asset('images/counter-icon.png') }}" alt="تعداد جلسات دوره">
                         <span>تعداد جلسات: {{ $tutorial->lessons->count() }} جلسه</span>
                     </div>
                 </div>

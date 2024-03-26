@@ -39,7 +39,7 @@
                             </a>
                         </td>
                         <td class="align-middle py-2">
-                            {{ $lesson->duration }} ثانیه
+                            {{ $lesson->getDurationHumanReadable() }}
                         </td>
                         <td class="d-flex align-items-center gap-2 py-2">
                             <a href="{{ route('lessons.edit', $lesson->id) }}"

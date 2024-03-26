@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -16,6 +17,11 @@ class Lesson extends Model implements HasMedia
     public function section()
     {
         return $this->belongsTo(CourseSection::class);
+    }
+
+    public function getDurationHumanReadable(): string
+    {
+        return CarbonInterval::seconds($this->duration)->cascade()->locale('fa')->forHumans();
     }
 
     public function getLinkAttribute()
