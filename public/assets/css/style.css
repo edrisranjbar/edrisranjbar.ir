@@ -561,7 +561,7 @@ img.profile {
 }
 
 .profile-box img {
-    max-width: 306px;
+    width: 100%;
     max-height: 306px;
     border-radius: 46%;
 }
@@ -709,8 +709,8 @@ input {
 }
 
 .screen-header-ellipsis {
-    width: 3px;
-    height: 3px;
+    width: 8px;
+    height: 8px;
     margin-left: 2px;
     border-radius: 8px;
     background: #999;
@@ -800,7 +800,7 @@ input {
 }
 
 address {
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-style: normal;
 }
 

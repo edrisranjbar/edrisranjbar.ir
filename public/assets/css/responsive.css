@@ -2,6 +2,10 @@
 
 /** 1. Small Mobiles **/
 @media screen and (max-width: 1000px) {
+    header {
+        padding: 0 32px 0;
+    }
+
     .tutorials-section-description {
         text-align: center;
     }
@@ -27,7 +31,7 @@
     .profile-section {
         order: 0 !important;
         margin-bottom: 48px;
-        padding-top: 64px;
+        padding-top: 32px;
     }
 
     .hero-title {
@@ -42,12 +46,13 @@
     }
 
     .hero-description {
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1.5;
         text-align: center;
-        max-width: 80%;
+        max-width: 90%;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 1.5rem;
     }
 
     .arrow {
@@ -93,7 +98,7 @@
     }
 
     .skill-box p {
-        font-size: 14px;
+        font-size: 18px;
         line-height: 1.5;
     }
 
@@ -119,7 +124,7 @@
     }
 
     #tutorials .tutorials-section-description {
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1.5;
         margin-top: 16px;
         text-align: center;
@@ -180,8 +185,12 @@
 
     #about p,
     a {
-        font-size: 14px;
+        font-size: 18px;
         line-height: 1.5;
+    }
+
+    #about .about-description {
+        text-align: justify;
     }
 
     .blog-section-description {
@@ -214,6 +223,7 @@
 
     .contact-info {
         padding: 0;
+        text-align: right;
     }
 
     footer h2 {
@@ -252,15 +262,13 @@
 @media screen and (max-width: 480px) {
     #about {
         border-radius: 0;
-        margin: 8rem 0 !important;
+        margin: 4rem 0 !important;
         border: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     .students {
-        transform: scale(0.5);
-        left: -20px;
-        top: 150px;
-        bottom: unset;
+        display: none;
     }
 
     .container-404 .btn {
@@ -377,7 +385,7 @@
 
 @media screen and (max-width: 600px) {
     .screen-body {
-        padding: 40px;
+        padding: 2rem 1rem;
     }
 
     .screen-body-item {
@@ -413,6 +421,7 @@
     }
 
 }
+
 @media screen and (max-width: 768px) {
     .hero-section {
         padding-bottom: 64px;
@@ -646,5 +655,6 @@
 
     footer {
         padding: 16px;
+        text-align: center;
     }
 }
