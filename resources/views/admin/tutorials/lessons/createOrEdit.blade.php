@@ -164,7 +164,7 @@
                     <div class="mb-3">
                         <label for="videoPlayer" class="form-label">پخش ویدیو</label>
                         <video id="videoPlayer" class="w-100" controls>
-                            <source src="{{ asset('storage/upload/' . $lesson->video_path) }}" type="video/mp4">
+                            <source src="{{ asset($lesson->video_path) }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
