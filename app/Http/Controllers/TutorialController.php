@@ -83,10 +83,14 @@ class TutorialController extends Controller
 
         $sectionsArray = explode(",", $validatedData['sections']);
         foreach ($sectionsArray as $sectionName) {
-            CourseSection::create([
-                'title' => $sectionName,
-                'tutorial_id' => $tutorial->id
-            ]);
+            $existingSection = CourseSection::where(['title' => $sectionName, 'tutorial_id' => $tutorial->id])
+                ->first();
+            if (!$existingSection) {
+                CourseSection::create([
+                    'title' => $sectionName,
+                    'tutorial_id' => $tutorial->id
+                ]);
+            }
         }
         return redirect()->route('tutorials.index')->with('success', 'دوره آموزشی جدید با موفقیت ذخیره شد.');
     }
