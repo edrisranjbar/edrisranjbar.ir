@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <input type="hidden" name="good_for_items">
+                        <input type="hidden" name="good_for_items" value="{{ $tutorial->good_for_items }}">
                         <label for="goodForElement" class="form-label">این دوره برای چه کسانی مناسب است؟</label>
                         <input type="text" id="goodForElement" name="good_for" class="form-control mb-2">
                         <ul class="list-group" id="goodForItems">
@@ -55,7 +55,7 @@
                         </ul>
                     </div>
                     <div class="mb-3">
-                        <input type="hidden" name="bad_for_items">
+                        <input type="hidden" name="bad_for_items" value="{{ $tutorial->bad_for_items }}">
                         <label for="badForElement" class="form-label">این دوره برای چه کسانی مناسب نیست؟</label>
                         <input type="text" id="badForElement" name="bad_for" class="form-control mb-2">
                         <ul class="list-group" id="badForItems">
