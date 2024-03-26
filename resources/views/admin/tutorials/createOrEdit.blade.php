@@ -257,7 +257,12 @@
     <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
     <script>
         ClassicEditor
-            .create(document.querySelector('#description'))
+            .create(document.querySelector('#description'), {
+                language: {
+                    ui: 'en',
+                    content: 'fa'
+                }
+            })
             .catch(error => {
                 console.error(error);
             });
