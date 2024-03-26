@@ -154,11 +154,6 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="duration" class="form-label">مدت دوره</label>
-                            <input type="number" name="duration" id="duration" class="form-control" required min="1"
-                                   value="{{ $tutorial->duration ?? 0 }}">
-                        </div>
-                        <div class="mb-3">
                             <label for="price" class="form-label">هزینه شرکت در دوره</label>
                             <input type="number" name="price" id="price" class="form-control money" required min="0"
                                    value="{{ $tutorial->price ?? 0 }}">

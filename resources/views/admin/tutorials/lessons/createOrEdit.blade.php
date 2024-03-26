@@ -116,12 +116,6 @@
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3">
-                        <label for="duration" class="form-label">مدت درس</label>
-                        <input type="number" name="duration" id="duration" class="form-control" required min="1"
-                            value="{{ $lesson->duration ?? 1 }}" aria-labelledby="durationDescription">
-                        <p class="small text-muted">مدت درس را به ثانیه وارد کنید</p>
-                    </div>
                     <div class="mb-3 form-check form-switch">
                         <input class="form-check-input" type="checkbox" role="switch"
                         id="isFree" name="isFree" value="true" @checked(old('isFree', isset($lesson) ? $lesson->isFree : null))>

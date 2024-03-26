@@ -43,7 +43,6 @@ class TutorialController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'price' => 'required|integer|min:0',
-            'duration' => 'required|integer|min:0',
             'tutor' => 'required|exists:admins,id',
             'description' => 'nullable|string',
             'short_description' => 'nullable|string|max:255',
@@ -107,7 +106,6 @@ class TutorialController extends Controller
             'title' => 'required',
             'price' => 'required|integer|min:0',
             'tutor' => 'required|exists:admins,id',
-            'duration' => 'required|integer|min:0',
             'description' => 'required',
             'short_description' => 'nullable|max:255',
             'status' => 'required|in:published,private,draft',
