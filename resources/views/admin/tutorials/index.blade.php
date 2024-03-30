@@ -37,7 +37,7 @@
                             {{ $tutorial->students->count() }}
                         </td>
                         <td class="align-middle py-2">
-                            <span class="p-2 badge badge-success">{{ $tutorial->status_label }}</span>
+                            <span class="p-2 badge badge-primary">{{ $tutorial->status_label }}</span>
                         </td>
                         <td class="align-middle py-2">{{ $tutorial->views }}</td>
                         <td class="align-middle py-2">{{ $tutorial->viewers }}</td>
