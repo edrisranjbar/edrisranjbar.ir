@@ -79,31 +79,34 @@
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        @if(isset($lesson))
-                            <div class="d-flex flex-wrap">
-                                <button class="btn btn-w-icon btn-primary mt-2 me-2" type="submit">
-                                    <i class="fa-solid fa-fw fa-edit me-1"></i>
-                                    بروزرسانی
-                                </button>
-                                <a href="#" class="btn btn-sm btn-outline-danger btn-w-icon d-inline-block mt-2 me-2"
-                                   data-bs-toggle="modal"
-                                   data-bs-target="#deleteLessonModal">
-                                    <i class="fa fa-solid fa-trash me-1"></i>
-                                    حذف
-                                </a>
-                            </div>
-                        @else
-                            <div class="d-flex flex-wrap">
-                                <button class="btn btn-w-icon btn-primary me-2" type="submit">
-                                    <i class="fa-solid fa-fw fa-check me-1"></i>
-                                    ثبت
-                                </button>
-                                <a class="btn btn-w-icon btn-outline-primary me-2">
-                                    <i class="fa-solid fa-fw fa-list-check me-1"></i>
-                                    ثبت و ساخت جدید
-                                </a>
-                            </div>
-                        @endif
+                        <div class="mb-3">
+                            @if(isset($lesson))
+                                <div class="d-flex flex-wrap">
+                                    <button class="btn btn-w-icon btn-primary mt-2 me-2" type="submit">
+                                        <i class="fa-solid fa-fw fa-edit me-1"></i>
+                                        بروزرسانی
+                                    </button>
+                                    <a href="#"
+                                       class="btn btn-sm btn-outline-danger btn-w-icon d-inline-block mt-2 me-2"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#deleteLessonModal">
+                                        <i class="fa fa-solid fa-trash me-1"></i>
+                                        حذف
+                                    </a>
+                                </div>
+                            @else
+                                <div class="d-flex flex-wrap">
+                                    <button class="btn btn-w-icon btn-primary me-2" type="submit">
+                                        <i class="fa-solid fa-fw fa-check me-1"></i>
+                                        ثبت
+                                    </button>
+                                    <a class="btn btn-w-icon btn-outline-primary me-2">
+                                        <i class="fa-solid fa-fw fa-list-check me-1"></i>
+                                        ثبت و ساخت جدید
+                                    </a>
+                                </div>
+                            @endif
+                        </div>
                         <div class="mb-3">
                             <label for="slug" class="form-label">شناسه یکتا</label>
                             <input name="slug" type="text" class="form-control" id="slug" maxlength="50" min="1"
