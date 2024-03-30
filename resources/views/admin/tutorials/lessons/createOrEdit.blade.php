@@ -191,7 +191,7 @@
                             <option selected disabled>لطفا انتخاب کنید</option>
                             @foreach($sections as $section)
                             <option value="{{ $section->id }}" data-tutorialID="{{ $section->tutorial->id }}"
-                                @selected(old('section_id', isset($lesson) ? $lesson->section_id : null))>{{ $section->title }}</option>
+                                @selected(old('section_id', isset($lesson) ? $lesson->section_id : null) == $section->id)>{{ $section->title }}</option>
                             @endforeach
                         </select>
                         @error('section_id')
