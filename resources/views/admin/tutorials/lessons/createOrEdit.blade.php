@@ -87,7 +87,7 @@
                                         بروزرسانی
                                     </button>
                                     <a href="#"
-                                       class="btn btn-sm btn-outline-danger btn-w-icon d-inline-block mt-2 me-2"
+                                       class="btn btn-outline-danger btn-w-icon d-inline-block mt-2 me-2"
                                        data-bs-toggle="modal"
                                        data-bs-target="#deleteLessonModal">
                                         <i class="fa fa-solid fa-trash me-1"></i>
