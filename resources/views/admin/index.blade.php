@@ -122,11 +122,14 @@
                         <h6 class="m-0 font-weight-bold text-dark">آمار بازدید ها</h6>
                     </div>
                     <div class="card-body py-5">
-                        <canvas id="myChart"></canvas>
+                        <canvas id="viewsChart"></canvas>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+    <script>
+        const viewsData = @json($currentWeekViews);
+        const viewersData = @json($currentWeekViewers);
+    </script>
 @stop

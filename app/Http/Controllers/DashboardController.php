@@ -6,6 +6,7 @@ use AndreasElia\Analytics\Models\PageView;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
+use Carbon\Carbon;
 use Couchbase\AnalyticsResult;
 use Illuminate\View\View;
 
@@ -22,13 +23,23 @@ class DashboardController extends Controller
             ->groupBy('session')
             ->pluck('session')
             ->count();
+
+        for ($i=0; $i<7; $i++) {
+            $currentWeekViews[] = PageView::query()->scopes(['filter' => ["day_".$i]])->count();
+            $currentWeekViewers[] = PageView::query()->scopes(['filter' => ["day_".$i]])
+                ->groupBy('session')
+                ->pluck('session')->count();
+        }
+
         return view('admin.index',
             compact(
                 'studentsCount',
                 'postsCount',
                 'comments',
                 'totalViewers',
-                'totalViews'
+                'totalViews',
+                'currentWeekViews',
+                'currentWeekViewers'
             ));
     }
 }

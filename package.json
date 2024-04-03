@@ -19,6 +19,7 @@
         "@editorjs/list": "^1.9.0",
         "@editorjs/quote": "^2.6.0",
         "@editorjs/raw": "^2.5.0",
-        "bootstrap": "^5.3.2"
+        "bootstrap": "^5.3.2",
+        "chart.js": "^4.4.2"
     }
 }
