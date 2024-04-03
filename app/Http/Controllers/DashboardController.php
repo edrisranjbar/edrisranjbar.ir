@@ -18,13 +18,8 @@ class DashboardController extends Controller
         $studentsCount = User::all()->count();
         $postsCount = Post::all()->count();
         $comments = Comment::orderBy('created_at', 'desc')->paginate(30);
-        $totalViews = PageView::query()->scopes(['filter' => ['today']])->count();
-        $totalViewers = PageView::query()
-            ->scopes(['filter' => ['today']])
-            ->groupBy('session')
-            ->pluck('session')
-            ->count();
 
+        // Analytics
         $lastWeekDates = collect(range(0, 6))->map(function ($i) {
             $date = Jalalian::now()->subDays($i);
             return $date->format('l');
@@ -46,6 +41,9 @@ class DashboardController extends Controller
         while (count($currentWeekViewers) < 7) {
             $currentWeekViewers[] = 0;
         }
+
+        $totalViews = $currentWeekViews[0];
+        $totalViewers = $currentWeekViewers[0];
 
         return view('admin.index',
             compact(
