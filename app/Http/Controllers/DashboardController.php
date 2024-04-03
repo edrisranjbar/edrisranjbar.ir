@@ -9,6 +9,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Couchbase\AnalyticsResult;
 use Illuminate\View\View;
+use Morilog\Jalali\Jalalian;
 
 class DashboardController extends Controller
 {
@@ -24,11 +25,26 @@ class DashboardController extends Controller
             ->pluck('session')
             ->count();
 
-        for ($i=0; $i<7; $i++) {
-            $currentWeekViews[] = PageView::query()->scopes(['filter' => ["day_".$i]])->count();
-            $currentWeekViewers[] = PageView::query()->scopes(['filter' => ["day_".$i]])
-                ->groupBy('session')
-                ->pluck('session')->count();
+        $lastWeekDates = collect(range(0, 6))->map(function ($i) {
+            $date = Jalalian::now()->subDays($i);
+            return $date->format('l');
+        });
+
+        $currentWeekViews = PageView::query()->scopes(['filter' => ["1_week"]])
+            ->selectRaw('DATE(created_at) as date, COUNT(*) as views_count')
+            ->groupBy('date')
+            ->pluck('views_count');
+        while (count($currentWeekViews) < 7) {
+            $currentWeekViews[] = 0;
+        }
+
+        $currentWeekViewers = PageView::query()->scopes(['filter' => ["1_week"]])
+            ->groupBy('session')
+            ->selectRaw('DATE(created_at) as date, COUNT(*) as viewers_count')
+            ->groupBy('date')
+            ->pluck('viewers_count');
+        while (count($currentWeekViewers) < 7) {
+            $currentWeekViewers[] = 0;
         }
 
         return view('admin.index',
@@ -39,7 +55,8 @@ class DashboardController extends Controller
                 'totalViewers',
                 'totalViews',
                 'currentWeekViews',
-                'currentWeekViewers'
+                'currentWeekViewers',
+                'lastWeekDates'
             ));
     }
 }

@@ -131,5 +131,6 @@
     <script>
         const viewsData = @json($currentWeekViews);
         const viewersData = @json($currentWeekViewers);
+        const labels = @json($lastWeekDates);
     </script>
 @stop
