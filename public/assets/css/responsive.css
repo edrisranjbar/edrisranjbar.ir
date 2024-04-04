@@ -252,12 +252,14 @@
         margin-bottom: 16px !important;
     }
 }
+
 @media screen and (min-width: 2560px) {
     .students {
         left: 470px;
         bottom: 120px;
     }
 }
+
 @media screen and (max-width: 720px) {
     .comment {
         padding: 13px;
@@ -265,17 +267,20 @@
         width: 100%;
     }
 }
+
 @media screen and (max-width: 800px) {
     .column {
         flex: 50%;
         max-width: 50%;
     }
 }
+
 @media screen and (max-width: 600px) {
     .column {
         flex: 100%;
         max-width: 100%;
     }
+
     .screen-body {
         padding: 2rem 1rem;
     }
@@ -284,6 +289,7 @@
         padding: 0;
     }
 }
+
 @media screen and (max-width: 520px) {
     .screen-body {
         flex-direction: column;
@@ -301,6 +307,7 @@
         display: none;
     }
 }
+
 @media only screen and (min-width: 576px) {
 
     header {
@@ -311,7 +318,8 @@
         margin-bottom: 4rem;
     }
 }
-@media only screen and (min-width: 768px) {
+
+@media only screen and (min-width: 1024px) {
     header {
         padding-bottom: 108px;
     }
@@ -328,6 +336,7 @@
     }
 
 }
+
 @media screen and (max-width: 768px) {
     .hero-section {
         padding-bottom: 64px;
@@ -564,6 +573,7 @@
         text-align: center;
     }
 }
+
 @media screen and (max-width: 480px) {
     #about {
         border-radius: 0;

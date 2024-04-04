@@ -24,7 +24,7 @@ class DashboardController extends Controller
             $date = Jalalian::now()->subDays($i);
             return $date->format('l');
         });
-
+        // fixme: wrong results
         $currentWeekViews = PageView::query()->scopes(['filter' => ["1_week"]])
             ->selectRaw('DATE(created_at) as date, COUNT(*) as views_count')
             ->groupBy('date')

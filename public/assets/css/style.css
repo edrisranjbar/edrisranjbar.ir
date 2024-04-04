@@ -57,9 +57,16 @@ header {
 
 nav {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
+    margin-top: 1rem;
+}
+
+nav > .main-menu-items-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 nav ul {
@@ -71,14 +78,12 @@ nav a {
     color: var(--white-color) !important;
 }
 
-.hamburger-menu {
-    display: flex;
-    align-items: center;
-    margin-top: 32px;
-}
-
 nav a:hover {
     color: #6c63ff;
+}
+
+.menu-buttons-wrapper {
+
 }
 
 /* End Header */
@@ -2026,7 +2031,8 @@ nav a:hover {
     object-fit: cover;
     border-radius: 50%;
 }
-.reply{
+
+.reply {
     margin-top: 1rem;
     margin-right: 2rem;
 }
