@@ -30,7 +30,7 @@
                             <p class="card-text">{{ $tutorial->excerpt }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <a href="{{ $tutorial->link }}"
-                                   class="button button-sm button-outline-primary btn-w-icon">
+                                   class="button button-sm text-dark button-outline-primary btn-w-icon">
                                     <i class="fa fa-solid fa-eye me-1"></i>
                                     مشاهده دوره
                                 </a>
