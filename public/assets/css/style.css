@@ -1366,6 +1366,10 @@ nav a:hover {
     background-color: var(--white-color);
 }
 
+.card-img, .card-img-top {
+    height: 225px;
+}
+
 .my-card-image img {
     width: 100%;
     height: auto;
