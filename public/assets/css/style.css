@@ -55,7 +55,7 @@ header {
     box-sizing: border-box;
 }
 
-nav {
+nav.menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,6 +67,9 @@ nav > .main-menu-items-wrapper {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+nav.menu ul {
+    display: none;
 }
 
 nav a {
@@ -95,9 +98,6 @@ nav a:hover {
 .hamburger-menu-button label {
     display: block;
     cursor: pointer;
-    position: fixed;
-    top: -16px;
-    left: 0;
 }
 
 @media (min-aspect-ratio: 1/1) {

@@ -1,8 +1,4 @@
 @media screen and (max-width: 962px) {
-    header {
-        padding: 0 32px 0;
-    }
-
     .students {
         display: none;
     }
@@ -331,9 +327,6 @@
     nav.menu{
         margin-top: 0;
     }
-    nav.menu ul {
-        display: none;
-    }
     .hamburger-menu-button {
         display: block;
     }
@@ -347,6 +340,7 @@
         background: var(--dark-color);
         z-index: 50;
         border-bottom: 3px solid var(--primary-dark-color);
+        padding-bottom: 0;
     }
 }
 
@@ -588,9 +582,14 @@
 }
 
 @media screen and (max-width: 480px) {
+    nav.menu{
+        width: 100%;
+        overflow: hidden;
+    }
     nav.menu .main-menu-items-wrapper img{
         height: 32px !important;
     }
+
     #about {
         border-radius: 0;
         margin: 4rem 0 !important;
