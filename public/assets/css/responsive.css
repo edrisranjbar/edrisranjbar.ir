@@ -309,11 +309,6 @@
 }
 
 @media only screen and (min-width: 576px) {
-
-    header {
-        padding-bottom: 86px;
-    }
-
     .page-title-group {
         margin-bottom: 4rem;
     }
@@ -323,8 +318,7 @@
     header {
         padding-bottom: 108px;
     }
-
-    nav ul {
+    nav.menu ul {
         display: flex;
         justify-content: flex-end;
         list-style-type: none;
@@ -337,10 +331,12 @@
     nav.menu{
         margin-top: 0;
     }
+    nav.menu ul {
+        display: none;
+    }
     .hamburger-menu-button {
         display: block;
     }
-
     .menu-buttons-wrapper {
         display: none;
     }
@@ -592,6 +588,9 @@
 }
 
 @media screen and (max-width: 480px) {
+    nav.menu .main-menu-items-wrapper img{
+        height: 32px !important;
+    }
     #about {
         border-radius: 0;
         margin: 4rem 0 !important;

@@ -69,10 +69,6 @@ nav > .main-menu-items-wrapper {
     justify-content: flex-start;
 }
 
-nav.menu ul {
-    display: none;
-}
-
 nav a {
     text-decoration: none;
     color: var(--white-color) !important;
