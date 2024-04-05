@@ -331,10 +331,27 @@
         gap: 32px;
     }
 
-    .hamburger-menu {
+}
+
+@media screen and (max-width: 1024px) {
+    nav.menu{
+        margin-top: 0;
+    }
+    .hamburger-menu-button {
+        display: block;
+    }
+
+    .menu-buttons-wrapper {
         display: none;
     }
 
+    header {
+        position: sticky;
+        top: 0;
+        background: var(--dark-color);
+        z-index: 50;
+        border-bottom: 3px solid var(--primary-dark-color);
+    }
 }
 
 @media screen and (max-width: 768px) {

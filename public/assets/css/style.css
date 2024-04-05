@@ -69,7 +69,7 @@ nav > .main-menu-items-wrapper {
     justify-content: flex-start;
 }
 
-nav ul {
+nav.menu ul {
     display: none;
 }
 
@@ -82,8 +82,125 @@ nav a:hover {
     color: #6c63ff;
 }
 
-.menu-buttons-wrapper {
+.hamburger-menu-button, .hamburger-menu-container {
+    display: none;
+}
 
+.hamburger-menu-button {
+    z-index: 100;
+    width: 68px;
+    height: 68px;
+}
+
+.hamburger-menu-button input {
+    display: none;
+}
+
+.hamburger-menu-button label {
+    display: block;
+    cursor: pointer;
+    position: fixed;
+    top: -16px;
+    left: 0;
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .hamburger-menu-button label {
+        width: 50vh;
+        height: 50vh;
+    }
+}
+
+.hamburger-menu-button path {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    --length: 24;
+    --offset: -38;
+    stroke-dasharray: var(--length) var(--total-length);
+    stroke-dashoffset: var(--offset);
+    transition: all .8s cubic-bezier(.645, .045, .355, 1);
+}
+
+.hamburger-menu-button circle {
+    fill: #fff3;
+    opacity: 0;
+}
+
+.hamburger-menu-button label:hover circle {
+    opacity: 1;
+}
+
+.hamburger-menu-button input:checked + svg .line--1,
+.hamburger-menu-button input:checked + svg .line--3 {
+    --length: 22.627416998;
+}
+
+.hamburger-menu-button input:checked + svg .line--2 {
+    --length: 0;
+}
+
+.hamburger-menu-button .back input:checked + svg .line--1,
+.hamburger-menu-button .back input:checked + svg .line--3 {
+    --length: 8.602325267;
+}
+
+.menu--1 .line--1,
+.menu--1 .line--3 {
+    --total-length: 126.64183044433594;
+}
+
+.menu--1 .line--2 {
+    --total-length: 70;
+}
+
+.menu--1 input:checked + svg .line--1, .menu--1 input:checked + svg .line--3 {
+    --offset: -94.1149185097;
+}
+
+.menu--1 input:checked + svg .line--2 {
+    --offset: -50;
+}
+
+.line--debug {
+    opacity: 0;
+    stroke-dasharray: none;
+}
+
+.hamburger-menu-container {
+    padding: 16px 24px;
+    margin-top: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    row-gap: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: var(--primary-dark-color);
+    z-index: 99;
+    transform: translateX(100%);
+    transition-property: opacity, transform;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+}
+
+.hamburger-menu-container a {
+    font-size: 26px;
+}
+
+.hamburger-menu-footer {
+    padding: 16px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: #5b53d6;
 }
 
 /* End Header */

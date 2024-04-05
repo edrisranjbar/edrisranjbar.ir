@@ -15,6 +15,19 @@
             @endforeach
         </ul>
     </div>
+
+    <div class="hamburger-menu-button cross menu--1">
+        <label>
+            <input type="checkbox">
+            <svg onclick="toggleMenu();" viewBox="0 0 68 68" xmlns="http://www.w3.org/2000/svg" width="68px" height="68px">
+                <!--<circle cx="34" cy="34" r="30"/>-->
+                <path class="line--1" d="M0 40h62c13 0 6 28-4 18L35 35"/>
+                <path class="line--2" d="M0 50h70"/>
+                <path class="line--3" d="M0 60h62c13 0 6-28-4-18L35 65"/>
+            </svg>
+        </label>
+    </div>
+
     <div class="menu-buttons-wrapper">
         @auth('user')
             <div class="navbar-nav navbar-dark ms-auto">
@@ -48,6 +61,31 @@
             </div>
         @else
             <a class="btn btn-primary btn-w-icon" href="{{ route('user.login') }}">
+                <i class="fa fa-solid fa-sign-in me-1"></i>
+                ورود / عضویت
+            </a>
+        @endauth
+    </div>
+</nav>
+
+<nav class="hamburger-menu-container" style="opacity: 0">
+    <img src="{{ asset('images/logo.svg') }}" alt="ادریس رنجبر - توسعه دهنده بک اند وب"
+         style="height: 48px; width: auto;">
+    @foreach ($navbarItems as $navbarItem)
+        <div class="{{ $navbarItem->route === url()->full() ? 'active' : '' }}">
+            <a href="{{ url($navbarItem->route) }}">
+                {{ $navbarItem->name }}
+            </a>
+        </div>
+    @endforeach
+    <div class="hamburger-menu-footer">
+        @auth('user')
+            <a class="btn btn-primary btn-w-icon" href="{{ route('user.profile') }}">
+                <i class="fa fa-solid fa-user me-1"></i>
+                پروفایل کاربری
+            </a>
+        @else
+            <a class="btn btn-sm btn-dark btn-w-icon" href="{{ route('user.login') }}">
                 <i class="fa fa-solid fa-sign-in me-1"></i>
                 ورود / عضویت
             </a>
