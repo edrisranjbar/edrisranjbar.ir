@@ -938,12 +938,14 @@ address {
 footer {
     color: var(--white-color);
 }
-footer .footer-container{
+
+footer .footer-container {
     background-color: var(--dark-color);
     padding-top: 2rem !important;
     box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
 }
-footer .widget{
+
+footer .widget {
     padding: 0 1rem;
 }
 
@@ -951,9 +953,13 @@ footer.bg-dark .nav-item {
     color: var(--white-color);
 }
 
-footer p {
+footer p, footer li {
     line-height: 1.5;
     font-weight: 100;
+}
+
+footer li {
+    font-size: 20px;
 }
 
 footer .title {
