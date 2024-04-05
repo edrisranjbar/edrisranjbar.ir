@@ -699,8 +699,7 @@ img.profile {
     margin-right: auto;
 }
 
-#about p,
-a {
+#about p {
     font-style: normal;
     font-weight: 300;
     font-size: 23px;
@@ -934,59 +933,76 @@ address {
     margin-left: 16px;
 }
 
+/* Footer */
+
 footer {
-    padding-right: 64px;
-    text-align: right;
     color: var(--white-color);
 }
-
-.bg-dark footer {
-    color: var(--white-color) !important;
+footer .footer-container{
+    background-color: var(--dark-color);
+    padding-top: 2rem !important;
+    box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
 }
-
-footer h2 {
-    font-weight: 900;
-    font-size: 48px;
-    line-height: 75px;
-    margin-bottom: 16px;
-}
-
-footer p {
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 50px;
-    margin-bottom: 48px;
-}
-
-footer ul {
-    list-style: none;
-    margin-bottom: 117px;
-}
-
-footer ul li {
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 41px;
-    display: inline-block;
-    margin-left: 32px;
+footer .widget{
+    padding: 0 1rem;
 }
 
 footer.bg-dark .nav-item {
     color: var(--white-color);
 }
 
+footer p {
+    line-height: 1.5;
+    font-weight: 100;
+}
+
+footer .title {
+    margin: 0 0 1rem 0;
+    line-height: normal;
+}
+
 footer p.copyright {
     font-weight: 400;
     font-size: 16px;
     line-height: 25px;
-    margin-bottom: 64px;
     text-align: center;
 }
 
-.copyright {
-    font-size: inherit !important;
-    color: var(--white-color);
+.social-icons {
+    display: flex;
 }
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid #fff;
+    transition: border .4s;
+}
+
+.social-icons svg {
+    width: 70%;
+    height: 70%;
+    transition: fill .4s;
+}
+
+.social-icons svg g {
+    transition: fill .4s;
+}
+
+.social-icons a:hover {
+    border-color: var(--primary-color);
+}
+
+.social-icons a:hover svg, .social-icons a:hover svg g {
+    fill: var(--primary-color) !important;
+}
+
+/* End Footer */
 
 .container-404 {
     background-color: var(--dark-color);

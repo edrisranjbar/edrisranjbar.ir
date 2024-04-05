@@ -670,4 +670,11 @@
     .comment-icon {
         display: none;
     }
+
+    .social-icons{
+        justify-content: center;
+    }
+    footer .title{
+        margin: 0 0 1rem 0 !important;
+    }
 }

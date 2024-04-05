@@ -1,8 +1,7 @@
 @section('title', 'پادکست ها')
-@section('header-class', 'bg-light')
 @extends('layouts.app')
 @section('content')
-<main class="container-fluid">
+<main class="container mt-0">
     <div class="jumbotron jumbotron-fluid text-center text-bg-primary text-white py-2 rounded shadow mb-5">
         <div class="container">
             <h1 class="display-5 mb-4">بهترین پادکست‌ها</h1>
@@ -12,7 +11,7 @@
     <div class="row">
         <div class="col-12 col-md-4">
             <div class="card rounded-4 shadow-sm position-relative">
-                <span class="btn btn-danger position-absolute end-0 top-0 m-2">
+                <span class="badge bg-primary position-absolute end-0 top-0 m-2">
                     جدید
                 </span>
                 <img src="{{ asset('images/web-browsing.png') }}" alt="" class="card-img-top rounded-top-4 rounded-bottom-0">
