@@ -5,7 +5,8 @@
         <div class="breaker"></div>
         <p class="blog-section-description">این یک متن تستیه، این یک متن تستیه، این یک متن تستیه، این یک
             متن تستیه، این یک متن تستیه...</p>
-        <a href="{{ $blogUrl }}" class="btn btn-lg btn-outline-primary text-light d-inline-block btn-w-icon">
+        <a href="{{ $blogUrl }}"
+           class="button button-sm button-outline-primary d-inline-block btn-w-icon">
             <i class="fa fa-eye me-1"></i>
             مشاهده همه
         </a>
@@ -27,7 +28,8 @@
                             <h3 class="post-title h4">{{ $post->title }}</h3>
                         </a>
                         <p class="post-description card-text">{{ $post->excerpt }}</p>
-                        <a href="{{ $post->link }}" class="btn text-light btn-primary btn-w-icon">
+                        <a href="{{ $post->link }}"
+                           class="button button-sm text-dark button-outline-primary btn-w-icon">
                             <i class="fa fa-solid fa-eye me-1"></i>
                             ادامه مطلب
                         </a>

@@ -6,7 +6,8 @@
             من توی دوره های آموزشیم سعی میکنم مفاهیم و مهارت ها رو به صورت واضح و ساده بیان کنم. تا جای ممکن هم
             پروژه محور پیش میریم که براتون کاربردی باشه.
         </p>
-        <a href="{{ $coursesUrl }}" class="btn btn-lg btn-outline-primary text-light d-inline-block btn-w-icon">
+        <a href="{{ $coursesUrl }}"
+           class="button button-sm button-outline-primary d-inline-block btn-w-icon">
             <i class="fa fa-eye me-1"></i>
             مشاهده همه
         </a>
@@ -28,7 +29,8 @@
                             </a>
                             <p class="card-text">{{ $tutorial->excerpt }}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="{{ $tutorial->link }}" class="btn btn-outline-primary btn-w-icon">
+                                <a href="{{ $tutorial->link }}"
+                                   class="button button-sm button-outline-primary btn-w-icon">
                                     <i class="fa fa-solid fa-eye me-1"></i>
                                     مشاهده دوره
                                 </a>

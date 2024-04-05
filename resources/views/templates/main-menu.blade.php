@@ -21,7 +21,6 @@
             <input type="checkbox">
             <svg onclick="toggleMenu();" viewBox="0 0 68 68" xmlns="http://www.w3.org/2000/svg"
                  width="48px" height="48px">
-                <!--<circle cx="34" cy="34" r="30"/>-->
                 <path class="line--1" d="M0 40h62c13 0 6 28-4 18L35 35"/>
                 <path class="line--2" d="M0 50h70"/>
                 <path class="line--3" d="M0 60h62c13 0 6-28-4-18L35 65"/>
@@ -61,7 +60,7 @@
                 </div>
             </div>
         @else
-            <a class="btn btn-primary btn-w-icon" href="{{ route('user.login') }}">
+            <a class="button button-sm button-primary btn-w-icon" href="{{ route('user.login') }}">
                 <i class="fa fa-solid fa-sign-in me-1"></i>
                 ورود / عضویت
             </a>

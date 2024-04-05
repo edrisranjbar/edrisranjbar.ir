@@ -10,11 +10,11 @@
         <p class="hero-title">{!! $widgets['hero']['title'] !!}</p>
         <p class="hero-description">{!! $widgets['hero']['description'] !!}</p>
         <div class="d-flex gap-2 text-light justify-content-center justify-content-lg-start">
-            <a class="btn btn-lg btn-primary btn-w-icon" href="{{ $coursesUrl }}">
+            <a class="button button-primary btn-w-icon" href="{{ $coursesUrl }}">
                 <i class="fa-solid fa-person-chalkboard me-1"></i>
                 مشاهده دوره ها
             </a>
-            <a class="btn btn-lg btn-outline-secondary" href="{{ $blogUrl }}">وبلاگ</a>
+            <a class="button button-outline-white" href="{{ $blogUrl }}">وبلاگ</a>
         </div>
     </div>
     <div class="students">
@@ -22,7 +22,7 @@
         <div class="d-flex">
             <div class="student-profiles">
                 @foreach($widgets['hero']['students'] as $student)
-                <img src="{{ $student['src'] }}" class="student-profile">
+                    <img src="{{ $student['src'] }}" class="student-profile">
                 @endforeach
             </div>
             <span style="direction: ltr;">+{{ count($widgets['hero']['students']) }}</span>

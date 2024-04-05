@@ -29,10 +29,10 @@
                             <br>
                             <address>
                                 ایمیل: <a href="mailto:edris.qeshm2@gmail.com"
-                                    class="email-link">edris.qeshm2@gmail.com</a>
+                                          class="email-link">edris.qeshm2@gmail.com</a>
                                 <br>
                                 لینکدین: <a href="https://ir.linkedin.com/in/edris-ranjbar"
-                                    class="email-link">edris-ranjbar</a>
+                                            class="email-link">edris-ranjbar</a>
                                 <br>
                                 توییتر: <a href="https://twitter.com/edris__ranjbar" class="email-link">
                                     edris__ranjbar
@@ -44,7 +44,8 @@
                         <form class="app-form" method="post" action="{{ route('contact.store') }}">
                             @csrf
                             <div class="app-form-group">
-                                <input name="name" class="app-form-control" placeholder="نام و نام خانوادگی" value="{{ old('name') }}">
+                                <input name="name" class="app-form-control" placeholder="نام و نام خانوادگی"
+                                       value="{{ old('name') }}">
                                 @if ($errors->has('name'))
                                     <div class="error">
                                         {{ $errors->first('name') }}
@@ -52,7 +53,8 @@
                                 @endif
                             </div>
                             <div class="app-form-group">
-                                <input name="email" class="app-form-control" placeholder="ایمیل" required value="{{ old('email') }}">
+                                <input name="email" class="app-form-control" placeholder="ایمیل" required
+                                       value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                     <div class="error">
                                         {{ $errors->first('email') }}
@@ -60,15 +62,15 @@
                                 @endif
                             </div>
                             <div class="app-form-group message">
-                                <textarea name="message" class="app-form-control" placeholder="متن پیام" required>{{ old('message') }}</textarea>
+                                <textarea name="message" class="app-form-control" placeholder="متن پیام"
+                                          required>{{ old('message') }}</textarea>
                                 @if ($errors->has('message'))
                                     <div class="error">
                                         {{ $errors->first('message') }}
                                     </div>
                                 @endif
                             </div>
-                            <button type="submit" class="btn btn-sm btn-outline-secondary text-white btn-w-icon">
-                                <i class="fa fa-send ml-1"></i>
+                            <button type="submit" class="button button-sm button-outline-primary">
                                 ثبت فرم
                             </button>
                         </form>

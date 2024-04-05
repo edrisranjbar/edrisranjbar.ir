@@ -19,7 +19,7 @@
 }
 
 a {
-    color: inherit !important;
+    color: inherit;
     text-decoration: unset !important;
 }
 
@@ -68,6 +68,7 @@ nav > .main-menu-items-wrapper {
     align-items: center;
     justify-content: flex-start;
 }
+
 nav.menu ul {
     display: none;
 }
@@ -353,6 +354,7 @@ main > div {
     line-height: 50px;
     text-align: right;
     color: var(--white-color);
+    margin-bottom: 2rem;
 }
 
 img.profile {
@@ -1291,11 +1293,6 @@ ul.recent-blog-posts-widget li {
     content: counter(pagination-num);
 }
 
-.button-purple {
-    color: #fff;
-    background-color: #7c96f7;
-}
-
 nav a:hover {
     color: #6c63ff;
 }
@@ -1305,12 +1302,6 @@ nav a:hover {
     gap: 8px;
     height: 54px;
 
-}
-
-.button-outline-purple {
-    color: #7c96f7;
-    border: 2px solid #7c96f7;
-    background-color: rgba(0, 0, 0, 0);
 }
 
 .page-path {
@@ -1447,7 +1438,7 @@ nav a:hover {
 }
 
 .button {
-    border-radius: 16px;
+    border-radius: 8px;
     display: flex;
     padding: 8px 16px 8px 16px;
     justify-content: center;
@@ -1462,6 +1453,35 @@ nav a:hover {
     outline: unset;
     transition-property: background-color, border;
     transition-duration: .7s;
+}
+
+.button-sm {
+    font-size: 18px;
+    padding: 8px;
+}
+
+.button-primary {
+    background-color: var(--primary-color);
+}
+
+.button-primary:hover,
+.button-primary:active {
+    background-color: var(--primary-dark-color);
+}
+
+.button-primary:focus {
+    outline: 4px solid var(--primary-dark-color);
+}
+
+.button-outline-primary {
+    color: var(--white-color);
+    background-color: transparent;
+    border: 1px solid var(--primary-dark-color);
+}
+
+.button-outline-primary:hover, .button-outline-primary:active {
+    background-color: var(--primary-dark-color);
+    color: var(--white-color);
 }
 
 .button-secondary {
@@ -1481,6 +1501,22 @@ nav a:hover {
 
 .button-outline-secondary:hover {
     border-color: var(--secondary-color);
+}
+
+.button-outline-white {
+    color: var(--white-color);
+    background-color: transparent;
+    border: 1px solid var(--white-color);
+}
+
+.button-outline-white:hover,
+.button-outline-white:active {
+    color: var(--white-color);
+    border: 1px solid var(--primary-dark-color);
+}
+
+.button-outline-white:focus {
+    border: 4px solid var(--primary-dark-color);
 }
 
 .tutorial-attributes-section {
