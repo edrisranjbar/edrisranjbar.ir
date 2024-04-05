@@ -44,24 +44,6 @@
     </li>
 
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-            aria-expanded="false" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-file"></i>
-            <span>برگه ها</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="collapsePages" data-parent="#accordionSidebar">
-            <div class="collapse-inner">
-                <a class="collapse-item" href="{{ route('pages.index') }}">
-                    <span>لیست برگه ها</span>
-                </a>
-                <a class="collapse-item" href="{{ route('pages.create') }}">
-                    <span>ایجاد برگه</span>
-                </a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTutorials"
             aria-expanded="false" aria-controls="collapseTutorials">
             <i class="fas fa-fw fa-book"></i>

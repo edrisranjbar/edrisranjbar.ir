@@ -11,7 +11,6 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseSectionController;
 use App\Http\Controllers\SettingController;
@@ -46,7 +45,6 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('profile', [AdminProfileController::class, 'show'])->name('admin.profile');
     Route::get('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::resource('pages', PageController::class);
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('tutorials', TutorialController::class);
