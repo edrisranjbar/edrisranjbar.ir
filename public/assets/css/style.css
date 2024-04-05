@@ -1368,6 +1368,7 @@ nav a:hover {
 
 .card-img, .card-img-top {
     height: 225px;
+    object-fit: cover;
 }
 
 .my-card-image img {
