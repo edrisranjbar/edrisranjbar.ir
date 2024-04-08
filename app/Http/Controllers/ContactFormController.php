@@ -22,4 +22,11 @@ class ContactFormController extends Controller
         Contact::create($validatedData);
         return back()->with('success', 'پیام شما با موفقیت ثبت شد');
     }
+
+    public function destroy(int $id)
+    {
+        $form = Contact::findOrFail($id);
+        $form->delete();
+        return back()->with('success', 'پیام مورد نظر با موفقیت حذف شد');
+    }
 }

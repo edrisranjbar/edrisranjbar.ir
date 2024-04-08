@@ -46,6 +46,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('contactForms', [ContactFormController::class, 'index'])->name('admin.contactForm');
+    Route::delete('contactForms/{id}', [ContactFormController::class, 'destroy'])->name('contactForms.destroy');
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('tutorials', TutorialController::class);
