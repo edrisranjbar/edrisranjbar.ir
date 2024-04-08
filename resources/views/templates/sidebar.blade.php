@@ -63,6 +63,13 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href="{{ url('admin/contactForms') }}">
+            <i class="fas fa-envelope"></i>
+            <span>فرم‌های ارتباط با ما</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/comments') }}">
             <i class="fas fa-fw fa-comment"></i>
             <span>دیدگاه‌ها</span>
