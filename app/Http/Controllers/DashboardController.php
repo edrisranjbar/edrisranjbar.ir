@@ -19,31 +19,25 @@ class DashboardController extends Controller
         $postsCount = Post::all()->count();
         $comments = Comment::orderBy('created_at', 'desc')->paginate(30);
 
+
+        // Analytics
+        
         // Analytics
         $lastWeekDates = collect(range(0, 6))->map(function ($i) {
             $date = Jalalian::now()->subDays($i);
             return $date->format('l');
         });
-        // fixme: wrong results
-        $currentWeekViews = PageView::query()->scopes(['filter' => ["1_week"]])
-            ->selectRaw('DATE(created_at) as date, COUNT(*) as views_count')
-            ->groupBy('date')
-            ->pluck('views_count');
-        while (count($currentWeekViews) < 7) {
-            $currentWeekViews[] = 0;
-        }
 
-        $currentWeekViewers = PageView::query()->scopes(['filter' => ["1_week"]])
+        // Analytics
+        for ($i = 0; $i < 7; $i++) {
+            $currentWeekViews[] = PageView::query()->scopes(['filter' => ["day_" . $i]])->count();
+            $currentWeekViewers[] = PageView::query()->scopes(['filter' => ["day_" . $i]])
             ->groupBy('session')
-            ->selectRaw('DATE(created_at) as date, COUNT(*) as viewers_count')
-            ->groupBy('date')
-            ->pluck('viewers_count');
-        while (count($currentWeekViewers) < 7) {
-            $currentWeekViewers[] = 0;
+            ->pluck('session')->count();
         }
 
-        $totalViews = $currentWeekViews[0];
-        $totalViewers = $currentWeekViewers[0];
+        $totalViews = $currentWeekViews[count($currentWeekViews)-1];
+        $totalViewers = $currentWeekViewers[count($currentWeekViewers) - 1];
 
         return view('admin.index',
             compact(
