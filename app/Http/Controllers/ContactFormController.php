@@ -9,7 +9,7 @@ class ContactFormController extends Controller
 {
 
     public function index() {
-        $forms = Contact::orderBy('created_at', 'desc');
+        $forms = Contact::orderBy('created_at', 'desc')->get();
         return view('admin.contactForm.index', compact('forms'));
     }
 
