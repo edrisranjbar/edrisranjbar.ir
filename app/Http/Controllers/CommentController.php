@@ -70,4 +70,11 @@ class CommentController extends Controller
         $comment->save();
         return redirect()->back()->with('success', 'دیدگاه شما با موفقیت ثبت شد.');
     }
+
+    public function destroy(int $id)
+    {
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+        return back()->with('success', 'دیدگاه مورد نظر با موفقیت حذف شد');
+    }
 }

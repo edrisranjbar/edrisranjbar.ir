@@ -57,6 +57,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::resource('settings', SettingController::class);
     Route::resource('comments', CommentController::class);
     Route::patch('comments/{commentId}/reply', [CommentController::class, 'reply']);
+    Route::delete('comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
     Route::get('comments/{commentId}/toggleApprovementStatus', [CommentController::class, 'toggleApprovementStatus']);
 });
 
