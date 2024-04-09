@@ -5,6 +5,16 @@
     <div class="card shadow">
         <div class="card-body">
             @include('templates.messages')
+            @if(count($forms) > 0)
+            <form action="{{ route('contactForms.destroyAll') }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-sm mb-3 float-end btn-outline-danger btn-w-icon w-fit-content d-inline-block">
+                    <i class="fas fa-trash me-1"></i>
+                    حذف همه
+                </button>
+            </form>
+            @endif
             <ul class="list-group mx-0 px-0 w-100">
                 @forelse($forms as $form)
                 <li class="list-group-item">
@@ -31,6 +41,7 @@
                 </li>
                 @endforelse
             </ul>
+            {{ $forms->links('templates.pagination') }}
         </div>
     </div>
 </div>

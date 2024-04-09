@@ -9,7 +9,7 @@ class ContactFormController extends Controller
 {
 
     public function index() {
-        $forms = Contact::orderBy('created_at', 'desc')->get();
+        $forms = Contact::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.contactForm.index', compact('forms'));
     }
 
@@ -28,5 +28,11 @@ class ContactFormController extends Controller
         $form = Contact::findOrFail($id);
         $form->delete();
         return back()->with('success', 'پیام مورد نظر با موفقیت حذف شد');
+    }
+
+    public function destroyAll()
+    {
+        Contact::truncate();
+        return back()->with('success', 'همه پیام ها با موفقیت حذف شدند');
     }
 }
