@@ -133,6 +133,9 @@
                             <label for="thumbnail" class="form-label">تصویر بند انگشتی</label>
                             <input type="file" name="thumbnail" id="thumbnail" class="form-control"
                                    @if(!isset($lesson)) required @endif>
+                            <div class="invalid-feedback">
+                                لطفا تصویر معتبری انتخاب کنید
+                            </div>
                             @error('thumbnail')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -160,7 +163,9 @@
                             <div class="input-group">
                                 <input type="file" name="video" id="video" class="form-control" accept="video/*"
                                        @if(!isset($lesson)) required @endif>
-
+                            <div class="invalid-feedback">
+                                لطفا ویدیوی معتبری انتخاب کنید
+                            </div>
                                 @if(isset($lesson) && $lesson->video_path)
                                     <span class="input-group-text">
                                 <i class="fas fa-play-circle"></i>
