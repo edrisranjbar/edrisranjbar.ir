@@ -18,8 +18,10 @@ class HomeController extends Controller
         $widgets = $this->getAllWidgets();
         $coursesUrl = url(Tutorial::tutorialsLink);
         $blogUrl = url(Post::blogLink);
-        $tutorials = Tutorial::where(['status' => 'published'])->get();
-        $posts = Post::where(['status' => 'published'])->get();
+        $tutorials = Tutorial::where(['status' => 'published'])
+            ->orderBy('updated_at', 'desc')->get();
+        $posts = Post::where(['status' => 'published'])
+            ->orderBy('updated_at', 'desc')->get();
         $user = Auth::guard('user')?->user();
         return view('index', compact('widgets', 'coursesUrl', 'blogUrl', 'tutorials', 'posts', 'user'));
     }
@@ -50,12 +52,16 @@ class HomeController extends Controller
             $posts = Post::where(['status' => 'published']);
             $posts = $posts->where('title', 'like', '%' . $searchQuery . '%')
                 ->orWhere('content', 'like', '%' . $searchQuery . '%')
+                ->orderBy('updated_at', 'desc')
                 ->get();
         } else {
-            $posts = Post::where(['status' => 'published'])->get();
+            $posts = Post::where(['status' => 'published'])
+                ->orderBy('updated_at', 'desc')->get();
         }
         $pinnedPosts = Post::where(['status' => 'published'])
-            ->wherePinned(true)->orderBy('created_at', 'desc')->take(2)->get();
+            ->wherePinned(true)
+            ->orderBy('updated_at', 'desc')
+            ->take(2)->get();
 
         return view('blog.index', compact('posts', 'searchQuery', 'pinnedPosts'));
     }
@@ -123,5 +129,4 @@ class HomeController extends Controller
     {
         return view('donate');
     }
-
 }
