@@ -32,6 +32,7 @@ Route::middleware('analytics')->group(function () {
     Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
     Route::post('contact', [ContactFormController::class, 'store'])->name('contact.store');
     Route::post('comments', [CommentController::class, 'store']);
+    Route::get('donate', [HomeController::class, 'donate']);
 });
 
 Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.login');

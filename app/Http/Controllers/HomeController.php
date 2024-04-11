@@ -119,4 +119,9 @@ class HomeController extends Controller
         return view('tutorials.lessons.show', compact('lesson', 'prevLessonURL', 'nextLessonURL', 'progress'));
     }
 
+    public function donate()
+    {
+        return view('donate');
+    }
+
 }
