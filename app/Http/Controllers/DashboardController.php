@@ -23,7 +23,7 @@ class DashboardController extends Controller
         // Analytics
         
         // Analytics
-        $lastWeekDates = collect(range(0, 6))->map(function ($i) {
+        $lastWeekDates = collect(range(6, 0))->map(function ($i) {
             $date = Jalalian::now()->subDays($i);
             return $date->format('l');
         });
