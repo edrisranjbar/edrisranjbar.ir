@@ -42,7 +42,11 @@ class DonationController extends Controller
         $authority = request()->query('Authority');
         $status = request()->query('Status');
 
-        $transaction = Transaction::where(['Authority' => $authority]);
+        $transaction = Transaction::firstWhere(['Authority' => $authority]);
+
+        if (!$transaction) {
+            return view('donate')->with('error', 'کد اعتبارسنجی نامتعبر است.');
+        }
 
         $response = zarinpal()
             ->amount($transaction->amount)
