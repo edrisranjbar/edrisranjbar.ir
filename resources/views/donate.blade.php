@@ -49,7 +49,7 @@ View::share('hideHeader', true);
     <section class="donate-options">
         <h2>مبلغ پرداختی شما:</h2>
         @if (session('error'))
-        <p class="text-danger">{{ session('error') }}</p>
+        <p class="text-danger text-center">{{ session('error') }}</p>
         @endif
         <div class="d-flex flex-column gap-2 mx-auto">
             <div class="d-flex gap-2">
