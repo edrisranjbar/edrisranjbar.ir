@@ -33,7 +33,12 @@ class NavbarSeeder extends Seeder
             [
                 'name' => 'دوره ها',
                 'route' => '/tutorials',
-                'ordering' => 3,
+                'ordering' => 4,
+            ],
+            [
+                'name' => 'حمایت مالی',
+                'route' => '/donate',
+                'ordering' => 5,
             ],
         ];
 
