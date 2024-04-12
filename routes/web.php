@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseSectionController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\LessonController;
@@ -33,6 +34,8 @@ Route::middleware('analytics')->group(function () {
     Route::post('contact', [ContactFormController::class, 'store'])->name('contact.store');
     Route::post('comments', [CommentController::class, 'store']);
     Route::get('donate', [HomeController::class, 'donate']);
+    Route::get('donate/verify', [DonationController::class, 'verify']);
+    Route::post('donate', [DonationController::class, 'request'])->name('donation.request');
 });
 
 Route::get('admin/login', [AdminAuthController::class, 'login'])->name('admin.login');

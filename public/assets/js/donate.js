@@ -15,7 +15,7 @@ const toggleActiveButton = (button) => {
     if (button.id === null || button.id !== 'custom-amount-btn') hideCustomAmountField()
     donateOptionButtons.forEach((button) => button.classList.remove('active'));
     button.classList.add('active');
-    customAmountFieldInputField.value = button.value;
+    customAmountFieldInputField.setAttribute('value', button.getAttribute('value'));
 }
 
 donateOptionButtons.forEach((button) => button.addEventListener('click', () => { toggleActiveButton(button) }))
