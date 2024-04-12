@@ -15,6 +15,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
+    @yield('css')
 </head>
 
 <body class="@yield('body-class', '')">
@@ -31,6 +32,7 @@
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/js/splide.min.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}" defer></script>
+@yield('js')
 </body>
 
 </html>

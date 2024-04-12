@@ -1,0 +1,201 @@
+#donate-page {
+    width: 100%;
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+.donate-page-title {
+    color: var(--white-color);
+    font-size: 48px;
+    line-height: 75px;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 84px;
+    margin-bottom: 8px;
+}
+
+.donate-page-description {
+    color: #E0E0E0;
+    font-size: 27px;
+    font-weight: 300;
+    line-height: 42px;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 113px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.goal-row {
+    display: flex;
+    column-gap: 32px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.donate-product-card,
+.donate-progress-card {
+    background-color: #1A1E1F;
+    width: 100%;
+    min-height: 214px;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    column-gap: 16px;
+}
+
+.donate-progress-card {
+    width: 100%;
+    padding: 32px;
+    flex-direction: column;
+    column-gap: 0;
+}
+
+.progress-wrapper {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    column-gap: 8px;
+    margin: auto;
+}
+
+.donate-progress-percentage {
+    color: var(--white-color);
+    font-size: 27px;
+    font-weight: 300;
+    line-height: auto;
+}
+
+.donate-progress-bar {
+    width: 100%;
+    height: 41px;
+    background-color: var(--primary-dark-color);
+    border-radius: 32px;
+    position: relative;
+}
+
+.donate-progress-fill {
+    background-image: linear-gradient(to top, #997005, #FFBA08);
+    border-radius: 32px;
+    height: 41px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.donate-progress-fill::after {
+    content: url("../icons/goal.png");
+    position: relative;
+    top: -4px;
+    right: 3px;
+}
+
+.donate-price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+.donate-price-wrapper>.price {
+    color: var(--white-color);
+    font-size: 27px;
+    font-weight: 100;
+    line-height: auto;
+    text-align: left;
+}
+
+.donation-title {
+    color: var(--white-color);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 31px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.donate-product-title {
+    color: var(--white-color);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 38px;
+    margin-bottom: 8px;
+}
+
+.donate-product-description {
+    color: #E0E0E0;
+    font-size: 24px;
+    font-weight: 100;
+    line-height: 38px;
+}
+
+.donate-product-thumbnail {
+    width: 141px;
+    height: 182px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.donate-options {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.donate-options h2 {
+    color: var(--white-color);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: auto;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.donate-options button {
+    font-size: 20px;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+#donate-button {
+    color: var(--white-color);
+    font-weight: 400;
+    margin-bottom: 138px;
+}
+
+.background-effects {
+    overflow-x: hidden;
+    width: 100vw;
+    z-index: -1;
+}
+
+#donate-page .rectangle-1 {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(108.00000116229057, 99.00000169873238, 255, 0.6000000238418579) 0%, rgba(255, 186.0000041127205, 8.000000473111868, 0.6000000238418579) 44.53049600124359%, rgba(64.79999765753746, 59.400001019239426, 153.00000607967377, 0.6000000238418579) 100%);
+    background-color: transparent;
+    border-radius: 116px;
+    box-shadow: 0px 4px 4px #00000040;
+    filter: blur(62.099998474121094px);
+    width: 753px;
+    height: 753px;
+    top: -481px;
+    right: -307px;
+    position: fixed;
+    transform: rotate(25.50deg);
+    z-index: -2;
+}
+
+#donate-page .rectangle-2 {
+    background: radial-gradient(50% 50% at 50% 50%, rgb(151.00000619888306, 71.00000336766243, 255) 0%, rgb(254.00000005960464, 128.0000075697899, 128.0000075697899) 44.53049600124359%, rgb(64.79999765753746, 59.400001019239426, 153.00000607967377) 100%);
+    background-color: transparent;
+    border-radius: 157px;
+    box-shadow: 0px 4px 4px #00000040;
+    filter: blur(62.099998474121094px);
+    width: 753px;
+    height: 753px;
+    bottom: -372px;
+    left: -381px;
+    position: fixed;
+    transform: rotate(13.70deg);
+    z-index: -2;
+}
