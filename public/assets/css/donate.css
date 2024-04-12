@@ -164,6 +164,18 @@
     margin-bottom: 138px;
 }
 
+#share {
+    margin-bottom: 24px;
+    margin-right: 24px;
+}
+
+.donate-share-button {
+    cursor: pointer;
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 100;
+}
+
 .background-effects {
     overflow-x: hidden;
     width: 100vw;

@@ -1,6 +1,7 @@
 const donateOptionButtons = document.querySelectorAll(".donate-options button:not([type=submit])");
 const customAmountButton = document.querySelector("#custom-amount-btn");
 const customAmountFieldInputField = document.querySelector("#custom-amount-field");
+const shareButton = document.querySelector(".donate-share-button");
 
 const showCustomAmountField = () => {
     customAmountFieldInputField.classList.remove("d-none");
@@ -22,3 +23,6 @@ customAmountButton.addEventListener('click', () => {
     showCustomAmountField();
     customAmountFieldInputField.focus();
 });
+shareButton.addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href);
+})
