@@ -1,6 +1,5 @@
 @php
 View::share('hideFooter', true);
-View::share('hideHeader', true);
 @endphp
 @section('title', 'حمایت مالی')
 @extends('layouts.app')
