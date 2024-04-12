@@ -40,8 +40,8 @@ View::share('hideHeader', true);
                 </div>
             </div>
             <div class="donate-price-wrapper">
-                <span class="price">0</span>
                 <span class="price">10,000,000</span>
+                <span class="price">0</span>
             </div>
         </div>
     </div>
