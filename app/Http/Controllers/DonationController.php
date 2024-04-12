@@ -51,7 +51,7 @@ class DonationController extends Controller
             ->send();
 
         if (!$response->success()) {
-            return $response->error()->message();
+            return view('donate')->with('error', $response->error()->message());
         }
 
         $transaction->update([
