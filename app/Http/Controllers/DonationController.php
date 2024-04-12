@@ -45,7 +45,7 @@ class DonationController extends Controller
         $transaction = Transaction::firstWhere(['Authority' => $authority]);
 
         if (!$transaction) {
-            return view('donate')->with('error', 'کد اعتبارسنجی نامتعبر است.');
+            return redirect('donate')->with('error', 'کد اعتبارسنجی نامتعبر است.');
         }
 
         $response = zarinpal()
