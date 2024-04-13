@@ -130,9 +130,9 @@
 }
 
 .donate-product-thumbnail {
-    width: 141px;
-    height: 182px;
-    object-fit: cover;
+    width: 160px;
+    height: auto;
+    object-fit: fill;
     border-radius: 8px;
 }
 

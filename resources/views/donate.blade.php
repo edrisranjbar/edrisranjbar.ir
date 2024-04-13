@@ -19,7 +19,7 @@ View::share('hideFooter', true);
     <div class="goal-row">
         <div class="donate-product-card">
             <div>
-                <img class="donate-product-thumbnail" src="/images/bs.png" alt="محصول">
+                <img class="donate-product-thumbnail" src="{{ asset('images/monitor.jpg') }}" alt="محصول">
             </div>
             <div>
                 <h2 class="donate-product-title">مانیتور LG-34-inch-34WQ650</h2>
