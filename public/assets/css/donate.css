@@ -83,11 +83,11 @@
     left: 0;
 }
 
-.donate-progress-fill::after {
+.donate-progress-bar::after {
     content: url("../icons/goal.png");
-    position: relative;
+    position: absolute;
     top: -4px;
-    right: 3px;
+    left: -4px;
 }
 
 .donate-price-wrapper {

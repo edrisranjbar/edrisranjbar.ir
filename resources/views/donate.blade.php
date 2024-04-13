@@ -33,13 +33,13 @@ View::share('hideFooter', true);
         <div class="donate-progress-card">
             <h3 class="donation-title">تا خرید میکروفون استودیویی حرفه‌ای</h3>
             <div class="progress-wrapper">
-                <span class="donate-progress-percentage">90%</span>
+                <span class="donate-progress-percentage">{{ $progress }}%</span>
                 <div class="donate-progress-bar">
-                    <span class="donate-progress-fill" style="width: 90%"></span>
+                    <span class="donate-progress-fill" style="width: max(43px, {{ $progress }}%);"></span>
                 </div>
             </div>
             <div class="donate-price-wrapper">
-                <span class="price">10,000,000</span>
+                <span class="price">{{ $productPrice }}</span>
                 <span class="price">0</span>
             </div>
         </div>
