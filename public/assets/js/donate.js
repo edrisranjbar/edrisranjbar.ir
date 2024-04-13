@@ -25,4 +25,6 @@ customAmountButton.addEventListener('click', () => {
 });
 shareButton.addEventListener('click', () => {
     navigator.clipboard.writeText(window.location.href);
+    const toast = new bootstrap.Toast(document.getElementById('successToast'));
+    toast.show();
 })
