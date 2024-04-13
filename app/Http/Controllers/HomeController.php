@@ -127,7 +127,7 @@ class HomeController extends Controller
 
     public function donate()
     {
-        $productPrice = 7_000_000;
+        $productPrice = 21_200_000;
         $paidAmount = 0;
         $progress = intval($paidAmount / $productPrice * 100);
         return view('donate', compact('productPrice', 'progress'));
