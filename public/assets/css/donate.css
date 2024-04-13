@@ -214,6 +214,7 @@
 @media screen and (max-width:720px) {
     .donate-page-title {
         font-size: 36px;
+        margin-top: 32px;
     }
 
     .donate-page-description {
