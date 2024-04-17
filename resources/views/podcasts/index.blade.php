@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         @foreach($episodes as $episode)
-        <div class="col-12 col-md-4">
+        <div class="col-12 mb-3">
             <div class="card rounded-4 shadow-sm position-relative">
                 @if($loop->iteration === 1)
                 <span class="badge bg-primary position-absolute end-0 top-0 m-2">
@@ -18,7 +18,7 @@
                 </span>
                 @endif
                 <div class="card-body">
-                    <h5 class="card-title">{{ $episode['title'] }}</h5>
+                    <h2 class="card-title">{{ $episode['title'] }}</h2>
                     <p class="card-text">
                         {!! $episode['description'] !!}
                     </p>
