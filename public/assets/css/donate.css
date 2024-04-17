@@ -181,6 +181,25 @@
     z-index: -1;
 }
 
+@keyframes rotate {
+    from {
+        transform: rotate(25.50deg);
+    }
+    to{
+        transform: rotate(125.50deg);
+    }
+}
+@keyframes rotate2 {
+    from {
+        transform: rotate(13.70deg);
+        left: -762px;
+    }
+    to{
+        transform: rotate(130.50deg);
+        left: -381px;
+    }
+}
+
 #donate-page .rectangle-1 {
     background: radial-gradient(50% 50% at 50% 50%, rgba(108.00000116229057, 99.00000169873238, 255, 0.6000000238418579) 0%, rgba(255, 186.0000041127205, 8.000000473111868, 0.6000000238418579) 44.53049600124359%, rgba(64.79999765753746, 59.400001019239426, 153.00000607967377, 0.6000000238418579) 100%);
     background-color: transparent;
@@ -194,6 +213,12 @@
     position: fixed;
     transform: rotate(25.50deg);
     z-index: -2;
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 #donate-page .rectangle-2 {
@@ -208,6 +233,12 @@
     left: -381px;
     position: fixed;
     transform: rotate(13.70deg);
+    animation-name: rotate2;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
     z-index: -2;
 }
 
