@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:anchor="https://anchor.fm/xmlns">
+	<channel>
+		<title><![CDATA[JetCode cast]]></title>
+		<description><![CDATA[A Persian technology podcast]]></description>
+		<link>www.edrisranjbar.ir</link>
+		<image>
+			<url>https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/7903753/7903753-1596660333375-61315bd49dd2b.jpg</url>
+			<title>JetCode cast</title>
+			<link>www.edrisranjbar.ir</link>
+		</image>
+		<generator>Anchor Podcasts</generator>
+		<lastBuildDate>Tue, 16 Apr 2024 22:06:17 GMT</lastBuildDate>
+		<atom:link href="https://anchor.fm/s/2fb4c204/podcast/rss" rel="self" type="application/rss+xml"/>
+		<author><![CDATA[Edris Ranjbar]]></author>
+		<copyright><![CDATA[Edris Ranjbar]]></copyright>
+		<language><![CDATA[fa]]></language>
+		<atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+		<itunes:author>Edris Ranjbar</itunes:author>
+		<itunes:summary>A Persian technology podcast</itunes:summary>
+		<itunes:type>episodic</itunes:type>
+		<itunes:owner>
+			<itunes:name>Edris Ranjbar</itunes:name>
+			<itunes:email>edris.qeshm2@gmail.com</itunes:email>
+		</itunes:owner>
+		<itunes:explicit>Yes</itunes:explicit>
+		<itunes:category text="Technology"/>
+		<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/7903753/7903753-1596660333375-61315bd49dd2b.jpg"/>
+		<item>
+			<title><![CDATA[بررسی تغییرات php8]]></title>
+			<description><![CDATA[<p>دوستان و همراهان عزیز به قسمت هفتم <strong>جت کد کست</strong> خوش اومدین، این قسمت میخوایم به بررسی تغییرات ورژن جدید PHP یعنی PHP8 بپردازیم. همونطور که سایت خود PHP هم گفته، این نسخه، یه Major Update هست که تغییرات زیادی شامل امکانات جدید و بهینه سازی رو در بر میگیره.</p>
+<p>قبل از اینکه بخوایم شروع کنیم به بررسی این تغییرات، بزارین یه توضیح خیلی مختصر راجع به خود این زبان برنامه نویسی ارائه بدیم برای دوستانی که آشنایی ندارن. PHP که مخفف PHP Hypertext Processor هست، یه زبان برنامه نویسی از نوع اسکریپتی و مفسریه و برای بک اند وب هست که با C نوشته شده و توسط Rasmus Lerdorf&nbsp;سال ۱۹۹۴ منتشر شده و یه جورایی سال هاست که سر دسته زبان های بک اند برای توسعه هست و الانی که دارم این اپیزود رو ضبط میکنم ورژن ۸٫۰٫۲ هم ریلیز شده و در دسترسه.</p>
+<p>خب حالا بریم سراغ اصل مطلب یعنی بررسی تغییرات PHP8. تو این ورژن ما شاهد تغییرات زیادی در هسته این زبان هستیم که منطقیه چون همونطور که کمی قبل گفتم این یه Major update هست.</p>
+<p>از جمله این تغییرات میشه به:</p>
+<p>Union Type، NamedArguments, Match Expressions، constructor Property Promotion، Nullsafe Operator, Weak Maps Just In Time Compilation که اهمیت فوق العاده ای در بهینه شدن سرعت این ورژن پی اچ پی داره و حتما بهش می پردازیم.</p>
+<p><br></p>
+<p>برای خوندن متن مقاله و کد های مربوط به این قسمت <a href="https://edrisranjbar.ir/php8/">اینجا</a> کلیک کنید.</p>
+<p><strong>لینک ها و منابع</strong></p>
+<ul>
+ <li><a href="https://edrisranjbar.ir/podcasts/">پادکست</a></li>
+ <li><a href="https://stitcher.io/blog/new-in-php-8" rel="noreferrer noopener" target="_blank">What’s new in PHP 8</a></li>
+  <li><a href="https://stitcher.io/blog/php-jit" rel="noreferrer noopener" target="_blank">The JIT</a></li>
+  <li><a href="https://kinsta.com/blog/php-8/" rel="noreferrer noopener" target="_blank">What’s New in PHP 8 (Features, Improvements, and the JIT Compiler)</a></li>
+</ul>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/edrisranjbar/episodes/php8-esh1tt</link>
+			<guid isPermaLink="false">8cdf488f-0da8-44be-b19d-04ff3bd1f6fa</guid>
+			<dc:creator><![CDATA[Edris Ranjbar]]></dc:creator>
+			<pubDate>Sun, 14 Mar 2021 09:02:14 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/2fb4c204/podcast/play/28919165/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-2-14%2Fd91a8c3d-79a5-a404-dc50-b04fbbe4dcf7.mp3" length="22667869" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;دوستان و همراهان عزیز به قسمت هفتم &lt;strong&gt;جت کد کست&lt;/strong&gt; خوش اومدین، این قسمت میخوایم به بررسی تغییرات ورژن جدید PHP یعنی PHP8 بپردازیم. همونطور که سایت خود PHP هم گفته، این نسخه، یه Major Update هست که تغییرات زیادی شامل امکانات جدید و بهینه سازی رو در بر میگیره.&lt;/p&gt;
+&lt;p&gt;قبل از اینکه بخوایم شروع کنیم به بررسی این تغییرات، بزارین یه توضیح خیلی مختصر راجع به خود این زبان برنامه نویسی ارائه بدیم برای دوستانی که آشنایی ندارن. PHP که مخفف PHP Hypertext Processor هست، یه زبان برنامه نویسی از نوع اسکریپتی و مفسریه و برای بک اند وب هست که با C نوشته شده و توسط Rasmus Lerdorf&amp;nbsp;سال ۱۹۹۴ منتشر شده و یه جورایی سال هاست که سر دسته زبان های بک اند برای توسعه هست و الانی که دارم این اپیزود رو ضبط میکنم ورژن ۸٫۰٫۲ هم ریلیز شده و در دسترسه.&lt;/p&gt;
+&lt;p&gt;خب حالا بریم سراغ اصل مطلب یعنی بررسی تغییرات PHP8. تو این ورژن ما شاهد تغییرات زیادی در هسته این زبان هستیم که منطقیه چون همونطور که کمی قبل گفتم این یه Major update هست.&lt;/p&gt;
+&lt;p&gt;از جمله این تغییرات میشه به:&lt;/p&gt;
+&lt;p&gt;Union Type، NamedArguments, Match Expressions، constructor Property Promotion، Nullsafe Operator, Weak Maps Just In Time Compilation که اهمیت فوق العاده ای در بهینه شدن سرعت این ورژن پی اچ پی داره و حتما بهش می پردازیم.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;برای خوندن متن مقاله و کد های مربوط به این قسمت &lt;a href=&quot;https://edrisranjbar.ir/php8/&quot;&gt;اینجا&lt;/a&gt; کلیک کنید.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;لینک ها و منابع&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;https://edrisranjbar.ir/podcasts/&quot;&gt;پادکست&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://stitcher.io/blog/new-in-php-8&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;What’s new in PHP 8&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stitcher.io/blog/php-jit&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;The JIT&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kinsta.com/blog/php-8/&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;What’s New in PHP 8 (Features, Improvements, and the JIT Compiler)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</itunes:summary>
+			<itunes:explicit>No</itunes:explicit>
+			<itunes:duration>00:19:28</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/7903753/7903753-1596660333375-61315bd49dd2b.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>7</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[زندگیتو جلو نزن]]></title>
+			<description><![CDATA[<p>برای اینکه از لحظات زندگیمون لذت ببریم باید بتونیم در لحظه زندگی کنیم و یاد بگیریم با همه ی لحظات خوب یا بد «الان» کنار بیاییم. باید بتونیم این سرعت لجام گسیخته ی زندگی رو که از کیفیت زندگیمون کم میکنه مدیریت کنیم. اینطوری تلاشی میکنیم در جهت بهتر کردن زندگی و اصطلاحا دم را غنیمت می شماریم.</p>
+<p><br></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/edrisranjbar/episodes/ep-epd360</link>
+			<guid isPermaLink="false">0d0bc30c-897f-43fe-8500-1883805f376d</guid>
+			<dc:creator><![CDATA[Edris Ranjbar]]></dc:creator>
+			<pubDate>Sun, 24 Jan 2021 12:31:45 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/2fb4c204/podcast/play/25643648/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-0-24%2Fa4ab318e-8069-f5a2-4507-a7f24a88816e.mp3" length="15525045" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;برای اینکه از لحظات زندگیمون لذت ببریم باید بتونیم در لحظه زندگی کنیم و یاد بگیریم با همه ی لحظات خوب یا بد «الان» کنار بیاییم. باید بتونیم این سرعت لجام گسیخته ی زندگی رو که از کیفیت زندگیمون کم میکنه مدیریت کنیم. اینطوری تلاشی میکنیم در جهت بهتر کردن زندگی و اصطلاحا دم را غنیمت می شماریم.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>No</itunes:explicit>
+			<itunes:duration>00:08:11</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/7903753/7903753-1596660333375-61315bd49dd2b.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>6</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[مهارت و تلاش برای برنامه نویسی]]></title>
+			<description><![CDATA[<p>در این پادکست به سه موضوع کلی <strong>استعداد</strong> ، <strong>کسب مهارت های برنامه نویسی</strong> &nbsp;و<strong> هدفگذاری</strong> می پردازیم.</p>
+<p>همه ی ما تو زندگیمون مسائل و مشکلاتی داریم که باید سعی در حل کردنشون یا یک نگاه واقع بینانه داشته باشیم و تلاش کلید حل خیلی از این مسائله. از مسامحه کاری و امروز و فردا کردن بپرهیزیم بقولی در لحظه زندگی کنیم.</p>
+<p><br></p>
+<p>وب سایت: <a href="https://edrisranjbar.ir">www.edrisranjbar.ir</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/edrisranjbar/episodes/ep-elfge5</link>
+			<guid isPermaLink="false">e69bbb80-3e80-49fc-bb8a-8a0ae7e488a8</guid>
+			<dc:creator><![CDATA[Edris Ranjbar]]></dc:creator>
+			<pubDate>Fri, 23 Oct 2020 11:01:55 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/2fb4c204/podcast/play/21528453/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2020-9-23%2Fef58f7cb-f67d-cdbd-5a76-31c2d1fabfef.mp3" length="26771687" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;در این پادکست به سه موضوع کلی &lt;strong&gt;استعداد&lt;/strong&gt; ، &lt;strong&gt;کسب مهارت های برنامه نویسی&lt;/strong&gt; &amp;nbsp;و&lt;strong&gt; هدفگذاری&lt;/strong&gt; می پردازیم.&lt;/p&gt;
+&lt;p&gt;همه ی ما تو زندگیمون مسائل و مشکلاتی داریم که باید سعی در حل کردنشون یا یک نگاه واقع بینانه داشته باشیم و تلاش کلید حل خیلی از این مسائله. از مسامحه کاری و امروز و فردا کردن بپرهیزیم بقولی در لحظه زندگی کنیم.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;وب سایت: &lt;a href=&quot;https://edrisranjbar.ir&quot;&gt;www.edrisranjbar.ir&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>No</itunes:explicit>
+			<itunes:duration>00:15:11</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/7903753/7903753-1596660333375-61315bd49dd2b.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>5</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[چطوری برای کار و برنامه نویسی انگیزه مون رو حفظ کنیم؟]]></title>
+			<description><![CDATA[<p>این قسمت از جت کد کست در مورد راهکارهایی برای حفظ انرژی و انگیزه کار کردن صحبت می کنیم.</p>
+<p>این راهکار ها عبارتند از برنامه ریزی و هدفگذاری - تغذیه مناسب و ورزش - کتاب ها ویدوکست ها و پادکست های مرتبط با حوزه ما. جزییات بیشتری در مورد هر مورد ارايه میدیم. امیدوارم براتون مفید باشه</p>
+<p><strong>website:</strong> www.edrisranjbar.ir</p>
+<p><strong>Music:</strong></p>
+<p><em>Puppy Love (Sting)</em> by Twin Musicom is licensed under a Creative Commons Attribution license (<a href="https://creativecommons.org/licenses/by/4.0/" target="blank">https://creativecommons.org/licenses/by/4.0/</a>)</p>
+<p>Artist: <a href="http://www.twinmusicom.org/" target="blank">http://www.twinmusicom.org/</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/edrisranjbar/episodes/ep-eik633</link>
+			<guid isPermaLink="false">bbddcf51-be86-4882-ae91-9c88843d5125</guid>
+			<dc:creator><![CDATA[Edris Ranjbar]]></dc:creator>
+			<pubDate>Mon, 24 Aug 2020 23:11:20 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/2fb4c204/podcast/play/18535971/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2020-7-24%2F507014b0-59b9-cb80-1394-7c3bbd8db62a.mp3" length="27436291" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;این قسمت از جت کد کست در مورد راهکارهایی برای حفظ انرژی و انگیزه کار کردن صحبت می کنیم.&lt;/p&gt;
+&lt;p&gt;این راهکار ها عبارتند از برنامه ریزی و هدفگذاری - تغذیه مناسب و ورزش - کتاب ها ویدوکست ها و پادکست های مرتبط با حوزه ما. جزییات بیشتری در مورد هر مورد ارايه میدیم. امیدوارم براتون مفید باشه&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;website:&lt;/strong&gt; www.edrisranjbar.ir&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Music:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Puppy Love (Sting)&lt;/em&gt; by Twin Musicom is licensed under a Creative Commons Attribution license (&lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot; target=&quot;blank&quot;&gt;https://creativecommons.org/licenses/by/4.0/&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Artist: &lt;a href=&quot;http://www.twinmusicom.org/&quot; target=&quot;blank&quot;&gt;http://www.twinmusicom.org/&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>Yes</itunes:explicit>
+			<itunes:duration>00:13:04</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/7903753/7903753-1596660333375-61315bd49dd2b.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>4</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[ذهنیت برنامه نویسی چیست و چگونه برنامه نویس بهتری باشیم؟]]></title>
+			<description><![CDATA[<p>در این قسمت از سری جت کد کست به مفهوم «ذهینت برنامه نویسی» می پردازیم و همچنین در مورد این صحبت می کنیم که چطوری باید خودمون رو بروز نگه داریم و برنامه نویس بهتری بشویم.</p>
+<p>وب سایت: <a href="https://www.edrisranjbar.ir/" rel="ugc noopener noreferrer" target="_blank">www.edrisranjbar.ir</a></p>
+<p>کانال یوتیوب: <a href="https://www.youtube.com/channel/UC3eYgR5fdE0vHN8-lGibvPg" rel="ugc noopener noreferrer" target="_blank">www.youtube.com/channel/UC3eYgR5fdE0vHN8-lGibvPg</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/edrisranjbar/episodes/ep-ehpbkf</link>
+			<guid isPermaLink="false">1f927496-7c80-4b61-a801-11b81f5c2b64</guid>
+			<dc:creator><![CDATA[Edris Ranjbar]]></dc:creator>
+			<pubDate>Thu, 06 Aug 2020 18:06:32 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/2fb4c204/podcast/play/17656911/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2020-7-6%2Fd1cc14ca-2e89-6364-5486-196e2ab0f55d.mp3" length="14378429" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;در این قسمت از سری جت کد کست به مفهوم «ذهینت برنامه نویسی» می پردازیم و همچنین در مورد این صحبت می کنیم که چطوری باید خودمون رو بروز نگه داریم و برنامه نویس بهتری بشویم.&lt;/p&gt;
+&lt;p&gt;وب سایت: &lt;a href=&quot;https://www.edrisranjbar.ir/&quot; rel=&quot;ugc noopener noreferrer&quot; target=&quot;_blank&quot;&gt;www.edrisranjbar.ir&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;کانال یوتیوب: &lt;a href=&quot;https://www.youtube.com/channel/UC3eYgR5fdE0vHN8-lGibvPg&quot; rel=&quot;ugc noopener noreferrer&quot; target=&quot;_blank&quot;&gt;www.youtube.com/channel/UC3eYgR5fdE0vHN8-lGibvPg&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>No</itunes:explicit>
+			<itunes:duration>00:14:38</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/7903753/7903753-1596660333375-61315bd49dd2b.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[آیا پی اچ پی منسوخ می شود؟]]></title>
+			<description><![CDATA[<p>در این قسمت به بررسی وضعیت زبان برنامه نویسی سمت سرور PHP می پردازیم.</p>
+<p>وب سایت: <a href="https://www.edrisranjbar.ir">www.edrisranjbar.ir</a></p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/edrisranjbar/episodes/ep-ehnrrr</link>
+			<guid isPermaLink="false">b25738dd-cae8-404d-8e98-785b9b8bde6a</guid>
+			<dc:creator><![CDATA[Edris Ranjbar]]></dc:creator>
+			<pubDate>Wed, 05 Aug 2020 20:56:21 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/2fb4c204/podcast/play/17607995/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2020-7-5%2F2945428e-0c64-a1ac-2e61-33fd6f7dc8a9.mp3" length="18548088" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;در این قسمت به بررسی وضعیت زبان برنامه نویسی سمت سرور PHP می پردازیم.&lt;/p&gt;
+&lt;p&gt;وب سایت: &lt;a href=&quot;https://www.edrisranjbar.ir&quot;&gt;www.edrisranjbar.ir&lt;/a&gt;&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>No</itunes:explicit>
+			<itunes:duration>00:14:18</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/7903753/7903753-1596660333375-61315bd49dd2b.jpg"/>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+		<item>
+			<title><![CDATA[چطوری برنامه نویس شدم؟]]></title>
+			<description><![CDATA[<p>در این قسمت از جت کد کست در مورد خودم و ماجرای برنامه نویس شدنم حرف می زنیم و کمی گپ و گفت کلی و دوستانه</p>
+<p>وب سایت: www.edrisranjbar.ir</p>
+]]></description>
+			<link>https://podcasters.spotify.com/pod/show/edrisranjbar/episodes/ep-ehnr2s</link>
+			<guid isPermaLink="false">04978d8d-4c38-4717-8775-d318439d7689</guid>
+			<dc:creator><![CDATA[Edris Ranjbar]]></dc:creator>
+			<pubDate>Wed, 05 Aug 2020 20:37:15 GMT</pubDate>
+			<enclosure url="https://anchor.fm/s/2fb4c204/podcast/play/17607196/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2020-7-5%2F8b780981-c769-2427-598f-23bccff8e47d.mp3" length="23811680" type="audio/mpeg"/>
+			<itunes:summary>&lt;p&gt;در این قسمت از جت کد کست در مورد خودم و ماجرای برنامه نویس شدنم حرف می زنیم و کمی گپ و گفت کلی و دوستانه&lt;/p&gt;
+&lt;p&gt;وب سایت: www.edrisranjbar.ir&lt;/p&gt;
+</itunes:summary>
+			<itunes:explicit>No</itunes:explicit>
+			<itunes:duration>00:13:57</itunes:duration>
+			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded_episode/7903753/7903753-1596659691414-96727f0afb26d.jpg"/>
+			<itunes:season>1</itunes:season>
+			<itunes:episode>1</itunes:episode>
+			<itunes:episodeType>full</itunes:episodeType>
+		</item>
+	</channel>
+</rss>

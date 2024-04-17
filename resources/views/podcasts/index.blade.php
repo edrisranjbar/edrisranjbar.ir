@@ -9,23 +9,26 @@
         </div>
     </div>
     <div class="row">
+        @foreach($episodes as $episode)
         <div class="col-12 col-md-4">
             <div class="card rounded-4 shadow-sm position-relative">
                 <span class="badge bg-primary position-absolute end-0 top-0 m-2">
                     جدید
                 </span>
-                <img src="{{ asset('images/web-browsing.png') }}" alt="" class="card-img-top rounded-top-4 rounded-bottom-0">
+                <img src="{{ asset('images/web-browsing.png') }}" alt=""
+                    class="card-img-top rounded-top-4 rounded-bottom-0">
                 <div class="card-body">
-                    <h5 class="card-title">قسمت اول: هوش مصنوعی ضعیف و قوی</h5>
+                    <h5 class="card-title">{{ $episode->title }}</h5>
                     <p class="card-text">
-                        این قسمت در مورد انواع هوش مصنوعی، تعریف و مشخصات هرکدوم صحبت می کنیم.
+                        {!! $episode->description !!}
                     </p>
-                    <audio controls class="w-100">
-                        <source src="path/to/your/audio.mp3" type="audio/mp3">
+                    <audio controls class="w-100" preload="metadata">
+                        <source src="{{ $episode->file }}" type="{{ $episode->type }}">
                     </audio>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 </main>
 @stop

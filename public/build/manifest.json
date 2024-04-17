@@ -1,6 +1,11 @@
 {
+  "resources/js/analytics-chart.js": {
+    "file": "assets/analytics-chart-4ff95e60.js",
+    "isEntry": true,
+    "src": "resources/js/analytics-chart.js"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-60e61c59.js",
+    "file": "assets/app-46a1ec49.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

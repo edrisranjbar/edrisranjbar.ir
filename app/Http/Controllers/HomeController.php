@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Http;
 use App\Helpers\AppHelper;
 use App\Models\Post;
 use App\Models\Tutorial;
@@ -78,7 +79,34 @@ class HomeController extends Controller
 
     public function podcasts()
     {
-        return view('podcasts.index');
+        $rssFeedUrl = 'http://anchor.fm/s/2fb4c204/podcast/rss';
+        $response = Http::withOptions(['verify' => false])->get($rssFeedUrl);
+        $episodes = [];
+        dd($response);
+        if ($response->successful()) {
+            $xml = simplexml_load_string($response->body());
+            foreach ($xml->channel->item as $item) {
+                $title = (string) $item->title;
+                $description = (string) $item->description;
+                $pubDate = (string) $item->pubDate;
+                $link = (string) $item->link;
+                $file = (string) $item->enclosure['url'];
+                $type = (string) $item->enclosure['type'];
+                $cover = $item->children('itunes', true)->image;
+                $episodes[] = [
+                    'title' => $title,
+                    'description' => $description,
+                    'pubDate' => $pubDate,
+                    'link' => $link,
+                    'file' => $file,
+                    'type' => $type,
+                    'cover' => $cover,
+                ];
+            }
+        }
+        dd($episodes);
+
+        return view('podcasts.index', compact('episodes'));
     }
 
     public function tutorials()
