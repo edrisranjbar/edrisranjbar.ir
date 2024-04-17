@@ -79,31 +79,24 @@ class HomeController extends Controller
 
     public function podcasts()
     {
-        $rssFeedUrl = 'https://anchor.fm/s/2fb4c204/podcast/rss';
-        $response = Http::get($rssFeedUrl);
         $episodes = [];
-        if ($response->successful()) {
-            $xml = simplexml_load_string($response->body());
-            foreach ($xml->channel->item as $item) {
-                $title = (string) $item->title;
-                $description = (string) $item->description;
-                $pubDate = (string) $item->pubDate;
-                $link = (string) $item->link;
-                $file = (string) $item->enclosure['url'];
-                $type = (string) $item->enclosure['type'];
-                $cover = $item->children('itunes', true)->image;
-                $episodes[] = [
-                    'title' => $title,
-                    'description' => $description,
-                    'pubDate' => $pubDate,
-                    'link' => $link,
-                    'file' => $file,
-                    'type' => $type,
-                    'cover' => $cover,
-                ];
-            }
+        $xml = simplexml_load_string(file_get_contents('rss.xml'));
+        foreach ($xml->channel->item as $item) {
+            $title = (string) $item->title;
+            $description = (string) $item->description;
+            $pubDate = (string) $item->pubDate;
+            $link = (string) $item->link;
+            $file = (string) $item->enclosure['url'];
+            $type = (string) $item->enclosure['type'];
+            $episodes[] = [
+                'title' => $title,
+                'description' => $description,
+                'pubDate' => $pubDate,
+                'link' => $link,
+                'file' => $file,
+                'type' => $type,
+            ];
         }
-
         return view('podcasts.index', compact('episodes'));
     }
 
