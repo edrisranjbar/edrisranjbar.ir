@@ -79,10 +79,9 @@ class HomeController extends Controller
 
     public function podcasts()
     {
-        $rssFeedUrl = 'http://anchor.fm/s/2fb4c204/podcast/rss';
-        $response = Http::withOptions(['verify' => false])->get($rssFeedUrl);
+        $rssFeedUrl = 'https://anchor.fm/s/2fb4c204/podcast/rss';
+        $response = Http::get($rssFeedUrl);
         $episodes = [];
-        dd($response);
         if ($response->successful()) {
             $xml = simplexml_load_string($response->body());
             foreach ($xml->channel->item as $item) {
@@ -104,7 +103,6 @@ class HomeController extends Controller
                 ];
             }
         }
-        dd($episodes);
 
         return view('podcasts.index', compact('episodes'));
     }
