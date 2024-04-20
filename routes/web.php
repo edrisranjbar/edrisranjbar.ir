@@ -33,7 +33,7 @@ Route::middleware('analytics')->group(function () {
     Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
     Route::post('contact', [ContactFormController::class, 'store'])->name('contact.store');
     Route::post('comments', [CommentController::class, 'store']);
-    Route::get('donate', [HomeController::class, 'donate']);
+    Route::get('donate', [HomeController::class, 'donate'])->name('donate');
     Route::get('donate/verify', [DonationController::class, 'verify']);
     Route::post('donate', [DonationController::class, 'request'])->name('donation.request');
 });
