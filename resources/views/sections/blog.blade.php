@@ -16,7 +16,7 @@
             <ul class="splide__list">
                 @forelse($posts as $post)
                 <li class="card blog splide__slide">
-                    <a href="{{ $post->link }}">
+                    <a href="{{ $post->link }}" class="w-100">
                         <img src="{{ asset('storage/upload/' . $post->thumbnail) }}"
                              class="card-img-top" alt="{{ $post->title }}">
                     </a>
