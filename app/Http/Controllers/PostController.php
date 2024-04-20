@@ -96,9 +96,21 @@ class PostController extends Controller
             $validatedData['thumbnail'] = $request->thumbnail->hashName();
         }
 
+        // handle tags
+        $tagsArray = explode(',', $request->input('tags', ''));
+        if (!empty($tagsArray)) {
+            $tagsArray = array_map('trim', $tagsArray);
+            $tags = [];
+            foreach ($tagsArray as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                $tags[] = $tag->id;
+            }
+            $post->tags()->sync($tags);
+        }
+
+        $post->categories()->sync($validatedData['categories']);
         unset($validatedData['categories'], $validatedData['tags']);
         $post->update($validatedData);
-        $post->categories()->sync($request->input('categories', []));
 
         return redirect()->route('posts.index')->with('success', 'نوشته مورد نظر با موفقیت ویرایش شد.');
     }

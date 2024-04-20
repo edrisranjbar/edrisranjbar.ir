@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'ادریس رنجبر')</title>
+    {!! seo($SEOData ?? null) !!}
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">

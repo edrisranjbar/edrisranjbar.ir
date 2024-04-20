@@ -5,15 +5,29 @@ namespace App\Models;
 use AndreasElia\Analytics\Models\PageView;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use RalphJSmit\Laravel\SEO\Support\HasSEO;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
+
 
 class Post extends Model
 {
     use HasFactory;
+    use HasSEO;
 
     public const blogLink = "/blog";
 
     protected $guarded = [];
+
+    public function getDynamicSEOData(): SEOData
+    {
+        return new SEOData(
+            title: $this->title,
+            description: $this->getExcerptAttribute(),
+            tags: $this->tags->pluck('name')->toArray(),
+            section: $this->categories?->first?->title,
+            image: $this->thumbnail,
+        );
+    }
 
     public function author()
     {

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Http;
 use App\Helpers\AppHelper;
 use App\Models\Post;
 use App\Models\Tutorial;
@@ -11,9 +10,17 @@ use App\Models\UserTutorialProgress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 class HomeController extends Controller
 {
+    private array $tags = [];
+
+    public function __construct()
+    {
+        $this->tags = ['ادریس رنجبر', 'آموزش برنامه نویسی', 'آموزش طراحی وب سایت', 'طراحی سایت', 'وب سایت ادریس رنجبر'];
+    }
+
     public function index()
     {
         $widgets = $this->getAllWidgets();
@@ -24,7 +31,11 @@ class HomeController extends Controller
         $posts = Post::where(['status' => 'published'])
             ->orderBy('updated_at', 'desc')->get();
         $user = Auth::guard('user')?->user();
-        return view('index', compact('widgets', 'coursesUrl', 'blogUrl', 'tutorials', 'posts', 'user'));
+        $SEOData = new SEOData(
+            tags: $this->tags,
+            image: $widgets['hero']['image']['src'],
+        );
+        return view('index', compact('widgets', 'coursesUrl', 'blogUrl', 'tutorials', 'posts', 'user', 'SEOData'));
     }
 
     public function getAllWidgets()
@@ -63,8 +74,11 @@ class HomeController extends Controller
             ->wherePinned(true)
             ->orderBy('updated_at', 'desc')
             ->take(2)->get();
-
-        return view('blog.index', compact('posts', 'searchQuery', 'pinnedPosts'));
+        $SEOData = new SEOData(
+            title: 'وبلاگ',
+            tags: $this->tags,
+        );
+        return view('blog.index', compact('posts', 'searchQuery', 'pinnedPosts', 'SEOData'));
     }
 
     public function blogPost($slug)
@@ -74,7 +88,8 @@ class HomeController extends Controller
             abort(404);
         }
         $comments = $post->confirmedComments;
-        return view('blog.show', compact('post', 'comments'));
+        $SEOData = $post->getDynamicSEOData();
+        return view('blog.show', compact('post', 'comments', 'SEOData'));
     }
 
     public function podcasts()
@@ -97,13 +112,21 @@ class HomeController extends Controller
                 'type' => $type,
             ];
         }
-        return view('podcasts.index', compact('episodes'));
+        $SEOData = new SEOData(
+            title: 'جت کدکست (پادکست جت کد)',
+            tags: $this->tags,
+        );
+        return view('podcasts.index', compact('episodes', 'SEOData'));
     }
 
     public function tutorials()
     {
         $tutorials = Tutorial::where(['status' => 'published'])->get();
-        return view('tutorials.index', compact('tutorials'));
+        $SEOData = new SEOData(
+            title: 'دوره های آموزشی',
+            tags: array_merge($this->tags, ['دوره آموزشی طراحی سایت', 'آموزش برنامه نویسی']),
+        );
+        return view('tutorials.index', compact('tutorials', 'SEOData'));
     }
 
     public function tutorial(string $slug)
@@ -119,7 +142,8 @@ class HomeController extends Controller
         $lessons = Lesson::where('tutorial_id', $tutorial->id)->first();
         $user = Auth::guard('user')?->user();
         $userHasEnrolled = $user && $user->tutorials->contains($tutorial->id);
-        return view('tutorials.show', compact('tutorial', 'lessons', 'userHasEnrolled'));
+        $SEOData = $tutorial->getDynamicSEOData();
+        return view('tutorials.show', compact('tutorial', 'lessons', 'userHasEnrolled', 'SEOData'));
     }
 
     public function lesson(string $tutorialSlug, string $id)
@@ -141,7 +165,8 @@ class HomeController extends Controller
                 ['progress' => $progress]
             );
         }
-        return view('tutorials.lessons.show', compact('lesson', 'prevLessonURL', 'nextLessonURL', 'progress'));
+        $SEOData = $lesson->getDynamicSEOData();
+        return view('tutorials.lessons.show', compact('lesson', 'prevLessonURL', 'nextLessonURL', 'progress', 'SEOData'));
     }
 
     public function donate()
@@ -149,6 +174,10 @@ class HomeController extends Controller
         $productPrice = 21_200_000;
         $paidAmount = 0;
         $progress = intval($paidAmount / $productPrice * 100);
-        return view('donate', compact('productPrice', 'progress'));
+        $SEOData = new SEOData(
+            title: 'حمایت مالی',
+            tags: array_merge($this->tags, ['حمایت از آموزش های فارسی', 'کمک به محتوای فارسی']),
+        );
+        return view('donate', compact('productPrice', 'progress', 'SEOData'));
     }
 }

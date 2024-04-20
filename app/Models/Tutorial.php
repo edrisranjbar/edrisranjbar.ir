@@ -7,11 +7,15 @@ use Carbon\CarbonInterval;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use RalphJSmit\Laravel\SEO\Support\HasSEO;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 
 class Tutorial extends Model
 
 {
+    use HasSEO;
+
     public const tutorialsLink = '/tutorials';
     protected $casts = [
         'duration' => 'integer',
@@ -30,6 +34,16 @@ class Tutorial extends Model
         'good_for_items',
         'bad_for_items',
     ];
+
+    public function getDynamicSEOData(): SEOData
+    {
+        return new SEOData(
+            title: $this->title,
+            description: $this->getExcerptAttribute(),
+            section: 'دوره های آموزشی',
+            image: $this->thumbnail,
+        );
+    }
 
     public function tutor()
     {
@@ -147,5 +161,4 @@ class Tutorial extends Model
     {
         return $this->hasMany(UserTutorialProgress::class);
     }
-
 }
