@@ -774,8 +774,9 @@ input {
 
 .screen {
     position: relative;
-    background: #3e3e3e;
-    border-radius: 15px;
+    background: #1f1d33;
+    border-radius: 16px;
+    box-shadow: 11px 11px 0px rgba(108, 99, 255, 0.32);
 }
 
 .screen:after {
@@ -798,10 +799,6 @@ input {
     background: #4d4d4f;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-}
-
-.screen-header-right {
-    margin-right: auto;
 }
 
 .screen-header-button {
@@ -830,11 +827,11 @@ input {
 }
 
 .screen-header-ellipsis {
-    width: 8px;
-    height: 8px;
-    margin-left: 2px;
+    width: 18px;
+    height: 18px;
+    margin-left: 4px;
     border-radius: 8px;
-    background: #999;
+    background: #bcbcbc;
 }
 
 .screen-body {
@@ -851,37 +848,11 @@ input {
     flex-direction: column;
 }
 
-.app-title {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    color: var(--white-color);
-    font-size: 26px;
-}
-
-.app-title:after {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: -10px;
-    width: 25px;
-    height: 4px;
-    background: var(--secondary-color);
-}
-
-.app-contact {
-    margin-top: auto;
-    font-size: 8px;
-    color: #888;
-}
-
 .app-form-group {
     margin-bottom: 15px;
 }
 
 .app-form-group.message {
-    margin-top: 40px;
     margin-bottom: 1rem;
 }
 
@@ -890,15 +861,17 @@ input {
 }
 
 .app-form-control {
+    margin: 8px;
     width: 100%;
-    padding: 10px 4px;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #666;
-    color: #ddd;
+    padding: 10px 8px;
+    background: transparent;
+    border: 1px solid #ffffffae;
+    outline: unset;
+    color: var(--pure-white);
     font-size: 14px;
     outline: none;
-    transition: border-color .2s;
+    border-radius: 0;
+    transition: border-color .3s;
 }
 
 .app-form-control::placeholder {
@@ -906,33 +879,18 @@ input {
 }
 
 .app-form-control:focus {
-    border-bottom-color: #ddd;
+    border-color: rgb(255, 255, 255);
 }
 
-.app-form-button:hover {
-    color: var(--secondary-light-color);
+textarea {
+    min-height: 100px;
+    max-height: 400px;
 }
 
-.contact-info {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    color: var(--smoky-white-color);
-    font-size: 1rem;
-}
-
-address {
-    font-size: 1rem;
-    font-style: normal;
-}
-
-.email-link {
-    font-size: 0.85rem;
-    color: #808080;
-}
-
-.send-icon {
-    height: 20px;
-    margin-left: 16px;
+#submit-button {
+    margin: 8px;
+    width: 100%;
+    padding: 10px 8px;
 }
 
 /* Footer */
