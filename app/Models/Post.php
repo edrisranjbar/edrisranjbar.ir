@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use RalphJSmit\Laravel\SEO\Support\SEOData;
-
+use Leshkens\LaravelReadTime\Facades\ReadTime;
 
 class Post extends Model
 {
@@ -17,6 +17,18 @@ class Post extends Model
     public const blogLink = "/blog";
 
     protected $guarded = [];
+
+    public function getTimeToReadAttribute(): string
+    {
+        $timeToRead = ReadTime::parse($this->content);
+        $result = $timeToRead->number . " ";
+        if ($timeToRead->unit === 'second') {
+            $result .= 'ثانیه ای';
+        } else {
+            $result .= 'دقیقه ای';
+        }
+        return $result;
+    }
 
     public function getDynamicSEOData(): SEOData
     {
