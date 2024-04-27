@@ -5,8 +5,7 @@
         <div class="breaker"></div>
         <p class="blog-section-description">این یک متن تستیه، این یک متن تستیه، این یک متن تستیه، این یک
             متن تستیه، این یک متن تستیه...</p>
-        <a href="{{ $blogUrl }}"
-           class="button button-sm button-outline-primary d-inline-block btn-w-icon">
+        <a href="{{ $blogUrl }}" class="button button-sm button-outline-primary d-inline-block btn-w-icon">
             <i class="fa fa-eye me-1"></i>
             مشاهده همه
         </a>
@@ -17,19 +16,21 @@
                 @forelse($posts as $post)
                 <li class="card blog splide__slide">
                     <a href="{{ $post->link }}" class="w-100">
-                        <img src="{{ asset('storage/upload/' . $post->thumbnail) }}"
-                             class="card-img-top" alt="{{ $post->title }}">
+                        <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="card-img-top"
+                            alt="{{ $post->title }}">
                     </a>
                     <div class="card-body">
-                        <div class="small text-muted">
+                        <div class="small text-muted text-right">
                             {{ Jalalian::fromDateTime($post->created_at)->format('d F Y') }}
                         </div>
                         <a href="{{ $post->link }}">
-                            <h3 class="post-title h4">{{ $post->title }}</h3>
+                            <h3 class="post-title">{{ $post->title }}</h3>
                         </a>
                         <p class="post-description card-text">{{ $post->excerpt }}</p>
+                    </div>
+                    <div class="card-footer w-100 border-0">
                         <a href="{{ $post->link }}"
-                           class="button button-sm text-dark button-outline-primary btn-w-icon">
+                            class="button button-sm text-dark button-outline-primary btn-w-icon">
                             <i class="fa fa-solid fa-eye me-1"></i>
                             ادامه مطلب
                         </a>

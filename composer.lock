@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6e77cc6e00d8e282609ea4928b1a98a",
+    "content-hash": "a4ec7fe59e869875502fb121492eb460",
     "packages": [
         {
             "name": "andreaselia/analytics",
@@ -2627,6 +2627,80 @@
                 }
             ],
             "time": "2024-01-28T23:22:08+00:00"
+        },
+        {
+            "name": "leshkens/laravel-read-time",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Leshkens/laravel-read-time.git",
+                "reference": "ad3618e753ba516034f65a86abca1ea3c8a497e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Leshkens/laravel-read-time/zipball/ad3618e753ba516034f65a86abca1ea3c8a497e8",
+                "reference": "ad3618e753ba516034f65a86abca1ea3c8a497e8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.2.5|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Leshkens\\LaravelReadTime\\Providers\\ReadTimeServiceProvider"
+                    ],
+                    "aliases": {
+                        "ReadTime": "ReadTimeFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "Leshkens\\LaravelReadTime\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexey Chugunov",
+                    "email": "web@achugunov.ru",
+                    "homepage": "https://web.achugunov.ru",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package for laravel framework that shows users the approximate time to read content.",
+            "homepage": "https://github.com/leshkens/laravel-read-time",
+            "keywords": [
+                "Minutes",
+                "achugunov",
+                "article",
+                "blog",
+                "content",
+                "laravel",
+                "laravel-read-time",
+                "read",
+                "reading",
+                "time"
+            ],
+            "support": {
+                "issues": "https://github.com/Leshkens/laravel-read-time/issues",
+                "source": "https://github.com/Leshkens/laravel-read-time/tree/v1.4.0"
+            },
+            "time": "2024-04-08T06:37:43+00:00"
         },
         {
             "name": "maennchen/zipstream-php",

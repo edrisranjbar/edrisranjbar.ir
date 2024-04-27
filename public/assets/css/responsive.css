@@ -7,8 +7,8 @@
         text-align: center;
     }
 
-    main > section,
-    main > div {
+    main>section,
+    main>div {
         padding-left: 8px !important;
         padding-right: 8px !important;
     }
@@ -181,7 +181,8 @@
     }
 
     #about p,
-    a {
+    #about a,
+    #blog p {
         font-size: 18px;
         line-height: 1.5;
     }
@@ -199,12 +200,23 @@
         text-align: center;
     }
 
-    #blog .breaker {
-        margin-left: auto;
-        margin-right: auto;
+    .card-body{
+        padding: 8px 4px;
     }
 
-    #blog .blog-left > .btn {
+    #blog .breaker {
+        margin: auto;
+    }
+
+    .blog-right {
+        padding: 0;
+    }
+
+    .post-title {
+        font-size: 18px;
+    }
+
+    #blog .blog-left>.btn {
         margin-bottom: 32px;
     }
 
@@ -314,6 +326,7 @@
     header {
         padding-bottom: 108px;
     }
+
     nav.menu ul {
         display: flex;
         justify-content: flex-end;
@@ -324,12 +337,14 @@
 }
 
 @media screen and (max-width: 1024px) {
-    nav.menu{
+    nav.menu {
         margin-top: 0;
     }
+
     .hamburger-menu-button {
         display: block;
     }
+
     .menu-buttons-wrapper {
         display: none;
     }
@@ -471,7 +486,7 @@
         margin-bottom: 64px;
     }
 
-    .attribute-card > .content {
+    .attribute-card>.content {
         gap: 16px;
     }
 
@@ -517,7 +532,7 @@
         justify-content: center;
     }
 
-    .tutorial-tutor-button-group > button > svg {
+    .tutorial-tutor-button-group>button>svg {
         max-width: 16px;
     }
 
@@ -582,11 +597,12 @@
 }
 
 @media screen and (max-width: 480px) {
-    nav.menu{
+    nav.menu {
         width: 100%;
         overflow: hidden;
     }
-    nav.menu .main-menu-items-wrapper img{
+
+    nav.menu .main-menu-items-wrapper img {
         height: 32px !important;
     }
 
@@ -605,6 +621,30 @@
         margin-top: 16px !important;
         font-size: 16px !important;
         padding: 4px 8px !important;
+    }
+
+    .blog-left {
+        margin-bottom: 16px;
+    }
+
+    #blog .blog-section-description {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .tutorial.card,
+    .blog.card {
+        max-width: 100%;
+    }
+
+    .title {
+        margin: 0 auto 16px auto !important;
+    }
+
+    .post-description,
+    .post-title {
+        min-height: unset;
+        text-align: right;
     }
 
     .post-card-header h1 {
@@ -671,10 +711,11 @@
         display: none;
     }
 
-    .social-icons{
+    .social-icons {
         justify-content: center;
     }
-    footer .title{
+
+    footer .title {
         margin: 0 0 1rem 0 !important;
     }
 }
