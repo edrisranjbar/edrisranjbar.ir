@@ -15,6 +15,8 @@ View::share('hideFooter', true);
         و به تولید محتوای باکیفیت آموزشی درحوزه برنامه نویسی به زبان فارسی کمک کنین
         میتونین به نوبه خودتون سهمی در این پروسه داشته باشین
         و البته یه دلخوشی کوچیک و فانی هم برا منه😍
+        <br>
+        شماره کارت: 6219861910776086
     </p>
     <div class="goal-row">
         <div class="donate-product-card">
@@ -58,7 +60,8 @@ View::share('hideFooter', true);
             <div class="d-flex gap-2">
                 <button class="button button-outline-primary" value="1000000">1,000,000</button>
                 <button class="button button-outline-primary" value="2000000">2,000,000</button>
-                <button class="button button-outline-primary" id="custom-amount-btn" value="250000">مبلغ دلخواه</button>
+                <button class="button button-outline-primary" id="custom-amount-btn" value="250000">مبلغ
+                    دلخواه</button>
             </div>
             <form action="{{ route('donation.request') }}" method="POST" id="donate-form">
                 @csrf
