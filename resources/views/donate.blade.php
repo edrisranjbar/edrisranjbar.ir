@@ -62,7 +62,7 @@ View::share('hideFooter', true);
             </div>
             <form action="{{ route('donation.request') }}" method="POST" id="donate-form">
                 @csrf
-                <input form="donate-form" value="100000" name="amount" type="number" min="10000"
+                <input form="donate-form" value="100000" name="amount" type="number" min="500"
                     class="form-control d-none" id="custom-amount-field">
             </form>
             <button type="submit" id="donate-button" class="button button-primary" form="donate-form">
