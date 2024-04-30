@@ -2,10 +2,6 @@
 @section('title','تنظیمات')
 @section('content')
 <div class="container-fluid">
-    <h3 class="h3 mb-3 fw-normal text-right">
-        <i class="fa fa-gear ml-1"></i>
-        تنظیمات
-    </h3>
     <div class="w-100 bg-white rounded shadow-sm border py-5 px-4">
         <form method="POST" action="{{ route('settings.updateAll') }}" class="row" enctype="multipart/form-data">
             @if (session('success'))
