@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('fetchUrl/', [UrlInfoController::class, 'fetch']);
 Route::delete('admin/comments/{commentId}/deleteReply', [CommentController::class, 'deleteReplyAjax']);
+Route::patch('admin/comments/{commentId}/reply', [CommentController::class, 'replyAjax']);

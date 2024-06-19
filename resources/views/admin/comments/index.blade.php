@@ -65,24 +65,24 @@
 <div class="modal fade text-black" id="reply-modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">ثبت پاسخ</h5>
-                <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form method="post" id="reply-form">
+            <form action="" method="POST" id="reply-form">
+                <div class="modal-header">
+                    <h5 class="modal-title">ثبت پاسخ</h5>
+                    <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
                     @csrf
                     @method('PATCH')
                     <textarea name="reply_message" class="form-control" required>{{ old('reply_message') }}</textarea>
-                </form>
-            </div>
-            <div class="modal-footer justify-content-start">
-                <button type="button" class="btn btn-primary" onclick="saveReply();">
-                    <i class="fa fa-save me-1"></i>
-                    ثبت
-                </button>
-                <button class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
-            </div>
+                </div>
+                <div class="modal-footer justify-content-start">
+                    <button type="button" class="btn btn-primary" onclick="saveReply(event);">
+                        <i class="fa fa-save me-1"></i>
+                        ثبت
+                    </button>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

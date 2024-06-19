@@ -6,6 +6,7 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 class CommentController extends Controller
 {
@@ -24,6 +25,17 @@ class CommentController extends Controller
         $comment->update(['reply_message' => $validatedData['reply_message']]);
         return redirect()->route('comments.index')->with('success', 'پاسخ دیدگاه مورد نظر با موفقیت ثبت شد.');
     }
+    
+    public function replyAjax(Request $request, int $commentId)
+    {
+        $comment = Comment::find($commentId);
+        if (!$comment) return response()->json(['error' => 'متاسفانه دیدگاه مورد نظر یافت نشد'], 404);
+        $validatedData = $request->validate([
+            'reply_message' => 'required'
+        ]);
+        $comment->update(['reply_message' => $validatedData['reply_message']]);
+        return response()->json(['success' => 'بازخورد باموفقیت حذف شد'], 200);
+    }
 
     public function toggleApprovementStatus(int $commentId)
     {
@@ -39,7 +51,8 @@ class CommentController extends Controller
         $comment->update(['reply_message' => '']);
     }
 
-    public function deleteReplyAjax(int $id){
+    public function deleteReplyAjax(int $id)
+    {
         $comment = Comment::findOrFail($id);
         $comment->update(['reply_message' => null]);
         return response()->json(['success' => 'بازخورد باموفقیت حذف شد'], 200);

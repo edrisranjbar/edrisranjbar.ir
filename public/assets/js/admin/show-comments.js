@@ -38,7 +38,33 @@ function openReplyModal(element, id) {
     selectedCommentId = id;
 }
 
-function saveReply() {
-    replyForm.action = `${webBaseUrl}/admin/comments/${selectedCommentId}/reply`;
-    replyForm.submit();
+const saveReply = async (e) => {
+    e.preventDefault();
+
+    const url = `${webBaseUrl}/api/admin/comments/${selectedCommentId}/reply`;
+    const token = document.querySelector('input[name="_token"]').value;
+    const replyMessage = document.querySelector('textarea[name="reply_message"]').value;
+    const method = 'PATCH';
+
+    try {
+        const response = await fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': token,
+            },
+            body: JSON.stringify({
+                reply_message: replyMessage,
+                _method: method
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        window.location.reload();
+    } catch (error) {
+        // Handle errors (e.g., show error message)
+        console.error('There was a problem with the fetch operation:', error);
+    }
 }
