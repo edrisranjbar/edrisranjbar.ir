@@ -18,6 +18,7 @@
                     <div class="screen-body-item">
                         <form autocomplete="off" class="app-form" method="post" action="{{ route('contact.store') }}">
                             @csrf
+                            @honeypot
                             <div class="row m-0 p-0">
                                 <div class="col-12 col-md-6 p-0 m-0 app-form-group">
                                     <input name="name" class="app-form-control" placeholder="نام و نام خانوادگی"

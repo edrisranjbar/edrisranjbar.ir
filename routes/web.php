@@ -1,5 +1,6 @@
 <?php
 
+use Spatie\Honeypot\ProtectAgainstSpam;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactFormController;
@@ -31,7 +32,7 @@ Route::middleware('analytics')->group(function () {
     Route::get('podcasts', [HomeController::class, 'podcasts']);
     Route::get('blog', [HomeController::class, 'blog']);
     Route::get('blog/{slug}', [HomeController::class, 'blogPost'])->name('blog.show');
-    Route::post('contact', [ContactFormController::class, 'store'])->name('contact.store');
+    Route::post('contact', [ContactFormController::class, 'store'])->name('contact.store')->middleware(ProtectAgainstSpam::class);
     Route::post('comments', [CommentController::class, 'store']);
     Route::get('donate', [HomeController::class, 'donate'])->name('donate');
     Route::get('donate/verify', [DonationController::class, 'verify']);
