@@ -20,9 +20,9 @@ View::share('hideFooter', true);
         <br>
         شماره شبا: IR460560611828005279097201
         <br>
-        <h2>برام قهوه بخر</h2>
-        کافیته یه سایت دونیت قهوه است که میتونی خیلی راحت قهوه هدیه بدی. برای من که روش جالبیه.
-        <a href="https://www.coffeete.ir/edris">کافی مهمونم کن</a>
+        <a href="http://www.coffeete.ir/edris">
+            <img class="mt-3" src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="height:80px; width: 280px;" />
+        </a>
     </p>
     <div class="goal-row">
         <div class="donate-product-card">
