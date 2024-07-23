@@ -20,7 +20,7 @@
     line-height: normal;
     text-align: center;
     margin-top: 16px;
-    margin-bottom: 113px;
+    margin-bottom: 48px;
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -253,7 +253,6 @@
         max-width: 100%;
         margin-left: 32px;
         margin-right: 32px;
-        margin-bottom: 48px;
     }
 
     .goal-row {
