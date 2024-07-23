@@ -37,8 +37,6 @@ class LessonController extends Controller
         $validationRules = [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'seoTitle' => 'required|string|max:255',
-            'seoDescription' => 'nullable|string',
             'slug' => 'nullable|string|max:50',
             'order_id' => 'nullable|integer|min:1|max:1000',
             'status' => 'required|in:public,private,draft',
@@ -93,8 +91,6 @@ class LessonController extends Controller
         $validationRules = [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'seoTitle' => 'required|string|max:255',
-            'seoDescription' => 'nullable|string',
             'slug' => 'nullable|string|max:50',
             'order_id' => 'nullable|integer|min:1|max:1000',
             'status' => 'required|in:public,private,draft',
