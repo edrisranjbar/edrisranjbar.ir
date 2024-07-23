@@ -35,30 +35,6 @@
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <h2 class="mt-4 h4">اطلاعات سئو</h2>
-                    <div class="mb-3">
-                        <label for="seoTitle" class="form-label">عنوان سئو</label>
-                        <input type="text" name="seoTitle" id="seoTitle" class="form-control"
-                               value="{{ isset($lesson) ? $lesson->seoTitle : '' }}"
-                               required>
-                        <div class="invalid-feedback">
-                            لطفا عنوان معتبری وارد کنید
-                        </div>
-                        @error('seoTitle')
-                        <p class="text-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="seoDescription" class="form-label">توضیحات سئو</label>
-                        <textarea name="seoDescription" id="seoDescription"
-                                  class="form-control">{{ isset($lesson) ? $lesson->seoDescription : '' }}</textarea>
-                        <div class="invalid-feedback">
-                            لطفا توضیحات معتبری وارد کنید
-                        </div>
-                        @error('seoDescription')
-                        <p class="text-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="w-100 p-3 bg-white rounded shadow-sm border">
@@ -131,8 +107,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="thumbnail" class="form-label">تصویر بند انگشتی</label>
-                            <input type="file" name="thumbnail" id="thumbnail" class="form-control"
-                                   @if(!isset($lesson)) required @endif>
+                            <input type="file" name="thumbnail" id="thumbnail" class="form-control">
                             <div class="invalid-feedback">
                                 لطفا تصویر معتبری انتخاب کنید
                             </div>
