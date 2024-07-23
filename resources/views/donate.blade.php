@@ -24,33 +24,6 @@ View::share('hideFooter', true);
             <img class="mt-3" src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="height:80px; width: 280px;" />
         </a>
     </p>
-    <div class="goal-row">
-        <div class="donate-product-card">
-            <div>
-                <img class="donate-product-thumbnail" src="{{ asset('images/monitor.jpg') }}" alt="محصول">
-            </div>
-            <div>
-                <h2 class="donate-product-title">مانیتور LG-34-inch-34WQ650</h2>
-                <p class="donate-product-description">
-                    یکی از لوازم ضروری، یه مانیتور اضافی برای داشتن اسنیپیت ها، ترک کردن OBS و... هست.
-                </p>
-            </div>
-        </div>
-
-        <div class="donate-progress-card">
-            <h3 class="donation-title">تا خرید مانیتور با کیفیت</h3>
-            <div class="progress-wrapper">
-                <span class="donate-progress-percentage">{{ $progress }}%</span>
-                <div class="donate-progress-bar">
-                    <span class="donate-progress-fill" style="width: max(43px, {{ $progress }}%);"></span>
-                </div>
-            </div>
-            <div class="donate-price-wrapper">
-                <span class="price">{{ $productPrice }}</span>
-                <span class="price">0</span>
-            </div>
-        </div>
-    </div>
 
     <section class="donate-options">
         <h2>مبلغ پرداختی شما:</h2>
