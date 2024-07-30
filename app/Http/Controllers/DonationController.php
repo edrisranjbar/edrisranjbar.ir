@@ -23,7 +23,7 @@ class DonationController extends Controller
         $response = zarinpal()
             ->amount($validatedData['amount'])
             ->request()
-            ->description('حمایت مالی' . $validatedData['name'])
+            ->description(' حمایت مالی ' . $validatedData['name'])
             ->callbackUrl('https://edrisranjbar.ir/donate/verify')
             ->email($email)
             ->send();
