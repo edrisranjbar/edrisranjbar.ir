@@ -13,8 +13,8 @@ class DonationController extends Controller
     {
         $validatedData = $request->validate([
             'amount' => 'required|integer|max:100000000|min:1000',
-            'name' => 'nullable,max:20',
-            'description'=> 'nullable,max:255',
+            'name' => 'nullable|max:20',
+            'description'=> 'nullable|max:255',
         ]);
 
         // todo: get current user email if logged in
