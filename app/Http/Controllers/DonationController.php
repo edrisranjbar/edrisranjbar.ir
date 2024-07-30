@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 use \Auth;
 
@@ -11,7 +12,9 @@ class DonationController extends Controller
     public function request(Request $request)
     {
         $validatedData = $request->validate([
-            'amount' => 'required|integer|max:100000000'
+            'amount' => 'required|integer|max:100000000|min:1000',
+            'name' => 'nullable,max:20',
+            'description'=> 'nullable,max:255',
         ]);
 
         // todo: get current user email if logged in
@@ -20,8 +23,8 @@ class DonationController extends Controller
         $response = zarinpal()
             ->amount($validatedData['amount'])
             ->request()
-            ->description('حمایت مالی')
-            ->callbackUrl('http://edrisranjbar.ir/donate/verify')
+            ->description('حمایت مالی' . $validatedData['name'])
+            ->callbackUrl('https://edrisranjbar.ir/donate/verify')
             ->email($email)
             ->send();
 
@@ -29,10 +32,17 @@ class DonationController extends Controller
             return back()->with('error', $response->error()->message());
         }
 
+        $authority = $response->authority();
         Transaction::create([
             'amount' => $validatedData['amount'],
-            'Authority' => $response->authority()
+            'Authority' => $authority
         ]);
+        $donation = Donation::create([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'amount' => $validatedData['amount'],
+        ]);
+        session(['donation_id' => $donation->id]);
 
         return $response->redirect();
     }
@@ -62,8 +72,13 @@ class DonationController extends Controller
             'Status' => $status,
             'referenceId' => $response->referenceId()
         ]);
-
+        $donation = Donation::findOrFail(session('donation_id'));
+        $donation->update([
+            'transaction_id' => $response->referenceId(),
+            'status' => 'completed'
+        ]);
+        session()->forget('donation_id');
         // todo: redirect to a thanks page
-        return view('donate');
+        return view('donate')->with('success', 'پرداخت با موفقیت انجام شد');
     }
 }

@@ -46,6 +46,8 @@ View::share('hideFooter', true);
                 @csrf
                 <input form="donate-form" value="100000" name="amount" type="number" min="1000"
                     class="form-control d-none" id="custom-amount-field">
+                <input type="text" name="name" class="form-control mb-2" placeholder="نام: اختیاری" maxlength="20">
+                <textarea name="description" maxlength="500" class="form-control" placeholder="اگه دوست داشتی میتونی اینجا توضیحاتی که میخوای رو بنویسی"></textarea>
             </form>
             <button type="submit" id="donate-button" class="button button-primary" form="donate-form">
                 همین الان پرداخت کن
