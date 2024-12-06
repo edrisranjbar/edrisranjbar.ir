@@ -28,3 +28,10 @@ shareButton.addEventListener('click', () => {
     const toast = new bootstrap.Toast(document.getElementById('successToast'));
     toast.show();
 })
+
+const copyText = document.getElementById('copyText');
+copyText.addEventListener('click', function () {
+    navigator.clipboard.writeText(copyText.textContent)
+    const CopyWalletToast = new bootstrap.Toast(document.getElementById('walletToast'));
+    CopyWalletToast.show();
+});

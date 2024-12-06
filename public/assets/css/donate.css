@@ -242,6 +242,34 @@
     z-index: -2;
 }
 
+.ton-qr{
+    border-radius: 16px;
+    padding: 16px;
+    background-color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    gap: 16px;
+    width: 300px;
+    word-wrap: break-word;
+    direction: ltr;
+}
+.ton-qr img{
+    height: auto;
+    width: 250px;
+}
+.ton-qr p{
+    cursor: pointer;
+    width: 100%;
+}
+
+.buy-coffee-section {
+    margin: auto;
+    text-align: center;
+}
+
 @media screen and (max-width:720px) {
     .donate-page-title {
         font-size: 36px;

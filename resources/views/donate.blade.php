@@ -15,14 +15,20 @@ View::share('hideFooter', true);
         و به تولید محتوای باکیفیت آموزشی درحوزه برنامه نویسی به زبان فارسی کمک کنین
         میتونین به نوبه خودتون سهمی در این پروسه داشته باشین
         و البته یه دلخوشی کوچیک و فانی هم برا منه😍
-        <br>
+        <br><br>
         شماره کارت: 6219861910776086
         <br>
         شماره شبا: IR460560611828005279097201
         <br>
-        <a href="http://www.coffeete.ir/edris">
-            <img class="mt-3" src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="height:80px; width: 280px;" />
-        </a>
+        <div class="ton-qr">
+            <img src="{{ asset('images/ton.png') }}" loading="lazy">
+            <p id="copyText">UQCUB98e5ZwK0bdyHYueeqxWAS_c_72LoIovZNiXYOVJpre-</p>
+        </div>
+        <div class="buy-coffee-section">
+            <a href="http://www.coffeete.ir/edris">
+                <img class="mt-3" src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="height:80px; width: 280px;" />
+            </a>
+        </div>
     </p>
 
     <section class="donate-options">
@@ -79,6 +85,18 @@ View::share('hideFooter', true);
         <div class="d-flex">
             <div class="toast-body">
                 لینک صفحه حمایت باموفقیت کپی شد
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+<div class="toast-container position-fixed bottom-0 start-0 p-3">
+    <div class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true"
+        id="walletToast">
+        <div class="d-flex">
+            <div class="toast-body">
+                آدرس کیف پول باموفقیت کپی شد
             </div>
             <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
                 aria-label="Close"></button>
