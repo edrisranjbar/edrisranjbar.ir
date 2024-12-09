@@ -17,6 +17,7 @@ use App\Http\Controllers\CourseSectionController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TutorialController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\WishlistController;
 
@@ -56,6 +57,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('tutorials', TutorialController::class);
+    Route::get('students', [StudentController::class, 'index'])->name('students.index');
     Route::resource('courseSections', CourseSectionController::class);
     Route::resource('lessons', LessonController::class);
     Route::patch('settings', [SettingController::class, 'updateAll'])->name('settings.updateAll');

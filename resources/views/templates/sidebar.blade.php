@@ -49,14 +49,16 @@
             <i class="fas fa-fw fa-book"></i>
             <span>دوره های آموزشی</span>
         </a>
-        <div id="collapseTutorials" class="collapse" aria-labelledby="collapseTutorials"
-            data-parent="#accordionSidebar">
+        <div id="collapseTutorials" class="collapse" aria-labelledby="collapseTutorials" data-parent="#accordionSidebar">
             <div class="collapse-inner">
                 <a class="collapse-item" href="{{ route('tutorials.index') }}">
                     <span>لیست دوره ها</span>
                 </a>
                 <a class="collapse-item" href="{{ route('lessons.index') }}">
                     <span>درس ها</span>
+                </a>
+                <a class="collapse-item" href="{{ route('students.index') }}">
+                    <span>دانشجویان</span>
                 </a>
             </div>
         </div>
