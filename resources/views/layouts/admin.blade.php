@@ -26,10 +26,10 @@
 <body id="page-top" dir="rtl">
 <div id="wrapper">
     @include('templates.sidebar')
-    <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content-wrapper" class="d-flex flex-column rounded my-3">
         <div id="content">
             <nav
-                    class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow rounded m-3">
                 <button id="sidebarToggleTop" class="btn d-md-none btn-circle">
                     <i class="fa fa-bars"></i>
                 </button>
@@ -64,12 +64,12 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center text-muted my-auto">
-                            <span>
-                                طراحی و توسعه توسط &nbsp;
-                                <a href="https://www.itadbeer.com/" target="_blank">
-                                    <strong>آی‌تدبیر</strong>
-                                </a>
-                            </span>
+                    <span>
+                        طراحی و توسعه توسط
+                        <a href="https://www.itadbeer.com/" target="_blank">
+                            <strong>آی‌تدبیر</strong>
+                        </a>
+                    </span>
                 </div>
             </div>
         </footer>

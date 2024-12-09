@@ -11,10 +11,6 @@ body {
     right: calc(6.5rem + 1.5rem / 2);
 }
 
-.sidebar .nav-item .collapse-inner {
-    background-color: #4e73df;
-}
-
 .btn-w-icon {
     display: flex;
     align-items: center;
@@ -503,10 +499,6 @@ body.sidebar-open {
     right: 0px !important;
 }
 
-.sidebar .collapse:hover {
-    background-color: #304992;
-}
-
 .collapse-inner {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
@@ -519,18 +511,6 @@ body.sidebar-open {
 .sidebar .nav-item .collapse .collapse-inner {
     border-radius: 0;
     box-shadow: none;
-}
-
-.collapse-inner {
-    margin: 0px !important;
-    background-color: #344F9E !important;
-    padding: 0px !important;
-}
-
-.sidebar .nav-item .collapse .collapse-inner .collapse-item {
-    padding: 0.75rem 2.5rem;
-    background-color: #344F9E;
-
 }
 
 .sidebar .nav-item .collapse .collapse-inner,
@@ -564,10 +544,6 @@ body.sidebar-open {
 
 .sidebar .nav-item .collapse {
     right: calc(6.5rem + 1.5rem / 2);
-}
-
-.sidebar .nav-item .collapse-inner {
-    background-color: #4e73df;
 }
 
 
@@ -919,3 +895,74 @@ input#email::placeholder {
 td > p{
     margin-bottom: unset;
 }
+
+
+        /* Modern Dark Sidebar Styles */
+        #accordionSidebar {
+            background-color: #2c2f33;
+            /* Dark Gray */
+            border-radius: 15px;
+            /* Rounded Corners */
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        #accordionSidebar .nav-item {
+            margin: 0.5rem 0;
+            /* Spacing between items */
+        }
+    
+        #accordionSidebar .nav-link {
+            color: #ffffff;
+            /* White text */
+            border-radius: 8px;
+            /* Rounded corners for nav links */
+            padding: 0.8rem 1.2rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    
+        #accordionSidebar .nav-link:hover {
+            background-color: #4c4f56;
+        }
+    
+        #accordionSidebar .collapse-item {
+            color: #bbbbbb;
+            /* Light gray text for collapse items */
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+        }
+    
+        #accordionSidebar .collapse-item:hover {
+            background-color: #4c4f56;
+        }
+    
+        #accordionSidebar .sidebar-divider {
+            border-color: #444;
+            /* Darker gray dividers */
+        }
+    
+        /* Sidebar brand and close button styles */
+        #accordionSidebar .sidebar-brand {
+            background-color: #23272a;
+            /* Darker section for brand */
+            border-radius: 15px 15px 0 0;
+            /* Rounded top corners */
+            color: #ffffff;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    
+        #sidebar-dismiss-button {
+            background: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+    
+        #sidebar-dismiss-button:hover {
+            color: #00b4d8;
+        }
