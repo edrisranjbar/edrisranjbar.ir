@@ -24,12 +24,14 @@ class DashboardController extends Controller
             $date = Jalalian::now()->subDays($i);
             return $date->format('l');
         });
+        $currentWeekViews = [];
+        $currentWeekViewers = [];
         for ($i = 0; $i < 7; $i++) {
-            $currentWeekViews[] = PageView::query()->scopes(['filter' => ["day_" . $i]])->count();
-            $currentWeekViewers[] = PageView::query()->scopes(['filter' => ["day_" . $i]])
-            ->groupBy('session')
-            ->pluck('session')->count();
+            $currentWeekViews[] = PageView::query()->scopes(['filter' => ["day_" . $i]])->count() - array_sum($currentWeekViews);
+            $currentWeekViewers[] = PageView::query()->scopes(['filter' => ["day_" . $i]])->groupBy('session')->pluck('session')->count() - array_sum($currentWeekViewers);
         }
+        $currentWeekViews = array_reverse($currentWeekViews);
+        $currentWeekViewers = array_reverse($currentWeekViewers);
         $totalViews = $currentWeekViews[count($currentWeekViews)-1];
         $totalViewers = $currentWeekViewers[count($currentWeekViewers) - 1];
 
