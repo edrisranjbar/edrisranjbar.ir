@@ -38,7 +38,7 @@
         </div>
 
         <div class="d-flex flex-wrap mt-2">
-            <button type="submit" class="btn btn-w-icon btn-primary mt-2 me-2">
+            <button type="submit" class="btn btn-w-icon btn-dark mt-2 me-2">
                 <i class="fa-solid fa-fw fa-edit me-1"></i>
                 ذخیره تغییرات
             </button>

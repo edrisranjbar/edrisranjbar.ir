@@ -76,7 +76,7 @@
                     <textarea name="reply_message" class="form-control" required>{{ old('reply_message') }}</textarea>
                 </div>
                 <div class="modal-footer justify-content-start">
-                    <button type="button" class="btn btn-primary" onclick="saveReply(event);">
+                    <button type="button" class="btn btn-dark" onclick="saveReply(event);">
                         <i class="fa fa-save me-1"></i>
                         ثبت
                     </button>

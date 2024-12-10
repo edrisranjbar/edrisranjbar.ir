@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="w-100 d-flex justify-content-start mt-3">
-                <button type="submit" class="btn btn-w-icon btn-primary">
+                <button type="submit" class="btn btn-w-icon btn-dark">
                     <i class="fa fa-save ml-1"></i>
                     ذخیره تنظیمات
                 </button>

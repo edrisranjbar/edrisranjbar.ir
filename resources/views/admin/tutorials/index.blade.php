@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="d-flex flex-wrap mb-2">
-            <a class="btn btn-w-icon btn-primary mb-2 me-2" href="{{ route('tutorials.create') }}">
+            <a class="btn btn-w-icon btn-dark mb-2 me-2" href="{{ route('tutorials.create') }}">
                 <i class="fa-solid fa-fw fa-plus me-1"></i>
                 افزودن دوره جدید
             </a>
@@ -37,7 +37,7 @@
                             {{ $tutorial->students->count() }}
                         </td>
                         <td class="align-middle py-2">
-                            <span class="p-2 badge badge-primary">{{ $tutorial->status_label }}</span>
+                            <span class="p-2 badge badge-dark">{{ $tutorial->status_label }}</span>
                         </td>
                         <td class="align-middle py-2">{{ $tutorial->views }}</td>
                         <td class="align-middle py-2">{{ $tutorial->viewers }}</td>
