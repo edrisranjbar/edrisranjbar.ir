@@ -28,23 +28,24 @@
     @include('templates.sidebar')
     <div id="content-wrapper" class="d-flex flex-column rounded my-3">
         <div id="content">
-            <nav
-                    class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow rounded m-3">
+            <nav class="navbar navbar-expand navbar-dark bg-black topbar mb-4 static-top shadow rounded m-3">
                 <button id="sidebarToggleTop" class="btn d-md-none btn-circle">
                     <i class="fa fa-bars"></i>
                 </button>
-                <h1 class="float-end fs-5 mr-5">@yield('title')</h1>
+                <h1 class="float-end fs-4 mr-5 my-0 py-0">@yield('title')</h1>
+
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle ml-2 border rounded" href="#" id="userDropdown"
+                    <li class="dropdown bg-black" data-bs-theme="dark">
+                        <a class="d-flex align-items-center btn btn-dark text-light bg-black dropdown-toggle ml-2 border rounded" href="#" id="userDropdown"
                            role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user fa-sm fa-fw text-gray-600"></i>
-                            <span class="mr-2 d-none d-lg-inline text-dark">
-                                        {{ auth('admin')->user()->fullName }}
-                                    </span>
+                            <span class="mr-2 d-none d-lg-inline">
+                                {{ auth('admin')->user()->fullName }}
+                            </span>
                         </a>
+
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu shadow animated--grow-in text-right"
+                        <div class="dropdown-menu dropdown-menu-dark bg-black animated--grow-in text-right mt-2"
                              aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="{{ route('admin.profile') }}">
                                 <i class="fas fa-user fa-sm fa-fw ml-2 text-gray-600"></i>
@@ -56,8 +57,10 @@
                                 خروج
                             </a>
                         </div>
+                        
                     </li>
                 </ul>
+
             </nav>
             @yield('content')
         </div>

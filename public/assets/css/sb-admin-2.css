@@ -3431,7 +3431,6 @@ input[type=submit].btn-block {
     color: #858796;
     text-align: left;
     list-style: none;
-    background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #e3e6f0;
     border-radius: .35rem
@@ -3602,11 +3601,11 @@ input[type=submit].btn-block {
     padding: .25rem 1.5rem;
     clear: both;
     font-weight: 400;
-    color: #3a3b45;
     text-align: inherit;
     white-space: nowrap;
     background-color: transparent;
-    border: 0
+    border: 0;
+    font-size: 15px;
 }
 
 .dropdown-item:focus,
