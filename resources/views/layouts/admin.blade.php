@@ -26,7 +26,7 @@
 <body id="page-top" dir="rtl">
     <div id="wrapper">
         @include('templates.sidebar')
-        <div id="content-wrapper" class="d-flex flex-column rounded my-3">
+        <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 @include('templates.admin-nav')
                 @yield('content')

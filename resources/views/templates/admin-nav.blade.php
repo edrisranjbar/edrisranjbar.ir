@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand bg-light mb-4 static-top m-3">
+<nav class="navbar navbar-expand bg-light mb-4 static-top">
     <button id="sidebarToggleTop" class="btn btn-light d-md-none btn-circle">
         <i class="fa fa-bars"></i>
     </button>
 
     <ul class="navbar-nav d-flex align-items-center w-100">
         <div class="d-flex justify-content-between w-100">
-            <h1 class="text-dark fs-4 my-0 py-0">@yield('title')</h1>
+            <h1 class="text-dark fs-4 my-0 py-0 d-flex align-items-center">@yield('title')</h1>
             <div class="d-flex align-items-center">
                 <!-- Notification Bell -->
                 <li class="nav-item dropdown no-arrow mx-1">
