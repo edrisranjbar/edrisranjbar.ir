@@ -24,55 +24,22 @@
 </head>
 
 <body id="page-top" dir="rtl">
-<div id="wrapper">
-    @include('templates.sidebar')
-    <div id="content-wrapper" class="d-flex flex-column rounded my-3">
-        <div id="content">
-            <nav class="navbar navbar-expand navbar-dark bg-black topbar mb-4 static-top shadow rounded m-3">
-                <button id="sidebarToggleTop" class="btn d-md-none btn-circle">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <h1 class="text-white float-end fs-4 mr-5 my-0 py-0">@yield('title')</h1>
-
-                <ul class="navbar-nav mr-auto">
-                    <li class="dropdown bg-black" data-bs-theme="dark">
-                        <a class="d-flex align-items-center btn btn-dark text-light bg-black dropdown-toggle ml-2 border rounded" href="#" id="userDropdown"
-                           role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user fa-sm fa-fw text-gray-600"></i>
-                            <span class="mr-2 d-none d-lg-inline">
-                                {{ auth('admin')->user()->fullName }}
-                            </span>
-                        </a>
-
-                        <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-dark bg-black animated--grow-in text-right mt-2"
-                             aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="{{ route('admin.profile') }}">
-                                <i class="fas fa-user fa-sm fa-fw ml-2 text-gray-600"></i>
-                                حساب کاربری
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('admin.logout') }}">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw ml-2 text-gray-600"></i>
-                                خروج
-                            </a>
-                        </div>
-                        
-                    </li>
-                </ul>
-
-            </nav>
-            @yield('content')
+    <div id="wrapper">
+        @include('templates.sidebar')
+        <div id="content-wrapper" class="d-flex flex-column rounded my-3">
+            <div id="content">
+                @include('templates.admin-nav')
+                @yield('content')
+            </div>
         </div>
     </div>
-</div>
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
-<script src="{{ asset('assets/js/sb-admin-2.js') }}"></script>
-<script src="{{ asset('assets/js/sidebar.js') }}" defer></script>
-<script src="{{ asset('assets/js/script.js') }}"></script>
-<script src="{{ asset('assets/js/admin/dynamic-lists.js') }}" defer></script>
-@yield('js')
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sb-admin-2.js') }}"></script>
+    <script src="{{ asset('assets/js/sidebar.js') }}" defer></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/admin/dynamic-lists.js') }}" defer></script>
+    @yield('js')
 </body>
 
 </html>
