@@ -157,7 +157,7 @@
                         </span>
                         <span class="lesson-title fs-5">{{ $lesson->title }}</span>
                     </div>
-                    <span class="lesson-duration">{{ $lesson->duration }} دقیقه</span>
+                    <span class="lesson-duration">{{ $lesson->getDurationHumanReadable() }}</span>
                 </li>
                 @endforeach
             </div>
