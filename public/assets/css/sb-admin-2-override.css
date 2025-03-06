@@ -108,17 +108,17 @@ a:hover {
     padding: 8px 10px
 }
 
-.datatable-bottom > div:first-child,
-.datatable-bottom > nav:first-child,
-.datatable-top > div:first-child,
-.datatable-top > nav:first-child {
+.datatable-bottom>div:first-child,
+.datatable-bottom>nav:first-child,
+.datatable-top>div:first-child,
+.datatable-top>nav:first-child {
     float: left
 }
 
-.datatable-bottom > div:last-child,
-.datatable-bottom > nav:last-child,
-.datatable-top > div:last-child,
-.datatable-top > nav:last-child {
+.datatable-bottom>div:last-child,
+.datatable-bottom>nav:last-child,
+.datatable-top>div:last-child,
+.datatable-top>nav:last-child {
     float: right
 }
 
@@ -196,23 +196,23 @@ a:hover {
     border-collapse: separate
 }
 
-.datatable-table > tbody > tr > td,
-.datatable-table > tbody > tr > th,
-.datatable-table > tfoot > tr > td,
-.datatable-table > tfoot > tr > th,
-.datatable-table > thead > tr > td,
-.datatable-table > thead > tr > th {
+.datatable-table>tbody>tr>td,
+.datatable-table>tbody>tr>th,
+.datatable-table>tfoot>tr>td,
+.datatable-table>tfoot>tr>th,
+.datatable-table>thead>tr>td,
+.datatable-table>thead>tr>th {
     vertical-align: top;
     padding: 8px 10px
 }
 
-.datatable-table > thead > tr > th {
+.datatable-table>thead>tr>th {
     vertical-align: bottom;
     text-align: right;
     border-bottom: 1px solid #d9d9d9
 }
 
-.datatable-table > tfoot > tr > th {
+.datatable-table>tfoot>tr>th {
     vertical-align: bottom;
     text-align: left;
     border-top: 1px solid #d9d9d9
@@ -295,7 +295,7 @@ a:hover {
     display: table
 }
 
-table.datatable-table:focus tr.datatable-cursor > td:first-child {
+table.datatable-table:focus tr.datatable-cursor>td:first-child {
     border-left: 3px #00f solid
 }
 
@@ -573,10 +573,6 @@ body.sidebar-open {
         right: 0;
     }
 
-    .sidebar .nav-item .collapse-inner {
-        background-color: rgba(0, 0, 0, 0.15);
-    }
-
     .sidebar .nav-item .collapse,
     .sidebar .nav-item .collapsing {
         margin: 0;
@@ -618,12 +614,6 @@ body.sidebar-open {
     color: #fff;
 }
 
-.sidebar-dark .nav-item .nav-link:active,
-.sidebar-dark .nav-item .nav-link:focus,
-.sidebar-dark .nav-item .nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.075);
-}
-
 .sidebar-dark .nav-item .nav-link[data-bs-toggle="collapse"]::after {
     color: #fff;
 }
@@ -634,12 +624,6 @@ body.sidebar-open {
     color: #fff;
     border-radius: 0;
 }
-
-.sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
-.sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
-    background-color: rgba(0, 0, 0, 0.075);
-}
-
 #content-wrapper.overlayed {
     filter: brightness(30%);
 }
@@ -892,77 +876,54 @@ input#email::placeholder {
 .max-h-150 {
     max-height: 150px
 }
-td > p{
+
+td>p {
     margin-bottom: unset;
 }
 
 
-        /* Modern Dark Sidebar Styles */
-        #accordionSidebar {
-            background-color: #2c2f33;
-            /* Dark Gray */
-            border-radius: 15px;
-            /* Rounded Corners */
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-    
-        #accordionSidebar .nav-item {
-            margin: 0.5rem 0;
-            /* Spacing between items */
-        }
-    
-        #accordionSidebar .nav-link {
-            color: #ffffff;
-            /* White text */
-            border-radius: 8px;
-            /* Rounded corners for nav links */
-            padding: 0.8rem 1.2rem;
-            transition: background-color 0.3s, color 0.3s;
-        }
-    
-        #accordionSidebar .nav-link:hover {
-            background-color: #4c4f56;
-        }
-    
-        #accordionSidebar .collapse-item {
-            color: #bbbbbb;
-            /* Light gray text for collapse items */
-            padding: 0.5rem 1.5rem;
-            border-radius: 6px;
-        }
-    
-        #accordionSidebar .collapse-item:hover {
-            background-color: #4c4f56;
-        }
-    
-        #accordionSidebar .sidebar-divider {
-            border-color: #444;
-            /* Darker gray dividers */
-        }
-    
-        /* Sidebar brand and close button styles */
-        #accordionSidebar .sidebar-brand {
-            background-color: #23272a;
-            /* Darker section for brand */
-            border-radius: 15px 15px 0 0;
-            /* Rounded top corners */
-            color: #ffffff;
-            font-weight: bold;
-            text-align: center;
-            padding: 1rem 0;
-        }
-    
-        #sidebar-dismiss-button {
-            background: none;
-            color: #ffffff;
-            font-size: 1.2rem;
-            margin-right: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-    
-        #sidebar-dismiss-button:hover {
-            color: #00b4d8;
-        }
+#accordionSidebar {
+    overflow: hidden;
+}
+
+#accordionSidebar .nav-item {
+    margin: 0.5rem 0;
+}
+
+#accordionSidebar .nav-link {
+    padding: 0.8rem 1.2rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#accordionSidebar .nav-link:hover {
+    background-color: #0c3fb4;
+}
+
+#accordionSidebar .collapse-item {
+    /* Light gray text for collapse items */
+    padding: 0.5rem 1.5rem;
+}
+
+
+
+/* Sidebar brand and close button styles */
+#accordionSidebar .sidebar-brand {
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+#sidebar-dismiss-button {
+    background: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#sidebar-dismiss-button:hover {
+    color: #00b4d8;
+}
