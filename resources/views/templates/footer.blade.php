@@ -1,5 +1,5 @@
 <footer class="mt-5">
-    <div class="footer-container container rounded-4 px-3">
+    <div class="footer-container rounded-4 px-3">
         <div class="row">
             <div class="widget col-12 col-md-4">
                 <img src="{{ asset('images/logo.svg') }}" alt="ادریس رنجبر - توسعه دهنده بک اند وب"

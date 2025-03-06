@@ -900,8 +900,8 @@ footer {
 
 footer .footer-container {
     background-color: var(--dark-color);
-    padding-top: 2rem !important;
-    box-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
 }
 
 footer .widget {
