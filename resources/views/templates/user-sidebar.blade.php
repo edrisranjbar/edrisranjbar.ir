@@ -1,4 +1,4 @@
-<ul class="m-0 p-0 navbar-nav sidebar sidebar-dark text-right"
+<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion"
     id="accordionSidebar">
 
     <li class="d-flex d-md-block align-items-center justify-content-between">
