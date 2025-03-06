@@ -48,7 +48,7 @@
             <div class="card post animated-card">
                 <a href="{{ $post->link }}" class="w-100">
                     <img src="{{ asset('storage/upload/' . $post->thumbnail) }}" class="card-img-top"
-                        alt="{{ $post->title }}">
+                        alt="{{ $post->title }}" loading="lazy">
                 </a>
                 <div class="card-body">
                     <div class="small text-muted text-right">
