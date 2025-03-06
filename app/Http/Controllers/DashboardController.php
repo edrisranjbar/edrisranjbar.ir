@@ -16,9 +16,10 @@ class DashboardController extends Controller
     public function index(): View
     {
         $studentsCount = User::all()->count();
-        $postsCount = Post::all()->count();
         $comments = Comment::orderBy('created_at', 'desc')->paginate(30);
-        
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+        $postsCount = Post::all()->count();
+
         // Analytics
         $lastWeekDates = collect(range(6, 0))->map(function ($i) {
             $date = Jalalian::now()->subDays($i);
@@ -44,7 +45,8 @@ class DashboardController extends Controller
                 'totalViews',
                 'currentWeekViews',
                 'currentWeekViewers',
-                'lastWeekDates'
+                'lastWeekDates',
+                'posts'
             ));
     }
 }

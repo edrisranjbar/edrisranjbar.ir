@@ -32,7 +32,7 @@
                 <button id="sidebarToggleTop" class="btn d-md-none btn-circle">
                     <i class="fa fa-bars"></i>
                 </button>
-                <h1 class="float-end fs-4 mr-5 my-0 py-0">@yield('title')</h1>
+                <h1 class="text-white float-end fs-4 mr-5 my-0 py-0">@yield('title')</h1>
 
                 <ul class="navbar-nav mr-auto">
                     <li class="dropdown bg-black" data-bs-theme="dark">
@@ -64,18 +64,6 @@
             </nav>
             @yield('content')
         </div>
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center text-muted my-auto">
-                    <span>
-                        طراحی و توسعه توسط
-                        <a href="https://www.itadbeer.com/" target="_blank">
-                            <strong>آی‌تدبیر</strong>
-                        </a>
-                    </span>
-                </div>
-            </div>
-        </footer>
     </div>
 </div>
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>

@@ -11105,7 +11105,9 @@ a:focus {
 .border-left-dark {
     border-left: .25rem solid #5a5c69 !important
 }
-
+.border-right-dark {
+    border-right: .25rem solid #5a5c69 !important
+}
 .border-bottom-dark {
     border-bottom: .25rem solid #5a5c69 !important
 }
