@@ -40,19 +40,19 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                     <li>
-                        <a class="dropdown-item text-dark" href="http://localhost:8000/user/profile">پروفایل کاربری</a>
+                        <a class="dropdown-item text-dark" href="{{ route('user.profile') }}">پروفایل کاربری</a>
                     </li>
                     <li>
-                        <a class="dropdown-item text-dark" href="http://localhost:8000/user/tutorials">دوره های من</a>
+                        <a class="dropdown-item text-dark" href="{{ route('user.tutorials') }}">دوره های من</a>
                     </li>
                     <li>
-                        <a class="dropdown-item text-dark" href="http://localhost:8000/user/wishlist">علاقه‌مندی ها</a>
+                        <a class="dropdown-item text-dark" href="{{ route('user.wishlist') }}">علاقه‌مندی ها</a>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item text-dark" href="http://localhost:8000/user/logout">خروج</a>
+                        <a class="dropdown-item text-dark" href="{{ route('user.logout') }}">خروج</a>
                     </li>
                 </ul>
             </div>
