@@ -79,7 +79,7 @@
 
                                 <div class="d-flex flex-wrap mt-2">
                                     @if (isset($post))
-                                        <button type="submit" class="btn btn-w-icon btn-dark mt-2 me-2">
+                                        <button type="submit" class="btn btn-w-icon btn-primary mt-2 me-2">
                                             <i class="fa-solid fa-fw fa-edit me-1"></i>
                                             ذخیرۀ تغییرات
                                         </button>
@@ -89,7 +89,7 @@
                                             حذف
                                         </button>
                                     @else
-                                        <button type="submit" class="btn btn-dark mt-2 me-2 btn-w-icon">
+                                        <button type="submit" class="btn btn-primary mt-2 me-2 btn-w-icon">
                                             <i class="fa fa-solid fa-check me-1"></i>
                                             ثبت
                                         </button>
@@ -165,7 +165,7 @@
 
     <!-- templates -->
     <template id="tag-list-item-template">
-        <li class="badge text-btn-dark mb-1">
+        <li class="badge text-btn-primary mb-1">
             <div class="d-flex align-items-center">
                 <span class="list-item-text" data-value-target="#tags-input"></span>
                 <button type='button' class='p-1 ms-1 btn btn-w-icon dl-delete-btn' onclick="removeListItem(this)">

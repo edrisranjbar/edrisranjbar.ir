@@ -92,7 +92,7 @@
                         </div>
                         <div class="d-flex flex-wrap mb-3">
                             @if(isset($tutorial))
-                                <button class="btn btn-w-icon btn-dark mt-2 me-2" type="submit">
+                                <button class="btn btn-w-icon btn-primary mt-2 me-2" type="submit">
                                     <i class="fa-solid fa-fw fa-edit me-1"></i>
                                     بروزرسانی
                                 </button>
@@ -102,7 +102,7 @@
                                     حذف
                                 </a>
                             @else
-                                <button class="btn btn-w-icon btn-dark me-2" type="submit">
+                                <button class="btn btn-w-icon btn-primary me-2" type="submit">
                                     <i class="fa-solid fa-fw fa-check me-1"></i>
                                     ثبت
                                 </button>

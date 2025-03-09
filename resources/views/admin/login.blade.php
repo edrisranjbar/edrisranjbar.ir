@@ -53,7 +53,8 @@
                                         <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    <button class="w-100 btn btn-lg btn-dark" type="submit">
+                                    <button class="w-100 btn btn-lg btn-primary btn-w-icon w-auto" type="submit">
+                                        <i class="fa fa-key me-1"></i>
                                         ورود
                                     </button>
                                     <a class="mt-4 d-block btn-link" href="{{ route('password.reset') }}">

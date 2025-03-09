@@ -26,7 +26,7 @@
                                 <input name="email" id="email" type="email" value="{{ old('email') }}" class="form-control form-control-user">
                             </div>
                             <input type="submit" name="forgot-password-process-submit"
-                                   class="btn btn-dark btn-user btn-block" value="بازیابی رمز عبور">
+                                   class="btn btn-primary btn-user btn-block" value="بازیابی رمز عبور">
                         </form>
                         <hr>
                         <div class="text-center">

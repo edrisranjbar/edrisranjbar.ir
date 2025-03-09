@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="d-flex flex-wrap mb-2">
-            <a class="btn btn-w-icon btn-dark mb-2 me-2"
+            <a class="btn btn-w-icon btn-primary mb-2 me-2"
                href="{{ route('lessons.create') }}">
                 <i class="fa-solid fa-fw fa-plus me-1"></i>
                 افزودن درس جدید

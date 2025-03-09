@@ -83,7 +83,7 @@
             پروفایل کاربری
         </a>
         @else
-        <a class="btn btn-sm btn-dark btn-w-icon" href="{{ route('user.login') }}">
+        <a class="btn btn-sm btn-primary btn-w-icon" href="{{ route('user.login') }}">
             <i class="fa fa-solid fa-sign-in me-1"></i>
             ورود / عضویت
         </a>

@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="text-right">
-                        <button type="submit" class="btn btn-dark">ویرایش</button>
+                        <button type="submit" class="btn btn-primary">ویرایش</button>
                     </div>
                 </div>
 
