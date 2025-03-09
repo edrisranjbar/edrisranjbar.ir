@@ -517,7 +517,7 @@ body.sidebar-open {
 .sidebar .nav-item .collapsing .collapse-inner {
     padding: 0.5rem 0;
     min-width: 10rem;
-    font-size: .85rem;
+    font-size: inherit;
     margin: 0 0 1rem 0;
 }
 

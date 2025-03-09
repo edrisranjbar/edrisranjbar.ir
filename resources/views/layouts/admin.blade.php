@@ -35,8 +35,6 @@
     </div>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('assets/js/sb-admin-2.js') }}"></script>
-    <script src="{{ asset('assets/js/sidebar.js') }}" defer></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="{{ asset('assets/js/admin/dynamic-lists.js') }}" defer></script>
     @yield('js')
