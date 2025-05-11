@@ -6,13 +6,15 @@
                 style="height: 48px; width: auto;">
         </a>
         <ul class="mb-0">
-            @foreach ($navbarItems as $navbarItem)
-            <li class="nav-item {{ $navbarItem->route === url()->full() ? 'active' : '' }}">
-                <a href="{{ url($navbarItem->route) }}">
-                    {{ $navbarItem->name }}
-                </a>
+            <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
+                <a href="{{ url('/') }}">خانه</a>
             </li>
-            @endforeach
+            <li class="nav-item {{ request()->is('blog*') ? 'active' : '' }}">
+                <a href="{{ url('/blog') }}">بلاگ</a>
+            </li>
+            <li class="nav-item {{ request()->is('podcasts*') ? 'active' : '' }}">
+                <a href="{{ url('/podcasts') }}">پادکست</a>
+            </li>
         </ul>
     </div>
 
@@ -34,16 +36,12 @@
             <div class="dropdown">
                 <button class="btn btn-outline-primary dropdown-toggle" id="profileDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="http://localhost:8000/storage/upload/vvvvZhPKjKAysTC24y2OqaLjMzAYKkJT2ObefDGw.jpg"
-                        alt="ادریس رنجبر" class="user-profile-photo">
-                    ادریس رنجبر
+                    <img src="{{ $user->profile_photo }}" alt="{{ $user->name }}" class="user-profile-photo">
+                    {{ $user->name }}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                     <li>
                         <a class="dropdown-item text-dark" href="{{ route('user.profile') }}">پروفایل کاربری</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-dark" href="{{ route('user.tutorials') }}">دوره های من</a>
                     </li>
                     <li>
                         <a class="dropdown-item text-dark" href="{{ route('user.wishlist') }}">علاقه‌مندی ها</a>
@@ -69,13 +67,15 @@
 <nav class="hamburger-menu-container" style="opacity: 0">
     <img src="{{ asset('images/logo.svg') }}" alt="ادریس رنجبر - توسعه دهنده بک اند وب"
         style="height: 48px; width: auto;">
-    @foreach ($navbarItems as $navbarItem)
-    <div class="{{ $navbarItem->route === url()->full() ? 'active' : '' }}">
-        <a href="{{ url($navbarItem->route) }}">
-            {{ $navbarItem->name }}
-        </a>
+    <div class="{{ request()->is('/') ? 'active' : '' }}">
+        <a href="{{ url('/') }}">خانه</a>
     </div>
-    @endforeach
+    <div class="{{ request()->is('blog*') ? 'active' : '' }}">
+        <a href="{{ url('/blog') }}">بلاگ</a>
+    </div>
+    <div class="{{ request()->is('podcasts*') ? 'active' : '' }}">
+        <a href="{{ url('/podcasts') }}">پادکست</a>
+    </div>
     <div class="hamburger-menu-footer">
         @auth('user')
         <a class="btn btn-primary btn-w-icon" href="{{ route('user.profile') }}">

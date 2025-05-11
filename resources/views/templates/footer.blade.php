@@ -27,11 +27,6 @@
                             پادکست
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ url('tutorials') }}">
-                            دوره ها
-                        </a>
-                    </li>
                 </ul>
             </div>
             <div class="widget col-12 col-md-4">

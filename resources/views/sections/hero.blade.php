@@ -17,15 +17,4 @@
             <a class="button button-outline-white" href="{{ $blogUrl }}">وبلاگ</a>
         </div>
     </div>
-    <div class="students">
-        <p>کارآموزان دوره ها</p>
-        <div class="d-flex">
-            <div class="student-profiles">
-                @foreach($widgets['hero']['students'] as $student)
-                    <img src="{{ $student['src'] }}" class="student-profile">
-                @endforeach
-            </div>
-            <span style="direction: ltr;">+{{ count($widgets['hero']['students']) }}</span>
-        </div>
-    </div>
 </section>

@@ -9,9 +9,10 @@
         <img src="{{ asset('images/arrow.svg') }}" class="arrow">
     </section>
     @include('sections.skills')
-    @include('sections.tutorials')
     @include('sections.about')
-    @include('sections.blog')
+    <div class="container-fluid px-4">
+        @include('sections.blog')
+    </div>
     @include('sections.contact')
 </main>
 @stop()

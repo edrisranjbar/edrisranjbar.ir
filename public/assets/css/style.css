@@ -426,6 +426,17 @@ img.profile {
     margin-bottom: 64px;
 }
 
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 75px;
+    color: var(--white-color);
+    text-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
 .students {
     position: absolute !important;
     background-color: var(--white-color);
@@ -471,18 +482,6 @@ img.profile {
     border-radius: 50%;
 }
 
-
-.title {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 75px;
-    color: var(--white-color);
-    text-shadow: 2px 4px 64px rgba(108, 99, 255, 0.32);
-    margin-top: 16px;
-    margin-bottom: 16px;
-}
-
 /* Skills */
 #skills {
     display: flex;
@@ -490,6 +489,23 @@ img.profile {
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+.skills-box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.skills-box > div {
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
 }
 
 .skill-box {
@@ -500,19 +516,19 @@ img.profile {
     height: 250px;
     background-color: var(--white-color);
     display: flex;
-    padding: 43px 0 43px 0;
+    padding: 43px 0;
     aspect-ratio: 1/1;
-}
-
-.skills-box {
-    display: flex;
-    flex-direction: row;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 1000px;
     width: 100%;
 }
 
-.skills-box>div {
-    justify-content: center;
-    align-items: center;
+.skill-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+    border-color: var(--primary-dark-color);
 }
 
 .skill-box .icon-box {
@@ -524,11 +540,23 @@ img.profile {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease-in-out;
+    transform: translateZ(20px);
+}
+
+.skill-box:hover .icon-box {
+    background-color: var(--secondary-color);
+    transform: translateZ(30px) scale(1.1);
 }
 
 .skill-box .icon-box img {
     width: 80px;
     height: 80px;
+    transition: all 0.3s ease-in-out;
+}
+
+.skill-box:hover .icon-box img {
+    transform: scale(1.1);
 }
 
 .skill-box p {
@@ -540,7 +568,31 @@ img.profile {
     align-items: center;
     text-align: center;
     color: var(--semi-dark-color);
+    transition: all 0.3s ease-in-out;
+    transform: translateZ(10px);
 }
+
+.skill-box:hover p {
+    color: var(--primary-dark-color);
+    transform: translateZ(20px);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.skill-box:nth-child(1) { animation: float 6s ease-in-out infinite; }
+.skill-box:nth-child(2) { animation: float 6s ease-in-out infinite 0.5s; }
+.skill-box:nth-child(3) { animation: float 6s ease-in-out infinite 1s; }
+.skill-box:nth-child(4) { animation: float 6s ease-in-out infinite 1.5s; }
 
 .waves {
     position: absolute;

@@ -5,7 +5,6 @@ namespace App\Providers;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
-use App\Models\Navbar;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,8 +30,6 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('http');
         }
         View::composer('*', function ($view) {
-            $navbarItems = Navbar::orderBy('ordering')->get();
-            $view->with('navbarItems', $navbarItems);
             $view->with('user', Auth::guard('user')?->user());
         });
     }
