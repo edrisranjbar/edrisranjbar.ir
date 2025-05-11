@@ -13,6 +13,5 @@
     <div class="container-fluid px-4">
         @include('sections.blog')
     </div>
-    @include('sections.contact')
 </main>
 @stop()

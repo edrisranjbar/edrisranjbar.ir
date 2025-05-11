@@ -10,11 +10,11 @@
         <p class="hero-title">{!! $widgets['hero']['title'] !!}</p>
         <p class="hero-description">{!! $widgets['hero']['description'] !!}</p>
         <div class="d-flex gap-2 text-light justify-content-center justify-content-lg-start">
-            <a class="button button-primary btn-w-icon" href="{{ $coursesUrl }}">
-                <i class="fa-solid fa-person-chalkboard me-1"></i>
-                مشاهده دوره ها
+            <a class="button button-primary btn-w-icon" href="https://www.youtube.com/@EdiCodes" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-youtube me-1"></i>
+                مشاهده ویدیو ها
             </a>
-            <a class="button button-outline-white" href="{{ $blogUrl }}">وبلاگ</a>
+            <a class="button button-outline-white" href="{{ url('/blog') }}">وبلاگ</a>
         </div>
     </div>
 </section>
