@@ -27,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         if($this->app->environment('production')) {
             URL::forceScheme('https');
+        } else {
+            URL::forceScheme('http');
         }
         View::composer('*', function ($view) {
             $navbarItems = Navbar::orderBy('ordering')->get();
