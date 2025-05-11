@@ -12,8 +12,8 @@
             <li class="nav-item {{ request()->is('blog*') ? 'active' : '' }}">
                 <a href="{{ url('/blog') }}">بلاگ</a>
             </li>
-            <li class="nav-item {{ request()->is('tutorials*') ? 'active' : '' }}">
-                <a href="{{ url('/tutorials') }}">ویدیو ها</a>
+            <li class="nav-item">
+                <a href="https://www.youtube.com/@EdiCodes" target="_blank" rel="noopener noreferrer">ویدیو ها</a>
             </li>
             <li class="nav-item {{ request()->is('donate*') ? 'active' : '' }}">
                 <a href="{{ url('/donate') }}">حمایت مالی</a>
@@ -76,8 +76,8 @@
     <div class="{{ request()->is('blog*') ? 'active' : '' }}">
         <a href="{{ url('/blog') }}">بلاگ</a>
     </div>
-    <div class="{{ request()->is('tutorials*') ? 'active' : '' }}">
-        <a href="{{ url('/tutorials') }}">ویدیو ها</a>
+    <div>
+        <a href="https://www.youtube.com/@EdiCodes" target="_blank" rel="noopener noreferrer">ویدیو ها</a>
     </div>
     <div class="{{ request()->is('donate*') ? 'active' : '' }}">
         <a href="{{ url('/donate') }}">حمایت مالی</a>
