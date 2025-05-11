@@ -1,7 +1,6 @@
 <nav class="menu">
     <div class="main-menu-items-wrapper">
         <a href="{{ url('/') }}">
-            <span class="d-none">ادریس رنجبر</span>
             <img src="{{ asset('images/logo.svg') }}" alt="ادریس رنجبر - توسعه دهنده بک اند وب"
                 style="height: 48px; width: auto;">
         </a>
