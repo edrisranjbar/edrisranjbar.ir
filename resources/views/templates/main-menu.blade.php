@@ -32,39 +32,6 @@
             </svg>
         </label>
     </div>
-
-    <div class="menu-buttons-wrapper">
-        @auth('user')
-        <div class="navbar-nav navbar-dark ms-auto">
-            <div class="dropdown">
-                <button class="btn btn-outline-primary dropdown-toggle" id="profileDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ $user->profile_photo }}" alt="{{ $user->name }}" class="user-profile-photo">
-                    {{ $user->name }}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <li>
-                        <a class="dropdown-item text-dark" href="{{ route('user.profile') }}">پروفایل کاربری</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-dark" href="{{ route('user.wishlist') }}">علاقه‌مندی ها</a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-dark" href="{{ route('user.logout') }}">خروج</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        @else
-        <a class="button button-sm button-primary btn-w-icon" href="{{ route('user.login') }}">
-            <i class="fa fa-solid fa-sign-in me-1"></i>
-            ورود / عضویت
-        </a>
-        @endauth
-    </div>
 </nav>
 
 <nav class="hamburger-menu-container" style="opacity: 0">
@@ -81,18 +48,5 @@
     </div>
     <div class="{{ request()->is('donate*') ? 'active' : '' }}">
         <a href="{{ url('/donate') }}">حمایت مالی</a>
-    </div>
-    <div class="hamburger-menu-footer">
-        @auth('user')
-        <a class="btn btn-primary btn-w-icon" href="{{ route('user.profile') }}">
-            <i class="fa fa-solid fa-user me-1"></i>
-            پروفایل کاربری
-        </a>
-        @else
-        <a class="btn btn-sm btn-primary btn-w-icon" href="{{ route('user.login') }}">
-            <i class="fa fa-solid fa-sign-in me-1"></i>
-            ورود / عضویت
-        </a>
-        @endauth
     </div>
 </nav>
