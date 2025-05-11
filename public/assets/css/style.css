@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -2530,4 +2534,219 @@ nav a:hover {
     color: var(--primary-color);
     background: rgba(124, 150, 247, 0.1);
     border-radius: 8px;
+}
+
+/* Podcasts Section */
+#podcasts {
+    padding: 4rem 2rem;
+    background-color: var(--dark-color);
+}
+
+.podcasts-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.podcasts-section-description {
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.card.podcast {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.card.podcast:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    #podcasts {
+        padding: 2rem 1rem;
+    }
+    .podcasts-left {
+        text-align: center;
+    }
+}
+
+#donate {
+    padding: 6rem 2rem;
+    background-color: var(--dark-color);
+    position: relative;
+    overflow: hidden;
+}
+
+#donate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(124, 150, 247, 0.1),
+        rgba(255, 255, 255, 0.3),
+        rgba(124, 150, 247, 0.1),
+        transparent
+    );
+}
+
+#donate::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(124, 150, 247, 0.05), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255, 186, 8, 0.05), transparent 40%);
+    pointer-events: none;
+}
+
+.donate-page-title {
+    color: var(--white-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.donate-page-description {
+    color: var(--white-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.ton-qr {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 400px;
+    text-align: center;
+}
+
+.ton-qr img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.ton-qr p {
+    color: var(--white-color);
+    font-size: 0.9rem;
+    opacity: 0.8;
+    word-break: break-all;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ton-qr p:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.donate-options {
+    max-width: 800px;
+    margin: 3rem auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.donate-options h2 {
+    color: var(--white-color);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.donate-options .button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white-color);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    flex: 1;
+}
+
+.donate-options .button:hover,
+.donate-options .button.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.donate-options .form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white-color);
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+}
+
+.donate-options .form-control:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-color);
+    box-shadow: none;
+}
+
+.donate-options .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.donate-options textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.buy-coffee-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.buy-coffee-section img {
+    transition: transform 0.3s ease;
+}
+
+.buy-coffee-section img:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    #donate {
+        padding: 4rem 1rem;
+    }
+    
+    .donate-page-title {
+        font-size: 2rem;
+    }
+    
+    .donate-options {
+        padding: 1.5rem;
+    }
+    
+    .donate-options .d-flex {
+        flex-direction: column !important;
+    }
+    
+    .donate-options .button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
 }

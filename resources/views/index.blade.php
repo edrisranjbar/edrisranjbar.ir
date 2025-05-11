@@ -10,8 +10,7 @@
     </section>
     @include('sections.skills')
     @include('sections.about')
-    <div class="container-fluid px-4">
-        @include('sections.blog')
-    </div>
+    @include('sections.blog')
+    @include('sections.donate')
 </main>
 @stop()
