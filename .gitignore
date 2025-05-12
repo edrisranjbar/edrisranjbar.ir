@@ -1,27 +1,45 @@
-/vendor/
-node_modules/
-npm-debug.log
-yarn-error.log
+# Backend (Laravel)
+/back-end/vendor/
+/back-end/node_modules/
+/back-end/npm-debug.log
+/back-end/yarn-error.log
+/back-end/public/storage
+/back-end/public/hot
+/back-end/public/build
+/back-end/storage/*.key
+/back-end/.env
+/back-end/Homestead.yaml
+/back-end/Homestead.json
+/back-end/.vagrant
+/back-end/.phpunit.result.cache
+/back-end/public/upload
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+# Frontend (Edicodes)
+/edicodes/node_modules/
+/edicodes/.env
+/edicodes/.env.local
+/edicodes/.env.*.local
+/edicodes/dist/
+/edicodes/build/
+/edicodes/.cache/
+/edicodes/coverage/
+/edicodes/.DS_Store
 
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
-
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
-
-storage/*.key
-.env
-Homestead.yaml
-Homestead.json
-/.vagrant
+# IDE/Editor
 /.idea
-.phpunit.result.cache
-public/upload
-public/build
-composer.lock
+/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# General
+.DS_Store
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+.env.local
+.env.*.local
