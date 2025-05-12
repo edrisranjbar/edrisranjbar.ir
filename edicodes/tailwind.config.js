@@ -19,6 +19,7 @@ export default {
       },
       fontFamily: {
         sans: ['Vazirmatn FD', 'sans-serif'],
+        'vazir': ['Vazir', 'sans-serif'],
       },
     },
   },
