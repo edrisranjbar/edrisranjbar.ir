@@ -5,56 +5,87 @@
         <!-- Contact Form -->
         <div class="bg-black/40 p-8 rounded-2xl border border-white/5">
           <h2 class="text-3xl font-bold mb-8 text-white">ارسال پیام</h2>
+          
+          <!-- Success Message -->
+          <div v-if="showSuccess" class="mb-6 p-4 bg-primary/10 border border-primary/20 rounded-lg">
+            <p class="text-primary flex items-center gap-2">
+              <font-awesome-icon icon="check-circle" />
+              پیام شما با موفقیت ارسال شد. در اسرع وقت پاسخ خواهم داد.
+            </p>
+          </div>
+
+          <!-- Error Message -->
+          <div v-if="error" class="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+            <p class="text-red-500 flex items-center gap-2">
+              <font-awesome-icon icon="exclamation-circle" />
+              {{ error }}
+            </p>
+          </div>
+
           <form @submit.prevent="handleSubmit" class="space-y-6">
             <div class="grid md:grid-cols-2 gap-4">
               <div>
-                <label for="name" class="block text-sm font-medium text-white/70 mb-2">نام شما</label>
+                <label for="name" class="block text-sm font-medium text-white/70 mb-2">نام شما <span class="text-primary">*</span></label>
                 <input
                   type="text"
                   id="name"
                   v-model="form.name"
+                  :class="{'border-red-500/50': errors.name}"
                   class="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-primary transition-colors"
                   placeholder="نام و نام خانوادگی"
+                  :disabled="isLoading"
                 />
+                <p v-if="errors.name" class="mt-1 text-sm text-red-500">{{ errors.name }}</p>
               </div>
               <div>
-                <label for="email" class="block text-sm font-medium text-white/70 mb-2">ایمیل شما</label>
+                <label for="email" class="block text-sm font-medium text-white/70 mb-2">ایمیل شما <span class="text-primary">*</span></label>
                 <input
                   type="email"
                   id="email"
                   v-model="form.email"
+                  :class="{'border-red-500/50': errors.email}"
                   class="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-primary transition-colors"
                   placeholder="example@domain.com"
                   dir="ltr"
+                  :disabled="isLoading"
                 />
+                <p v-if="errors.email" class="mt-1 text-sm text-red-500">{{ errors.email }}</p>
               </div>
             </div>
             <div>
-              <label for="subject" class="block text-sm font-medium text-white/70 mb-2">موضوع</label>
+              <label for="subject" class="block text-sm font-medium text-white/70 mb-2">موضوع <span class="text-primary">*</span></label>
               <input
                 type="text"
                 id="subject"
                 v-model="form.subject"
+                :class="{'border-red-500/50': errors.subject}"
                 class="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-primary transition-colors"
                 placeholder="موضوع پیام"
+                :disabled="isLoading"
               />
+              <p v-if="errors.subject" class="mt-1 text-sm text-red-500">{{ errors.subject }}</p>
             </div>
             <div>
-              <label for="message" class="block text-sm font-medium text-white/70 mb-2">پیام</label>
+              <label for="message" class="block text-sm font-medium text-white/70 mb-2">پیام <span class="text-primary">*</span></label>
               <textarea
                 id="message"
                 v-model="form.message"
+                :class="{'border-red-500/50': errors.message}"
                 rows="4"
                 class="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-primary transition-colors"
                 placeholder="پیام خود را بنویسید..."
+                :disabled="isLoading"
               ></textarea>
+              <p v-if="errors.message" class="mt-1 text-sm text-red-500">{{ errors.message }}</p>
             </div>
             <button
               type="submit"
-              class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+              :disabled="isLoading"
+              class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <font-awesome-icon icon="paper-plane" />
-              ارسال پیام
+              <font-awesome-icon v-if="isLoading" icon="circle-notch" class="animate-spin" />
+              <font-awesome-icon v-else icon="paper-plane" />
+              {{ isLoading ? 'در حال ارسال...' : 'ارسال پیام' }}
             </button>
           </form>
         </div>
@@ -70,8 +101,8 @@
                 </div>
                 <div>
                   <h3 class="text-white/70 text-sm mb-1">ایمیل</h3>
-                  <a href="mailto:edris.qeshm2@gmail.com" class="text-white hover:text-primary transition-colors" dir="ltr">
-                    edris.qeshm2@gmail.com
+                  <a href="mailto:edrisranjbar.dev@gmail.com" class="text-white hover:text-primary transition-colors" dir="ltr">
+                    edrisranjbar.dev@gmail.com
                   </a>
                 </div>
               </div>
@@ -130,9 +161,81 @@ const form = ref({
   message: ''
 })
 
+const isLoading = ref(false)
+const showSuccess = ref(false)
+const error = ref('')
+const errors = ref({})
+
+const validateForm = () => {
+  errors.value = {}
+  
+  if (!form.value.name.trim()) {
+    errors.value.name = 'لطفاً نام خود را وارد کنید'
+  }
+  
+  if (!form.value.email.trim()) {
+    errors.value.email = 'لطفاً ایمیل خود را وارد کنید'
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.value.email)) {
+    errors.value.email = 'لطفاً یک ایمیل معتبر وارد کنید'
+  }
+  
+  if (!form.value.subject.trim()) {
+    errors.value.subject = 'لطفاً موضوع پیام را وارد کنید'
+  }
+  
+  if (!form.value.message.trim()) {
+    errors.value.message = 'لطفاً پیام خود را وارد کنید'
+  }
+  
+  return Object.keys(errors.value).length === 0
+}
+
+const simulateApiCall = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      // Simulate 90% success rate
+      const shouldSucceed = Math.random() < 0.9
+      if (shouldSucceed) {
+        resolve({ success: true })
+      } else {
+        resolve({ 
+          success: false, 
+          error: 'متأسفانه در ارسال پیام خطایی رخ داد. لطفاً دوباره تلاش کنید.'
+        })
+      }
+    }, 2000) // 2 second delay
+  })
+}
+
 const handleSubmit = async () => {
-  // TODO: Implement form submission logic
-  console.log('Form submitted:', form.value)
+  if (isLoading.value) return
+  
+  error.value = ''
+  showSuccess.value = false
+  
+  if (!validateForm()) return
+  
+  isLoading.value = true
+  
+  try {
+    const response = await simulateApiCall()
+    
+    if (response.success) {
+      showSuccess.value = true
+      form.value = {
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      }
+    } else {
+      error.value = response.error
+    }
+  } catch (err) {
+    error.value = 'متأسفانه در ارسال پیام خطایی رخ داد. لطفاً دوباره تلاش کنید.'
+  } finally {
+    isLoading.value = false
+  }
 }
 
 const scrollToDonate = () => {
