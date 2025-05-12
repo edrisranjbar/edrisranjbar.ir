@@ -5,7 +5,7 @@
         <!-- Logo -->
         <div class="flex-shrink-0">
           <router-link to="/" class="flex items-center">
-            <img src="https://edrisranjbar.ir/images/logo.svg" alt="ادی کدز" class="h-8 w-auto" />
+            <img src="@/assets/images/edicodes.png" alt="ادی کدز" class="h-8 w-auto" />
           </router-link>
         </div>
 

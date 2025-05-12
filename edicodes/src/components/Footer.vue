@@ -6,7 +6,7 @@
         <div>
           <h3 class="text-lg font-semibold mb-4 font-vazir">درباره من</h3>
           <p class="text-white/70 text-sm mb-4 font-vazir">
-            توسعه‌دهنده بک‌اند و هم‌بنیانگذار آی‌تی‌ادبیر. متخصص در لاراول، جنگو و توسعه API.
+            توسعه‌دهنده بک‌اند، مدیر سیستم و متخصص معماری سیستم. متخصص در توسعه API و زیرساخت‌های نرم‌افزاری.
           </p>
         </div>
 
@@ -22,7 +22,7 @@
             </li>
             <li>
               <router-link to="/#blog" class="text-white/70 hover:text-white transition-colors duration-200 text-sm font-vazir flex items-center gap-2">
-                <font-awesome-icon icon="heart" class="w-4 h-4" />
+                <font-awesome-icon icon="book" class="w-4 h-4" />
                 وبلاگ
               </router-link>
             </li>
@@ -66,7 +66,7 @@
           <ul class="space-y-2">
             <li class="flex items-center gap-2 text-white/70 text-sm font-vazir">
               <font-awesome-icon icon="envelope" class="w-4 h-4" />
-              edris.qeshm2@gmail.com
+              edrisranjbar.dev@gmail.com
             </li>
             <li class="flex items-center gap-2 text-white/70 text-sm font-vazir">
               <font-awesome-icon icon="home" class="w-4 h-4" />

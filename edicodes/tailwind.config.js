@@ -18,8 +18,8 @@ export default {
         'pure-white': '#ffffff',
       },
       fontFamily: {
-        sans: ['Vazirmatn FD', 'sans-serif'],
-        'vazir': ['Vazir', 'sans-serif'],
+        sans: ['Vazirmatn', 'sans-serif'],
+        vazir: ['Vazirmatn', 'sans-serif'],
       },
     },
   },
