@@ -43,12 +43,12 @@
           <img
             src="@/assets/images/profile.png"
             alt="ادریس رنجبر"
-            class="w-full max-w-lg mx-auto rounded-2xl shadow-xl"
-            loading="lazy"
+            class="w-64 sm:w-80 md:w-96 lg:w-full max-w-lg mx-auto rounded-2xl shadow-xl"
+            loading="eager"
           />
           <!-- Decorative Elements -->
-          <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
-          <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/20 rounded-full blur-xl"></div>
+          <div class="absolute -top-4 -right-4 w-20 sm:w-24 lg:w-24 h-20 sm:h-24 lg:h-24 bg-primary/20 rounded-full blur-xl"></div>
+          <div class="absolute -bottom-4 -left-4 w-24 sm:w-28 lg:w-32 h-24 sm:h-28 lg:h-32 bg-secondary/20 rounded-full blur-xl"></div>
         </div>
       </div>
     </div>
