@@ -59,3 +59,111 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Contact Form Database Storage
+
+The application includes a database migration for storing contact form submissions. This functionality allows you to:
+
+1. Permanently store all contact submissions in the database
+2. Track metadata like IP address and user agent
+3. Mark messages as read/unread
+4. Generate test data using factories and seeders
+
+### Database Setup
+
+To set up the contacts database:
+
+```bash
+# Run migrations
+php artisan migrate
+
+# Optional: Seed with test data
+php artisan db:seed --class=ContactSeeder
+```
+
+### Database Schema
+
+The `contacts` table has the following structure:
+
+| Column       | Type      | Description                           |
+|--------------|-----------|---------------------------------------|
+| id           | bigint    | Primary key                           |
+| name         | string    | Sender's name                         |
+| email        | string    | Sender's email address                |
+| subject      | string    | Message subject                       |
+| message      | text      | Message content                       |
+| ip_address   | string    | Sender's IP address (nullable)        |
+| user_agent   | string    | Sender's browser info (nullable)      |
+| is_read      | boolean   | Whether message has been read         |
+| created_at   | timestamp | Creation timestamp                    |
+| updated_at   | timestamp | Last update timestamp                 |
+
+### Usage Examples
+
+```php
+// Get all contacts
+$contacts = App\Models\Contact::all();
+
+// Get only unread contacts
+$unreadContacts = App\Models\Contact::unread()->get();
+
+// Mark a contact as read
+$contact = App\Models\Contact::find(1);
+$contact->markAsRead();
+
+// Count unread messages
+$count = App\Models\Contact::unread()->count();
+```
+
+## Testing
+
+Comprehensive tests are included for the contact form API and database functionality:
+
+### Running Tests
+
+```bash
+# Run all tests
+php artisan test
+
+# Run specific test files
+php artisan test --filter=ContactApiTest
+php artisan test --filter=ContactModelTest
+php artisan test --filter=ContactEmailTest
+php artisan test --filter=ContactFactoryTest
+```
+
+### Test Coverage
+
+The tests cover:
+
+1. **API Functionality**
+   - Successful form submission
+   - Validation errors
+   - Error handling
+   - Metadata capture (IP address, User Agent)
+   - Response format
+
+2. **Model Behavior**
+   - Fillable attributes
+   - Data casting (boolean, datetime)
+   - Query scopes (unread)
+   - Helper methods (markAsRead)
+
+3. **Email Notifications**
+   - Email sending verification
+   - Email content verification
+   - Preventing emails on validation failure
+
+4. **Data Generation**
+   - Factory functionality
+   - State modifiers (read/unread)
+   - Seeder reliability
+
+### Test Cases
+
+The test suite includes 14 test cases distributed across 4 test files:
+
+- `ContactApiTest.php`: Tests the API endpoints
+- `ContactModelTest.php`: Tests the Contact model
+- `ContactEmailTest.php`: Tests email notifications
+- `ContactFactoryTest.php`: Tests factories and seeders

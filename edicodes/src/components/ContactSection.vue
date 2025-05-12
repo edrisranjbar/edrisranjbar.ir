@@ -190,21 +190,32 @@ const validateForm = () => {
   return Object.keys(errors.value).length === 0
 }
 
-const simulateApiCall = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      // Simulate 90% success rate
-      const shouldSucceed = Math.random() < 0.9
-      if (shouldSucceed) {
-        resolve({ success: true })
-      } else {
-        resolve({ 
-          success: false, 
-          error: 'متأسفانه در ارسال پیام خطایی رخ داد. لطفاً دوباره تلاش کنید.'
-        })
-      }
-    }, 2000) // 2 second delay
-  })
+const sendContactForm = async (formData) => {
+  try {
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://api.edrisranjbar.ir';
+    const response = await fetch(`${apiBaseUrl}/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+    
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.message || 'خطا در ارسال فرم');
+    }
+    
+    return { 
+      success: true 
+    };
+  } catch (error) {
+    return { 
+      success: false, 
+      error: error.message || 'متأسفانه در ارسال پیام خطایی رخ داد. لطفاً دوباره تلاش کنید.' 
+    };
+  }
 }
 
 const handleSubmit = async () => {
@@ -218,7 +229,13 @@ const handleSubmit = async () => {
   isLoading.value = true
   
   try {
-    const response = await simulateApiCall()
+    const response = await sendContactForm({
+      name: form.value.name,
+      email: form.value.email,
+      subject: form.value.subject,
+      message: form.value.message,
+      timestamp: new Date().toISOString()
+    });
     
     if (response.success) {
       showSuccess.value = true

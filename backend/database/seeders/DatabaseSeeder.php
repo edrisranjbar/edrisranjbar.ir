@@ -19,5 +19,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // Add the ContactSeeder to the seeders list
+        $this->call([
+            ContactSeeder::class,
+        ]);
     }
 }
