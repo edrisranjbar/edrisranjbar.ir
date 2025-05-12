@@ -70,7 +70,7 @@
             :disabled="!isValidAmount"
           >
             <font-awesome-icon icon="credit-card" />
-            پرداخت از طریق زرین‌پال
+            حمایت کنید
           </button>
         </div>
       </div>
