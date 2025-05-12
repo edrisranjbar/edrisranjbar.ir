@@ -70,7 +70,7 @@
             :disabled="!isValidAmount"
           >
             <font-awesome-icon icon="credit-card" />
-            پرداخت از طریق درگاه زرین‌پال
+            پرداخت از طریق زرین‌پال
           </button>
         </div>
       </div>
