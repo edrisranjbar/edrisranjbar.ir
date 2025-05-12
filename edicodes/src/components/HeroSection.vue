@@ -41,9 +41,10 @@
         <!-- Profile Image -->
         <div class="relative order-first lg:order-last">
           <img
-            src="https://edrisranjbar.ir/images/profile.png"
+            src="@/assets/images/profile.png"
             alt="ادریس رنجبر"
             class="w-full max-w-lg mx-auto rounded-2xl shadow-xl"
+            loading="lazy"
           />
           <!-- Decorative Elements -->
           <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
