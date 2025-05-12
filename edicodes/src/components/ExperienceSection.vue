@@ -17,7 +17,7 @@
             <div class="w-5/12 pl-8">
               <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-xl font-bold mb-2">هم‌بنیانگذار و مهندس نرم‌افزار</h3>
-                <p class="text-primary font-semibold mb-2">آی‌تی‌ادبیر</p>
+                <p class="text-primary font-semibold mb-2">آی‌تدبیر</p>
                 <p class="text-gray-600 mb-2">خرداد ۱۴۰۱ - اکنون</p>
                 <ul class="text-gray-700 space-y-2 list-disc list-inside">
                   <li>هدایت استراتژی فنی و توسعه</li>
