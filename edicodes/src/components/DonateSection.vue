@@ -13,10 +13,10 @@
           <!-- Amount Selection -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <button
-              @click="selectPresetAmount(50000)"
+              @click="selectAmount(50000)"
               :class="[
                 'p-4 rounded-lg border transition-all duration-200 text-lg font-medium',
-                amount === 50000 && !isCustomAmount
+                amount === 50000
                   ? 'bg-primary/10 border-primary text-primary'
                   : 'border-white/5 text-white/70 hover:border-primary/50'
               ]"
@@ -24,10 +24,10 @@
               ۵۰,۰۰۰ تومان
             </button>
             <button
-              @click="selectPresetAmount(250000)"
+              @click="selectAmount(250000)"
               :class="[
                 'p-4 rounded-lg border transition-all duration-200 text-lg font-medium relative',
-                amount === 250000 && !isCustomAmount
+                amount === 250000
                   ? 'bg-primary/10 border-primary text-primary'
                   : 'border-white/5 text-white/70 hover:border-primary/50'
               ]"
@@ -36,10 +36,10 @@
               <span class="absolute -top-2 right-2 text-xs bg-primary text-white px-2 py-0.5 rounded-full">پیشنهادی</span>
             </button>
             <button
-              @click="selectPresetAmount(1000000)"
+              @click="selectAmount(1000000)"
               :class="[
                 'p-4 rounded-lg border transition-all duration-200 text-lg font-medium',
-                amount === 1000000 && !isCustomAmount
+                amount === 1000000
                   ? 'bg-primary/10 border-primary text-primary'
                   : 'border-white/5 text-white/70 hover:border-primary/50'
               ]"
@@ -48,43 +48,17 @@
             </button>
           </div>
 
-          <!-- Custom Amount Toggle -->
+          <!-- Amount Input -->
           <div class="mb-8">
-            <button 
-              @click="toggleCustomAmount"
-              :class="[
-                'w-full p-4 rounded-lg border transition-all duration-200 text-base font-medium flex items-center justify-center gap-2',
-                isCustomAmount
-                  ? 'bg-primary/10 border-primary text-primary'
-                  : 'border-white/5 text-white/70 hover:border-primary/50'
-              ]"
-            >
-              <font-awesome-icon :icon="isCustomAmount ? 'times' : 'plus'" />
-              {{ isCustomAmount ? 'بازگشت به مبالغ پیشنهادی' : 'وارد کردن مبلغ دلخواه' }}
-            </button>
-          </div>
-
-          <!-- Custom Amount Input -->
-          <div class="mb-8" v-if="isCustomAmount">
             <div class="relative">
               <input
                 type="number"
-                v-model="customAmount"
+                v-model="amount"
                 placeholder="مبلغ دلخواه (تومان)"
-                class="w-full bg-black/40 border border-white/5 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-primary/50 transition-colors text-left"
+                class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-colors text-center"
                 min="10000"
                 step="10000"
-                @input="updateAmount"
-              />
-            </div>
-          </div>
-          <div class="mb-8" v-else>
-            <div class="relative">
-              <input
-                type="text"
-                :value="formatAmount(amount)"
-                disabled
-                class="w-full bg-black/20 border border-white/5 rounded-lg px-4 py-3 text-white/50 focus:outline-none transition-colors text-center"
+                @input="validateAmount"
               />
             </div>
           </div>
@@ -108,38 +82,19 @@
 import { ref, computed } from 'vue'
 
 const amount = ref(250000)
-const customAmount = ref('')
-const isCustomAmount = ref(false)
 
 const isValidAmount = computed(() => {
-  if (isCustomAmount.value) {
-    return Number(customAmount.value) >= 10000
-  }
-  return amount.value >= 10000
+  return Number(amount.value) >= 10000
 })
 
-const selectPresetAmount = (value) => {
+const selectAmount = (value) => {
   amount.value = value
-  customAmount.value = ''
-  isCustomAmount.value = false
 }
 
-const toggleCustomAmount = () => {
-  isCustomAmount.value = !isCustomAmount.value
-  if (isCustomAmount.value) {
-    customAmount.value = amount.value.toString()
-  } else {
-    amount.value = 250000
-    customAmount.value = ''
+const validateAmount = () => {
+  if (Number(amount.value) < 10000) {
+    amount.value = 10000
   }
-}
-
-const updateAmount = () => {
-  amount.value = Number(customAmount.value)
-}
-
-const formatAmount = (value) => {
-  return new Intl.NumberFormat('fa-IR').format(value) + ' تومان'
 }
 
 const handleDonate = () => {

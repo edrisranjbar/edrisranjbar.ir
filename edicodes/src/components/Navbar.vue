@@ -13,8 +13,7 @@
         <div class="hidden md:flex items-center gap-2 mr-8">
           <router-link 
             to="/" 
-            class="nav-link" 
-            :class="{ 'active': $route.path === '/' }"
+            class="nav-link"
           >
             <font-awesome-icon icon="home" class="ml-1.5" />
             خانه
@@ -27,17 +26,18 @@
             <font-awesome-icon icon="book" class="ml-1.5" />
             وبلاگ
           </router-link>
-          <a 
-            href="https://www.youtube.com/@edrisranjbar" 
-            target="_blank" 
-            class="nav-link"
+          <router-link 
+            to="/#youtube" 
+            class="nav-link" 
+            :class="{ 'active': $route.hash === '#youtube' }"
+            @click="openYouTube"
           >
             <font-awesome-icon :icon="['fab', 'youtube']" class="ml-1.5" />
             یوتیوب
-          </a>
+          </router-link>
           <router-link 
             to="/#donate" 
-            class="nav-link-special" 
+            class="nav-link" 
             :class="{ 'active': $route.hash === '#donate' }"
           >
             <font-awesome-icon icon="heart" class="ml-1.5" />
@@ -80,10 +80,14 @@
             <font-awesome-icon icon="book" class="ml-2" />
             وبلاگ
           </router-link>
-          <a href="https://www.youtube.com/@edrisranjbar" target="_blank" class="mobile-nav-link">
+          <router-link 
+            to="/#youtube" 
+            class="mobile-nav-link" 
+            @click="openYouTubeAndCloseMenu"
+          >
             <font-awesome-icon :icon="['fab', 'youtube']" class="ml-2" />
             یوتیوب
-          </a>
+          </router-link>
           <router-link to="/#donate" class="mobile-nav-link" @click="isOpen = false">
             <font-awesome-icon icon="heart" class="ml-2" />
             حمایت
@@ -98,6 +102,15 @@
 import { ref } from 'vue'
 
 const isOpen = ref(false)
+
+const openYouTube = () => {
+  window.open('https://www.youtube.com/@edrisranjbar', '_blank')
+}
+
+const openYouTubeAndCloseMenu = () => {
+  openYouTube()
+  isOpen.value = false
+}
 </script>
 
 <style scoped>
