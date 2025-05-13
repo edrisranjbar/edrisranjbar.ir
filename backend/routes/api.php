@@ -17,8 +17,14 @@ use App\Http\Controllers\Api\ContactController;
 
 // Contact Form Endpoint
 Route::post('/contact', [ContactController::class, 'store']);
+// Alternative endpoint to avoid ad-blockers
+Route::post('/send-message', [ContactController::class, 'store']);
 
 // Health Check Endpoint
 Route::get('/health', function() {
-    return response()->json(['status' => 'UP']);
+    return response()->json([
+        'success' => true,
+        'message' => 'سیستم فعال است',
+        'status' => 'UP'
+    ]);
 }); 

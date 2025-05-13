@@ -24,7 +24,7 @@ app.use(cors({
     if (!origin) return callback(null, true);
     
     if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      const msg = 'سیاست CORS اجازه دسترسی از این منبع را نمی‌دهد.';
       return callback(new Error(msg), false);
     }
     return callback(null, true);
@@ -32,6 +32,18 @@ app.use(cors({
   credentials: true
 }));
 app.use(bodyParser.json());
+
+// Error handling middleware for JSON parsing errors
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    console.error('JSON parsing error:', err);
+    return res.status(400).json({ 
+      success: false, 
+      message: 'خطا در پردازش اطلاعات ارسالی. لطفاً فرمت JSON را بررسی کنید.' 
+    });
+  }
+  next();
+});
 
 // Create logs directory if it doesn't exist
 const logsDir = path.join(__dirname, 'logs');
@@ -55,11 +67,38 @@ app.post('/contact', async (req, res) => {
   try {
     const { name, email, subject, message, timestamp } = req.body;
     
-    // Validate input
-    if (!name || !email || !subject || !message) {
-      return res.status(400).json({ 
+    // Validate input with detailed error messages
+    const errors = {};
+    let hasErrors = false;
+    
+    if (!name || !name.trim()) {
+      errors.name = ['لطفاً نام خود را وارد کنید'];
+      hasErrors = true;
+    }
+    
+    if (!email || !email.trim()) {
+      errors.email = ['لطفاً ایمیل خود را وارد کنید'];
+      hasErrors = true;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = ['لطفاً یک ایمیل معتبر وارد کنید'];
+      hasErrors = true;
+    }
+    
+    if (!subject || !subject.trim()) {
+      errors.subject = ['لطفاً موضوع پیام را وارد کنید'];
+      hasErrors = true;
+    }
+    
+    if (!message || !message.trim()) {
+      errors.message = ['لطفاً پیام خود را وارد کنید'];
+      hasErrors = true;
+    }
+    
+    if (hasErrors) {
+      return res.status(422).json({ 
         success: false, 
-        message: 'لطفاً تمام فیلدها را پر کنید' 
+        message: 'لطفاً تمام فیلدها را به درستی پر کنید',
+        errors
       });
     }
     
@@ -125,7 +164,21 @@ app.post('/contact', async (req, res) => {
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  return res.status(200).json({ status: 'UP' });
+  try {
+    // Add any health checks here (database, services, etc.)
+    return res.status(200).json({ 
+      success: true, 
+      message: 'سیستم فعال است',
+      status: 'UP' 
+    });
+  } catch (error) {
+    console.error('Health check error:', error);
+    return res.status(500).json({ 
+      success: false, 
+      message: 'خطایی در بررسی وضعیت سیستم رخ داد',
+      status: 'DOWN'
+    });
+  }
 });
 
 // Start the server

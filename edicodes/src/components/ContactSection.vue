@@ -193,7 +193,7 @@ const validateForm = () => {
 const sendContactForm = async (formData) => {
   try {
     const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://api.edrisranjbar.ir';
-    const response = await fetch(`${apiBaseUrl}/contact`, {
+    const response = await fetch(`${apiBaseUrl}/send-message`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -204,6 +204,22 @@ const sendContactForm = async (formData) => {
     const data = await response.json();
     
     if (!response.ok) {
+      // Handle validation errors from the server
+      if (response.status === 422 && data.errors) {
+        // Map backend errors to our frontend errors object
+        const serverErrors = {};
+        if (data.errors.name) serverErrors.name = data.errors.name[0];
+        if (data.errors.email) serverErrors.email = data.errors.email[0];
+        if (data.errors.subject) serverErrors.subject = data.errors.subject[0];
+        if (data.errors.message) serverErrors.message = data.errors.message[0];
+        
+        return { 
+          success: false, 
+          error: data.message || 'لطفاً تمام فیلدها را به درستی پر کنید',
+          validationErrors: serverErrors
+        };
+      }
+      
       throw new Error(data.message || 'خطا در ارسال فرم');
     }
     
@@ -247,6 +263,11 @@ const handleSubmit = async () => {
       }
     } else {
       error.value = response.error
+      
+      // Update validation errors from server if they exist
+      if (response.validationErrors) {
+        errors.value = response.validationErrors
+      }
     }
   } catch (err) {
     error.value = 'متأسفانه در ارسال پیام خطایی رخ داد. لطفاً دوباره تلاش کنید.'
