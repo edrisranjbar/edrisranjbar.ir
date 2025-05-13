@@ -27,6 +27,14 @@
             وبلاگ
           </router-link>
           <router-link 
+            to="/#projects" 
+            class="nav-link" 
+            :class="{ 'active': $route.hash === '#projects' }"
+          >
+            <font-awesome-icon icon="code" class="ml-1.5" />
+            پروژه‌های آزاد
+          </router-link>
+          <router-link 
             to="/#youtube" 
             class="nav-link" 
             :class="{ 'active': $route.hash === '#youtube' }"
@@ -79,6 +87,10 @@
           <router-link to="/#blog" class="mobile-nav-link" @click="isOpen = false">
             <font-awesome-icon icon="book" class="ml-2" />
             وبلاگ
+          </router-link>
+          <router-link to="/#projects" class="mobile-nav-link" @click="isOpen = false">
+            <font-awesome-icon icon="code" class="ml-2" />
+            پروژه‌های آزاد
           </router-link>
           <router-link 
             to="/#youtube" 

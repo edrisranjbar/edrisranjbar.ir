@@ -9,6 +9,9 @@
     <!-- About Me Section -->
     <AboutMeSection />
 
+    <!-- Projects Section -->
+    <ProjectsSection />
+
     <!-- Philosophy Section -->
     <PhilosophySection />
 
@@ -32,6 +35,7 @@ import PhilosophySection from '@/components/PhilosophySection.vue'
 import ExperienceSection from '@/components/ExperienceSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
 import AboutMeSection from '@/components/AboutMeSection.vue'
+import ProjectsSection from '@/components/ProjectsSection.vue'
 </script>
 
 <style scoped>
