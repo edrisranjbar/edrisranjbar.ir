@@ -60,6 +60,17 @@ const router = createRouter({
           props: true
         },
         {
+          path: 'comments',
+          name: 'admin-comments',
+          component: () => import('@/views/admin/comments/CommentsList.vue')
+        },
+        {
+          path: 'comments/:id',
+          name: 'admin-comments-detail',
+          component: () => import('@/views/admin/comments/CommentDetail.vue'),
+          props: true
+        },
+        {
           path: 'categories',
           name: 'admin-categories',
           component: () => import('@/views/admin/categories/CategoriesList.vue')

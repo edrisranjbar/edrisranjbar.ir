@@ -114,6 +114,8 @@ const pageTitle = computed(() => {
     case 'admin-posts': return 'مدیریت مطالب';
     case 'admin-posts-create': return 'ایجاد مطلب جدید';
     case 'admin-posts-edit': return 'ویرایش مطلب';
+    case 'admin-comments': return 'مدیریت دیدگاه‌ها';
+    case 'admin-comments-detail': return 'جزئیات دیدگاه';
     case 'admin-categories': return 'مدیریت دسته‌بندی‌ها';
     case 'admin-categories-create': return 'ایجاد دسته‌بندی جدید';
     case 'admin-categories-edit': return 'ویرایش دسته‌بندی';

@@ -19,6 +19,15 @@
     </router-link>
     
     <router-link 
+      to="/admin/comments" 
+      :class="[$route.path.startsWith('/admin/comments') ? 'bg-primary/20 text-primary' : '']"
+      class="flex items-center py-2 px-3 text-sm text-white/90 rounded-lg hover:bg-white/5 transition-colors duration-150 font-vazir"
+    >
+      <font-awesome-icon icon="comments" class="ml-2 h-5 w-5" />
+      مدیریت دیدگاه‌ها
+    </router-link>
+    
+    <router-link 
       to="/admin/categories" 
       :class="[$route.path.startsWith('/admin/categories') ? 'bg-primary/20 text-primary' : '']"
       class="flex items-center py-2 px-3 text-sm text-white/90 rounded-lg hover:bg-white/5 transition-colors duration-150 font-vazir"

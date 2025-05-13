@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\CommentResource;
 
 class PostResource extends JsonResource
 {
@@ -24,6 +25,8 @@ class PostResource extends JsonResource
             'published' => $this->published,
             'published_at' => $this->published_at,
             'category' => new CategoryResource($this->whenLoaded('category')),
+            'comments' => CommentResource::collection($this->whenLoaded('approvedComments')),
+            'comments_count' => $this->whenCounted('approvedComments'),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

@@ -25,4 +25,12 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     // Blog Management Routes
     Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class);
     Route::apiResource('posts', \App\Http\Controllers\Api\PostController::class);
+    
+    // Comment Management Routes
+    Route::get('/comments', [\App\Http\Controllers\Api\CommentController::class, 'index']);
+    Route::get('/comments/{comment}', [\App\Http\Controllers\Api\CommentController::class, 'show']);
+    Route::put('/comments/{comment}', [\App\Http\Controllers\Api\CommentController::class, 'update']);
+    Route::patch('/comments/{comment}/status', [\App\Http\Controllers\Api\CommentController::class, 'updateStatus']);
+    Route::post('/comments/{comment}/reply', [\App\Http\Controllers\Api\CommentController::class, 'adminReply']);
+    Route::delete('/comments/{comment}', [\App\Http\Controllers\Api\CommentController::class, 'destroy']);
 }); 

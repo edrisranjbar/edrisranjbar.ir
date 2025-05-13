@@ -16,7 +16,9 @@ faBold, faItalic, faUnderline, faHeading, faParagraph, faListUl, faListOl, faAli
 // Block menu icons
 faVideo, faMusic, faTable,
 // File uploader icon
-faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
+faCloudUploadAlt,
+// Comment icons
+faUser, faComments, faCommentSlash, faReply, faClock } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faYoutube, faLinkedin, faTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons'
 
 /* Add icons to the library */
@@ -34,7 +36,9 @@ library.add(
   // Block menu icons
   faVideo, faMusic, faTable,
   // File uploader icon
-  faCloudUploadAlt
+  faCloudUploadAlt,
+  // Comment icons
+  faUser, faComments, faCommentSlash, faReply, faClock
 )
 
 const app = createApp(App)

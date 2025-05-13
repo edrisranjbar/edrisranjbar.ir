@@ -96,6 +96,9 @@
             </div>
           </div>
         </footer>
+        
+        <!-- Comments Section -->
+        <CommentSection v-if="post.id" :post-id="post.id" />
       </article>
     </div>
   </div>
@@ -105,6 +108,7 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
+import CommentSection from '../components/CommentSection.vue';
 
 const route = useRoute();
 const router = useRouter();

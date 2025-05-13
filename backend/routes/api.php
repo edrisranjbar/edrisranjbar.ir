@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\AdminAuthController;
 use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,14 @@ Route::prefix('admin')->group(function () {
                 'update' => 'admin.posts.update',
                 'destroy' => 'admin.posts.destroy',
             ]);
+            
+        // Comment Management Routes
+        Route::get('/comments', [CommentController::class, 'index']);
+        Route::get('/comments/{comment}', [CommentController::class, 'show']);
+        Route::put('/comments/{comment}', [CommentController::class, 'update']);
+        Route::patch('/comments/{comment}/status', [CommentController::class, 'updateStatus']);
+        Route::post('/comments/{comment}/reply', [CommentController::class, 'adminReply']);
+        Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
     });
 });
 
@@ -79,4 +88,8 @@ Route::get('/health', function() {
 // Public Blog routes 
 Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class)->only(['index', 'show']);
 Route::apiResource('posts', \App\Http\Controllers\Api\PostController::class)->only(['index', 'show']);
-Route::get('posts/slug/{slug}', [\App\Http\Controllers\Api\PostController::class, 'findBySlug']); 
+Route::get('posts/slug/{slug}', [\App\Http\Controllers\Api\PostController::class, 'findBySlug']);
+
+// Comment Routes
+Route::post('/comments', [CommentController::class, 'store']);
+Route::get('/posts/{post}/comments', [CommentController::class, 'postComments']); 

@@ -50,4 +50,25 @@ class Post extends Model
     {
         return $query->where('published', true);
     }
+
+    /**
+     * Get the comments for the post.
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * Get the approved root comments for the post.
+     */
+    public function approvedComments()
+    {
+        return $this->hasMany(Comment::class)
+            ->whereNull('parent_id')
+            ->where('status', 'approved')
+            ->with(['replies' => function($query) {
+                $query->where('status', 'approved');
+            }]);
+    }
 }
