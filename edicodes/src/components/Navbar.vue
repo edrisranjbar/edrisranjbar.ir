@@ -19,9 +19,9 @@
             خانه
           </router-link>
           <router-link 
-            to="/#blog" 
+            to="/blog" 
             class="nav-link" 
-            :class="{ 'active': $route.hash === '#blog' }"
+            :class="{ 'active': $route.path.includes('/blog') }"
           >
             <font-awesome-icon icon="book" class="ml-1.5" />
             وبلاگ
@@ -84,7 +84,7 @@
             <font-awesome-icon icon="home" class="ml-2" />
             خانه
           </router-link>
-          <router-link to="/#blog" class="mobile-nav-link" @click="isOpen = false">
+          <router-link to="/blog" class="mobile-nav-link" @click="isOpen = false">
             <font-awesome-icon icon="book" class="ml-2" />
             وبلاگ
           </router-link>

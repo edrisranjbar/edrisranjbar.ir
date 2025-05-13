@@ -10,11 +10,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* Import specific icons */
-import { faEnvelope, faHome, faHeart, faBook, faServer, faDatabase, faDiagramProject, faCode, faBolt, faShield, faPhone, faLocationDot, faPaperPlane, faCreditCard, faBars, faXmark, faExclamationCircle, faCircleNotch, faCheckCircle, faGlobe, faArrowLeft, faRocket } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faHome, faHeart, faBook, faServer, faDatabase, faDiagramProject, faCode, faBolt, faShield, faPhone, faLocationDot, faPaperPlane, faCreditCard, faBars, faXmark, faExclamationCircle, faCircleNotch, faCheckCircle, faGlobe, faArrowLeft, faRocket, faSearch, faCalendar, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faYoutube, faLinkedin, faTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons'
 
 /* Add icons to the library */
-library.add(faEnvelope, faHome, faHeart, faBook, faServer, faDatabase, faDiagramProject, faCode, faBolt, faShield, faGithub, faYoutube, faLinkedin, faPhone, faLocationDot, faPaperPlane, faCreditCard, faBars, faXmark, faExclamationCircle, faCircleNotch, faCheckCircle, faGlobe, faArrowLeft, faRocket)
+library.add(faEnvelope, faHome, faHeart, faBook, faServer, faDatabase, faDiagramProject, faCode, faBolt, faShield, faGithub, faYoutube, faLinkedin, faPhone, faLocationDot, faPaperPlane, faCreditCard, faBars, faXmark, faExclamationCircle, faCircleNotch, faCheckCircle, faGlobe, faArrowLeft, faRocket, faSearch, faCalendar, faTwitter, faTelegram, faChevronDown)
 
 const app = createApp(App)
 

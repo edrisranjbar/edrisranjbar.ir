@@ -18,6 +18,7 @@
     "@headlessui/vue": "^1.7.19",
     "@heroicons/vue": "^2.1.1",
     "@tsparticles/vue3": "^3.0.1",
+    "axios": "^1.9.0",
     "gsap": "^3.12.5",
     "moment-jalaali": "^0.10.4",
     "tsparticles": "^3.8.1",

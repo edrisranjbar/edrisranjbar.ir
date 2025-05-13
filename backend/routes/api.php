@@ -38,4 +38,10 @@ Route::get('/health', function() {
         'message' => 'سیستم فعال است',
         'status' => 'UP'
     ]);
-}); 
+});
+
+// Blog routes
+Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class);
+
+Route::get('posts/slug/{slug}', [\App\Http\Controllers\Api\PostController::class, 'findBySlug']);
+Route::apiResource('posts', \App\Http\Controllers\Api\PostController::class); 
