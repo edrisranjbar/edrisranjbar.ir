@@ -32,8 +32,12 @@ class CommentController extends Controller
             ->when($status === 'trashed', function ($query) {
                 return $query->trashed();
             })
+            // All comments (no filter)
+            ->when($status === 'all', function ($query) {
+                return $query;
+            })
             ->latest()
-            ->paginate(15);
+            ->paginate($request->input('per_page', 15));
         
         return CommentResource::collection($comments);
     }

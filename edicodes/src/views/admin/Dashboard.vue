@@ -310,7 +310,8 @@ const fetchRecentComments = async () => {
     const response = await axios.get(`${API_URL}/api/admin/comments`, {
       params: {
         per_page: 5,
-        sort: '-created_at'
+        sort: '-created_at',
+        status: 'all'
       },
       headers: {
         Authorization: `Bearer ${token}`

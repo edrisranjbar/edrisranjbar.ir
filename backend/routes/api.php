@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\CommentController;
+use App\Http\Controllers\Api\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/profile', [AdminAuthController::class, 'profile']);
         Route::post('/change-password', [AdminAuthController::class, 'changePassword']);
         Route::post('/upload/image', [UploadController::class, 'uploadImage']);
+        
+        // Dashboard
+        Route::get('/dashboard', [DashboardController::class, 'index']);
         
         // Blog Management Routes
         Route::apiResource('categories', CategoryController::class)
