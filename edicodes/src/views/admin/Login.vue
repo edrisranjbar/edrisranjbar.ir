@@ -67,7 +67,7 @@ const handleLogin = async () => {
     error.value = '';
     
     // Call the admin login API
-    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/admin/login`, {
+    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/admin/login`, {
       email: username.value, 
       password: password.value
     });

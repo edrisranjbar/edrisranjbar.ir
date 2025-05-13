@@ -266,7 +266,7 @@ const fetchPosts = async (page = 1) => {
       params.category_id = selectedCategory.value;
     }
     
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/posts`, { 
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/posts`, { 
       params,
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
@@ -290,7 +290,7 @@ const fetchPosts = async (page = 1) => {
 
 const fetchCategories = async () => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/categories`);
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/categories`);
     
     if (response.data && Array.isArray(response.data.data)) {
       categories.value = response.data.data;
@@ -313,7 +313,7 @@ const deletePost = async () => {
   try {
     isDeleting.value = true;
     
-    await axios.delete(`${import.meta.env.VITE_API_URL}/api/posts/${postToDelete.value.id}`, {
+    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/posts/${postToDelete.value.id}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
       }

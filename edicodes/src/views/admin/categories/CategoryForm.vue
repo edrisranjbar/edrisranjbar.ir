@@ -113,7 +113,7 @@ function generateSlug() {
 // Fetch category data if editing
 async function fetchCategory(id) {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/categories/${id}`, {
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/categories/${id}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
       }
@@ -159,7 +159,7 @@ async function saveCategory() {
     if (isEditing.value) {
       // Update existing category
       response = await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/categories/${route.params.id}`, 
+        `${import.meta.env.VITE_API_BASE_URL}/api/categories/${route.params.id}`, 
         categoryData,
         {
           headers: {
@@ -170,7 +170,7 @@ async function saveCategory() {
     } else {
       // Create new category
       response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/categories`, 
+        `${import.meta.env.VITE_API_BASE_URL}/api/categories`, 
         categoryData,
         {
           headers: {

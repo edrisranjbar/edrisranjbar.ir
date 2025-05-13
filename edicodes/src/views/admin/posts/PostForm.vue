@@ -232,7 +232,7 @@ const imageError = ref(false);
 const categories = ref([]);
 
 // API URL
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 const adminApiUrl = computed(() => `${apiUrl}/api/admin`);
 const uploadEndpoint = computed(() => `${adminApiUrl.value}/upload/image`);
 
