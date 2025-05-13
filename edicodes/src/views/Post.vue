@@ -145,7 +145,7 @@ const fetchPost = async (slug) => {
     error.value = null;
     
     console.log('Fetching post with slug:', slug);
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/posts/slug/${slug}`);
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/posts/slug/${slug}`);
     
     console.log('API Response:', response.data);
     

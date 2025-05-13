@@ -107,7 +107,7 @@ const selectedCategory = ref('');
 
 const fetchCategories = async () => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/categories`);
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/categories`);
     console.log('Categories response:', response.data);
     
     // Check if response has data property (Laravel API Resource format)
@@ -135,7 +135,7 @@ const fetchPosts = async (page = 1, search = '', category = '') => {
       params.category = category;
     }
     
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/posts`, { params });
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/posts`, { params });
     
     return response.data;
   } catch (err) {

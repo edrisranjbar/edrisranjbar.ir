@@ -121,7 +121,7 @@ const submitComment = async () => {
   try {
     submitting.value = true;
     
-    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/comments`, {
+    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/comments`, {
       post_id: props.postId,
       parent_id: props.parentId,
       name: formData.value.name,

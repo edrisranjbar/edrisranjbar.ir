@@ -71,7 +71,7 @@ const getChildComments = (parentId) => {
 const fetchComments = async () => {
   try {
     loading.value = true;
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/posts/${props.postId}/comments`);
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/posts/${props.postId}/comments`);
     comments.value = response.data.data || [];
   } catch (error) {
     console.error('Error fetching comments:', error);

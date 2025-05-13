@@ -64,7 +64,7 @@ const hasMorePosts = ref(false);
 
 const fetchPosts = async (page = 1) => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/posts`, {
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/posts`, {
       params: {
         page
       }
