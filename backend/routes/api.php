@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\TestResendController;
 use App\Http\Controllers\Api\DonationController;
+use App\Http\Controllers\Api\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,37 @@ use App\Http\Controllers\Api\DonationController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+// Admin Authentication Routes
+Route::prefix('admin')->group(function () {
+    Route::post('/login', [AdminAuthController::class, 'login']);
+    
+    // Protected admin routes
+    Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+        Route::post('/logout', [AdminAuthController::class, 'logout']);
+        Route::get('/profile', [AdminAuthController::class, 'profile']);
+        Route::post('/change-password', [AdminAuthController::class, 'changePassword']);
+        
+        // Blog Management Routes
+        Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class)
+            ->names([
+                'index' => 'admin.categories.index',
+                'store' => 'admin.categories.store',
+                'show' => 'admin.categories.show',
+                'update' => 'admin.categories.update',
+                'destroy' => 'admin.categories.destroy',
+            ]);
+            
+        Route::apiResource('posts', \App\Http\Controllers\Api\PostController::class)
+            ->names([
+                'index' => 'admin.posts.index',
+                'store' => 'admin.posts.store',
+                'show' => 'admin.posts.show',
+                'update' => 'admin.posts.update',
+                'destroy' => 'admin.posts.destroy',
+            ]);
+    });
+});
 
 // Contact Form Endpoint
 Route::post('/contact', [ContactController::class, 'store']);
@@ -40,8 +72,7 @@ Route::get('/health', function() {
     ]);
 });
 
-// Blog routes
-Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class);
-
-Route::get('posts/slug/{slug}', [\App\Http\Controllers\Api\PostController::class, 'findBySlug']);
-Route::apiResource('posts', \App\Http\Controllers\Api\PostController::class); 
+// Public Blog routes 
+Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class)->only(['index', 'show']);
+Route::apiResource('posts', \App\Http\Controllers\Api\PostController::class)->only(['index', 'show']);
+Route::get('posts/slug/{slug}', [\App\Http\Controllers\Api\PostController::class, 'findBySlug']); 

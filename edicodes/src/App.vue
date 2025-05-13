@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen bg-dark text-white font-vazir">
-    <Navbar />
+    <Navbar v-if="!isAdminRoute" />
     <router-view v-slot="{ Component }">
       <transition
         name="page"
@@ -12,14 +12,22 @@
         <component :is="Component" />
       </transition>
     </router-view>
-    <Footer />
+    <Footer v-if="!isAdminRoute" />
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
+import { useRoute } from 'vue-router'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
+
+const route = useRoute()
+
+// Check if current route is an admin route
+const isAdminRoute = computed(() => {
+  return route.path.startsWith('/admin')
+})
 
 const beforeLeave = (el) => {
   el.style.opacity = 0

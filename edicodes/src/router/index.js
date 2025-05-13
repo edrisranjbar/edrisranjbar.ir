@@ -26,6 +26,57 @@ const router = createRouter({
       name: 'donation-success',
       component: DonationSuccess
     },
+    // Admin routes
+    {
+      path: '/admin/login',
+      name: 'admin-login',
+      component: () => import('@/views/admin/Login.vue')
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: () => import('@/views/admin/AdminLayout.vue'),
+      meta: { requiresAuth: true },
+      children: [
+        {
+          path: '',
+          name: 'admin-dashboard',
+          component: () => import('@/views/admin/Dashboard.vue')
+        },
+        {
+          path: 'posts',
+          name: 'admin-posts',
+          component: () => import('@/views/admin/posts/PostsList.vue')
+        },
+        {
+          path: 'posts/create',
+          name: 'admin-posts-create',
+          component: () => import('@/views/admin/posts/PostForm.vue')
+        },
+        {
+          path: 'posts/edit/:id',
+          name: 'admin-posts-edit',
+          component: () => import('@/views/admin/posts/PostForm.vue'),
+          props: true
+        },
+        {
+          path: 'categories',
+          name: 'admin-categories',
+          component: () => import('@/views/admin/categories/CategoriesList.vue')
+        },
+        {
+          path: 'categories/create',
+          name: 'admin-categories-create',
+          component: () => import('@/views/admin/categories/CategoryForm.vue')
+        },
+        {
+          path: 'categories/edit/:id',
+          name: 'admin-categories-edit',
+          component: () => import('@/views/admin/categories/CategoryForm.vue'),
+          props: true
+        }
+      ]
+    },
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
@@ -43,6 +94,21 @@ const router = createRouter({
     } else {
       return { top: 0 }
     }
+  }
+})
+
+// Navigation guard to check authentication
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // This route requires auth, check if logged in
+    const isAuthenticated = localStorage.getItem('admin_token')
+    if (!isAuthenticated) {
+      next({ name: 'admin-login', query: { redirect: to.fullPath } })
+    } else {
+      next()
+    }
+  } else {
+    next()
   }
 })
 
