@@ -11,20 +11,11 @@
     
     <router-link 
       to="/admin/posts" 
-      :class="[$route.path.startsWith('/admin/posts') && !$route.path.includes('create') ? 'bg-primary/20 text-primary' : '']"
+      :class="[$route.path.startsWith('/admin/posts') ? 'bg-primary/20 text-primary' : '']"
       class="flex items-center py-2 px-3 text-sm text-white/90 rounded-lg hover:bg-white/5 transition-colors duration-150 font-vazir"
     >
       <font-awesome-icon icon="newspaper" class="ml-2 h-5 w-5" />
       مدیریت مطالب
-    </router-link>
-    
-    <router-link 
-      to="/admin/posts/create" 
-      :class="[$route.path.includes('create') ? 'bg-primary/20 text-primary' : '']"
-      class="flex items-center py-2 px-3 text-sm text-white/90 rounded-lg hover:bg-white/5 transition-colors duration-150 font-vazir mr-4"
-    >
-      <font-awesome-icon icon="plus-circle" class="ml-2 h-5 w-5" />
-      مطلب جدید
     </router-link>
     
     <router-link 

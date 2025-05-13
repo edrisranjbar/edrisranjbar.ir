@@ -169,22 +169,7 @@
         <div class="bg-black/50 rounded-lg border border-white/10 p-6">
           <h3 class="text-white font-vazir mb-4">تصویر شاخص</h3>
           
-          <div class="mb-4">
-            <label for="image" class="block text-white font-vazir mb-2">آدرس تصویر</label>
-            <input 
-              v-model="post.image" 
-              type="url" 
-              id="image" 
-              class="w-full bg-black/20 border border-white/10 rounded-lg py-2 px-4 font-vazir text-white/90 focus:outline-none focus:border-primary/50"
-              placeholder="https://example.com/image.jpg"
-              dir="ltr"
-            />
-            <p class="mt-1 text-white/50 text-xs font-vazir">
-              آدرس اینترنتی تصویر را وارد کنید.
-            </p>
-          </div>
-          
-          <div v-if="post.image" class="mt-4">
+          <div v-if="post.image" class="mb-4">
             <p class="block text-white font-vazir mb-2">پیش‌نمایش:</p>
             <div class="relative rounded overflow-hidden h-48 bg-black/50">
               <img 
@@ -196,7 +181,36 @@
               <div v-if="imageError" class="absolute inset-0 flex items-center justify-center">
                 <span class="text-red-400 text-sm font-vazir">خطا در بارگذاری تصویر</span>
               </div>
+              <button 
+                @click="removeImage" 
+                class="absolute top-2 right-2 bg-red-500/80 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-600/80 transition-colors duration-200"
+                title="حذف تصویر"
+              >
+                <font-awesome-icon icon="times" />
+              </button>
             </div>
+          </div>
+          
+          <div v-if="!post.image">
+            <file-uploader 
+              :upload-endpoint="uploadEndpoint"
+              accept="image/jpeg,image/png,image/webp"
+              :max-size="5 * 1024 * 1024"
+              @upload-success="handleImageUploadSuccess"
+              @upload-error="handleImageUploadError"
+            />
+          </div>
+          
+          <div v-if="post.image" class="mt-4">
+            <label for="image" class="block text-white font-vazir mb-2">آدرس تصویر</label>
+            <input 
+              v-model="post.image" 
+              type="url" 
+              id="image" 
+              class="w-full bg-black/20 border border-white/10 rounded-lg py-2 px-4 font-vazir text-white/90 focus:outline-none focus:border-primary/50"
+              placeholder="https://example.com/image.jpg"
+              dir="ltr"
+            />
           </div>
         </div>
       </div>
@@ -208,6 +222,7 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
+import FileUploader from '@/components/admin/FileUploader.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -215,6 +230,11 @@ const error = ref('');
 const isSaving = ref(false);
 const imageError = ref(false);
 const categories = ref([]);
+
+// API URL
+const apiUrl = import.meta.env.VITE_API_URL;
+const adminApiUrl = computed(() => `${apiUrl}/api/admin`);
+const uploadEndpoint = computed(() => `${adminApiUrl.value}/upload/image`);
 
 // Form state
 const post = ref({
@@ -262,7 +282,7 @@ function generateSlug() {
 // Fetch categories
 async function fetchCategories() {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/categories`);
+    const response = await axios.get(`${apiUrl}/api/categories`);
     
     if (response.data && Array.isArray(response.data.data)) {
       categories.value = response.data.data;
@@ -277,13 +297,26 @@ async function fetchCategories() {
 // Fetch post data if editing
 async function fetchPost(id) {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/posts/${id}`, {
+    console.log('Fetching post with ID:', id);
+    
+    // Use the admin API endpoint
+    const response = await axios.get(`${adminApiUrl.value}/posts/${id}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
       }
     });
     
-    const postData = response.data;
+    console.log('Response data:', response.data);
+    
+    // Extract the post data from the nested data structure that Laravel API resources return
+    let postData;
+    if (response.data && response.data.data) {
+      // API returned a wrapped response (Laravel API Resource)
+      postData = response.data.data;
+    } else {
+      // API returned a direct response
+      postData = response.data;
+    }
     
     // Format the date for the input
     if (postData.published_at) {
@@ -297,7 +330,9 @@ async function fetchPost(id) {
       postData.category_id = postData.category.id;
     }
     
+    console.log('Post data after processing:', postData);
     post.value = postData;
+    console.log('Final post value:', post.value);
   } catch (err) {
     console.error('Error fetching post:', err);
     error.value = 'خطا در بارگذاری اطلاعات مطلب. لطفا دوباره تلاش کنید.';
@@ -331,37 +366,41 @@ async function savePost() {
       category_id: post.value.category_id
     };
     
+    // We need to use the admin routes for saving posts since the public routes are read-only
     let response;
+    const token = localStorage.getItem('admin_token');
+    const headers = {
+      'Authorization': `Bearer ${token}`
+    };
+    
+    console.log('Saving post with data:', postData);
+    console.log('Using auth token:', token ? 'Token exists' : 'No token');
     
     if (isEditing.value) {
       // Update existing post
       response = await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/posts/${route.params.id}`, 
+        `${adminApiUrl.value}/posts/${route.params.id}`, 
         postData,
-        {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
-          }
-        }
+        { headers }
       );
     } else {
       // Create new post
       response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/posts`, 
+        `${adminApiUrl.value}/posts`, 
         postData,
-        {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
-          }
-        }
+        { headers }
       );
     }
+    
+    console.log('Save response:', response.data);
     
     // Redirect to posts list
     router.push('/admin/posts');
   } catch (err) {
     console.error('Error saving post:', err);
-    error.value = err.response?.data?.message || 'خطا در ذخیره مطلب. لطفا دوباره تلاش کنید.';
+    if (!error.value) {
+      error.value = err.response?.data?.message || 'خطا در ذخیره مطلب. لطفا دوباره تلاش کنید.';
+    }
   } finally {
     isSaving.value = false;
   }
@@ -371,6 +410,22 @@ async function savePost() {
 watch(() => post.value.image, () => {
   imageError.value = false;
 });
+
+// Handle image upload success
+function handleImageUploadSuccess(imageUrl) {
+  post.value.image = imageUrl;
+  imageError.value = false;
+}
+
+// Handle image upload error
+function handleImageUploadError(errorMessage) {
+  error.value = errorMessage;
+}
+
+// Remove uploaded image
+function removeImage() {
+  post.value.image = '';
+}
 
 onMounted(async () => {
   await fetchCategories();

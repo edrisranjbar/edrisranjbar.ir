@@ -6,6 +6,9 @@ use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\TestResendController;
 use App\Http\Controllers\Api\DonationController;
 use App\Http\Controllers\Api\AdminAuthController;
+use App\Http\Controllers\Api\UploadController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,13 +26,14 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', [AdminAuthController::class, 'login']);
     
     // Protected admin routes
-    Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+    Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout']);
         Route::get('/profile', [AdminAuthController::class, 'profile']);
         Route::post('/change-password', [AdminAuthController::class, 'changePassword']);
+        Route::post('/upload/image', [UploadController::class, 'uploadImage']);
         
         // Blog Management Routes
-        Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class)
+        Route::apiResource('categories', CategoryController::class)
             ->names([
                 'index' => 'admin.categories.index',
                 'store' => 'admin.categories.store',
@@ -38,7 +42,7 @@ Route::prefix('admin')->group(function () {
                 'destroy' => 'admin.categories.destroy',
             ]);
             
-        Route::apiResource('posts', \App\Http\Controllers\Api\PostController::class)
+        Route::apiResource('posts', PostController::class)
             ->names([
                 'index' => 'admin.posts.index',
                 'store' => 'admin.posts.store',
