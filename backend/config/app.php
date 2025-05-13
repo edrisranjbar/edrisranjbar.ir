@@ -123,4 +123,18 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'asset_url' => env('ASSET_URL'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Frontend URL
+    |--------------------------------------------------------------------------
+    |
+    | This URL is used for generating redirects back to the frontend 
+    | application after payment processing. It points to the URL where
+    | the frontend application is running.
+    |
+    */
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost:5173'),
+
 ];
