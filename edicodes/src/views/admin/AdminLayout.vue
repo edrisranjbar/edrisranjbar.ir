@@ -129,7 +129,26 @@ const formattedDate = computed(() => {
     month: 'long', 
     day: 'numeric' 
   };
-  return new Intl.DateTimeFormat('fa-IR', options).format(date);
+  
+  // Get the formatted date parts from Intl.DateTimeFormat
+  const formatter = new Intl.DateTimeFormat('fa-IR', options);
+  const parts = formatter.formatToParts(date);
+  
+  // Extract the individual parts
+  let weekday = '';
+  let day = '';
+  let month = '';
+  let year = '';
+  
+  parts.forEach(part => {
+    if (part.type === 'weekday') weekday = part.value;
+    if (part.type === 'day') day = part.value;
+    if (part.type === 'month') month = part.value;
+    if (part.type === 'year') year = part.value;
+  });
+  
+  // Format according to the required pattern: شنبه، ۲۳ اردیبهشت ۱۴۰۴
+  return `${weekday}، ${day} ${month} ${year}`;
 });
 
 onMounted(() => {

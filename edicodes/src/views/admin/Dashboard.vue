@@ -152,7 +152,24 @@ const formatDate = (dateString) => {
   if (!dateString) return '';
   const date = new Date(dateString);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Intl.DateTimeFormat('fa-IR', options).format(date);
+  
+  // Get the formatted date parts from Intl.DateTimeFormat
+  const formatter = new Intl.DateTimeFormat('fa-IR', options);
+  const parts = formatter.formatToParts(date);
+  
+  // Extract the individual parts
+  let day = '';
+  let month = '';
+  let year = '';
+  
+  parts.forEach(part => {
+    if (part.type === 'day') day = part.value;
+    if (part.type === 'month') month = part.value;
+    if (part.type === 'year') year = part.value;
+  });
+  
+  // Format according to the required pattern: ۲۳ اردیبهشت ۱۴۰۴
+  return `${day} ${month} ${year}`;
 };
 
 const fetchDashboardData = async () => {
