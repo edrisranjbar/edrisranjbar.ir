@@ -254,7 +254,7 @@ const fetchComment = async () => {
     
     const token = localStorage.getItem('admin_token');
     
-    const response = await axios.get(`${API_URL}/api/admin/comments/${props.id}`, {
+    const response = await axios.get(`${API_URL}/admin/comments/${props.id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -284,7 +284,7 @@ const fetchParentComment = async (parentId) => {
   try {
     const token = localStorage.getItem('admin_token');
     
-    const response = await axios.get(`${API_URL}/api/admin/comments/${parentId}`, {
+    const response = await axios.get(`${API_URL}/admin/comments/${parentId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -302,7 +302,7 @@ const fetchReplies = async () => {
     const token = localStorage.getItem('admin_token');
     
     // Assuming there's an endpoint to get replies to a comment
-    const response = await axios.get(`${API_URL}/api/admin/comments/${props.id}/replies`, {
+    const response = await axios.get(`${API_URL}/admin/comments/${props.id}/replies`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -320,7 +320,7 @@ const updateStatus = async (status) => {
   try {
     const token = localStorage.getItem('admin_token');
     
-    await axios.patch(`${API_URL}/api/admin/comments/${props.id}/status`, {
+    await axios.patch(`${API_URL}/admin/comments/${props.id}/status`, {
       status: status
     }, {
       headers: {
@@ -361,7 +361,7 @@ const deleteComment = async () => {
   try {
     const token = localStorage.getItem('admin_token');
     
-    await axios.delete(`${API_URL}/api/admin/comments/${props.id}`, {
+    await axios.delete(`${API_URL}/admin/comments/${props.id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -387,7 +387,7 @@ const submitReply = async () => {
     
     const token = localStorage.getItem('admin_token');
     
-    const response = await axios.post(`${API_URL}/api/admin/comments/${props.id}/reply`, {
+    const response = await axios.post(`${API_URL}/admin/comments/${props.id}/reply`, {
       content: replyContent.value
     }, {
       headers: {

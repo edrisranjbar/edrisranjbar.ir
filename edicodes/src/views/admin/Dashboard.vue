@@ -264,7 +264,7 @@ const fetchDashboardData = async () => {
 
     const token = localStorage.getItem('admin_token');
 
-    const response = await axios.get(`${API_URL}/api/admin/dashboard`, {
+    const response = await axios.get(`${API_URL}/admin/dashboard`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -283,7 +283,7 @@ const fetchRecentPosts = async () => {
   try {
     const token = localStorage.getItem('admin_token');
 
-    const response = await axios.get(`${API_URL}/api/admin/posts`, {
+    const response = await axios.get(`${API_URL}/admin/posts`, {
       params: {
         per_page: 5,
         sort: '-created_at'
@@ -307,7 +307,7 @@ const fetchRecentComments = async () => {
 
     const token = localStorage.getItem('admin_token');
 
-    const response = await axios.get(`${API_URL}/api/admin/comments`, {
+    const response = await axios.get(`${API_URL}/admin/comments`, {
       params: {
         per_page: 5,
         sort: '-created_at',

@@ -233,7 +233,7 @@ const categories = ref([]);
 
 // API URL
 const apiUrl = import.meta.env.VITE_API_BASE_URL;
-const adminApiUrl = computed(() => `${apiUrl}/api/admin`);
+const adminApiUrl = computed(() => `${apiUrl}/admin`);
 const uploadEndpoint = computed(() => `${adminApiUrl.value}/upload/image`);
 
 // Form state
@@ -282,7 +282,7 @@ function generateSlug() {
 // Fetch categories
 async function fetchCategories() {
   try {
-    const response = await axios.get(`${apiUrl}/api/categories`);
+    const response = await axios.get(`${apiUrl}/categories`);
     
     if (response.data && Array.isArray(response.data.data)) {
       categories.value = response.data.data;

@@ -169,7 +169,7 @@ const fetchComments = async () => {
     
     const token = localStorage.getItem('admin_token');
     
-    const response = await axios.get(`${API_URL}/api/admin/comments`, {
+    const response = await axios.get(`${API_URL}/admin/comments`, {
       params: {
         status: currentFilter.value,
         page: currentPage.value
@@ -211,7 +211,7 @@ const fetchPendingCount = async () => {
   try {
     const token = localStorage.getItem('admin_token');
     
-    const response = await axios.get(`${API_URL}/api/admin/comments`, {
+    const response = await axios.get(`${API_URL}/admin/comments`, {
       params: {
         status: 'pending',
         per_page: 1 // Request only 1 comment to minimize data transfer
@@ -233,7 +233,7 @@ const updateStatus = async (commentId, status) => {
   try {
     const token = localStorage.getItem('admin_token');
     
-    await axios.patch(`${API_URL}/api/admin/comments/${commentId}/status`, {
+    await axios.patch(`${API_URL}/admin/comments/${commentId}/status`, {
       status: status
     }, {
       headers: {
