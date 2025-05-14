@@ -160,12 +160,22 @@ const fetchPost = async (slug) => {
         document.title = `${post.value.title} | ادیکدز`;
       }
     } else {
-      throw new Error('Invalid response format');
+      // If the response doesn't have data, redirect to NotFound
+      router.replace({ name: 'not-found' });
+      return;
     }
     
     loading.value = false;
   } catch (err) {
     console.error('Error fetching post:', err);
+    
+    // Check if it's a 404 error
+    if (err.response && err.response.status === 404) {
+      // Redirect to the 404 page
+      router.replace({ name: 'not-found' });
+      return;
+    }
+    
     error.value = err.message || 'خطا در دریافت اطلاعات';
     loading.value = false;
   }
