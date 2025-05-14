@@ -14,6 +14,50 @@ use Shetabit\Payment\Facade\Payment;
 class DonationController extends Controller
 {
     /**
+     * Get all donations (admin only)
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(Request $request)
+    {
+        // Set default params and get request params
+        $perPage = $request->input('per_page', 10);
+        $status = $request->input('status', 'all');
+        $sort = $request->input('sort', '-created_at');
+        
+        // Start query
+        $query = Donation::query();
+        
+        // Apply status filter if specified
+        if ($status !== 'all') {
+            $query->where('status', $status);
+        }
+        
+        // Apply sorting
+        if ($sort) {
+            $direction = 'asc';
+            if (str_starts_with($sort, '-')) {
+                $direction = 'desc';
+                $sort = substr($sort, 1);
+            }
+            $query->orderBy($sort, $direction);
+        }
+        
+        // Get paginated results
+        $donations = $query->paginate($perPage);
+        
+        // Transform donation data with additional attributes
+        $donations->getCollection()->transform(function($donation) {
+            $donation->formatted_amount = $donation->formatted_amount;
+            $donation->status_in_persian = $donation->status_in_persian;
+            return $donation;
+        });
+        
+        return response()->json($donations);
+    }
+
+    /**
      * Create a new payment for donation
      *
      * @param  \Illuminate\Http\Request  $request

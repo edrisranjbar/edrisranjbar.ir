@@ -37,6 +37,9 @@ Route::prefix('admin')->group(function () {
         // Dashboard
         Route::get('/dashboard', [DashboardController::class, 'index']);
         
+        // Donations
+        Route::get('/donations', [DonationController::class, 'index'])->name('admin.donations.index');
+        
         // Blog Management Routes
         Route::apiResource('categories', CategoryController::class)
             ->names([
@@ -92,7 +95,7 @@ Route::get('/health', function() {
 // Public Blog routes 
 Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class)->only(['index', 'show']);
 Route::apiResource('posts', \App\Http\Controllers\Api\PostController::class)->only(['index', 'show']);
-Route::get('posts/slug/{slug}', [\App\Http\Controllers\Api\PostController::class, 'findBySlug']);
+Route::get('posts/slug/{slug}', [\App\Http\Controllers\Api\PostController::class, 'findBySlug']); 
 
 // Comment Routes
 Route::post('/comments', [CommentController::class, 'store']);

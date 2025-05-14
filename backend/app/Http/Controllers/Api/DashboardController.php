@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -22,6 +23,8 @@ class DashboardController extends Controller
         $categoriesCount = Category::count();
         $pendingCommentsCount = Comment::pending()->count();
         $publishedPostsCount = Post::published()->count();
+        $donationsCount = Donation::where('status', 'paid')->count();
+        $totalDonations = Donation::where('status', 'paid')->sum('amount');
 
         // Return statistics
         return response()->json([
@@ -31,6 +34,8 @@ class DashboardController extends Controller
                 'pendingComments' => $pendingCommentsCount,
                 'publishedCount' => $publishedPostsCount,
                 'views' => 0, // Placeholder for future views tracking
+                'donations' => $donationsCount,
+                'totalDonations' => $totalDonations,
             ]
         ]);
     }

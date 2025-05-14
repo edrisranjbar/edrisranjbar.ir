@@ -85,6 +85,11 @@ const router = createRouter({
           name: 'admin-categories-edit',
           component: () => import('@/views/admin/categories/CategoryForm.vue'),
           props: true
+        },
+        {
+          path: 'donations',
+          name: 'admin-donations',
+          component: () => import('@/views/admin/donations/DonationsList.vue')
         }
       ]
     },

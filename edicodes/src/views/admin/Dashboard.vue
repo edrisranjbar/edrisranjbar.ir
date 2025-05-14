@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- Dashboard widgets (3-widget stats) -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <!-- Dashboard widgets (4-widget stats) -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
       <div class="bg-black/30 rounded-lg p-5 border border-white/10">
         <div class="flex items-center">
           <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center ml-3">
@@ -34,6 +34,18 @@
           <div>
             <p class="text-white/70 text-sm font-vazir">دیدگاه‌های در انتظار</p>
             <h3 class="text-white text-2xl font-vazir font-bold mt-1">{{ stats.pendingComments || 0 }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-black/30 rounded-lg p-5 border border-white/10">
+        <div class="flex items-center">
+          <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center ml-3">
+            <font-awesome-icon icon="donate" class="text-xl text-purple-500" />
+          </div>
+          <div>
+            <p class="text-white/70 text-sm font-vazir">تعداد حامیان</p>
+            <h3 class="text-white text-2xl font-vazir font-bold mt-1">{{ stats.donations || 0 }}</h3>
           </div>
         </div>
       </div>
@@ -165,6 +177,59 @@
       </div>
     </div>
 
+    <!-- Donations list -->
+    <div class="bg-black/30 rounded-lg border border-white/10 overflow-hidden mb-8">
+      <div class="bg-black/50 p-4 border-b border-white/10 flex items-center justify-between">
+        <h3 class="text-white font-vazir text-lg flex items-center">
+          <font-awesome-icon icon="donate" class="text-purple-500 ml-2" />
+          لیست حمایت‌های مالی
+        </h3>
+        <router-link to="/admin/donations"
+          class="bg-purple-500/10 hover:bg-purple-500/20 text-purple-500 text-xs px-3 py-1 rounded-md font-vazir transition-colors">
+          مشاهده همه
+        </router-link>
+      </div>
+
+      <div class="divide-y divide-black/50">
+        <div v-if="recentDonations.loading" class="p-6 flex justify-center">
+          <div class="w-8 h-8 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin"></div>
+        </div>
+
+        <div v-else-if="recentDonations.error" class="p-6 text-center text-red-400 font-vazir text-sm">
+          خطایی در بارگذاری حمایت‌ها رخ داده است.
+        </div>
+
+        <div v-else-if="recentDonations.data.length === 0" class="p-6 text-center text-white/50 font-vazir text-sm">
+          در حال حاضر حمایت مالی ثبت نشده است.
+        </div>
+
+        <template v-else>
+          <div v-for="donation in recentDonations.data" :key="donation.id" class="py-4 px-6 hover:bg-black/20 transition-colors duration-200">
+            <div class="flex flex-col md:flex-row md:justify-between">
+              <div class="flex items-center mb-2 md:mb-0">
+                <span class="text-white font-vazir">{{ donation.name || 'ناشناس' }}</span>
+                <span class="mx-2 text-white/30">|</span>
+                <span class="text-gray-400 text-sm">{{ formatDate(donation.created_at) }}</span>
+              </div>
+              <div class="flex items-center">
+                <span :class="{
+                  'px-2 py-1 text-xs rounded-md font-vazir': true,
+                  'bg-green-500/10 text-green-500': donation.status === 'paid',
+                  'bg-yellow-500/10 text-yellow-500': donation.status === 'pending',
+                  'bg-red-500/10 text-red-500': donation.status === 'failed'
+                }">
+                  {{ donation.status_in_persian }}
+                </span>
+                <span class="mx-2 text-white/30">|</span>
+                <span class="text-white font-vazir">{{ donation.formatted_amount }}</span>
+              </div>
+            </div>
+            <p v-if="donation.message" class="mt-2 text-white/70 text-sm font-vazir">{{ donation.message }}</p>
+          </div>
+        </template>
+      </div>
+    </div>
+
     <!-- Quick Actions -->
     <div class="rounded-lg bg-black/50 border border-white/10 p-6 mb-8">
       <h2 class="text-lg font-vazir text-white mb-6">دسترسی سریع</h2>
@@ -219,10 +284,17 @@ const stats = ref({
   posts: 0,
   categories: 0,
   pendingComments: 0,
-  views: 0
+  views: 0,
+  donations: 0,
+  totalDonations: 0
 });
 const recentPosts = ref([]);
 const recentComments = ref({
+  loading: true,
+  error: null,
+  data: []
+});
+const recentDonations = ref({
   loading: true,
   error: null,
   data: []
@@ -328,9 +400,41 @@ const fetchRecentComments = async () => {
   }
 };
 
+const fetchRecentDonations = async () => {
+  try {
+    recentDonations.value.loading = true;
+    recentDonations.value.error = null;
+
+    const token = localStorage.getItem('admin_token');
+    
+    const apiUrl = `${API_URL}/admin/donations`;
+    console.log('Fetching donations from:', apiUrl);
+
+    const response = await axios.get(apiUrl, {
+      params: {
+        per_page: 5,
+        sort: '-created_at',
+        status: 'all'
+      },
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    recentDonations.value.data = response.data.data || [];
+  } catch (err) {
+    console.error('Error fetching recent donations:', err);
+    recentDonations.value.error = 'خطایی در بارگذاری حمایت‌ها رخ داده است';
+    recentDonations.value.data = [];
+  } finally {
+    recentDonations.value.loading = false;
+  }
+};
+
 onMounted(() => {
   fetchDashboardData();
   fetchRecentPosts();
   fetchRecentComments();
+  fetchRecentDonations();
 });
 </script>
