@@ -138,6 +138,7 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
+import axios from 'axios';
 
 // State management
 const isLoading = ref(true);
