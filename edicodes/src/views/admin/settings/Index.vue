@@ -250,7 +250,7 @@ const changePassword = async () => {
     validationErrors.current_password = null;
     validationErrors.new_password = null;
     
-    const response = await api.post(`${import.meta.env.VITE_API_BASE_URL}/admin/change-password`, {
+    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/admin/change-password`, {
       current_password: passwordData.current_password,
       new_password: passwordData.new_password,
       new_password_confirmation: passwordData.new_password_confirmation
