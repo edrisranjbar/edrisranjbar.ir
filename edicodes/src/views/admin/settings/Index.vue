@@ -203,7 +203,7 @@ onMounted(async () => {
 // Fetch profile data from API
 const fetchProfile = async () => {
   try {
-    const response = await api.get('/api/admin/profile');
+    const response = await api.get(`${import.meta.env.VITE_API_BASE_URL}/admin/profile`);
     
     if (response.data.success) {
       profile.name = response.data.admin.name;
@@ -222,7 +222,7 @@ const updateProfile = async () => {
     validationErrors.name = null;
     validationErrors.email = null;
     
-    const response = await api.post('/api/admin/update-profile', {
+    const response = await api.post(`${import.meta.env.VITE_API_BASE_URL}/admin/update-profile`, {
       name: profile.name,
       email: profile.email
     });
@@ -250,7 +250,7 @@ const changePassword = async () => {
     validationErrors.current_password = null;
     validationErrors.new_password = null;
     
-    const response = await api.post('/api/admin/change-password', {
+    const response = await api.post(`${import.meta.env.VITE_API_BASE_URL}/admin/change-password`, {
       current_password: passwordData.current_password,
       new_password: passwordData.new_password,
       new_password_confirmation: passwordData.new_password_confirmation
