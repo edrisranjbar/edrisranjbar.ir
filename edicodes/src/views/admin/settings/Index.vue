@@ -204,7 +204,17 @@ onMounted(async () => {
 // Fetch profile data from API
 const fetchProfile = async () => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/admin/profile`);
+    const token = localStorage.getItem('admin_token');
+    
+    if (!token) {
+      return;
+    }
+    
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/admin/profile`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
     
     if (response.data.success) {
       profile.name = response.data.admin.name;
@@ -223,9 +233,20 @@ const updateProfile = async () => {
     validationErrors.name = null;
     validationErrors.email = null;
     
+    const token = localStorage.getItem('admin_token');
+    
+    if (!token) {
+      showNotification('profile', 'جلسه کاری شما منقضی شده است. لطفاً مجدداً وارد شوید.', 'error');
+      return;
+    }
+    
     const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/admin/update-profile`, {
       name: profile.name,
       email: profile.email
+    }, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     });
     
     if (response.data.success) {
@@ -251,10 +272,21 @@ const changePassword = async () => {
     validationErrors.current_password = null;
     validationErrors.new_password = null;
     
+    const token = localStorage.getItem('admin_token');
+    
+    if (!token) {
+      showNotification('password', 'جلسه کاری شما منقضی شده است. لطفاً مجدداً وارد شوید.', 'error');
+      return;
+    }
+    
     const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/admin/change-password`, {
       current_password: passwordData.current_password,
       new_password: passwordData.new_password,
       new_password_confirmation: passwordData.new_password_confirmation
+    }, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     });
     
     if (response.data.success) {
