@@ -25,8 +25,14 @@ class DashboardController extends Controller
         $publishedPostsCount = Post::published()->count();
         $donationsCount = Donation::where('status', 'paid')->count();
         $totalDonations = Donation::where('status', 'paid')->sum('amount');
+        
+        // Get 3 most recent posts with their categories
+        $recentPosts = Post::with('category')
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
 
-        // Return statistics
+        // Return statistics and recent posts
         return response()->json([
             'stats' => [
                 'posts' => $postsCount,
@@ -36,7 +42,8 @@ class DashboardController extends Controller
                 'views' => 0, // Placeholder for future views tracking
                 'donations' => $donationsCount,
                 'totalDonations' => $totalDonations,
-            ]
+            ],
+            'recentPosts' => $recentPosts
         ]);
     }
 } 

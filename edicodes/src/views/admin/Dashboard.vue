@@ -344,31 +344,13 @@ const fetchDashboardData = async () => {
 
     // Update stats
     stats.value = response.data.stats;
+    
+    // Update recent posts from dashboard data
+    recentPosts.value = response.data.recentPosts || [];
   } catch (err) {
     console.error('Error fetching dashboard data:', err);
   } finally {
     loading.value = false;
-  }
-};
-
-const fetchRecentPosts = async () => {
-  try {
-    const token = localStorage.getItem('admin_token');
-
-    const response = await axios.get(`${API_URL}/admin/posts`, {
-      params: {
-        per_page: 5,
-        sort: '-created_at'
-      },
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-
-    recentPosts.value = response.data.data || [];
-  } catch (err) {
-    console.error('Error fetching recent posts:', err);
-    recentPosts.value = [];
   }
 };
 
@@ -433,7 +415,6 @@ const fetchRecentDonations = async () => {
 
 onMounted(() => {
   fetchDashboardData();
-  fetchRecentPosts();
   fetchRecentComments();
   fetchRecentDonations();
 });
