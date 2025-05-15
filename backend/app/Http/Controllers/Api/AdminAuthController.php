@@ -100,10 +100,13 @@ class AdminAuthController extends Controller
         
         // Send login notification email
         try {
+            Log::info('Attempting to send login email to: ' . $admin->email);
             Mail::to($admin->email)->send(new AdminLoginMail($admin));
+            Log::info('Email sent successfully');
         } catch (\Exception $e) {
             // Log the error but continue with login process
             Log::error('Failed to send admin login email: ' . $e->getMessage());
+            Log::error($e->getTraceAsString());
         }
         
         return response()->json([
