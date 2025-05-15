@@ -103,29 +103,26 @@ class AdminAuthController extends Controller
         try {
             Log::info('Attempting to send login email to: ' . $admin->email);
             
-            // Render the email template
-            $loginTime = now()->format('Y-m-d H:i:s');
-            $html = view('emails.admin-login', [
-                'admin' => $admin,
-                'loginTime' => $loginTime
-            ])->render();
-            
-            // Send email using Resend directly
             $fromEmail = config('mail.from.address', 'no-reply@mail.edrisranjbar.ir');
             $fromName = config('mail.from.name', 'ادریس رنجبر');
+            $loginTime = now()->format('Y-m-d H:i:s');
             
-            $response = Resend::emails()->send([
+            // Using Resend directly
+            Resend::emails()->send([
                 'from' => "{$fromName} <{$fromEmail}>",
                 'to' => [$admin->email],
                 'subject' => 'گزارش ورود به پنل مدیریت ادیکدز',
-                'html' => $html,
+                'html' => view('emails.admin-login', [
+                    'admin' => $admin,
+                    'loginTime' => $loginTime
+                ])->render(),
                 'tags' => [
                     'type' => 'admin_login',
                     'admin_id' => $admin->id
                 ]
             ]);
             
-            Log::info('Email sent successfully via Resend', ['resend_id' => $response->id ?? null]);
+            Log::info('Login email sent successfully via Resend');
         } catch (\Exception $e) {
             // Log the error but continue with login process
             Log::error('Failed to send admin login email: ' . $e->getMessage());
