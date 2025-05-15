@@ -138,7 +138,6 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
-import api from '@/services/api';
 
 // State management
 const isLoading = ref(true);
