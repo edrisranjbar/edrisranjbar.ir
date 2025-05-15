@@ -90,6 +90,11 @@ const router = createRouter({
           path: 'donations',
           name: 'admin-donations',
           component: () => import('@/views/admin/donations/DonationsList.vue')
+        },
+        {
+          path: 'settings',
+          name: 'admin-settings',
+          component: () => import('@/views/admin/settings/Index.vue')
         }
       ]
     },

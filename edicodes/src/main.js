@@ -10,7 +10,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* Import specific icons */
-import { faEnvelope, faHome, faHeart, faBook, faServer, faDatabase, faDiagramProject, faCode, faBolt, faShield, faPhone, faLocationDot, faPaperPlane, faCreditCard, faBars, faXmark as faTimes, faExclamationCircle, faCircleNotch, faCheckCircle, faGlobe, faArrowLeft, faRocket, faSearch, faCalendar, faChevronDown, faTachometerAlt, faNewspaper, faPlusCircle, faFolder, faPlus, faEdit, faTrashAlt, faEye, faMagic, faSave, faLock, faSignOutAlt, faFolderPlus, faRss, faDonate,
+import { faEnvelope, faHome, faHeart, faBook, faServer, faDatabase, faDiagramProject, faCode, faBolt, faShield, faPhone, faLocationDot, faPaperPlane, faCreditCard, faBars, faXmark as faTimes, faExclamationCircle, faCircleNotch, faCheckCircle, faGlobe, faArrowLeft, faRocket, faSearch, faCalendar, faChevronDown, faTachometerAlt, faNewspaper, faPlusCircle, faFolder, faPlus, faEdit, faTrashAlt, faEye, faMagic, faSave, faLock, faSignOutAlt, faFolderPlus, faRss, faDonate, faCog,
 // Block editor icons
 faBold, faItalic, faUnderline, faHeading, faParagraph, faListUl, faListOl, faAlignLeft, faAlignCenter, faAlignRight, faAlignJustify, faQuoteRight, faMinus, faImage, faLink, faUnlink, faUndo, faRedo,
 // Block menu icons
@@ -40,7 +40,9 @@ library.add(
   // Comment icons
   faUser, faComments, faCommentSlash, faReply, faClock,
   // New icons
-  faDonate
+  faDonate,
+  // New icon
+  faCog
 )
 
 const app = createApp(App)

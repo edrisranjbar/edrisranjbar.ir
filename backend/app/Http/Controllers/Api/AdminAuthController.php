@@ -146,16 +146,23 @@ class AdminAuthController extends Controller
     }
 
     /**
-     * Change admin password.
+     * Update admin profile.
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function changePassword(Request $request)
+    public function updateProfile(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'current_password' => 'required|string',
-            'new_password' => 'required|string|min:8|confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:admins,email,' . $request->user()->id,
+        ], [
+            'name.required' => 'نام نمی‌تواند خالی باشد',
+            'name.max' => 'نام نمی‌تواند بیشتر از 255 کاراکتر باشد',
+            'email.required' => 'ایمیل نمی‌تواند خالی باشد',
+            'email.email' => 'فرمت ایمیل وارد شده صحیح نیست',
+            'email.max' => 'ایمیل نمی‌تواند بیشتر از 255 کاراکتر باشد',
+            'email.unique' => 'این ایمیل قبلاً ثبت شده است',
         ]);
 
         if ($validator->fails()) {
@@ -166,23 +173,106 @@ class AdminAuthController extends Controller
             ], 422);
         }
 
-        $admin = $request->user();
+        try {
+            $admin = $request->user();
+            
+            // Check if any changes were made
+            if ($admin->name === $request->name && $admin->email === $request->email) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'هیچ تغییری اعمال نشد',
+                    'admin' => [
+                        'id' => $admin->id,
+                        'name' => $admin->name,
+                        'email' => $admin->email,
+                        'created_at' => $admin->created_at,
+                    ]
+                ]);
+            }
+            
+            // Update profile
+            $admin->name = $request->name;
+            $admin->email = $request->email;
+            $admin->save();
 
-        // Check current password
-        if (!Hash::check($request->current_password, $admin->password)) {
+            return response()->json([
+                'success' => true,
+                'message' => 'پروفایل با موفقیت به‌روزرسانی شد',
+                'admin' => [
+                    'id' => $admin->id,
+                    'name' => $admin->name,
+                    'email' => $admin->email,
+                    'created_at' => $admin->created_at,
+                ]
+            ]);
+        } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'رمز عبور فعلی اشتباه است'
-            ], 400);
+                'message' => 'خطایی در به‌روزرسانی پروفایل رخ داد',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Change admin password.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function changePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'current_password' => 'required|string',
+            'new_password' => 'required|string|min:8|confirmed',
+        ], [
+            'current_password.required' => 'رمز عبور فعلی الزامی است',
+            'new_password.required' => 'رمز عبور جدید الزامی است',
+            'new_password.min' => 'رمز عبور جدید باید حداقل 8 کاراکتر باشد',
+            'new_password.confirmed' => 'تکرار رمز عبور جدید مطابقت ندارد',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'اطلاعات ورودی نامعتبر است',
+                'errors' => $validator->errors()
+            ], 422);
         }
 
-        // Update password
-        $admin->password = Hash::make($request->new_password);
-        $admin->save();
+        try {
+            $admin = $request->user();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'رمز عبور با موفقیت تغییر یافت'
-        ]);
+            // Check current password
+            if (!Hash::check($request->current_password, $admin->password)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'رمز عبور فعلی اشتباه است'
+                ], 400);
+            }
+
+            // Check if new password is same as current password
+            if (Hash::check($request->new_password, $admin->password)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'رمز عبور جدید نمی‌تواند مشابه رمز عبور فعلی باشد'
+                ], 400);
+            }
+
+            // Update password
+            $admin->password = Hash::make($request->new_password);
+            $admin->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'رمز عبور با موفقیت تغییر یافت'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'خطایی در تغییر رمز عبور رخ داد',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 }

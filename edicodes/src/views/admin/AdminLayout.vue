@@ -120,6 +120,7 @@ const pageTitle = computed(() => {
     case 'admin-categories-create': return 'ایجاد دسته‌بندی جدید';
     case 'admin-categories-edit': return 'ویرایش دسته‌بندی';
     case 'admin-donations': return 'مدیریت حمایت‌های مالی';
+    case 'admin-settings': return 'تنظیمات حساب کاربری';
     default: return 'پنل مدیریت';
   }
 });

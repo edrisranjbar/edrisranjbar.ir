@@ -45,6 +45,15 @@
       حمایت‌های مالی
     </router-link>
     
+    <router-link 
+      to="/admin/settings" 
+      :class="[$route.path.startsWith('/admin/settings') ? 'bg-primary/20 text-primary' : '']"
+      class="flex items-center py-2 px-3 text-sm text-white/90 rounded-lg hover:bg-white/5 transition-colors duration-150 font-vazir"
+    >
+      <font-awesome-icon icon="cog" class="ml-2 h-5 w-5" />
+      تنظیمات
+    </router-link>
+    
     <a 
       href="/" 
       target="_blank" 

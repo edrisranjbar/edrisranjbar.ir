@@ -32,6 +32,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout']);
         Route::get('/profile', [AdminAuthController::class, 'profile']);
         Route::post('/change-password', [AdminAuthController::class, 'changePassword']);
+        Route::post('/update-profile', [AdminAuthController::class, 'updateProfile']);
         Route::post('/upload/image', [UploadController::class, 'uploadImage']);
         
         // Dashboard
