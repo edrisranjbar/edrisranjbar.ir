@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AdminLoginMail;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -94,6 +97,14 @@ class AdminAuthController extends Controller
         
         // Create new token
         $token = $admin->createToken('admin-panel-token')->plainTextToken;
+        
+        // Send login notification email
+        try {
+            Mail::to($admin->email)->send(new AdminLoginMail($admin));
+        } catch (\Exception $e) {
+            // Log the error but continue with login process
+            Log::error('Failed to send admin login email: ' . $e->getMessage());
+        }
         
         return response()->json([
             'success' => true,
