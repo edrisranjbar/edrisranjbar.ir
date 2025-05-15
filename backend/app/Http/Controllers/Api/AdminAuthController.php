@@ -103,6 +103,7 @@ class AdminAuthController extends Controller
         try {
             Log::info('Attempting to send login email to: ' . $admin->email);
             
+            $recipientEmail = config('mail.to.address', 'edrisranjbar.dev@gmail.com');
             $fromEmail = config('mail.from.address', 'no-reply@mail.edrisranjbar.ir');
             $fromName = config('mail.from.name', 'ادریس رنجبر');
             $loginTime = now()->format('Y-m-d H:i:s');
@@ -110,7 +111,7 @@ class AdminAuthController extends Controller
             // Using Resend directly
             Resend::emails()->send([
                 'from' => "{$fromName} <{$fromEmail}>",
-                'to' => [$admin->email],
+                'to' => [$recipientEmail],
                 'subject' => 'گزارش ورود به پنل مدیریت ادیکدز',
                 'html' => view('emails.admin-login', [
                     'admin' => $admin,
