@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use Resend\Laravel\Facades\Resend;
 
 class AdminAuthController extends Controller
 {
@@ -101,8 +102,30 @@ class AdminAuthController extends Controller
         // Send login notification email
         try {
             Log::info('Attempting to send login email to: ' . $admin->email);
-            Mail::to($admin->email)->send(new AdminLoginMail($admin));
-            Log::info('Email sent successfully');
+            
+            // Render the email template
+            $loginTime = now()->format('Y-m-d H:i:s');
+            $html = view('emails.admin-login', [
+                'admin' => $admin,
+                'loginTime' => $loginTime
+            ])->render();
+            
+            // Send email using Resend directly
+            $fromEmail = config('mail.from.address', 'no-reply@mail.edrisranjbar.ir');
+            $fromName = config('mail.from.name', 'ادریس رنجبر');
+            
+            $response = Resend::emails()->send([
+                'from' => "{$fromName} <{$fromEmail}>",
+                'to' => [$admin->email],
+                'subject' => 'گزارش ورود به پنل مدیریت ادیکدز',
+                'html' => $html,
+                'tags' => [
+                    'type' => 'admin_login',
+                    'admin_id' => $admin->id
+                ]
+            ]);
+            
+            Log::info('Email sent successfully via Resend', ['resend_id' => $response->id ?? null]);
         } catch (\Exception $e) {
             // Log the error but continue with login process
             Log::error('Failed to send admin login email: ' . $e->getMessage());
