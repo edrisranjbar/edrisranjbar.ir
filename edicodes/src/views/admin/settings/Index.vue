@@ -203,7 +203,7 @@ onMounted(async () => {
 // Fetch profile data from API
 const fetchProfile = async () => {
   try {
-    const response = await api.get(`${import.meta.env.VITE_API_BASE_URL}/admin/profile`);
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/admin/profile`);
     
     if (response.data.success) {
       profile.name = response.data.admin.name;
@@ -222,7 +222,7 @@ const updateProfile = async () => {
     validationErrors.name = null;
     validationErrors.email = null;
     
-    const response = await api.post(`${import.meta.env.VITE_API_BASE_URL}/admin/update-profile`, {
+    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/admin/update-profile`, {
       name: profile.name,
       email: profile.email
     });
