@@ -14,6 +14,35 @@
       </div>
     </div>
     
+    <!-- Toast Notifications -->
+    <div class="fixed top-5 left-5 z-50 flex flex-col space-y-4">
+      <div 
+        v-for="(toast, index) in toasts" 
+        :key="index"
+        :class="[
+          toast.type === 'success' ? 'bg-green-500/90 text-white border-green-700' : 
+          toast.type === 'error' ? 'bg-red-500/90 text-white border-red-700' : 
+          'bg-blue-500/90 text-white border-blue-700'
+        ]"
+        class="px-4 py-3 rounded-lg shadow-lg border flex items-center max-w-md transform transition-all duration-300"
+        :style="{ 
+          opacity: toast.visible ? '1' : '0', 
+          transform: toast.visible ? 'translateX(0)' : 'translateX(-100%)'
+        }"
+      >
+        <div class="flex-shrink-0 mr-2">
+          <font-awesome-icon 
+            :icon="toast.type === 'success' ? 'check-circle' : toast.type === 'error' ? 'exclamation-circle' : 'info-circle'" 
+            class="h-5 w-5"
+          />
+        </div>
+        <div class="mr-2 font-vazir">{{ toast.message }}</div>
+        <button @click="removeToast(index)" class="mr-auto text-white hover:text-white/80">
+          <font-awesome-icon icon="times" class="h-4 w-4" />
+        </button>
+      </div>
+    </div>
+    
     <!-- Search and Filter -->
     <div class="bg-black/50 rounded-lg border border-white/10 p-4 mb-6 flex flex-col md:flex-row gap-4">
       <div class="flex-1">
@@ -225,6 +254,7 @@ const totalPages = ref(1);
 const showDeleteModal = ref(false);
 const postToDelete = ref(null);
 const isDeleting = ref(false);
+const toasts = ref([]);
 
 const formatDate = (dateString) => {
   if (!dateString) return '';
@@ -266,7 +296,7 @@ const fetchPosts = async (page = 1) => {
       params.category_id = selectedCategory.value;
     }
     
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/posts`, { 
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/admin/posts`, { 
       params,
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
@@ -283,6 +313,7 @@ const fetchPosts = async (page = 1) => {
     }
   } catch (error) {
     console.error('Error fetching posts:', error);
+    showToast('خطا در بارگذاری مطالب. لطفاً دوباره تلاش کنید.', 'error');
   } finally {
     loading.value = false;
   }
@@ -290,7 +321,11 @@ const fetchPosts = async (page = 1) => {
 
 const fetchCategories = async () => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/categories`);
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/admin/categories`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
+      }
+    });
     
     if (response.data && Array.isArray(response.data.data)) {
       categories.value = response.data.data;
@@ -299,6 +334,7 @@ const fetchCategories = async () => {
     }
   } catch (error) {
     console.error('Error fetching categories:', error);
+    showToast('خطا در بارگذاری دسته‌بندی‌ها', 'error');
   }
 };
 
@@ -307,13 +343,52 @@ const confirmDelete = (post) => {
   showDeleteModal.value = true;
 };
 
+// Toast notification system
+const showToast = (message, type = 'info', duration = 5000) => {
+  const id = Date.now();
+  const toast = {
+    id,
+    message,
+    type,
+    visible: false,
+  };
+  
+  toasts.value.push(toast);
+  
+  // Trigger animation in next tick
+  setTimeout(() => {
+    const index = toasts.value.findIndex(t => t.id === id);
+    if (index !== -1) {
+      toasts.value[index].visible = true;
+    }
+  }, 10);
+  
+  // Auto remove after duration
+  setTimeout(() => {
+    removeToast(toasts.value.findIndex(t => t.id === id));
+  }, duration);
+};
+
+const removeToast = (index) => {
+  if (index === -1 || !toasts.value[index]) return;
+  
+  // Trigger exit animation
+  toasts.value[index].visible = false;
+  
+  // Remove from array after animation completes
+  setTimeout(() => {
+    toasts.value.splice(index, 1);
+  }, 300);
+};
+
 const deletePost = async () => {
   if (!postToDelete.value) return;
   
   try {
     isDeleting.value = true;
     
-    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/posts/${postToDelete.value.id}`, {
+    // Use the admin API endpoint for deletion
+    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/admin/posts/${postToDelete.value.id}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
       }
@@ -326,13 +401,21 @@ const deletePost = async () => {
     showDeleteModal.value = false;
     postToDelete.value = null;
     
+    // Show success toast
+    showToast('مطلب با موفقیت حذف شد', 'success');
+    
     // If page is now empty but there are other pages, go to previous page
     if (posts.value.length === 0 && currentPage.value > 1) {
       changePage(currentPage.value - 1);
     }
   } catch (error) {
     console.error('Error deleting post:', error);
-    // You can add an error alert/notification here
+    
+    // Show error toast
+    showToast(`خطا در حذف مطلب: ${error.response?.data?.message || 'خطای ناشناخته'}`, 'error');
+    
+    // Close modal in case of error
+    showDeleteModal.value = false;
   } finally {
     isDeleting.value = false;
   }
