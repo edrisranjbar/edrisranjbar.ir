@@ -129,7 +129,7 @@ const fetchCategories = async () => {
   try {
     loading.value = true;
     
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/categories`, {
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/admin/categories`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
       }
@@ -160,7 +160,7 @@ const deleteCategory = async () => {
   try {
     isDeleting.value = true;
     
-    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/categories/${categoryToDelete.value.id}`, {
+    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/admin/categories/${categoryToDelete.value.id}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
       }
