@@ -44,6 +44,11 @@ const router = createRouter({
           component: () => import('@/views/admin/Dashboard.vue')
         },
         {
+          path: 'analytics',
+          name: 'admin-analytics',
+          component: () => import('@/views/admin/analytics/Index.vue')
+        },
+        {
           path: 'posts',
           name: 'admin-posts',
           component: () => import('@/views/admin/posts/PostsList.vue')

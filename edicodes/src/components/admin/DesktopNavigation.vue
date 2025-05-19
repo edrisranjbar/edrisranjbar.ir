@@ -10,6 +10,15 @@
     </router-link>
     
     <router-link 
+      to="/admin/analytics"
+      :class="[$route.path.startsWith('/admin/analytics') ? 'bg-primary/20 text-primary' : '']"
+      class="flex items-center py-2 px-3 text-sm text-white/90 rounded-lg hover:bg-white/5 transition-colors duration-150 font-vazir"
+    >
+      <font-awesome-icon icon="chart-line" class="ml-2 h-5 w-5" />
+      آمار بازدید
+    </router-link>
+    
+    <router-link 
       to="/admin/posts" 
       :class="[$route.path.startsWith('/admin/posts') ? 'bg-primary/20 text-primary' : '']"
       class="flex items-center py-2 px-3 text-sm text-white/90 rounded-lg hover:bg-white/5 transition-colors duration-150 font-vazir"

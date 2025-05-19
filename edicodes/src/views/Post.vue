@@ -155,6 +155,9 @@ const fetchPost = async (slug) => {
       post.value = response.data.data;
       console.log('Post data:', post.value);
       
+      // Record page view
+      await recordPageView(post.value.id);
+      
       // Update document title
       if (post.value.title) {
         document.title = `${post.value.title} | ادیکدز`;
@@ -178,6 +181,15 @@ const fetchPost = async (slug) => {
     
     error.value = err.message || 'خطا در دریافت اطلاعات';
     loading.value = false;
+  }
+};
+
+// Record page view
+const recordPageView = async (postId) => {
+  try {
+    await axios.post(`${import.meta.env.VITE_API_BASE_URL}/posts/${postId}/view`);
+  } catch (err) {
+    console.error('Error recording page view:', err);
   }
 };
 

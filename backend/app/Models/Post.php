@@ -71,4 +71,36 @@ class Post extends Model
                 $query->where('status', 'approved');
             }]);
     }
+    
+    /**
+     * Get the page views for the post.
+     */
+    public function pageViews()
+    {
+        return $this->morphMany(PageView::class, 'viewable', 'page_type', 'page_id');
+    }
+    
+    /**
+     * Get total view count for the post.
+     */
+    public function getViewsCountAttribute()
+    {
+        return $this->pageViews()->count();
+    }
+    
+    /**
+     * Get unique visitors count for the post.
+     */
+    public function getUniqueVisitorsCountAttribute()
+    {
+        return $this->pageViews()->uniqueVisitors()->count();
+    }
+    
+    /**
+     * Record a view for this post.
+     */
+    public function recordView($request)
+    {
+        return PageView::createView($this, $request);
+    }
 }

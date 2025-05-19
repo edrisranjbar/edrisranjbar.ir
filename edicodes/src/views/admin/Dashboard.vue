@@ -104,6 +104,50 @@
       </div>
     </div>
 
+    <!-- Analytics Summary -->
+    <div class="rounded-lg bg-black/50 border border-white/10 p-6 mb-8">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-vazir text-white">خلاصه آمار بازدید</h2>
+        <router-link to="/admin/analytics"
+          class="text-primary text-sm hover:text-primary-light transition-colors duration-150 font-vazir">
+          مشاهده جزئیات
+        </router-link>
+      </div>
+
+      <div v-if="loading" class="flex justify-center py-6">
+        <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
+      </div>
+
+      <div v-else class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="text-right border-b border-white/10">
+              <th class="py-3 pr-3 text-sm font-vazir text-white/60 font-normal">بازدید کل</th>
+              <th class="py-3 px-3 text-sm font-vazir text-white/60 font-normal">بازدیدکنندگان منحصر به فرد</th>
+              <th class="py-3 px-3 text-sm font-vazir text-white/60 font-normal">بازدید امروز</th>
+              <th class="py-3 pl-3 text-sm font-vazir text-white/60 font-normal">بازدید هفته</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-right border-b border-white/5 hover:bg-white/5">
+              <td class="py-4 pr-3">
+                <div class="font-vazir text-white text-lg">{{ stats.views.total || 0 }}</div>
+              </td>
+              <td class="py-4 px-3">
+                <div class="font-vazir text-white text-lg">{{ stats.views.unique || 0 }}</div>
+              </td>
+              <td class="py-4 px-3">
+                <div class="font-vazir text-white text-lg">{{ stats.views.today || 0 }}</div>
+              </td>
+              <td class="py-4 pl-3">
+                <div class="font-vazir text-white text-lg">{{ stats.views.week || 0 }}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- Recent comments widget -->
     <div class="bg-black/30 rounded-lg border border-white/10 overflow-hidden mb-8">
       <div class="bg-black/50 p-4 border-b border-white/10 flex items-center justify-between">

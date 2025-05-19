@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* Import specific icons */
 import { faEnvelope, faHome, faHeart, faBook, faServer, faDatabase, faDiagramProject, faCode, faBolt, faShield, faPhone, faLocationDot, faPaperPlane, faCreditCard, faBars, faXmark as faTimes, faExclamationCircle, faCircleNotch, faCheckCircle, faInfoCircle, faGlobe, faArrowLeft, faRocket, faSearch, faCalendar, faChevronDown, faTachometerAlt, faNewspaper, faPlusCircle, faFolder, faPlus, faEdit, faTrashAlt, faEye, faMagic, faSave, faLock, faSignOutAlt, faFolderPlus, faRss, faDonate, faCog,
+  faChartLine, faUsers,
 // Block editor icons
 faBold, faItalic, faUnderline, faHeading, faParagraph, faListUl, faListOl, faAlignLeft, faAlignCenter, faAlignRight, faAlignJustify, faQuoteRight, faMinus, faImage, faLink, faUnlink, faUndo, faRedo,
 // Block menu icons
@@ -28,6 +29,7 @@ library.add(
   faLocationDot, faPaperPlane, faCreditCard, faBars, faTimes, faExclamationCircle, 
   faCircleNotch, faCheckCircle, faInfoCircle, faGlobe, faArrowLeft, faRocket, faSearch, 
   faCalendar, faTwitter, faTelegram, faChevronDown,
+  faChartLine, faEye, faUsers, faNewspaper,
   // Admin icons
   faTachometerAlt, faNewspaper, faPlusCircle, faFolder, faPlus, faEdit, 
   faTrashAlt, faEye, faMagic, faSave, faLock, faSignOutAlt, faFolderPlus, faRss,

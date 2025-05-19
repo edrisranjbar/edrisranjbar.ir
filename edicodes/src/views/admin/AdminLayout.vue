@@ -111,6 +111,7 @@ const logout = () => {
 const pageTitle = computed(() => {
   switch (route.name) {
     case 'admin-dashboard': return 'داشبورد';
+    case 'admin-analytics': return 'آمار بازدید';
     case 'admin-posts': return 'مدیریت مطالب';
     case 'admin-posts-create': return 'ایجاد مطلب جدید';
     case 'admin-posts-edit': return 'ویرایش مطلب';

@@ -75,20 +75,26 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Request $request, Post $post)
     {
+        // Record the page view
+        $post->recordView($request);
+        
         return new PostResource($post->load('category'));
     }
 
     /**
      * Find post by slug
      */
-    public function findBySlug($slug)
+    public function findBySlug(Request $request, $slug)
     {
         $post = Post::where('slug', $slug)
             ->published()
             ->with('category')
             ->firstOrFail();
+            
+        // Record the page view
+        $post->recordView($request);
             
         return new PostResource($post);
     }

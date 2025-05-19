@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\PageViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,10 @@ Route::prefix('admin')->group(function () {
         Route::patch('/comments/{comment}/status', [CommentController::class, 'updateStatus']);
         Route::post('/comments/{comment}/reply', [CommentController::class, 'adminReply']);
         Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
+
+        // Analytics Routes
+        Route::get('/analytics', [PageViewController::class, 'getAnalytics']);
+        Route::get('/posts/{postId}/analytics', [PageViewController::class, 'getPostAnalytics']);
     });
 });
 
@@ -100,4 +105,7 @@ Route::get('posts/slug/{slug}', [\App\Http\Controllers\Api\PostController::class
 
 // Comment Routes
 Route::post('/comments', [CommentController::class, 'store']);
-Route::get('/posts/{post}/comments', [CommentController::class, 'postComments']); 
+Route::get('/posts/{post}/comments', [CommentController::class, 'postComments']);
+
+// Record a page view (for manual tracking if needed)
+Route::post('/posts/{postId}/view', [PageViewController::class, 'recordPostView']); 
