@@ -15,7 +15,7 @@ class GenerateTestAnalyticsData extends Command
      *
      * @var string
      */
-    protected $signature = 'app:generate-test-analytics-data {--days=30 : Number of days to generate data for} {--posts=10 : Number of posts to generate views for}';
+    protected $signature = 'app:generate-test-analytics-data {days=7 : Number of days to generate data for} {--posts=10 : Number of posts to generate views for}';
 
     /**
      * The console command description.
@@ -29,10 +29,15 @@ class GenerateTestAnalyticsData extends Command
      */
     public function handle()
     {
-        $days = $this->option('days');
-        $postsCount = $this->option('posts');
+        // Get number of days from argument
+        $days = (int) $this->argument('days');
+        if ($days < 1) {
+            $days = 7;
+        }
         
         $this->info("Generating test analytics data for the last {$days} days...");
+        
+        $postsCount = $this->option('posts');
         
         // Get posts to generate views for
         $posts = Post::take($postsCount)->get();
@@ -44,17 +49,25 @@ class GenerateTestAnalyticsData extends Command
         
         $this->info("Generating views for {$posts->count()} posts...");
         
-        // Generate views for each day
+        // First create a pool of IP addresses to use
+        $ipPool = [];
+        for ($i = 0; $i < 20; $i++) {
+            $ipPool[] = $this->generateRandomIP();
+        }
+        
         $totalViews = 0;
         $uniqueIPs = [];
         
+        // Generate views for each day
         for ($i = 0; $i < $days; $i++) {
             $date = Carbon::now()->subDays($i);
             $viewsForDay = rand(5, 20); // Random number of views per day
             
             for ($j = 0; $j < $viewsForDay; $j++) {
                 $post = $posts->random();
-                $ipAddress = $this->generateRandomIP();
+                
+                // Use an IP from our pool with some randomness to simulate repeat visits
+                $ipAddress = $ipPool[array_rand($ipPool)];
                 
                 // Add to unique IPs
                 if (!in_array($ipAddress, $uniqueIPs)) {
@@ -82,6 +95,39 @@ class GenerateTestAnalyticsData extends Command
         
         $this->info("Generated {$totalViews} total views");
         $this->info("Generated " . count($uniqueIPs) . " unique visitors");
+        
+        // Generate views for home and blog pages
+        $this->info("Generating views for generic pages...");
+        $genericPages = ['/', '/blog'];
+        $genericViewsTotal = 0;
+        
+        foreach ($genericPages as $page) {
+            $genericViewsForPage = rand(10, 30);
+            
+            for ($j = 0; $j < $genericViewsForPage; $j++) {
+                // Use an IP from our pool with some randomness
+                $ipAddress = $ipPool[array_rand($ipPool)];
+                
+                PageView::create([
+                    'page_type' => 'route',
+                    'page_id' => null,
+                    'ip_address' => $ipAddress,
+                    'user_agent' => $this->generateRandomUserAgent(),
+                    'session_id' => Str::random(40),
+                    'country' => $this->getRandomCountry(),
+                    'city' => $this->getRandomCity(),
+                    'browser' => $this->getRandomBrowser(),
+                    'os' => $this->getRandomOS(),
+                    'device' => $this->getRandomDevice(),
+                    'referrer' => $page,
+                    'viewed_at' => Carbon::now()->subDays(rand(0, $days))->addMinutes(rand(0, 1440)),
+                ]);
+                
+                $genericViewsTotal++;
+            }
+        }
+        
+        $this->info("Generated {$genericViewsTotal} views for generic pages");
         
         return 0;
     }

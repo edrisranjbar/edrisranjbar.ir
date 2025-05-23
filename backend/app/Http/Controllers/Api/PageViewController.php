@@ -109,7 +109,11 @@ class PageViewController extends Controller
             ->get();
             
         // Most viewed posts
-        $topPosts = Post::select('posts.*', DB::raw('COUNT(page_views.id) as views_count'))
+        $topPosts = Post::select(
+                'posts.*', 
+                DB::raw('COUNT(page_views.id) as views_count'),
+                DB::raw('COUNT(DISTINCT page_views.ip_address) as unique_visitors_count')
+            )
             ->join('page_views', function($join) {
                 $join->on('posts.id', '=', 'page_views.page_id')
                     ->where('page_views.page_type', '=', Post::class);
