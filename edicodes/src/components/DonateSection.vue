@@ -140,7 +140,7 @@ const showSuccess = ref(false)
 const successMessage = ref('')
 
 const isValidAmount = computed(() => {
-  return Number(amount.value) >= 10000 && !amountError.value
+  return Number(amount.value) >= 1000 && !amountError.value
 })
 
 const selectAmount = (value) => {
@@ -156,9 +156,9 @@ const validateAmount = () => {
     return
   }
   
-  if (Number(amount.value) < 10000) {
-    amountError.value = 'حداقل مبلغ ۱۰,۰۰۰ تومان است'
-    amount.value = 10000
+  if (Number(amount.value) < 1000) {
+    amountError.value = 'حداقل مبلغ ۱۰۰۰ تومان است'
+    amount.value = 1000
     return
   }
 }
