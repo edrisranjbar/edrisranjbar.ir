@@ -93,7 +93,7 @@ class Post extends Model
      */
     public function getUniqueVisitorsCountAttribute()
     {
-        return $this->pageViews()->uniqueVisitors()->count();
+        return $this->pageViews()->uniqueVisitorsCount();
     }
     
     /**

@@ -67,7 +67,7 @@ class PageViewController extends Controller
         $totalViews = PageView::forPeriod($startDate, $endDate)->count();
         
         // Unique visitors
-        $uniqueVisitors = PageView::forPeriod($startDate, $endDate)->uniqueVisitors()->count();
+        $uniqueVisitors = PageView::forPeriod($startDate, $endDate)->uniqueVisitorsCount();
         
         // Daily views for chart
         $dailyViews = PageView::select(
@@ -149,7 +149,7 @@ class PageViewController extends Controller
         $totalViews = $post->pageViews()->forPeriod($startDate, $endDate)->count();
         
         // Unique visitors for this post
-        $uniqueVisitors = $post->pageViews()->forPeriod($startDate, $endDate)->uniqueVisitors()->count();
+        $uniqueVisitors = $post->pageViews()->forPeriod($startDate, $endDate)->uniqueVisitorsCount();
         
         // Daily views for chart
         $dailyViews = $post->pageViews()

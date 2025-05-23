@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\DB;
 
 class PageView extends Model
 {
@@ -54,7 +55,15 @@ class PageView extends Model
 
     public function scopeUniqueVisitors($query)
     {
-        return $query->distinct('ip_address');
+        // This works with SQLite by using the count with a subquery
+        return $query->select(DB::raw('COUNT(DISTINCT ip_address) as count'));
+    }
+
+    public function scopeUniqueVisitorsCount($query)
+    {
+        // Get unique visitors count for SQLite
+        $result = $query->select(DB::raw('COUNT(DISTINCT ip_address) as count'))->first();
+        return $result ? $result->count : 0;
     }
 
     public function scopeForDate($query, $date)

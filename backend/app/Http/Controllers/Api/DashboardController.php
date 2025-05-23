@@ -30,15 +30,15 @@ class DashboardController extends Controller
         
         // Get page view statistics
         $totalPageViews = PageView::count();
-        $totalUniqueVisitors = PageView::uniqueVisitors()->count();
+        $totalUniqueVisitors = PageView::uniqueVisitorsCount();
         
         // Today's views
         $todayViews = PageView::forDate(Carbon::today())->count();
-        $todayUniqueVisitors = PageView::forDate(Carbon::today())->uniqueVisitors()->count();
+        $todayUniqueVisitors = PageView::forDate(Carbon::today())->uniqueVisitorsCount();
         
         // This week's views
         $weekViews = PageView::forPeriod(Carbon::now()->subDays(7), Carbon::now())->count();
-        $weekUniqueVisitors = PageView::forPeriod(Carbon::now()->subDays(7), Carbon::now())->uniqueVisitors()->count();
+        $weekUniqueVisitors = PageView::forPeriod(Carbon::now()->subDays(7), Carbon::now())->uniqueVisitorsCount();
         
         // Get 3 most recent posts with their categories
         $recentPosts = Post::with('category')
