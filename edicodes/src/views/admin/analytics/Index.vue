@@ -135,6 +135,47 @@
         </table>
       </div>
     </div>
+
+    <!-- Top viewed pages -->
+    <div class="bg-black/30 rounded-lg border border-white/10 p-6 mb-8">
+      <h2 class="text-lg font-vazir text-white mb-6">پربازدیدترین صفحات</h2>
+      
+      <div v-if="loading" class="flex justify-center py-6">
+        <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
+      </div>
+      
+      <div v-else-if="!analytics.topPages || analytics.topPages.length === 0" class="text-center py-6 text-white/50 font-vazir">
+        داده‌ای برای نمایش وجود ندارد.
+      </div>
+      
+      <div v-else class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="text-right border-b border-white/10">
+              <th class="py-3 pr-3 text-sm font-vazir text-white/60 font-normal">مسیر</th>
+              <th class="py-3 px-3 text-sm font-vazir text-white/60 font-normal">تعداد بازدید</th>
+              <th class="py-3 pl-3 text-sm font-vazir text-white/60 font-normal">بازدیدکنندگان منحصر به فرد</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(page, index) in analytics.topPages" :key="index" class="text-right border-b border-white/5 hover:bg-white/5">
+              <td class="py-4 pr-3">
+                <div class="font-vazir text-white text-sm">
+                  {{ page.path === '/' ? 'صفحه اصلی' : 
+                     page.path === '/blog' ? 'وبلاگ' : page.path }}
+                </div>
+              </td>
+              <td class="py-4 px-3">
+                <div class="font-vazir text-white text-sm">{{ page.views_count }}</div>
+              </td>
+              <td class="py-4 pl-3">
+                <div class="font-vazir text-white text-sm">{{ page.unique_visitors }}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 

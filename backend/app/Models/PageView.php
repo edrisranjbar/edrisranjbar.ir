@@ -53,6 +53,26 @@ class PageView extends Model
         return $pageView;
     }
 
+    public static function createGenericPageView($path, $request)
+    {
+        $pageView = new self();
+        $pageView->page_type = 'route';
+        $pageView->page_id = null;
+        $pageView->ip_address = $request->ip();
+        $pageView->user_agent = $request->userAgent();
+        $pageView->session_id = md5($request->ip() . $request->userAgent());
+        $pageView->referrer = $request->header('referer');
+        $pageView->viewed_at = now();
+        
+        // Store the path in the 'referrer' field as a workaround
+        // since we don't have a dedicated path field
+        $pageView->referrer = $path;
+        
+        $pageView->save();
+        
+        return $pageView;
+    }
+
     public function scopeUniqueVisitors($query)
     {
         // This works with SQLite by using the count with a subquery

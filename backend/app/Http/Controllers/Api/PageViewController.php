@@ -27,6 +27,25 @@ class PageViewController extends Controller
     }
     
     /**
+     * Record a page view for a generic route (/, /blog, etc.)
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function recordGenericPageView(Request $request)
+    {
+        $path = $request->input('path');
+        
+        if (empty($path)) {
+            return response()->json(['error' => 'Path is required'], 400);
+        }
+        
+        PageView::createGenericPageView($path, $request);
+        
+        return response()->json(['success' => true]);
+    }
+    
+    /**
      * Get analytics for all posts
      *
      * @param  \Illuminate\Http\Request  $request
@@ -101,12 +120,26 @@ class PageViewController extends Controller
             ->take(5)
             ->with('category')
             ->get();
+            
+        // Most viewed pages (generic routes like '/' and '/blog')
+        $topPages = PageView::select(
+                'referrer as path', 
+                DB::raw('COUNT(*) as views_count'),
+                DB::raw('COUNT(DISTINCT ip_address) as unique_visitors')
+            )
+            ->where('page_type', '=', 'route')
+            ->whereBetween('viewed_at', [$startDate, $endDate])
+            ->groupBy('referrer')
+            ->orderByDesc('views_count')
+            ->take(5)
+            ->get();
         
         return response()->json([
             'totalViews' => $totalViews,
             'uniqueVisitors' => $uniqueVisitors,
             'dailyViews' => $dailyViews,
             'topPosts' => $topPosts,
+            'topPages' => $topPages,
             'period' => [
                 'start' => $startDate->toDateString(),
                 'end' => $endDate->toDateString(),

@@ -108,4 +108,5 @@ Route::post('/comments', [CommentController::class, 'store']);
 Route::get('/posts/{post}/comments', [CommentController::class, 'postComments']);
 
 // Record a page view (for manual tracking if needed)
-Route::post('/posts/{postId}/view', [PageViewController::class, 'recordPostView']); 
+Route::post('/posts/{postId}/view', [PageViewController::class, 'recordPostView']);
+Route::post('/page-view', [PageViewController::class, 'recordGenericPageView']);

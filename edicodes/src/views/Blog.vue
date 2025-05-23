@@ -94,6 +94,7 @@
 import { ref, onMounted } from 'vue';
 import PostCard from '@/components/PostCard.vue';
 import axios from 'axios';
+import analyticsService from '@/services/analyticsService';
 
 const posts = ref([]);
 const categories = ref([]);
@@ -195,5 +196,9 @@ onMounted(() => {
   
   // Update document title
   document.title = 'وبلاگ | ادیکدز';
+  
+  // Page view tracking
+  analyticsService.recordGenericPageView('/blog')
+    .catch(err => console.error('Error recording page view:', err));
 });
 </script> 

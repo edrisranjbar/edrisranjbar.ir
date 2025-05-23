@@ -36,6 +36,14 @@ import ExperienceSection from '@/components/ExperienceSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
 import AboutMeSection from '@/components/AboutMeSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
+import analyticsService from '@/services/analyticsService'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  // Record a page view for the homepage
+  analyticsService.recordGenericPageView('/')
+    .catch(err => console.error('Error recording page view:', err))
+})
 </script>
 
 <style scoped>
